@@ -7,6 +7,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -17,7 +18,7 @@ object Tree extends WebComponent("sl-tree") {
   @JSImport("@shoelace-style/shoelace/dist/components/tree/tree.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -84,4 +85,14 @@ object Tree extends WebComponent("sl-tree") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /**
+      * The selection behavior of the tree. Single selection allows only one node to be selected at a time. Multiple
+      * displays checkboxes and allows more than one node to be selected. Leaf allows only leaf nodes to be selected.
+      */
+    var selection: String
+  }
 }

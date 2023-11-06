@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object Avatar extends WebComponent("sl-avatar") {
   @JSImport("@shoelace-style/shoelace/dist/components/avatar/avatar.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -80,4 +81,23 @@ object Avatar extends WebComponent("sl-avatar") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** The image source to use for the avatar. */
+    var image: String
+
+    /** A label to use to describe the avatar to assistive devices. */
+    var label: String
+
+    /** Initials to use as a fallback when no image is available (1-2 characters max recommended). */
+    var initials: String
+
+    /** Indicates how the browser should load the image. */
+    var loading: String
+
+    /** The shape of the avatar. */
+    var shape: String
+  }
 }

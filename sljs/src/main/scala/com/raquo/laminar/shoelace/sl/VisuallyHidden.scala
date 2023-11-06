@@ -5,6 +5,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -46,6 +47,4 @@ object VisuallyHidden extends WebComponent("sl-visually-hidden") {
 
   /** This component has no CSS parts. */
   @inline def noCssParts: Unit = ()
-
-
 }

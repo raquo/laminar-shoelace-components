@@ -12,9 +12,8 @@ object WebComponentsDef {
     description: List[String],
     docUrl: Option[String],
     events: List[Event],
-    fields: List[Field],
-    readonlyProperties: List[Field],
-    writableProperties: List[Field],
+    allJsProperties: List[Field],
+    writableNonReflectedProperties: List[Field],
     attributes: List[Attribute],
     cssProperties: List[CssProperty],
     cssParts: List[CssPart],
@@ -110,7 +109,6 @@ object WebComponentsDef {
   case class CustomEventTypeField(
     domName: String,
     scalaName: String,
-    scalaTypeStr: String,
     jsTypes: List[JsType],
     description: List[String]
   )

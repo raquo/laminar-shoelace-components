@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object Textarea extends WebComponent("sl-textarea") {
   @JSImport("@shoelace-style/shoelace/dist/components/textarea/textarea.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLTextAreaElement
+  type Ref = dom.HTMLTextAreaElement with RawComponent
 
 
   // -- Events --
@@ -164,4 +165,83 @@ object Textarea extends WebComponent("sl-textarea") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLTextAreaElement => 
+
+    var title: String
+
+    /** The name of the textarea, submitted as a name/value pair with form data. */
+    var name: String
+
+    /** The textarea's size. */
+    var size: String
+
+    /** Draws a filled textarea. */
+    var filled: Boolean
+
+    /** The textarea's label. If you need to display HTML, use the `label` slot instead. */
+    var label: String
+
+    /** The textarea's help text. If you need to display HTML, use the `help-text` slot instead. */
+    var helpText: String
+
+    /** Placeholder text to show as a hint when the input is empty. */
+    var placeholder: String
+
+    /** The number of rows to display by default. */
+    var rows: Int
+
+    /** Controls how the textarea can be resized. */
+    var resize: String
+
+    /** Disables the textarea. */
+    var disabled: Boolean
+
+    /** Makes the textarea readonly. */
+    var readonly: Boolean
+
+    /**
+      * By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
+      * to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
+      * the same document or shadow root for this to work.
+      */
+    var form: String
+
+    /** Makes the textarea a required field. */
+    var required: Boolean
+
+    /** The minimum length of input that will be considered valid. */
+    var minlength: Int
+
+    /** The maximum length of input that will be considered valid. */
+    var maxlength: Int
+
+    /** Controls whether and how text input is automatically capitalized as it is entered by the user. */
+    var autocapitalize: String
+
+    /** Indicates whether the browser's autocorrect feature is on or off. */
+    var autocorrect: String
+
+    /**
+      * Specifies what permission the browser has to provide assistance in filling out form field values. Refer to
+      * [this page on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for available values.
+      */
+    var autocomplete: String
+
+    /** Indicates that the input should receive focus on page load. */
+    var autofocus: Boolean
+
+    /** Used to customize the label or icon of the Enter key on virtual keyboards. */
+    var enterkeyhint: String
+
+    /** Enables spell checking on the textarea. */
+    var spellcheck: Boolean
+
+    /**
+      * Tells the browser what type of data will be entered by the user, allowing it to display the appropriate virtual
+      * keyboard on supportive devices.
+      */
+    var inputmode: String
+  }
 }

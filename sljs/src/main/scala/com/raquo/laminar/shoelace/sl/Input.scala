@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object Input extends WebComponent("sl-input") {
   @JSImport("@shoelace-style/shoelace/dist/components/input/input.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLInputElement
+  type Ref = dom.HTMLInputElement with RawComponent
 
 
   // -- Events --
@@ -228,4 +229,113 @@ object Input extends WebComponent("sl-input") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLInputElement => 
+
+    var title: String
+
+    /**
+      * The type of input. Works the same as a native `<input>` element, but only a subset of types are supported. Defaults
+      * to `text`.
+      */
+    var `type`: String
+
+    /** The name of the input, submitted as a name/value pair with form data. */
+    var name: String
+
+    /** The input's size. */
+    var size: String
+
+    /** Draws a filled input. */
+    var filled: Boolean
+
+    /** Draws a pill-style input with rounded edges. */
+    var pill: Boolean
+
+    /** The input's label. If you need to display HTML, use the `label` slot instead. */
+    var label: String
+
+    /** The input's help text. If you need to display HTML, use the `help-text` slot instead. */
+    var helpText: String
+
+    /** Adds a clear button when the input is not empty. */
+    var clearable: Boolean
+
+    /** Disables the input. */
+    var disabled: Boolean
+
+    /** Placeholder text to show as a hint when the input is empty. */
+    var placeholder: String
+
+    /** Makes the input readonly. */
+    var readonly: Boolean
+
+    /** Adds a button to toggle the password's visibility. Only applies to password types. */
+    var passwordToggle: Boolean
+
+    /** Determines whether or not the password is currently visible. Only applies to password input types. */
+    var passwordVisible: Boolean
+
+    /** Hides the browser's built-in increment/decrement spin buttons for number inputs. */
+    var noSpinButtons: Boolean
+
+    /**
+      * By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
+      * to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
+      * the same document or shadow root for this to work.
+      */
+    var form: String
+
+    /** Makes the input a required field. */
+    var required: Boolean
+
+    /** A regular expression pattern to validate input against. */
+    var pattern: String
+
+    /** The minimum length of input that will be considered valid. */
+    var minlength: Int
+
+    /** The maximum length of input that will be considered valid. */
+    var maxlength: Int
+
+    /** The input's minimum value. Only applies to date and number input types. */
+    var min: Int | String
+
+    /** The input's maximum value. Only applies to date and number input types. */
+    var max: Int | String
+
+    /**
+      * Specifies the granularity that the value must adhere to, or the special value `any` which means no stepping is
+      * implied, allowing any numeric value. Only applies to date and number input types.
+      */
+    var step: Int | String
+
+    /** Controls whether and how text input is automatically capitalized as it is entered by the user. */
+    var autocapitalize: String
+
+    /** Indicates whether the browser's autocorrect feature is on or off. */
+    var autocorrect: String
+
+    /**
+      * Specifies what permission the browser has to provide assistance in filling out form field values. Refer to
+      * [this page on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for available values.
+      */
+    var autocomplete: String
+
+    /** Indicates that the input should receive focus on page load. */
+    var autofocus: Boolean
+
+    /** Used to customize the label or icon of the Enter key on virtual keyboards. */
+    var enterkeyhint: String
+
+    /** Enables spell checking on the input. */
+    var spellcheck: Boolean
+
+    /**
+      * Tells the browser what type of data will be entered by the user, allowing it to display the appropriate virtual
+      * keyboard on supportive devices.
+      */
+    var inputmode: String
+  }
 }

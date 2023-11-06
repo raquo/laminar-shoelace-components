@@ -7,6 +7,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -17,7 +18,7 @@ object Icon extends WebComponent("sl-icon") {
   @JSImport("@shoelace-style/shoelace/dist/components/icon/icon.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -78,4 +79,26 @@ object Icon extends WebComponent("sl-icon") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** The name of the icon to draw. Available names depend on the icon library being used. */
+    var name: String | Unit
+
+    /**
+      * An external URL of an SVG file. Be sure you trust the content you are including, as it will be executed as code and
+      * can result in XSS attacks.
+      */
+    var src: String | Unit
+
+    /**
+      * An alternate description to use for assistive devices. If omitted, the icon will be considered presentational and
+      * ignored by assistive devices.
+      */
+    var label: String
+
+    /** The name of a registered custom icon library. */
+    var library: String
+  }
 }

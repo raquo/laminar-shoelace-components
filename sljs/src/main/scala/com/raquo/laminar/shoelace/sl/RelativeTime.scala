@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object RelativeTime extends WebComponent("sl-relative-time") {
   @JSImport("@shoelace-style/shoelace/dist/components/relative-time/relative-time.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -58,4 +59,20 @@ object RelativeTime extends WebComponent("sl-relative-time") {
   @inline def noCssParts: Unit = ()
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** The formatting style to use. */
+    var format: String
+
+    /**
+      * When `auto`, values such as "yesterday" and "tomorrow" will be shown when possible. When `always`, values such as
+      * "1 day ago" and "in 1 day" will be shown.
+      */
+    var numeric: String
+
+    /** Keep the displayed value up to date as time passes. */
+    var sync: Boolean
+  }
 }

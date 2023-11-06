@@ -7,6 +7,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -17,7 +18,7 @@ object Include extends WebComponent("sl-include") {
   @JSImport("@shoelace-style/shoelace/dist/components/include/include.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -68,4 +69,23 @@ object Include extends WebComponent("sl-include") {
   @inline def noCssParts: Unit = ()
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /**
+      * The location of the HTML file to include. Be sure you trust the content you are including as it will be executed as
+      * code and can result in XSS attacks.
+      */
+    var src: String
+
+    /** The fetch mode to use. */
+    var mode: String
+
+    /**
+      * Allows included scripts to be executed. Be sure you trust the content you are including as it will be executed as
+      * code and can result in XSS attacks.
+      */
+    var allowScripts: Boolean
+  }
 }

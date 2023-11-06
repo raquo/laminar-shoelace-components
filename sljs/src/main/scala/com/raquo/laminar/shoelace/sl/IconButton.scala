@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object IconButton extends WebComponent("sl-icon-button") {
   @JSImport("@shoelace-style/shoelace/dist/components/icon-button/icon-button.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -86,4 +87,38 @@ object IconButton extends WebComponent("sl-icon-button") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** The name of the icon to draw. Available names depend on the icon library being used. */
+    var name: String | Unit
+
+    /** The name of a registered custom icon library. */
+    var library: String | Unit
+
+    /**
+      * An external URL of an SVG file. Be sure you trust the content you are including, as it will be executed as code and
+      * can result in XSS attacks.
+      */
+    var src: String | Unit
+
+    /** When set, the underlying button will be rendered as an `<a>` with this `href` instead of a `<button>`. */
+    var href: String | Unit
+
+    /** Tells the browser where to open the link. Only used when `href` is set. */
+    var target: String | Unit
+
+    /** Tells the browser to download the linked file as this filename. Only used when `href` is set. */
+    var download: String | Unit
+
+    /**
+      * A description that gets read by assistive devices. For optimal accessibility, you should always include a label
+      * that describes what the icon button does.
+      */
+    var label: String
+
+    /** Disables the button. */
+    var disabled: Boolean
+  }
 }

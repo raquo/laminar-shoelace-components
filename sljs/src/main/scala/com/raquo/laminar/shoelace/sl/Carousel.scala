@@ -7,6 +7,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -15,11 +16,6 @@ object Carousel extends WebComponent("sl-carousel") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/carousel/carousel.js")
   @js.native object RawImport extends js.Object
-
-  @js.native trait RawComponent extends js.Object {
-
-    val activeSlide: Int
-  }
 
   type Ref = dom.HTMLElement with RawComponent
 
@@ -130,4 +126,40 @@ object Carousel extends WebComponent("sl-carousel") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** When set, allows the user to navigate the carousel in the same direction indefinitely. */
+    var loop: Boolean
+
+    /** When set, show the carousel's navigation. */
+    var navigation: Boolean
+
+    /** When set, show the carousel's pagination indicators. */
+    var pagination: Boolean
+
+    /** When set, the slides will scroll automatically when the user is not interacting with them. */
+    var autoplay: Boolean
+
+    /** Specifies the amount of time, in milliseconds, between each automatic scroll. */
+    var autoplayInterval: Int
+
+    /** Specifies how many slides should be shown at a given time. */
+    var slidesPerPage: Int
+
+    /**
+      * Specifies the number of slides the carousel will advance when scrolling, useful when specifying a `slides-per-page`
+      * greater than one. It can't be higher than `slides-per-page`.
+      */
+    var slidesPerMove: Int
+
+    /** Specifies the orientation in which the carousel will lay out. */
+    var orientation: String
+
+    /** When set, it is possible to scroll through the slides by dragging them with the mouse. */
+    var mouseDragging: Boolean
+
+    val activeSlide: Int
+  }
 }

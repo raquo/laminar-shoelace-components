@@ -7,6 +7,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,11 +17,6 @@ object CopyButton extends WebComponent("sl-copy-button") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/copy-button/copy-button.js")
   @js.native object RawImport extends js.Object
-
-  @js.native trait RawComponent extends js.Object {
-
-    val isCopying: Boolean
-  }
 
   type Ref = dom.HTMLElement with RawComponent
 
@@ -136,4 +132,45 @@ object CopyButton extends WebComponent("sl-copy-button") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    val isCopying: Boolean
+
+    var status: String
+
+    /**
+      * An id that references an element in the same document from which data will be copied. If both this and `value` are
+      * present, this value will take precedence. By default, the target element's `textContent` will be copied. To copy an
+      * attribute, append the attribute name wrapped in square brackets, e.g. `from="el[value]"`. To copy a property,
+      * append a dot and the property name, e.g. `from="el.value"`.
+      */
+    var from: String
+
+    /** Disables the copy button. */
+    var disabled: Boolean
+
+    /** A custom label to show in the tooltip. */
+    var copyLabel: String
+
+    /** A custom label to show in the tooltip after copying. */
+    var successLabel: String
+
+    /** A custom label to show in the tooltip when a copy error occurs. */
+    var errorLabel: String
+
+    /** The length of time to show feedback before restoring the default trigger. */
+    var feedbackDuration: Int
+
+    /** The preferred placement of the tooltip. */
+    var tooltipPlacement: String
+
+    /**
+      * Enable this option to prevent the tooltip from being clipped when the component is placed inside a container with
+      * `overflow: auto|hidden|scroll`. Hoisting uses a fixed positioning strategy that works in many, but not all,
+      * scenarios.
+      */
+    var hoist: Boolean
+  }
 }

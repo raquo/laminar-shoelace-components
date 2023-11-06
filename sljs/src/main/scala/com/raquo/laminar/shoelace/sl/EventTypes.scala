@@ -3,6 +3,7 @@ package com.raquo.laminar.shoelace.sl
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
@@ -22,7 +23,7 @@ object EventTypes {
   @js.native
   trait ErrorEvent extends CustomEvent {
 
-    val status: Int
+    val status: Int | Unit
   }
 
   @js.native

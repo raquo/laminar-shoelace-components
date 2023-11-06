@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object Breadcrumb extends WebComponent("sl-breadcrumb") {
   @JSImport("@shoelace-style/shoelace/dist/components/breadcrumb/breadcrumb.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -62,4 +63,14 @@ object Breadcrumb extends WebComponent("sl-breadcrumb") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /**
+      * The label to use for the breadcrumb control. This will not be shown on the screen, but it will be announced by
+      * screen readers and other assistive devices to provide more context for users.
+      */
+    var label: String
+  }
 }

@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object Range extends WebComponent("sl-range") {
   @JSImport("@shoelace-style/shoelace/dist/components/range/range.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -143,4 +144,41 @@ object Range extends WebComponent("sl-range") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    var title: String
+
+    /** The name of the range, submitted as a name/value pair with form data. */
+    var name: String
+
+    /** The range's label. If you need to display HTML, use the `label` slot instead. */
+    var label: String
+
+    /** The range's help text. If you need to display HTML, use the help-text slot instead. */
+    var helpText: String
+
+    /** Disables the range. */
+    var disabled: Boolean
+
+    /** The minimum acceptable value of the range. */
+    var min: Int
+
+    /** The maximum acceptable value of the range. */
+    var max: Int
+
+    /** The interval at which the range will increase and decrease. */
+    var step: Int
+
+    /** The preferred placement of the range's tooltip. */
+    var tooltip: String
+
+    /**
+      * By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
+      * to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
+      * the same document or shadow root for this to work.
+      */
+    var form: String
+  }
 }

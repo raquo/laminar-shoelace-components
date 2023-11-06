@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object BreadcrumbItem extends WebComponent("sl-breadcrumb-item") {
   @JSImport("@shoelace-style/shoelace/dist/components/breadcrumb-item/breadcrumb-item.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -86,4 +87,20 @@ object BreadcrumbItem extends WebComponent("sl-breadcrumb-item") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /**
+      * Optional URL to direct the user to when the breadcrumb item is activated. When set, a link will be rendered
+      * internally. When unset, a button will be rendered instead.
+      */
+    var href: String | Unit
+
+    /** Tells the browser where to open the link. Only used when `href` is set. */
+    var target: String | Unit
+
+    /** The `rel` attribute to use on the link. Only used when `href` is set. */
+    var rel: String
+  }
 }

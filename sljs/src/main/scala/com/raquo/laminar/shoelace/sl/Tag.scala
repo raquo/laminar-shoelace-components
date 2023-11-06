@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object Tag extends WebComponent("sl-tag") {
   @JSImport("@shoelace-style/shoelace/dist/components/tag/tag.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -77,4 +78,20 @@ object Tag extends WebComponent("sl-tag") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** The tag's theme variant. */
+    var variant: String
+
+    /** The tag's size. */
+    var size: String
+
+    /** Draws a pill-style tag with rounded edges. */
+    var pill: Boolean
+
+    /** Makes the tag removable and shows a remove button. */
+    var removable: Boolean
+  }
 }

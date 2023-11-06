@@ -7,6 +7,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -17,7 +18,7 @@ object ResizeObserver extends WebComponent("sl-resize-observer") {
   @JSImport("@shoelace-style/shoelace/dist/components/resize-observer/resize-observer.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -56,4 +57,11 @@ object ResizeObserver extends WebComponent("sl-resize-observer") {
   @inline def noCssParts: Unit = ()
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** Disables the observer. */
+    var disabled: Boolean
+  }
 }

@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object Dropdown extends WebComponent("sl-dropdown") {
   @JSImport("@shoelace-style/shoelace/dist/components/dropdown/dropdown.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -107,4 +108,41 @@ object Dropdown extends WebComponent("sl-dropdown") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /**
+      * Indicates whether or not the dropdown is open. You can toggle this attribute to show and hide the dropdown, or you
+      * can use the `show()` and `hide()` methods and this attribute will reflect the dropdown's open state.
+      */
+    var open: Boolean
+
+    /**
+      * The preferred placement of the dropdown panel. Note that the actual placement may vary as needed to keep the panel
+      * inside of the viewport.
+      */
+    var placement: String
+
+    /** Disables the dropdown so the panel will not open. */
+    var disabled: Boolean
+
+    /**
+      * By default, the dropdown is closed when an item is selected. This attribute will keep it open instead. Useful for
+      * dropdowns that allow for multiple interactions.
+      */
+    var stayOpenOnSelect: Boolean
+
+    /** The distance in pixels from which to offset the panel away from its trigger. */
+    var distance: Int
+
+    /** The distance in pixels from which to offset the panel along its trigger. */
+    var skidding: Int
+
+    /**
+      * Enable this option to prevent the panel from being clipped when the component is placed inside a container with
+      * `overflow: auto|scroll`. Hoisting uses a fixed positioning strategy that works in many, but not all, scenarios.
+      */
+    var hoist: Boolean
+  }
 }

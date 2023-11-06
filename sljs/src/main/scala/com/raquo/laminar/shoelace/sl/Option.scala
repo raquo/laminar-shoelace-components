@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -15,15 +16,6 @@ object Option extends WebComponent("sl-option") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/option/option.js")
   @js.native object RawImport extends js.Object
-
-  @js.native trait RawComponent extends js.Object {
-
-    val current: Boolean
-
-    val selected: Boolean
-
-    val hasHover: Boolean
-  }
 
   type Ref = dom.HTMLElement with RawComponent
 
@@ -90,4 +82,17 @@ object Option extends WebComponent("sl-option") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    val current: Boolean
+
+    val selected: Boolean
+
+    val hasHover: Boolean
+
+    /** Draws the option in a disabled state, preventing selection. */
+    var disabled: Boolean
+  }
 }

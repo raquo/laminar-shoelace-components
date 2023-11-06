@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object Details extends WebComponent("sl-details") {
   @JSImport("@shoelace-style/shoelace/dist/components/details/details.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -100,4 +101,22 @@ object Details extends WebComponent("sl-details") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    var detailsObserver: dom.MutationObserver
+
+    /**
+      * Indicates whether or not the details is open. You can toggle this attribute to show and hide the details, or you
+      * can use the `show()` and `hide()` methods and this attribute will reflect the details' open state.
+      */
+    var open: Boolean
+
+    /** The summary to show in the header. If you need to display HTML, use the `summary` slot instead. */
+    var summary: String
+
+    /** Disables the details so it can't be toggled. */
+    var disabled: Boolean
+  }
 }

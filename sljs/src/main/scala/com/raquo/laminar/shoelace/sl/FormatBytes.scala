@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object FormatBytes extends WebComponent("sl-format-bytes") {
   @JSImport("@shoelace-style/shoelace/dist/components/format-bytes/format-bytes.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -55,4 +56,14 @@ object FormatBytes extends WebComponent("sl-format-bytes") {
   @inline def noCssParts: Unit = ()
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** The type of unit to display. */
+    var unit: String
+
+    /** Determines how to display the result, e.g. "100 bytes", "100 b", or "100b". */
+    var display: String
+  }
 }

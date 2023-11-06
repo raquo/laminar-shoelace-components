@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object RadioButton extends WebComponent("sl-radio-button") {
   @JSImport("@shoelace-style/shoelace/dist/components/radio-button/radio-button.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -95,4 +96,20 @@ object RadioButton extends WebComponent("sl-radio-button") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** Disables the radio button. */
+    var disabled: Boolean
+
+    /**
+      * The radio button's size. When used inside a radio group, the size will be determined by the radio group's size so
+      * this attribute can typically be omitted.
+      */
+    var size: String
+
+    /** Draws a pill-style radio button with rounded edges. */
+    var pill: Boolean
+  }
 }

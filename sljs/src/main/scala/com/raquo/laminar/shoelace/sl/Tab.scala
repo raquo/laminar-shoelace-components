@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object Tab extends WebComponent("sl-tab") {
   @JSImport("@shoelace-style/shoelace/dist/components/tab/tab.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -74,4 +75,20 @@ object Tab extends WebComponent("sl-tab") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** The name of the tab panel this tab is associated with. The panel must be located in the same tab group. */
+    var panel: String
+
+    /** Draws the tab in an active state. */
+    var active: Boolean
+
+    /** Makes the tab closable and shows a close button. */
+    var closable: Boolean
+
+    /** Disables the tab and prevents selection. */
+    var disabled: Boolean
+  }
 }

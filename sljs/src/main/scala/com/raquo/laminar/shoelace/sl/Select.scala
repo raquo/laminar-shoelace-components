@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object Select extends WebComponent("sl-select") {
   @JSImport("@shoelace-style/shoelace/dist/components/select/select.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -207,4 +208,72 @@ object Select extends WebComponent("sl-select") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** The name of the select, submitted as a name/value pair with form data. */
+    var name: String
+
+    /** The select's size. */
+    var size: String
+
+    /** Placeholder text to show as a hint when the select is empty. */
+    var placeholder: String
+
+    /** Allows more than one option to be selected. */
+    var multiple: Boolean
+
+    /**
+      * The maximum number of selected options to show when `multiple` is true. After the maximum, "+n" will be shown to
+      * indicate the number of additional items that are selected. Set to 0 to remove the limit.
+      */
+    var maxOptionsVisible: Int
+
+    /** Disables the select control. */
+    var disabled: Boolean
+
+    /** Adds a clear button when the select is not empty. */
+    var clearable: Boolean
+
+    /**
+      * Indicates whether or not the select is open. You can toggle this attribute to show and hide the menu, or you can
+      * use the `show()` and `hide()` methods and this attribute will reflect the select's open state.
+      */
+    var open: Boolean
+
+    /**
+      * Enable this option to prevent the listbox from being clipped when the component is placed inside a container with
+      * `overflow: auto|scroll`. Hoisting uses a fixed positioning strategy that works in many, but not all, scenarios.
+      */
+    var hoist: Boolean
+
+    /** Draws a filled select. */
+    var filled: Boolean
+
+    /** Draws a pill-style select with rounded edges. */
+    var pill: Boolean
+
+    /** The select's label. If you need to display HTML, use the `label` slot instead. */
+    var label: String
+
+    /**
+      * The preferred placement of the select's menu. Note that the actual placement may vary as needed to keep the listbox
+      * inside of the viewport.
+      */
+    var placement: String
+
+    /** The select's help text. If you need to display HTML, use the `help-text` slot instead. */
+    var helpText: String
+
+    /**
+      * By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
+      * to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
+      * the same document or shadow root for this to work.
+      */
+    var form: String
+
+    /** The select's required attribute. */
+    var required: Boolean
+  }
 }

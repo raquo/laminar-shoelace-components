@@ -5,6 +5,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -50,6 +51,4 @@ object MenuLabel extends WebComponent("sl-menu-label") {
     /** The component's base wrapper. */
     lazy val base: String = "base"
   }
-
-
 }

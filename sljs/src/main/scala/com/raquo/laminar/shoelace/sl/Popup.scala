@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object Popup extends WebComponent("sl-popup") {
   @JSImport("@shoelace-style/shoelace/dist/components/popup/popup.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -156,4 +157,90 @@ object Popup extends WebComponent("sl-popup") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /**
+      * Activates the positioning logic and shows the popup. When this attribute is removed, the positioning logic is torn
+      * down and the popup will be hidden.
+      */
+    var active: Boolean
+
+    /**
+      * The preferred placement of the popup. Note that the actual placement will vary as configured to keep the
+      * panel inside of the viewport.
+      */
+    var placement: String
+
+    /**
+      * Determines how the popup is positioned. The `absolute` strategy works well in most cases, but if overflow is
+      * clipped, using a `fixed` position strategy can often workaround it.
+      */
+    var strategy: String
+
+    /** The distance in pixels from which to offset the panel away from its anchor. */
+    var distance: Int
+
+    /** The distance in pixels from which to offset the panel along its anchor. */
+    var skidding: Int
+
+    /**
+      * Attaches an arrow to the popup. The arrow's size and color can be customized using the `--arrow-size` and
+      * `--arrow-color` custom properties. For additional customizations, you can also target the arrow using
+      * `::part(arrow)` in your stylesheet.
+      */
+    var arrow: Boolean
+
+    /**
+      * The placement of the arrow. The default is `anchor`, which will align the arrow as close to the center of the
+      * anchor as possible, considering available space and `arrow-padding`. A value of `start`, `end`, or `center` will
+      * align the arrow to the start, end, or center of the popover instead.
+      */
+    var arrowPlacement: String
+
+    /**
+      * The amount of padding between the arrow and the edges of the popup. If the popup has a border-radius, for example,
+      * this will prevent it from overflowing the corners.
+      */
+    var arrowPadding: Int
+
+    /**
+      * When set, placement of the popup will flip to the opposite site to keep it in view. You can use
+      * `flipFallbackPlacements` to further configure how the fallback placement is determined.
+      */
+    var flip: Boolean
+
+    /**
+      * If the preferred placement doesn't fit, popup will be tested in these fallback placements until one fits. Must be a
+      * string of any number of placements separated by a space, e.g. "top bottom left". If no placement fits, the flip
+      * fallback strategy will be used instead.
+      */
+    var flipFallbackPlacements: String
+
+    /**
+      * When neither the preferred placement nor the fallback placements fit, this value will be used to determine whether
+      * the popup should be positioned using the best available fit based on available space or as it was initially
+      * preferred.
+      */
+    var flipFallbackStrategy: String
+
+    /** The amount of padding, in pixels, to exceed before the flip behavior will occur. */
+    var flipPadding: Int
+
+    /** Moves the popup along the axis to keep it in view when clipped. */
+    var shift: Boolean
+
+    /** The amount of padding, in pixels, to exceed before the shift behavior will occur. */
+    var shiftPadding: Int
+
+    /** When set, this will cause the popup to automatically resize itself to prevent it from overflowing. */
+    var autoSize: String
+
+    /** Syncs the popup's width or height to that of the anchor element. */
+    var sync: String
+
+    /** The amount of padding, in pixels, to exceed before the auto-size behavior will occur. */
+    var autoSizePadding: Int
+  }
 }

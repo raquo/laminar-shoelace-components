@@ -7,6 +7,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -17,7 +18,7 @@ object MutationObserver extends WebComponent("sl-mutation-observer") {
   @JSImport("@shoelace-style/shoelace/dist/components/mutation-observer/mutation-observer.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -74,4 +75,29 @@ object MutationObserver extends WebComponent("sl-mutation-observer") {
   @inline def noCssParts: Unit = ()
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /**
+      * Watches for changes to attributes. To watch only specific attributes, separate them by a space, e.g.
+      * `attr="class id title"`. To watch all attributes, use `*`.
+      */
+    var attr: String
+
+    /** Indicates whether or not the attribute's previous value should be recorded when monitoring changes. */
+    var attrOldValue: Boolean
+
+    /** Watches for changes to the character data contained within the node. */
+    var charData: Boolean
+
+    /** Indicates whether or not the previous value of the node's text should be recorded. */
+    var charDataOldValue: Boolean
+
+    /** Watches for the addition or removal of new child nodes. */
+    var childList: Boolean
+
+    /** Disables the observer. */
+    var disabled: Boolean
+  }
 }

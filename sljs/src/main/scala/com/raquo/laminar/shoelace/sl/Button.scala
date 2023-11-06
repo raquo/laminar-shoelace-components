@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -15,11 +16,6 @@ object Button extends WebComponent("sl-button") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/button/button.js")
   @js.native object RawImport extends js.Object
-
-  @js.native trait RawComponent extends js.Object {
-
-    val invalid: Boolean
-  }
 
   type Ref = dom.HTMLButtonElement with RawComponent
 
@@ -177,4 +173,89 @@ object Button extends WebComponent("sl-button") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLButtonElement => 
+
+    val invalid: Boolean
+
+    var title: String
+
+    /** The button's theme variant. */
+    var variant: String
+
+    /** The button's size. */
+    var size: String
+
+    /** Draws the button with a caret. Used to indicate that the button triggers a dropdown menu or similar behavior. */
+    var caret: Boolean
+
+    /** Disables the button. */
+    var disabled: Boolean
+
+    /** Draws the button in a loading state. */
+    var loading: Boolean
+
+    /** Draws an outlined button. */
+    var outline: Boolean
+
+    /** Draws a pill-style button with rounded edges. */
+    var pill: Boolean
+
+    /**
+      * Draws a circular icon button. When this attribute is present, the button expects a single `<sl-icon>` in the
+      * default slot.
+      */
+    var circle: Boolean
+
+    /**
+      * The type of button. Note that the default value is `button` instead of `submit`, which is opposite of how native
+      * `<button>` elements behave. When the type is `submit`, the button will submit the surrounding form.
+      */
+    var `type`: String
+
+    /**
+      * The name of the button, submitted as a name/value pair with form data, but only when this button is the submitter.
+      * This attribute is ignored when `href` is present.
+      */
+    var name: String
+
+    /** When set, the underlying button will be rendered as an `<a>` with this `href` instead of a `<button>`. */
+    var href: String
+
+    /** Tells the browser where to open the link. Only used when `href` is present. */
+    var target: String
+
+    /**
+      * When using `href`, this attribute will map to the underlying link's `rel` attribute. Unlike regular links, the
+      * default is `noreferrer noopener` to prevent security exploits. However, if you're using `target` to point to a
+      * specific tab/window, this will prevent that from working correctly. You can remove or change the default value by
+      * setting the attribute to an empty string or a value of your choice, respectively.
+      */
+    var rel: String
+
+    /** Tells the browser to download the linked file as this filename. Only used when `href` is present. */
+    var download: String | Unit
+
+    /**
+      * The "form owner" to associate the button with. If omitted, the closest containing form will be used instead. The
+      * value of this attribute must be an id of a form in the same document or shadow root as the button.
+      */
+    var form: String
+
+    /** Used to override the form owner's `action` attribute. */
+    var formAction: String
+
+    /** Used to override the form owner's `enctype` attribute. */
+    var formEnctype: String
+
+    /** Used to override the form owner's `method` attribute. */
+    var formMethod: String
+
+    /** Used to override the form owner's `novalidate` attribute. */
+    var formNoValidate: Boolean
+
+    /** Used to override the form owner's `target` attribute. */
+    var formTarget: String
+  }
 }

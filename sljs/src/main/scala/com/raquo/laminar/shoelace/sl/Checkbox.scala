@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object Checkbox extends WebComponent("sl-checkbox") {
   @JSImport("@shoelace-style/shoelace/dist/components/checkbox/checkbox.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -119,4 +120,35 @@ object Checkbox extends WebComponent("sl-checkbox") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    var title: String
+
+    /** The name of the checkbox, submitted as a name/value pair with form data. */
+    var name: String
+
+    /** The checkbox's size. */
+    var size: String
+
+    /** Disables the checkbox. */
+    var disabled: Boolean
+
+    /**
+      * Draws the checkbox in an indeterminate state. This is usually applied to checkboxes that represents a "select
+      * all/none" behavior when associated checkboxes have a mix of checked and unchecked states.
+      */
+    var indeterminate: Boolean
+
+    /**
+      * By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
+      * to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
+      * the same document or shadow root for this to work.
+      */
+    var form: String
+
+    /** Makes the checkbox a required field. */
+    var required: Boolean
+  }
 }

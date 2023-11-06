@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object FormatNumber extends WebComponent("sl-format-number") {
   @JSImport("@shoelace-style/shoelace/dist/components/format-number/format-number.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -80,4 +81,35 @@ object FormatNumber extends WebComponent("sl-format-number") {
   @inline def noCssParts: Unit = ()
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** The formatting style to use. */
+    var `type`: String
+
+    /** Turns off grouping separators. */
+    var noGrouping: Boolean
+
+    /** The [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code to use when formatting. */
+    var currency: String
+
+    /** How to display the currency. */
+    var currencyDisplay: String
+
+    /** The minimum number of integer digits to use. Possible values are 1-21. */
+    var minimumIntegerDigits: Int
+
+    /** The minimum number of fraction digits to use. Possible values are 0-20. */
+    var minimumFractionDigits: Int
+
+    /** The maximum number of fraction digits to use. Possible values are 0-0. */
+    var maximumFractionDigits: Int
+
+    /** The minimum number of significant digits to use. Possible values are 1-21. */
+    var minimumSignificantDigits: Int
+
+    /** The maximum number of significant digits to use,. Possible values are 1-21. */
+    var maximumSignificantDigits: Int
+  }
 }

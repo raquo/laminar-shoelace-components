@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object Alert extends WebComponent("sl-alert") {
   @JSImport("@shoelace-style/shoelace/dist/components/alert/alert.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -99,4 +100,27 @@ object Alert extends WebComponent("sl-alert") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /**
+      * Indicates whether or not the alert is open. You can toggle this attribute to show and hide the alert, or you can
+      * use the `show()` and `hide()` methods and this attribute will reflect the alert's open state.
+      */
+    var open: Boolean
+
+    /** Enables a close button that allows the user to dismiss the alert. */
+    var closable: Boolean
+
+    /** The alert's theme variant. */
+    var variant: String
+
+    /**
+      * The length of time, in milliseconds, the alert will show before closing itself. If the user interacts with
+      * the alert before it closes (e.g. moves the mouse over it), the timer will restart. Defaults to `Infinity`, meaning
+      * the alert will not close on its own.
+      */
+    var duration: Int
+  }
 }

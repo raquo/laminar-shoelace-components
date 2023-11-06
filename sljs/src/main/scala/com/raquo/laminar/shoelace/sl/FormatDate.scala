@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object FormatDate extends WebComponent("sl-format-date") {
   @JSImport("@shoelace-style/shoelace/dist/components/format-date/format-date.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -79,4 +80,41 @@ object FormatDate extends WebComponent("sl-format-date") {
   @inline def noCssParts: Unit = ()
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** The format for displaying the weekday. */
+    var weekday: String
+
+    /** The format for displaying the era. */
+    var era: String
+
+    /** The format for displaying the year. */
+    var year: String
+
+    /** The format for displaying the month. */
+    var month: String
+
+    /** The format for displaying the day. */
+    var day: String
+
+    /** The format for displaying the hour. */
+    var hour: String
+
+    /** The format for displaying the minute. */
+    var minute: String
+
+    /** The format for displaying the second. */
+    var second: String
+
+    /** The format for displaying the time. */
+    var timeZoneName: String
+
+    /** The time zone to express the time in. */
+    var timeZone: String
+
+    /** The format for displaying the hour. */
+    var hourFormat: String
+  }
 }

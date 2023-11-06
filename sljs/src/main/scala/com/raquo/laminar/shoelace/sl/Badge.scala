@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object Badge extends WebComponent("sl-badge") {
   @JSImport("@shoelace-style/shoelace/dist/components/badge/badge.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -62,4 +63,17 @@ object Badge extends WebComponent("sl-badge") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** The badge's theme variant. */
+    var variant: String
+
+    /** Draws a pill-style badge with rounded edges. */
+    var pill: Boolean
+
+    /** Makes the badge pulsate to draw attention. */
+    var pulse: Boolean
+  }
 }

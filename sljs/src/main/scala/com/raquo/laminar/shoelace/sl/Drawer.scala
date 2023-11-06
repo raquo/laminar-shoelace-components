@@ -7,6 +7,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -17,7 +18,7 @@ object Drawer extends WebComponent("sl-drawer") {
   @JSImport("@shoelace-style/shoelace/dist/components/drawer/drawer.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -147,4 +148,35 @@ object Drawer extends WebComponent("sl-drawer") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /**
+      * Indicates whether or not the drawer is open. You can toggle this attribute to show and hide the drawer, or you can
+      * use the `show()` and `hide()` methods and this attribute will reflect the drawer's open state.
+      */
+    var open: Boolean
+
+    /**
+      * The drawer's label as displayed in the header. You should always include a relevant label even when using
+      * `no-header`, as it is required for proper accessibility. If you need to display HTML, use the `label` slot instead.
+      */
+    var label: String
+
+    /** The direction from which the drawer will open. */
+    var placement: String
+
+    /**
+      * By default, the drawer slides out of its containing block (usually the viewport). To make the drawer slide out of
+      * its parent element, set this attribute and add `position: relative` to the parent.
+      */
+    var contained: Boolean
+
+    /**
+      * Removes the header. This will also remove the default close button, so please ensure you provide an easy,
+      * accessible way for users to dismiss the drawer.
+      */
+    var noHeader: Boolean
+  }
 }

@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object SplitPanel extends WebComponent("sl-split-panel") {
   @JSImport("@shoelace-style/shoelace/dist/components/split-panel/split-panel.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -114,4 +115,39 @@ object SplitPanel extends WebComponent("sl-split-panel") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /**
+      * The current position of the divider from the primary panel's edge as a percentage 0-100. Defaults to 50% of the
+      * container's initial size.
+      */
+    var position: Int
+
+    /** The current position of the divider from the primary panel's edge in pixels. */
+    var positionInPixels: Int
+
+    /** Draws the split panel in a vertical orientation with the start and end panels stacked. */
+    var vertical: Boolean
+
+    /** Disables resizing. Note that the position may still change as a result of resizing the host element. */
+    var disabled: Boolean
+
+    /**
+      * If no primary panel is designated, both panels will resize proportionally when the host element is resized. If a
+      * primary panel is designated, it will maintain its size and the other panel will grow or shrink as needed when the
+      * host element is resized.
+      */
+    var primary: String | Unit
+
+    /**
+      * One or more space-separated values at which the divider should snap. Values can be in pixels or percentages, e.g.
+      * `"100px 50%"`.
+      */
+    var snap: String | Unit
+
+    /** How close the divider must be to a snap point until snapping occurs. */
+    var snapThreshold: Int
+  }
 }

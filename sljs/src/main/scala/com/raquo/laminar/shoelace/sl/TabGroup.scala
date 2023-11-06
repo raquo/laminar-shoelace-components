@@ -7,6 +7,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -17,7 +18,7 @@ object TabGroup extends WebComponent("sl-tab-group") {
   @JSImport("@shoelace-style/shoelace/dist/components/tab-group/tab-group.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -108,4 +109,20 @@ object TabGroup extends WebComponent("sl-tab-group") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** The placement of the tabs. */
+    var placement: String
+
+    /**
+      * When set to auto, navigating tabs with the arrow keys will instantly show the corresponding tab panel. When set to
+      * manual, the tab will receive focus but will not show until the user presses spacebar or enter.
+      */
+    var activation: String
+
+    /** Disables the scroll arrows that appear when tabs overflow. */
+    var noScrollControls: Boolean
+  }
 }

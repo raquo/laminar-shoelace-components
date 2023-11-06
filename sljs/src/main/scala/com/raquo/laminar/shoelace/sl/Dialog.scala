@@ -7,6 +7,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -17,7 +18,7 @@ object Dialog extends WebComponent("sl-dialog") {
   @JSImport("@shoelace-style/shoelace/dist/components/dialog/dialog.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -138,4 +139,26 @@ object Dialog extends WebComponent("sl-dialog") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /**
+      * Indicates whether or not the dialog is open. You can toggle this attribute to show and hide the dialog, or you can
+      * use the `show()` and `hide()` methods and this attribute will reflect the dialog's open state.
+      */
+    var open: Boolean
+
+    /**
+      * The dialog's label as displayed in the header. You should always include a relevant label even when using
+      * `no-header`, as it is required for proper accessibility. If you need to display HTML, use the `label` slot instead.
+      */
+    var label: String
+
+    /**
+      * Disables the header. This will also remove the default close button, so please ensure you provide an easy,
+      * accessible way for users to dismiss the dialog.
+      */
+    var noHeader: Boolean
+  }
 }

@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object RadioGroup extends WebComponent("sl-radio-group") {
   @JSImport("@shoelace-style/shoelace/dist/components/radio-group/radio-group.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -108,4 +109,33 @@ object RadioGroup extends WebComponent("sl-radio-group") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /**
+      * The radio group's label. Required for proper accessibility. If you need to display HTML, use the `label` slot
+      * instead.
+      */
+    var label: String
+
+    /** The radio groups's help text. If you need to display HTML, use the `help-text` slot instead. */
+    var helpText: String
+
+    /** The name of the radio group, submitted as a name/value pair with form data. */
+    var name: String
+
+    /** The radio group's size. This size will be applied to all child radios and radio buttons. */
+    var size: String
+
+    /**
+      * By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
+      * to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
+      * the same document or shadow root for this to work.
+      */
+    var form: String
+
+    /** Ensures a child radio is checked before allowing the containing form to submit. */
+    var required: Boolean
+  }
 }

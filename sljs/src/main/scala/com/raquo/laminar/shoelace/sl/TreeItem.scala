@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -15,17 +16,6 @@ object TreeItem extends WebComponent("sl-tree-item") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/tree-item/tree-item.js")
   @js.native object RawImport extends js.Object
-
-  @js.native trait RawComponent extends js.Object {
-
-    val indeterminate: Boolean
-
-    val isLeaf: Boolean
-
-    val loading: Boolean
-
-    val selectable: Boolean
-  }
 
   type Ref = dom.HTMLElement with RawComponent
 
@@ -151,4 +141,28 @@ object TreeItem extends WebComponent("sl-tree-item") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    val indeterminate: Boolean
+
+    val isLeaf: Boolean
+
+    val loading: Boolean
+
+    val selectable: Boolean
+
+    /** Expands the tree item. */
+    var expanded: Boolean
+
+    /** Draws the tree item in a selected state. */
+    var selected: Boolean
+
+    /** Disables the tree item. */
+    var disabled: Boolean
+
+    /** Enables lazy loading behavior. */
+    var `lazy`: Boolean
+  }
 }

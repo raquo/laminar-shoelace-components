@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object MenuItem extends WebComponent("sl-menu-item") {
   @JSImport("@shoelace-style/shoelace/dist/components/menu-item/menu-item.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -96,4 +97,14 @@ object MenuItem extends WebComponent("sl-menu-item") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** The type of menu item to render. To use `checked`, this value must be set to `checkbox`. */
+    var `type`: String
+
+    /** Draws the menu item in a disabled state, preventing selection. */
+    var disabled: Boolean
+  }
 }

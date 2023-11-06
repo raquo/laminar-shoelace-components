@@ -7,6 +7,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,13 +17,6 @@ object AnimatedImage extends WebComponent("sl-animated-image") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/animated-image/animated-image.js")
   @js.native object RawImport extends js.Object
-
-  @js.native trait RawComponent extends js.Object {
-
-    val frozenFrame: String
-
-    val isLoaded: Boolean
-  }
 
   type Ref = dom.HTMLElement with RawComponent
 
@@ -85,4 +79,21 @@ object AnimatedImage extends WebComponent("sl-animated-image") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    val frozenFrame: String
+
+    val isLoaded: Boolean
+
+    /** The path to the image to load. */
+    var src: String
+
+    /** A description of the image used by assistive devices. */
+    var alt: String
+
+    /** Plays the animation. When this attribute is remove, the animation will pause. */
+    var play: Boolean
+  }
 }

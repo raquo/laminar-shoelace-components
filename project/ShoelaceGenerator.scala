@@ -1,12 +1,12 @@
 import WebComponentsDef.{CustomEventType, JsUndefinedType}
-import com.raquo.domtypes.codegen.CodeFormatting
+import com.raquo.domtypes.codegen.{CodeFormatting, DefType}
 import com.raquo.domtypes.codegen.generators.SourceGenerator
 import com.raquo.domtypes.defs.attrs.HtmlAttrDefs
 import com.raquo.domtypes.defs.props.PropDefs
 import com.raquo.domtypes.defs.reflectedAttrs.ReflectedHtmlAttrDefs
-import upickle.default._
-import scala.collection.mutable
+import upickle.default.*
 
+import scala.collection.mutable
 import java.nio.file.NoSuchFileException
 import java.io.{File, FileOutputStream, PrintStream}
 import java.nio.file.{Files, NoSuchFileException, Path}
@@ -34,6 +34,9 @@ case class ShoelaceGenerator(
   lazy val baseCustomEventType: String = "CustomEvent"
 
   lazy val baseDomEventType: String = "Event"
+
+  /** If true, we'll import scala.scalajs.js.| - this is needed to support Scala 2. */
+  lazy val useScalaJsUnionType: Boolean = true
 
   val Def: WebComponentsDef.type = WebComponentsDef
 
@@ -90,9 +93,9 @@ case class ShoelaceGenerator(
     }
 
     elements.foreach { el =>
-      if (el.writableProperties.nonEmpty) {
+      if (el.writableNonReflectedProperties.nonEmpty) {
         println(el.tagName)
-        println(el.writableProperties.map(_.propName).mkString("  > ", ", ", ""))
+        println(el.writableNonReflectedProperties.map(_.propName).mkString("  > ", ", ", ""))
       }
     }
 
@@ -145,6 +148,9 @@ case class ShoelaceGenerator(
     line("import org.scalajs.dom")
     line()
     line("import scala.scalajs.js")
+    if (useScalaJsUnionType) {
+      line("import scala.scalajs.js.|")
+    }
     line()
     line("// This file is generated at compile-time by ShoelaceGenerator.scala")
     line()
@@ -160,9 +166,10 @@ case class ShoelaceGenerator(
         line("@js.native")
         enter(s"trait ${et.scalaName} extends ${baseCustomEventType} {", "}") {
           et.fields.foreach { field =>
+            val scalaTypeStr = st.scalaPropOutputType(s"prop `${field.domName}` in event type `${et.scalaName}`", field.jsTypes)
             line()
             blockCommentLines(field.description)
-            line(s"val ${field.scalaName}: ${field.scalaTypeStr}")
+            line(s"val ${field.scalaName}: ${scalaTypeStr}")
           }
         }
         et.scalaName
@@ -176,16 +183,13 @@ case class ShoelaceGenerator(
     //eventTypesObjectName: String,
     element: Def.Element
   ): Unit = {
-
-    val needsJsImport = true // #nc #TODO
-
     val customEventTypes = element.events.flatMap(_.customType)
 
     line(s"package ${componentsPackagePath}")
     line()
     val laminarKeyTypes = List(
       if (element.events.nonEmpty) "EventProp" else "",
-      if (element.writableProperties.nonEmpty) "HtmlProp" else "",
+      if (element.writableNonReflectedProperties.nonEmpty) "HtmlProp" else "",
       if (element.attributes.nonEmpty) "HtmlAttr" else "",
     ).filter(_.nonEmpty)
     whenNonEmpty(laminarKeyTypes) { _types =>
@@ -204,9 +208,10 @@ case class ShoelaceGenerator(
     line("import com.raquo.laminar.api.L.*")
     line("import com.raquo.laminar.defs.styles.{traits as s, units as u}")
     line("import org.scalajs.dom")
-    if (needsJsImport) {
-      line()
-      line("import scala.scalajs.js")
+    line()
+    line("import scala.scalajs.js")
+    if (useScalaJsUnionType) {
+      line("import scala.scalajs.js.|")
     }
     line("import scala.scalajs.js.annotation.JSImport")
     line()
@@ -219,91 +224,15 @@ case class ShoelaceGenerator(
       line(s"@JSImport(${repr(element.importPath)})")
       line("@js.native object RawImport extends js.Object")
 
-
-      if (element.readonlyProperties.isEmpty) {
+      val elementBaseType = "dom." + st.elementBaseType(element.tagName)
+      val showRawComponent = element.allJsProperties.nonEmpty
+      if (showRawComponent) {
         line()
-        line(s"type Ref = dom.${st.elementBaseType(element.tagName)}")
+        line(s"type Ref = ${elementBaseType} with RawComponent")
       } else {
         line()
-        enter("@js.native trait RawComponent extends js.Object {", "}") {
-
-          element.readonlyProperties.foreach { prop =>
-            val outputType = st.scalaPropOutputTypeStr(context = s"readonly prop `${prop.propName}` in `${element.tagName}`", prop.jsTypes)
-            line()
-            blockCommentLines(prop.description)
-            line(s"val ${prop.propScalaName}: ${outputType}")
-          }
-
-          //componentSpecificProps.foreach { prop =>
-          //  line()
-          //  blockCommentLines(prop.description.split("\n").toList.map { line =>
-          //    if (prop.jsTypes.scalaAttrInputType == "Boolean") {
-          //      replaceFirstPrefix(
-          //        line,
-          //        findReplace = List(
-          //          "Draws the " -> "Whether this is a ",
-          //          "Draws a " -> "Whether this is a ",
-          //          "Draws an " -> "Whether this is an "
-          //        )
-          //      )
-          //    } else {
-          //      line
-          //    }
-          //  })
-          //  line(s"val ${prop.scalaName}: ${prop.jsTypes.scalaAttrInputType}") // #nc this should use output type, not input type
-          //}
-        }
-        line()
-        line(s"type Ref = dom.${st.elementBaseType(element.tagName)} with RawComponent")
+        line(s"type Ref = dom.${st.elementBaseType(element.tagName)}")
       }
-
-      //line()
-      //line()
-      //line("// -- Props & Attrs --")
-      //whenNonEmpty(ShoelaceDataOld.exportCommonKeysPropsAndAttrs(element)) { propNames =>
-      //  line()
-      //  line(propNames.mkString("export CommonKeys.{", ", ", "}"))
-      //}
-      //
-      //{
-      //  val laminarExports = ShoelaceDataOld.exportLaminarPropsAndAttrs(element)
-      //  val mainLaminarExports = laminarExports.filterNot(ShoelaceDataOld.formRelatedKeys.contains)
-      //  val formRelatedLaminarExports = laminarExports.filter(ShoelaceDataOld.formRelatedKeys.contains)
-      //  whenNonEmpty(mainLaminarExports) { propNames =>
-      //    line()
-      //    line(propNames.map(ShoelaceDataOld.laminarPropExportAlias).mkString("export L.{", ", ", "}"))
-      //  }
-      //  whenNonEmpty(formRelatedLaminarExports) { propNames =>
-      //    line()
-      //    line(propNames.map(ShoelaceDataOld.laminarPropExportAlias).mkString("export L.{", ", ", "}"))
-      //  }
-      //}
-      //
-      //{
-      //  // These common props could have been exported from Laminar instead,
-      //  // but we are printing them for the sake of documentation (comments)
-      //  val commonPrintedProps = propsToPrint.filter(p => avoidLaminarKeys.contains(p.scalaName))
-      //  if (componentSpecificProps.nonEmpty) {
-      //    line()
-      //  }
-      //  componentSpecificProps.foreach { prop =>
-      //    line()
-      //    if (prop.description.nonEmpty) {
-      //      blockCommentLines(prop.description.split("\n").toList)
-      //    }
-      //    line(s"lazy val ${prop.scalaName}: HtmlPropOf[${prop.jsTypes.scalaAttrInputType}] = ${prop.jsTypes.scalaPropImplName}(${repr(prop.name)})")
-      //  }
-      //  if (commonPrintedProps.nonEmpty) {
-      //    line()
-      //  }
-      //  commonPrintedProps.foreach { prop =>
-      //    line()
-      //    if (prop.description.nonEmpty) {
-      //      blockCommentLines(prop.description.split("\n").toList)
-      //    }
-      //    line(s"lazy val ${prop.scalaName}: HtmlPropOf[${prop.jsTypes.scalaAttrInputType}] = ${prop.jsTypes.scalaPropImplName}(${repr(prop.name)})")
-      //  }
-      //}
 
       {
         line()
@@ -322,7 +251,7 @@ case class ShoelaceGenerator(
         line()
         line()
         line("// -- Props --")
-        element.writableProperties.foreach { prop =>
+        element.writableNonReflectedProperties.foreach { prop =>
           line()
           val scalaInputTypeStr = st.scalaPropInputTypeStr(prop, element.tagName)
           line(s"lazy val ${prop.propName}: HtmlPropOf[${scalaInputTypeStr}] = ${propImplName(scalaInputTypeStr)}(${repr(prop.propName)})")
@@ -423,26 +352,22 @@ case class ShoelaceGenerator(
         }
       }
 
-      line()
-      line()
-
-
-      //ShoelaceData.nonReflectedAttrs(element).foreach { attr =>
-      //  line()
-      //  if (attr.description.nonEmpty) {
-      //    blockCommentLines(attr.description.split("\n").toList)
-      //  }
-      //  line(s"lazy val ${attr.scalaName}: HtmlAttrOf[${attr.jsTypes.scalaAttrInputType}] = ${attr.jsTypes.scalaPropImplName.replace("Prop", "Attr")}(${repr(attr.name)})")
-      //}
-
-      //snippetsByKey.keys.toList.sorted.foreach { key =>
-      //  enter(s"val `$key` = List(", ")") {
-      //    snippetsByKey(key).foreach { snippet =>
-      //      line(snippetRepr(snippet) + ",")
-      //    }
-      //  }
-      //  line("")
-      //}
+      if (showRawComponent) {
+        line()
+        line()
+        line("// -- Element type -- ")
+        line()
+        enter(s"@js.native trait RawComponent extends js.Object { this: ${elementBaseType} => ", "}") {
+          element.allJsProperties.foreach { prop =>
+            val context = s"RawComponent prop `${prop.propName}` in `${element.tagName}`"
+            val outputType = st.scalaPropOutputType(context, prop.jsTypes)
+            val defType = if (prop.readonly) "val" else "var"
+            line()
+            blockCommentLines(prop.description)
+            line(s"${defType} ${prop.propScalaName}: ${outputType}")
+          }
+        }
+      }
     }
   }
 

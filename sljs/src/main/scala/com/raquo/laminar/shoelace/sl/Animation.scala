@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object Animation extends WebComponent("sl-animation") {
   @JSImport("@shoelace-style/shoelace/dist/components/animation/animation.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -108,4 +109,60 @@ object Animation extends WebComponent("sl-animation") {
   @inline def noCssParts: Unit = ()
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** The name of the built-in animation to use. For custom animations, use the `keyframes` prop. */
+    var name: String
+
+    /**
+      * Plays the animation. When omitted, the animation will be paused. This attribute will be automatically removed when
+      * the animation finishes or gets canceled.
+      */
+    var play: Boolean
+
+    /** The number of milliseconds to delay the start of the animation. */
+    var delay: Int
+
+    /**
+      * Determines the direction of playback as well as the behavior when reaching the end of an iteration.
+      * [Learn more](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-direction)
+      */
+    var direction: String
+
+    /** The number of milliseconds each iteration of the animation takes to complete. */
+    var duration: Int
+
+    /**
+      * The easing function to use for the animation. This can be a Shoelace easing function or a custom easing function
+      * such as `cubic-bezier(0, 1, .76, 1.14)`.
+      */
+    var easing: String
+
+    /** The number of milliseconds to delay after the active period of an animation sequence. */
+    var endDelay: Int
+
+    /** Sets how the animation applies styles to its target before and after its execution. */
+    var fill: String
+
+    /** The number of iterations to run before the animation completes. Defaults to `Infinity`, which loops. */
+    var iterations: Int
+
+    /** The offset at which to start the animation, usually between 0 (start) and 1 (end). */
+    var iterationStart: Int
+
+    /** The keyframes to use for the animation. If this is set, `name` will be ignored. */
+    var keyframes: js.Array[js.Object] | Unit
+
+    /**
+      * Sets the animation's playback rate. The default is `1`, which plays the animation at a normal speed. Setting this
+      * to `2`, for example, will double the animation's speed. A negative value can be used to reverse the animation. This
+      * value can be changed without causing the animation to restart.
+      */
+    var playbackRate: Int
+
+    /** Gets and sets the current animation time. */
+    var currentTime: Int
+  }
 }

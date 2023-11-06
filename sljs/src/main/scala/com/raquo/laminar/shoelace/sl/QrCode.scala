@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object QrCode extends WebComponent("sl-qr-code") {
   @JSImport("@shoelace-style/shoelace/dist/components/qr-code/qr-code.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -71,4 +72,26 @@ object QrCode extends WebComponent("sl-qr-code") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** The label for assistive devices to announce. If unspecified, the value will be used instead. */
+    var label: String
+
+    /** The size of the QR code, in pixels. */
+    var size: Int
+
+    /** The fill color. This can be any valid CSS color, but not a CSS custom property. */
+    var fill: String
+
+    /** The background color. This can be any valid CSS color or `transparent`. It cannot be a CSS custom property. */
+    var background: String
+
+    /** The edge radius of each module. Must be between 0 and 0.5. */
+    var radius: Int
+
+    /** The level of error correction to use. [Learn more](https://www.qrcode.com/en/about/error_correction.html) */
+    var errorCorrection: String
+  }
 }

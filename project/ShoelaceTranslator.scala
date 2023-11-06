@@ -240,7 +240,7 @@ case class ShoelaceTranslator(
       if (!declaration.customElement) {
         throw new Exception(s"Expected customElement=true declaration in module `${module.path}` for declaration `${declaration.name}`.")
       }
-      val fields = allFields(declaration)
+      val props = allJsProperties(declaration)
       val attrs = attributes(declaration)
       Def.Element(
         tagName = declaration.tagName,
@@ -250,9 +250,8 @@ case class ShoelaceTranslator(
         docUrl = Some(declaration.documentation).filter(_.nonEmpty),
         description = descriptionLines(declaration.description),
         events = events(declaration),
-        fields = fields,
-        readonlyProperties = readOnlyProperties(declaration, fields, exceptAttributes = attrs),
-        writableProperties = writableProperties(declaration, fields, exceptAttributes = attrs),
+        allJsProperties = props,
+        writableNonReflectedProperties = writableNonReflectedProperties(props, exceptAttributes = attrs),
         attributes = attrs,
         cssProperties = cssProperties(declaration),
         cssParts = cssParts(declaration),
@@ -277,7 +276,7 @@ case class ShoelaceTranslator(
     }
   }
 
-  def allFields(elementDeclaration: M.Declaration): List[Def.Field] = {
+  def allJsProperties(elementDeclaration: M.Declaration): List[Def.Field] = {
     //val baseElementType = elementBaseType(elementDeclaration.tagName)
     elementDeclaration.members
       .filter { m => m.kind == "field" && m.privacy == "public" && !m.static }
@@ -318,7 +317,7 @@ case class ShoelaceTranslator(
             propScalaName = scalifyPropName(m.name),
             attrName = attrName,
             reflected = m.reflects,
-            readonly = m.readonly,
+            readonly = isFieldReadonly(elementDeclaration, m, jsTypes),
             jsTypes = jsTypes,
             default = Some(m.default).filter(_.nonEmpty),
             description = descriptionLines(m.description)
@@ -327,19 +326,19 @@ case class ShoelaceTranslator(
       }
   }
 
-  def isFieldReadonly(element: M.Declaration, field: Def.Field): Boolean = {
-    field.readonly || forceReadonlyField(element.tagName, field.propName, field.jsTypes)
+  def isFieldReadonly(element: M.Declaration, field: M.Member, jsTypes: List[Def.JsType]): Boolean = {
+    field.readonly || forceReadonlyField(element.tagName, field.name, jsTypes)
   }
 
-  def readOnlyProperties(element: M.Declaration, fields: List[Def.Field], exceptAttributes: List[Def.Attribute]): List[Def.Field] = {
-    fields.filter { field =>
-      isFieldReadonly(element, field) && !exceptAttributes.exists(a => field.attrName.contains(a.attrName))
-    }
-  }
+  //def readOnlyProperties(element: M.Declaration, fields: List[Def.Field], exceptAttributes: List[Def.Attribute]): List[Def.Field] = {
+  //  fields.filter { field =>
+  //    isFieldReadonly(element, field) && !exceptAttributes.exists(a => field.attrName.contains(a.attrName))
+  //  }
+  //}
 
-  def writableProperties(element: M.Declaration, fields: List[Def.Field], exceptAttributes: List[Def.Attribute]): List[Def.Field] = {
-    fields.filter { field =>
-      !isFieldReadonly(element, field) && !exceptAttributes.exists(a => field.attrName.contains(a.attrName))
+  def writableNonReflectedProperties(allProperties: List[Def.Field], exceptAttributes: List[Def.Attribute]): List[Def.Field] = {
+    allProperties.filter { field =>
+      !field.readonly && !exceptAttributes.exists(a => field.attrName.contains(a.attrName))
     }
   }
 
@@ -449,10 +448,10 @@ case class ShoelaceTranslator(
         val description = if (jsTypes.exists(_.isInstanceOf[Def.JsStringConstantType])) {
           List(jsTypeStr)
         } else Nil
+        val context = s"event type `${rawName}`"
         Def.CustomEventTypeField(
           domName = domName,
           scalaName = scalifyName(domName),
-          scalaTypeStr = scalaPropOutputTypeStr(context = s"event type `${rawName}`", jsTypes),
           jsTypes = jsTypes,
           description = description
         )
@@ -532,42 +531,50 @@ case class ShoelaceTranslator(
     }
   }
 
-  def scalaPropOutputTypeStr(context: String, jsTypes: List[Def.JsType]): String = {
-    val hasUndefined = jsTypes.contains(Def.JsUndefinedType)
+  def scalaPropOutputTypes(context: String, jsTypes: List[Def.JsType]): List[String] = {
     val printableTypes = jsTypes
-      .filter {
-        case Def.JsUndefinedType => false
-        case _ => true
-      }
       .map {
         case Def.JsStringConstantType(_) => Def.JsStringType
         case other => other
       }
+      .map(scalaOutputType(context, _))
       .distinct
     if (printableTypes.isEmpty) {
       throw new Exception(s"ERROR: scalaPropOutputTypeStr does not have any types to work with in ${context}: ${printableTypes.mkString(", ")}")
-    } else if (printableTypes.length == 1) {
-      printableTypes.head match {
-        case Def.JsNumberType => "Int" // #nc for now
-        case Def.JsBooleanType => "Boolean"
-        case Def.JsStringType => "String"
-        case Def.JsCustomType("MutationRecord[]") => "js.Array[dom.MutationRecord]"
-        case Def.JsCustomType("ResizeObserverEntry[]") => "js.Array[dom.ResizeObserverEntry]"
-        case Def.JsCustomType(t) if t.startsWith("Sl") =>
-          if (t.endsWith("[]")) {
-            "js.Array[" + t.substring(2, t.length - 2) + ".Ref]"
-          } else {
-            t.substring(2) + ".Ref"
-          }
-        case t =>
-          println(s"WARNING: scalaPropOutputTypeStr: Unhandled js type `${t}` for ${context}.")
-          t.toString
-      }
-      //} else if (printableTypes == List(Def.JsCustomType("Element"), Def.JsCustomType("Element[]"))) {
-      //  println(s"WARNING: scalaAttrInputType: Multi-element input not supported for attr `${attr.attrName}` in tag `${tagName}`.")
-      //  "Element" // #nc or Element[], but how to express that...
-    } else {
-      throw new Exception(s"ERROR: scalaPropOutputTypeStr does not support multiple printable types for ${context}: ${printableTypes.mkString(", ")}")
+    }
+    printableTypes
+  }
+
+  def scalaPropOutputType(context: String, jsTypes: List[Def.JsType]): String = {
+    scalaPropOutputTypes(context, jsTypes).mkString(" | ")
+    //if (jsTypes.contains(Def.JsUndefinedType)) {
+    //  jsTypes
+    //    .filterNot(_ == Def.JsUndefinedType)
+    //    .mkString("js.UndefOr[", " | ", "]")
+    //} else {
+    //  jsTypes.mkString(" | ")
+    //}
+  }
+
+  def scalaOutputType(context: String, jsType: Def.JsType): String = {
+    jsType match {
+      case Def.JsUndefinedType => "Unit" // yes, js.UndefOr[A] is equivalent to A | Unit. (the | is scala.scalajs.js.|, not the Scala 3 | )
+      case Def.JsNumberType => "Int" // #nc for now
+      case Def.JsBooleanType => "Boolean"
+      case Def.JsStringType => "String"
+      case Def.JsCustomType("Keyframe[]") => "js.Array[js.Object]" // #nc not sure what the exact type should be
+      case Def.JsCustomType("MutationObserver") => "dom.MutationObserver"
+      case Def.JsCustomType("MutationRecord[]") => "js.Array[dom.MutationRecord]"
+      case Def.JsCustomType("ResizeObserverEntry[]") => "js.Array[dom.ResizeObserverEntry]"
+      case Def.JsCustomType(t) if t.startsWith("Sl") =>
+        if (t.endsWith("[]")) {
+          "js.Array[" + t.substring(2, t.length - 2) + ".Ref]"
+        } else {
+          t.substring(2) + ".Ref"
+        }
+      case t =>
+        throw new Exception(s"WARNING: scalaPropOutputTypeStr: Unhandled js type `${t}` for ${context}.")
+      //t.toString
     }
   }
 
@@ -654,7 +661,7 @@ case class ShoelaceTranslator(
   }
 
   def scalifyPropName(propName: String): String = {
-    propName // JS prop names should already follow our style
+    scalifyName(propName)
   }
 
   def scalifyEventPropName(eventName: String): String = {

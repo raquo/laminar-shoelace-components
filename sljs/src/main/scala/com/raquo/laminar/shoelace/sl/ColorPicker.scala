@@ -6,6 +6,7 @@ import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
@@ -16,7 +17,7 @@ object ColorPicker extends WebComponent("sl-color-picker") {
   @JSImport("@shoelace-style/shoelace/dist/components/color-picker/color-picker.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement
+  type Ref = dom.HTMLElement with RawComponent
 
 
   // -- Events --
@@ -217,4 +218,57 @@ object ColorPicker extends WebComponent("sl-color-picker") {
   }
 
 
+  // -- Element type -- 
+
+  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+
+    /**
+      * The color picker's label. This will not be displayed, but it will be announced by assistive devices. If you need to
+      * display HTML, you can use the `label` slot` instead.
+      */
+    var label: String
+
+    /**
+      * The format to use. If opacity is enabled, these will translate to HEXA, RGBA, HSLA, and HSVA respectively. The color
+      * picker will accept user input in any format (including CSS color names) and convert it to the desired format.
+      */
+    var format: String
+
+    /** Renders the color picker inline rather than in a dropdown. */
+    var inline: Boolean
+
+    /** Determines the size of the color picker's trigger. This has no effect on inline color pickers. */
+    var size: String
+
+    /** Removes the button that lets users toggle between format. */
+    var noFormatToggle: Boolean
+
+    /** The name of the form control, submitted as a name/value pair with form data. */
+    var name: String
+
+    /** Disables the color picker. */
+    var disabled: Boolean
+
+    /**
+      * Enable this option to prevent the panel from being clipped when the component is placed inside a container with
+      * `overflow: auto|scroll`. Hoisting uses a fixed positioning strategy that works in many, but not all, scenarios.
+      */
+    var hoist: Boolean
+
+    /** Shows the opacity slider. Enabling this will cause the formatted value to be HEXA, RGBA, or HSLA. */
+    var opacity: Boolean
+
+    /** By default, values are lowercase. With this attribute, values will be uppercase instead. */
+    var uppercase: Boolean
+
+    /**
+      * By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
+      * to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
+      * the same document or shadow root for this to work.
+      */
+    var form: String
+
+    /** Makes the color picker a required field. */
+    var required: Boolean
+  }
 }
