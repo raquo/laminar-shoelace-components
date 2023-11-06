@@ -17,7 +17,7 @@ object Avatar extends WebComponent("sl-avatar") {
   @JSImport("@shoelace-style/shoelace/dist/components/avatar/avatar.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = AvatarComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -83,7 +83,7 @@ object Avatar extends WebComponent("sl-avatar") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait AvatarComponent extends js.Object { this: dom.HTMLElement => 
 
     /** The image source to use for the avatar. */
     var image: String

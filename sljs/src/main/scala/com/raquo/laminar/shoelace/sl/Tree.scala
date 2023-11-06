@@ -18,7 +18,7 @@ object Tree extends WebComponent("sl-tree") {
   @JSImport("@shoelace-style/shoelace/dist/components/tree/tree.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = TreeComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -87,7 +87,7 @@ object Tree extends WebComponent("sl-tree") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait TreeComponent extends js.Object { this: dom.HTMLElement => 
 
     /**
       * The selection behavior of the tree. Single selection allows only one node to be selected at a time. Multiple

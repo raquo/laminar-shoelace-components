@@ -17,7 +17,7 @@ object Skeleton extends WebComponent("sl-skeleton") {
   @JSImport("@shoelace-style/shoelace/dist/components/skeleton/skeleton.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = SkeletonComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -68,7 +68,7 @@ object Skeleton extends WebComponent("sl-skeleton") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait SkeletonComponent extends js.Object { this: dom.HTMLElement => 
 
     /** Determines which effect the skeleton will use. */
     var effect: String

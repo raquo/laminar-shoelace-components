@@ -17,7 +17,7 @@ object Breadcrumb extends WebComponent("sl-breadcrumb") {
   @JSImport("@shoelace-style/shoelace/dist/components/breadcrumb/breadcrumb.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = BreadcrumbComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -65,7 +65,7 @@ object Breadcrumb extends WebComponent("sl-breadcrumb") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait BreadcrumbComponent extends js.Object { this: dom.HTMLElement => 
 
     /**
       * The label to use for the breadcrumb control. This will not be shown on the screen, but it will be announced by

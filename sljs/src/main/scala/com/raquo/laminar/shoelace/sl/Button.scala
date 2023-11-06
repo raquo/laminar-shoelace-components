@@ -17,7 +17,7 @@ object Button extends WebComponent("sl-button") {
   @JSImport("@shoelace-style/shoelace/dist/components/button/button.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = ButtonComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -175,7 +175,7 @@ object Button extends WebComponent("sl-button") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait ButtonComponent extends js.Object { this: dom.HTMLElement => 
 
     val invalid: Boolean
 

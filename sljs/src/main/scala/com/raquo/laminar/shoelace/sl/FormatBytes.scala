@@ -17,7 +17,7 @@ object FormatBytes extends WebComponent("sl-format-bytes") {
   @JSImport("@shoelace-style/shoelace/dist/components/format-bytes/format-bytes.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = FormatBytesComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -58,7 +58,7 @@ object FormatBytes extends WebComponent("sl-format-bytes") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait FormatBytesComponent extends js.Object { this: dom.HTMLElement => 
 
     /** The type of unit to display. */
     var unit: String

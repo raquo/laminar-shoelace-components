@@ -18,7 +18,7 @@ object CopyButton extends WebComponent("sl-copy-button") {
   @JSImport("@shoelace-style/shoelace/dist/components/copy-button/copy-button.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = CopyButtonComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -134,7 +134,7 @@ object CopyButton extends WebComponent("sl-copy-button") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait CopyButtonComponent extends js.Object { this: dom.HTMLElement => 
 
     val isCopying: Boolean
 

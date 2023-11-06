@@ -17,7 +17,7 @@ object ColorPicker extends WebComponent("sl-color-picker") {
   @JSImport("@shoelace-style/shoelace/dist/components/color-picker/color-picker.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = ColorPickerComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -220,7 +220,7 @@ object ColorPicker extends WebComponent("sl-color-picker") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait ColorPickerComponent extends js.Object { this: dom.HTMLElement => 
 
     /**
       * The color picker's label. This will not be displayed, but it will be announced by assistive devices. If you need to

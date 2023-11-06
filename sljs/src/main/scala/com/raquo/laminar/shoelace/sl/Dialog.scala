@@ -18,7 +18,7 @@ object Dialog extends WebComponent("sl-dialog") {
   @JSImport("@shoelace-style/shoelace/dist/components/dialog/dialog.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = DialogComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -141,7 +141,7 @@ object Dialog extends WebComponent("sl-dialog") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait DialogComponent extends js.Object { this: dom.HTMLElement => 
 
     /**
       * Indicates whether or not the dialog is open. You can toggle this attribute to show and hide the dialog, or you can

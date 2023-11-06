@@ -18,7 +18,7 @@ object Drawer extends WebComponent("sl-drawer") {
   @JSImport("@shoelace-style/shoelace/dist/components/drawer/drawer.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = DrawerComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -150,7 +150,7 @@ object Drawer extends WebComponent("sl-drawer") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait DrawerComponent extends js.Object { this: dom.HTMLElement => 
 
     /**
       * Indicates whether or not the drawer is open. You can toggle this attribute to show and hide the drawer, or you can

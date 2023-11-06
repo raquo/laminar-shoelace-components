@@ -17,7 +17,7 @@ object RadioButton extends WebComponent("sl-radio-button") {
   @JSImport("@shoelace-style/shoelace/dist/components/radio-button/radio-button.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = RadioButtonComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -98,7 +98,7 @@ object RadioButton extends WebComponent("sl-radio-button") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait RadioButtonComponent extends js.Object { this: dom.HTMLElement => 
 
     /** Disables the radio button. */
     var disabled: Boolean

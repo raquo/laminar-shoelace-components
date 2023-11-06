@@ -17,7 +17,7 @@ object Tab extends WebComponent("sl-tab") {
   @JSImport("@shoelace-style/shoelace/dist/components/tab/tab.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = TabComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -77,7 +77,7 @@ object Tab extends WebComponent("sl-tab") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait TabComponent extends js.Object { this: dom.HTMLElement => 
 
     /** The name of the tab panel this tab is associated with. The panel must be located in the same tab group. */
     var panel: String

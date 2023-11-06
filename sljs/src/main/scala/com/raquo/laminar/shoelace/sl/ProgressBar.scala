@@ -17,7 +17,7 @@ object ProgressBar extends WebComponent("sl-progress-bar") {
   @JSImport("@shoelace-style/shoelace/dist/components/progress-bar/progress-bar.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = ProgressBarComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -83,7 +83,7 @@ object ProgressBar extends WebComponent("sl-progress-bar") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait ProgressBarComponent extends js.Object { this: dom.HTMLElement => 
 
     /** When true, percentage is ignored, the label is hidden, and the progress bar is drawn in an indeterminate state. */
     var indeterminate: Boolean

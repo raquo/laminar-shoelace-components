@@ -17,7 +17,7 @@ object Tooltip extends WebComponent("sl-tooltip") {
   @JSImport("@shoelace-style/shoelace/dist/components/tooltip/tooltip.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = TooltipComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -124,7 +124,7 @@ object Tooltip extends WebComponent("sl-tooltip") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait TooltipComponent extends js.Object { this: dom.HTMLElement => 
 
     /** The tooltip's content. If you need to display HTML, use the `content` slot instead. */
     var content: String

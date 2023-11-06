@@ -17,7 +17,7 @@ object QrCode extends WebComponent("sl-qr-code") {
   @JSImport("@shoelace-style/shoelace/dist/components/qr-code/qr-code.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = QrCodeComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -74,7 +74,7 @@ object QrCode extends WebComponent("sl-qr-code") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait QrCodeComponent extends js.Object { this: dom.HTMLElement => 
 
     /** The label for assistive devices to announce. If unspecified, the value will be used instead. */
     var label: String

@@ -17,7 +17,7 @@ object Radio extends WebComponent("sl-radio") {
   @JSImport("@shoelace-style/shoelace/dist/components/radio/radio.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = RadioComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -86,7 +86,7 @@ object Radio extends WebComponent("sl-radio") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait RadioComponent extends js.Object { this: dom.HTMLElement => 
 
     /**
       * The radio's size. When used inside a radio group, the size will be determined by the radio group's size so this

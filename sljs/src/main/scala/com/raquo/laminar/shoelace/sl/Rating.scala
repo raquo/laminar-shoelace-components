@@ -18,7 +18,7 @@ object Rating extends WebComponent("sl-rating") {
   @JSImport("@shoelace-style/shoelace/dist/components/rating/rating.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = RatingComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -93,7 +93,7 @@ object Rating extends WebComponent("sl-rating") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait RatingComponent extends js.Object { this: dom.HTMLElement => 
 
     /** A label that describes the rating to assistive devices. */
     var label: String

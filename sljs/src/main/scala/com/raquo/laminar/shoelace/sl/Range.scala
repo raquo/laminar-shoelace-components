@@ -17,7 +17,7 @@ object Range extends WebComponent("sl-range") {
   @JSImport("@shoelace-style/shoelace/dist/components/range/range.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = RangeComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -146,7 +146,7 @@ object Range extends WebComponent("sl-range") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait RangeComponent extends js.Object { this: dom.HTMLElement => 
 
     var title: String
 

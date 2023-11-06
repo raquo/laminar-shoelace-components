@@ -17,7 +17,7 @@ object Badge extends WebComponent("sl-badge") {
   @JSImport("@shoelace-style/shoelace/dist/components/badge/badge.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = BadgeComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -65,7 +65,7 @@ object Badge extends WebComponent("sl-badge") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait BadgeComponent extends js.Object { this: dom.HTMLElement => 
 
     /** The badge's theme variant. */
     var variant: String

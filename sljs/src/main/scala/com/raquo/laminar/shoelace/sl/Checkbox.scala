@@ -17,7 +17,7 @@ object Checkbox extends WebComponent("sl-checkbox") {
   @JSImport("@shoelace-style/shoelace/dist/components/checkbox/checkbox.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = CheckboxComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -122,7 +122,7 @@ object Checkbox extends WebComponent("sl-checkbox") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait CheckboxComponent extends js.Object { this: dom.HTMLElement => 
 
     var title: String
 

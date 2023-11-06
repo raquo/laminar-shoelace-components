@@ -18,7 +18,7 @@ object AnimatedImage extends WebComponent("sl-animated-image") {
   @JSImport("@shoelace-style/shoelace/dist/components/animated-image/animated-image.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = AnimatedImageComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -81,7 +81,7 @@ object AnimatedImage extends WebComponent("sl-animated-image") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait AnimatedImageComponent extends js.Object { this: dom.HTMLElement => 
 
     val frozenFrame: String
 

@@ -18,7 +18,7 @@ object MutationObserver extends WebComponent("sl-mutation-observer") {
   @JSImport("@shoelace-style/shoelace/dist/components/mutation-observer/mutation-observer.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = MutationObserverComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -77,7 +77,7 @@ object MutationObserver extends WebComponent("sl-mutation-observer") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait MutationObserverComponent extends js.Object { this: dom.HTMLElement => 
 
     /**
       * Watches for changes to attributes. To watch only specific attributes, separate them by a space, e.g.

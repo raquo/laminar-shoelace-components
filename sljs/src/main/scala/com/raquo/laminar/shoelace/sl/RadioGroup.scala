@@ -17,7 +17,7 @@ object RadioGroup extends WebComponent("sl-radio-group") {
   @JSImport("@shoelace-style/shoelace/dist/components/radio-group/radio-group.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = RadioGroupComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -111,7 +111,7 @@ object RadioGroup extends WebComponent("sl-radio-group") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait RadioGroupComponent extends js.Object { this: dom.HTMLElement => 
 
     /**
       * The radio group's label. Required for proper accessibility. If you need to display HTML, use the `label` slot

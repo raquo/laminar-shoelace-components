@@ -18,7 +18,7 @@ object ResizeObserver extends WebComponent("sl-resize-observer") {
   @JSImport("@shoelace-style/shoelace/dist/components/resize-observer/resize-observer.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = ResizeObserverComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -59,7 +59,7 @@ object ResizeObserver extends WebComponent("sl-resize-observer") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait ResizeObserverComponent extends js.Object { this: dom.HTMLElement => 
 
     /** Disables the observer. */
     var disabled: Boolean

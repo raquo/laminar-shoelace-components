@@ -17,7 +17,7 @@ object Alert extends WebComponent("sl-alert") {
   @JSImport("@shoelace-style/shoelace/dist/components/alert/alert.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = AlertComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -102,7 +102,7 @@ object Alert extends WebComponent("sl-alert") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait AlertComponent extends js.Object { this: dom.HTMLElement => 
 
     /**
       * Indicates whether or not the alert is open. You can toggle this attribute to show and hide the alert, or you can

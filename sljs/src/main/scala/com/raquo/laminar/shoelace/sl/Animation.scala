@@ -17,7 +17,7 @@ object Animation extends WebComponent("sl-animation") {
   @JSImport("@shoelace-style/shoelace/dist/components/animation/animation.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = AnimationComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -111,7 +111,7 @@ object Animation extends WebComponent("sl-animation") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait AnimationComponent extends js.Object { this: dom.HTMLElement => 
 
     /** The name of the built-in animation to use. For custom animations, use the `keyframes` prop. */
     var name: String

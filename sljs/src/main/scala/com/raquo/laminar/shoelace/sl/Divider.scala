@@ -17,7 +17,7 @@ object Divider extends WebComponent("sl-divider") {
   @JSImport("@shoelace-style/shoelace/dist/components/divider/divider.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = DividerComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -61,7 +61,7 @@ object Divider extends WebComponent("sl-divider") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait DividerComponent extends js.Object { this: dom.HTMLElement => 
 
     /** Draws the divider in a vertical orientation. */
     var vertical: Boolean

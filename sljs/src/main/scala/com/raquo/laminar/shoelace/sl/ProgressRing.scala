@@ -17,7 +17,7 @@ object ProgressRing extends WebComponent("sl-progress-ring") {
   @JSImport("@shoelace-style/shoelace/dist/components/progress-ring/progress-ring.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = ProgressRingComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -83,7 +83,7 @@ object ProgressRing extends WebComponent("sl-progress-ring") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait ProgressRingComponent extends js.Object { this: dom.HTMLElement => 
 
     /** A custom label for assistive devices. */
     var label: String

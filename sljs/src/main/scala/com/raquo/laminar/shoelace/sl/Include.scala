@@ -18,7 +18,7 @@ object Include extends WebComponent("sl-include") {
   @JSImport("@shoelace-style/shoelace/dist/components/include/include.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = IncludeComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -71,7 +71,7 @@ object Include extends WebComponent("sl-include") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait IncludeComponent extends js.Object { this: dom.HTMLElement => 
 
     /**
       * The location of the HTML file to include. Be sure you trust the content you are including as it will be executed as

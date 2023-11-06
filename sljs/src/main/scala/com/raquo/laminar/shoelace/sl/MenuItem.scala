@@ -17,7 +17,7 @@ object MenuItem extends WebComponent("sl-menu-item") {
   @JSImport("@shoelace-style/shoelace/dist/components/menu-item/menu-item.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = MenuItemComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -99,7 +99,7 @@ object MenuItem extends WebComponent("sl-menu-item") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait MenuItemComponent extends js.Object { this: dom.HTMLElement => 
 
     /** The type of menu item to render. To use `checked`, this value must be set to `checkbox`. */
     var `type`: String

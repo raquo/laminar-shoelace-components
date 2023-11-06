@@ -17,7 +17,7 @@ object Dropdown extends WebComponent("sl-dropdown") {
   @JSImport("@shoelace-style/shoelace/dist/components/dropdown/dropdown.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = DropdownComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -110,7 +110,7 @@ object Dropdown extends WebComponent("sl-dropdown") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait DropdownComponent extends js.Object { this: dom.HTMLElement => 
 
     /**
       * Indicates whether or not the dropdown is open. You can toggle this attribute to show and hide the dropdown, or you

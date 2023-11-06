@@ -18,7 +18,7 @@ object Icon extends WebComponent("sl-icon") {
   @JSImport("@shoelace-style/shoelace/dist/components/icon/icon.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = IconComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -81,7 +81,7 @@ object Icon extends WebComponent("sl-icon") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait IconComponent extends js.Object { this: dom.HTMLElement => 
 
     /** The name of the icon to draw. Available names depend on the icon library being used. */
     var name: String | Unit

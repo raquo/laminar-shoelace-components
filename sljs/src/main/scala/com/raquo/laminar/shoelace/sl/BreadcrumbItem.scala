@@ -17,7 +17,7 @@ object BreadcrumbItem extends WebComponent("sl-breadcrumb-item") {
   @JSImport("@shoelace-style/shoelace/dist/components/breadcrumb-item/breadcrumb-item.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = BreadcrumbItemComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -89,7 +89,7 @@ object BreadcrumbItem extends WebComponent("sl-breadcrumb-item") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait BreadcrumbItemComponent extends js.Object { this: dom.HTMLElement => 
 
     /**
       * Optional URL to direct the user to when the breadcrumb item is activated. When set, a link will be rendered

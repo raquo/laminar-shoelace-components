@@ -18,7 +18,7 @@ object TabGroup extends WebComponent("sl-tab-group") {
   @JSImport("@shoelace-style/shoelace/dist/components/tab-group/tab-group.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = TabGroupComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -111,7 +111,7 @@ object TabGroup extends WebComponent("sl-tab-group") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait TabGroupComponent extends js.Object { this: dom.HTMLElement => 
 
     /** The placement of the tabs. */
     var placement: String

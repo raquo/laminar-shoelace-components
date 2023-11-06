@@ -17,7 +17,7 @@ object FormatNumber extends WebComponent("sl-format-number") {
   @JSImport("@shoelace-style/shoelace/dist/components/format-number/format-number.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = FormatNumberComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -83,7 +83,7 @@ object FormatNumber extends WebComponent("sl-format-number") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait FormatNumberComponent extends js.Object { this: dom.HTMLElement => 
 
     /** The formatting style to use. */
     var `type`: String

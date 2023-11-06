@@ -17,7 +17,7 @@ object TreeItem extends WebComponent("sl-tree-item") {
   @JSImport("@shoelace-style/shoelace/dist/components/tree-item/tree-item.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = TreeItemComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -143,7 +143,7 @@ object TreeItem extends WebComponent("sl-tree-item") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait TreeItemComponent extends js.Object { this: dom.HTMLElement => 
 
     val indeterminate: Boolean
 

@@ -17,7 +17,7 @@ object Tag extends WebComponent("sl-tag") {
   @JSImport("@shoelace-style/shoelace/dist/components/tag/tag.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = TagComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -80,7 +80,7 @@ object Tag extends WebComponent("sl-tag") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait TagComponent extends js.Object { this: dom.HTMLElement => 
 
     /** The tag's theme variant. */
     var variant: String

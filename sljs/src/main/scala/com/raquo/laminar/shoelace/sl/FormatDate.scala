@@ -17,7 +17,7 @@ object FormatDate extends WebComponent("sl-format-date") {
   @JSImport("@shoelace-style/shoelace/dist/components/format-date/format-date.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = FormatDateComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -82,7 +82,7 @@ object FormatDate extends WebComponent("sl-format-date") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait FormatDateComponent extends js.Object { this: dom.HTMLElement => 
 
     /** The format for displaying the weekday. */
     var weekday: String

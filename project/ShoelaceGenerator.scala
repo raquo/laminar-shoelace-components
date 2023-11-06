@@ -201,10 +201,11 @@ class ShoelaceGenerator(
 
       printComponentRawImport(element)
 
+      val componentTraitName = rawComponentTraitName(element)
       val elementBaseType = "dom." + st.elementBaseType(element.tagName)
       val showRawComponent = element.allJsProperties.nonEmpty
 
-      printRefType(showRawComponent, elementBaseType)
+      printRefType(componentTraitName, showRawComponent, elementBaseType)
 
       printEventProps(element)
 
@@ -219,7 +220,7 @@ class ShoelaceGenerator(
       printCssParts(element)
 
       if (showRawComponent) {
-        printRawComponent(element, elementBaseType)
+        printRawComponent(element, componentTraitName, elementBaseType)
       }
     }
   }
@@ -264,10 +265,10 @@ class ShoelaceGenerator(
     line("@js.native object RawImport extends js.Object")
   }
 
-  def printRefType(showRawComponent: Boolean, elementBaseType: String): Unit = {
+  def printRefType(componentTraitName: String, showRawComponent: Boolean, elementBaseType: String): Unit = {
     if (showRawComponent) {
       line()
-      line(s"type Ref = ${elementBaseType} with RawComponent")
+      line(s"type Ref = ${componentTraitName} with ${elementBaseType}")
     } else {
       line()
       line(s"type Ref = ${elementBaseType}")
@@ -392,12 +393,12 @@ class ShoelaceGenerator(
     }
   }
 
-  def printRawComponent(element: Def.Element, elementBaseType: String): Unit = {
+  def printRawComponent(element: Def.Element, componentTraitName: String, elementBaseType: String): Unit = {
     line()
     line()
     line("// -- Element type -- ")
     line()
-    enter(s"@js.native trait RawComponent extends js.Object { this: ${elementBaseType} => ", "}") {
+    enter(s"@js.native trait ${componentTraitName} extends js.Object { this: ${elementBaseType} => ", "}") {
       element.allJsProperties.foreach { prop =>
         val context = s"RawComponent prop `${prop.propName}` in `${element.tagName}`"
         val outputType = st.scalaPropOutputType(context, prop.jsTypes)
@@ -407,6 +408,10 @@ class ShoelaceGenerator(
         line(s"${defType} ${prop.propScalaName}: ${outputType}")
       }
     }
+  }
+
+  def rawComponentTraitName(element: Def.Element): String = {
+    element.scalaName + "Component"
   }
 
 

@@ -17,7 +17,7 @@ object SplitPanel extends WebComponent("sl-split-panel") {
   @JSImport("@shoelace-style/shoelace/dist/components/split-panel/split-panel.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = SplitPanelComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -117,7 +117,7 @@ object SplitPanel extends WebComponent("sl-split-panel") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait SplitPanelComponent extends js.Object { this: dom.HTMLElement => 
 
     /**
       * The current position of the divider from the primary panel's edge as a percentage 0-100. Defaults to 50% of the

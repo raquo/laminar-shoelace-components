@@ -17,7 +17,7 @@ object Popup extends WebComponent("sl-popup") {
   @JSImport("@shoelace-style/shoelace/dist/components/popup/popup.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = PopupComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -159,7 +159,7 @@ object Popup extends WebComponent("sl-popup") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait PopupComponent extends js.Object { this: dom.HTMLElement => 
 
     /**
       * Activates the positioning logic and shows the popup. When this attribute is removed, the positioning logic is torn

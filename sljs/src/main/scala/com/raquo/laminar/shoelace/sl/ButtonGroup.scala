@@ -17,7 +17,7 @@ object ButtonGroup extends WebComponent("sl-button-group") {
   @JSImport("@shoelace-style/shoelace/dist/components/button-group/button-group.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = ButtonGroupComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -62,7 +62,7 @@ object ButtonGroup extends WebComponent("sl-button-group") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait ButtonGroupComponent extends js.Object { this: dom.HTMLElement => 
 
     /**
       * A label to use for the button group. This won't be displayed on the screen, but it will be announced by assistive

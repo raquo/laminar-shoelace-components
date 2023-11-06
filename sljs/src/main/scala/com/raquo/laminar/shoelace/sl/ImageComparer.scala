@@ -17,7 +17,7 @@ object ImageComparer extends WebComponent("sl-image-comparer") {
   @JSImport("@shoelace-style/shoelace/dist/components/image-comparer/image-comparer.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = ImageComparerComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -86,7 +86,7 @@ object ImageComparer extends WebComponent("sl-image-comparer") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait ImageComparerComponent extends js.Object { this: dom.HTMLElement => 
 
     /** The position of the divider as a percentage. */
     var position: Int

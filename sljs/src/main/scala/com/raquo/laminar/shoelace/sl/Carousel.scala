@@ -17,7 +17,7 @@ object Carousel extends WebComponent("sl-carousel") {
   @JSImport("@shoelace-style/shoelace/dist/components/carousel/carousel.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = CarouselComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -128,7 +128,7 @@ object Carousel extends WebComponent("sl-carousel") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait CarouselComponent extends js.Object { this: dom.HTMLElement => 
 
     /** When set, allows the user to navigate the carousel in the same direction indefinitely. */
     var loop: Boolean

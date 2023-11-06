@@ -17,7 +17,7 @@ object Select extends WebComponent("sl-select") {
   @JSImport("@shoelace-style/shoelace/dist/components/select/select.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = SelectComponent with dom.HTMLElement
 
 
   // -- Events --
@@ -210,7 +210,7 @@ object Select extends WebComponent("sl-select") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait SelectComponent extends js.Object { this: dom.HTMLElement => 
 
     /** The name of the select, submitted as a name/value pair with form data. */
     var name: String

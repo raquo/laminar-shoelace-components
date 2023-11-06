@@ -17,7 +17,7 @@ object Textarea extends WebComponent("sl-textarea") {
   @JSImport("@shoelace-style/shoelace/dist/components/textarea/textarea.js")
   @js.native object RawImport extends js.Object
 
-  type Ref = dom.HTMLTextAreaElement with RawComponent
+  type Ref = TextareaComponent with dom.HTMLTextAreaElement
 
 
   // -- Events --
@@ -167,7 +167,7 @@ object Textarea extends WebComponent("sl-textarea") {
 
   // -- Element type -- 
 
-  @js.native trait RawComponent extends js.Object { this: dom.HTMLTextAreaElement => 
+  @js.native trait TextareaComponent extends js.Object { this: dom.HTMLTextAreaElement => 
 
     var title: String
 
