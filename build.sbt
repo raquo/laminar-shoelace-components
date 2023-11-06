@@ -24,9 +24,9 @@ lazy val root = project.in(file("."))
   .aggregate(js, jvm)
   .settings(noPublish)
   .settings(
-    name := "Laminar Shoelace Components",
+    name := "Laminar Shoelace",
     generateShoelace := {
-      ShoelaceGenerator(
+      new ShoelaceGenerator(
         customElementsJsonPath = "sljs/node_modules/@shoelace-style/shoelace/dist/custom-elements.json",
         baseOutputDirectoryPath = "sljs/src/main/scala/com/raquo/laminar/shoelace/sl",
         baseOutputPackagePath = "com.raquo.laminar.shoelace.sl"
@@ -67,7 +67,7 @@ lazy val js = project
     }
   )
   .settings(
-    //name := "Laminar Shoelace Components",
+    //name := "Laminar Shoelace",
     normalizedName := "laminar-shoelace",
     organization := "com.raquo",
     homepage := Some(url("https://github.com/raquo/laminar-shoelace-components")),

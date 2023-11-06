@@ -11,12 +11,14 @@ import java.nio.file.NoSuchFileException
 import java.io.{File, FileOutputStream, PrintStream}
 import java.nio.file.{Files, NoSuchFileException, Path}
 
-case class ShoelaceGenerator(
-  customElementsJsonPath: String,
-  baseOutputDirectoryPath: String,
-  baseOutputPackagePath: String,
-  format: CodeFormatting = CodeFormatting(),
+class ShoelaceGenerator(
+  val customElementsJsonPath: String,
+  val baseOutputDirectoryPath: String,
+  val baseOutputPackagePath: String,
+  val format: CodeFormatting = CodeFormatting(),
 ) extends SourceGenerator(format) {
+
+  final val Def: WebComponentsDef.type = WebComponentsDef
 
   /** Overwrite this with directory name if you ant to output components in a subdirectory */
   lazy val componentsPackageName: String = ""
@@ -38,338 +40,9 @@ case class ShoelaceGenerator(
   /** If true, we'll import scala.scalajs.js.| - this is needed to support Scala 2. */
   lazy val useScalaJsUnionType: Boolean = true
 
-  val Def: WebComponentsDef.type = WebComponentsDef
-
-  private val manifest: CustomElementsManifest = {
-    try {
-      val fileContent = Files.readString(Path.of(customElementsJsonPath))
-      read[CustomElementsManifest](fileContent)
-    } catch {
-      case err: NoSuchFileException =>
-        throw new Exception(s"NoSuchFileException: ${err.getMessage} file not found. Make sure the path is correct. Make sure to npm install JS dependencies in the ./js folder.")
-    }
-  }
-
-  private val st = ShoelaceTranslator(
-    manifest = manifest,
-    uiLibPropDefs = PropDefs.defs,
-    uiLibAttrDefs = HtmlAttrDefs.defs,
-    uiLibReflectedAttrDefs = ReflectedHtmlAttrDefs.defs,
-    forceScalaAttrNames = List(
-      "autocorrect" -> "autoCorrect"
-    )
-  )
-
-  private val commonStringAttrs = List(
+  lazy val commonStringAttrs: List[String] = List(
     "size", "target", "autocapitalize", "variant", "placement", "inputmode"
   )
-
-  st.components.elements.foreach { el =>
-    //pprint.pprintln(el.copy(cssParts = Nil, cssProperties = Nil, slots = Nil)) // More compact printing
-  }
-
-  def generate(): Unit = {
-    println(">>>>")
-    println(">>>>")
-    println(">>>>")
-    val elements = st.components.elements
-
-    {
-      printEventTypesFile(
-        //filePackagePath = eventTypesPackagePath,
-        //componentsPackagePath = componentsPackagePath,
-        eventTypes = st.customEventTypes,
-        //objectName = eventTypesObjectName,
-        //baseCustomEventType = baseCustomEventType,
-        //baseDomEventType = baseDomEventType
-      )
-      val output = getOutput()
-
-      writeToFile(
-        packagePath = eventTypesPackagePath,
-        fileName = eventTypesObjectName + ".scala",
-        fileContent = output
-      )
-    }
-
-    elements.foreach { el =>
-      if (el.writableNonReflectedProperties.nonEmpty) {
-        println(el.tagName)
-        println(el.writableNonReflectedProperties.map(_.propName).mkString("  > ", ", ", ""))
-      }
-    }
-
-    elements.foreach { el =>
-      //println("> " + el.tagName)
-      printElementFile(
-        //filePackagePath = componentsPackagePath,
-        //eventTypesPackagePath = eventTypesPackagePath,
-        //eventTypesObjectName = eventTypesObjectName,
-        element = el
-      )
-      val output = getOutput()
-      if (el.tagName == "sl-animation") {
-        println(output)
-      }
-      //println(output)
-      //el.writableProperties.foreach { p =>
-      //  println("    - " + p.propName + "   " + p.jsTypes.mkString(" | "))
-      //}
-      writeToFile(
-        packagePath = componentsPackagePath,
-        fileName = el.scalaName + ".scala",
-        fileContent = output
-      )
-    }
-
-    //printAttrUsageAnalysis(elements)
-
-    //val el = .find(_.tagName == "sl-input").get
-    //pprint.pprintln(el)
-    //println("---")
-    //println("---")
-    //println("---")
-
-  }
-
-  def printEventTypesFile(
-    //filePackagePath: String,
-    //componentsPackagePath: String,
-    eventTypes: List[CustomEventType],
-    //objectName: String,
-    //baseCustomEventType: String,
-    //baseDomEventType: String
-  ): Unit = {
-    line(s"package ${eventTypesPackagePath}")
-    line()
-    if (componentsPackagePath != eventTypesPackagePath) {
-      line(s"import ${componentsPackagePath}.*")
-    }
-    line("import org.scalajs.dom")
-    line()
-    line("import scala.scalajs.js")
-    if (useScalaJsUnionType) {
-      line("import scala.scalajs.js.|")
-    }
-    line()
-    line("// This file is generated at compile-time by ShoelaceGenerator.scala")
-    line()
-    //val objCommentLines = element.description ++ element.docUrl.map(url => s"[[$url Shoelace ${element.scalaName} docs]]").toList
-    blockCommentLines(List("Common Shoelace event types"))
-    enter(s"object ${eventTypesObjectName} {", "}") {
-      line()
-      line("@js.native")
-      line(s"trait ${baseCustomEventType} extends dom.${baseDomEventType}")
-      line()
-      eventTypes.foreach { et =>
-        line()
-        line("@js.native")
-        enter(s"trait ${et.scalaName} extends ${baseCustomEventType} {", "}") {
-          et.fields.foreach { field =>
-            val scalaTypeStr = st.scalaPropOutputType(s"prop `${field.domName}` in event type `${et.scalaName}`", field.jsTypes)
-            line()
-            blockCommentLines(field.description)
-            line(s"val ${field.scalaName}: ${scalaTypeStr}")
-          }
-        }
-        et.scalaName
-      }
-    }
-  }
-
-  def printElementFile(
-    //filePackagePath: String,
-    //eventTypesPackagePath: String,
-    //eventTypesObjectName: String,
-    element: Def.Element
-  ): Unit = {
-    val customEventTypes = element.events.flatMap(_.customType)
-
-    line(s"package ${componentsPackagePath}")
-    line()
-    val laminarKeyTypes = List(
-      if (element.events.nonEmpty) "EventProp" else "",
-      if (element.writableNonReflectedProperties.nonEmpty) "HtmlProp" else "",
-      if (element.attributes.nonEmpty) "HtmlAttr" else "",
-    ).filter(_.nonEmpty)
-    whenNonEmpty(laminarKeyTypes) { _types =>
-      line(s"import com.raquo.laminar.keys.${_types.mkString("{", ", ", "}")}")
-    }
-    //line("import com.raquo.utils.JSImportSideEffect")
-    if (customEventTypes.nonEmpty) {
-      line(s"import ${eventTypesPackagePath}.${eventTypesObjectName}.*")
-    }
-    if (eventTypesPackagePath != componentsPackagePath) {
-      line(s"import ${helpersPackagePath}.{CommonKeys, WebComponent}")
-      if (element.slots.nonEmpty) {
-        line(s"import ${baseOutputPackagePath}.Slot")
-      }
-    }
-    line("import com.raquo.laminar.api.L.*")
-    line("import com.raquo.laminar.defs.styles.{traits as s, units as u}")
-    line("import org.scalajs.dom")
-    line()
-    line("import scala.scalajs.js")
-    if (useScalaJsUnionType) {
-      line("import scala.scalajs.js.|")
-    }
-    line("import scala.scalajs.js.annotation.JSImport")
-    line()
-    line("// This file is generated at compile-time by ShoelaceGenerator.scala")
-    line()
-    val objCommentLines = element.description ++ element.docUrl.map(url => s"[[$url Shoelace ${element.scalaName} docs]]").toList
-    blockCommentLines(objCommentLines)
-    enter(s"object ${element.scalaName} extends WebComponent(${repr(element.tagName)}) {", "}") {
-      line()
-      line(s"@JSImport(${repr(element.importPath)})")
-      line("@js.native object RawImport extends js.Object")
-
-      val elementBaseType = "dom." + st.elementBaseType(element.tagName)
-      val showRawComponent = element.allJsProperties.nonEmpty
-      if (showRawComponent) {
-        line()
-        line(s"type Ref = ${elementBaseType} with RawComponent")
-      } else {
-        line()
-        line(s"type Ref = dom.${st.elementBaseType(element.tagName)}")
-      }
-
-      {
-        line()
-        line()
-        line("// -- Events --")
-        element.events.foreach { event =>
-          val customEventTypeDef = event.customType
-          val eventType = customEventTypeDef.map(_.scalaName).getOrElse(st.baseEventType)
-          line()
-          blockCommentLines(event.description)
-          line(s"lazy val ${event.scalaName}: EventProp[${eventType}] = eventProp(${repr(event.domName)})")
-        }
-      }
-
-      {
-        line()
-        line()
-        line("// -- Attributes --")
-        element.attributes.foreach { attr =>
-          line()
-          val scalaTypeStr = st.scalaAttrInputTypeStr(attr, element.tagName)
-          blockCommentLines(attr.description)
-          if (commonStringAttrs.contains(attr.attrName) && attr.jsTypes.forall {
-            case Def.JsStringType | Def.JsStringConstantType(_) | Def.JsUndefinedType => true
-            case _ => false
-          }) {
-            line(s"lazy val ${attr.scalaName}: CommonKeys.${attr.scalaName}.type = CommonKeys.${attr.scalaName}")
-          } else {
-            line(s"lazy val ${attr.scalaName}: HtmlAttr[${scalaTypeStr}] = ${attrImplName(scalaTypeStr)}(${repr(attr.attrName)})")
-          }
-          whenNonEmpty(attr.scalaAliases) { aliases =>
-            aliases.foreach { alias =>
-              line()
-              line(s"lazy val ${alias}: HtmlAttr[${scalaTypeStr}] = ${attr.scalaName}")
-            }
-          }
-        }
-      }
-
-      {
-        line()
-        line()
-        line("// -- Props --")
-        element.writableNonReflectedProperties.foreach { prop =>
-          line()
-          val scalaInputTypeStr = st.scalaPropInputTypeStr(prop, element.tagName)
-          line(s"lazy val ${prop.propName}: HtmlPropOf[${scalaInputTypeStr}] = ${propImplName(scalaInputTypeStr)}(${repr(prop.propName)})")
-        }
-      }
-
-      {
-        line()
-        line()
-        line("// -- Slots --")
-        line()
-        if (element.slots.isEmpty) {
-          line("/** This component has no slots - don't give it any children. */")
-          line("@inline def noSlots: Unit = ()")
-        } else {
-          enter("object slots {", "}") {
-            element.slots.map { slot =>
-              line()
-              val commentLines = slot.description
-              if (slot.isDefault) {
-                val extraString = "Note: You can just say `_ => element` instead of `_.slots.default(element)`"
-                if (commentLines.length == 1) {
-                  blockCommentLines(List(commentLines.head + " " + extraString))
-                } else {
-                  blockCommentLines(commentLines :+ extraString)
-                }
-              } else {
-                blockCommentLines(commentLines)
-              }
-              line(s"lazy val ${slot.scalaName}: Slot = Slot(${repr(slot.domName)})")
-            }
-          }
-        }
-      }
-
-      {
-        line()
-        line()
-        line("// -- CSS Vars --")
-        line()
-        if (element.cssProperties.isEmpty) {
-          line("/** This component has no CSS vars / custom properties. */")
-          line("@inline def noCssVars: Unit = ()")
-        } else {
-          enter("object cssVars {", "}") {
-            element.cssProperties.map { cssProp =>
-              line()
-              val commentLines = cssProp.description.map(_.replace(" _(default: undefined)_", ""))
-              blockCommentLines(commentLines)
-              line(s"lazy val ${cssProp.scalaName}: ${cssPropType(cssProp.cssType)} = ${cssPropImplName(cssProp.cssType)}(${repr(cssProp.cssName)})")
-            }
-          }
-        }
-      }
-
-      {
-        line()
-        line()
-        line("// -- CSS Parts --")
-        line()
-        if (element.cssParts.isEmpty) {
-          line("/** This component has no CSS parts. */")
-          line("@inline def noCssParts: Unit = ()")
-        } else {
-          line("/** For documentation only. You need to style these from a CSS stylesheet. */")
-          enter("object cssParts {", "}") {
-            element.cssParts.map { part =>
-              line()
-              blockCommentLines(part.description)
-              line(s"lazy val ${part.scalaName}: String = ${repr(part.cssName)}")
-            }
-          }
-        }
-      }
-
-      if (showRawComponent) {
-        line()
-        line()
-        line("// -- Element type -- ")
-        line()
-        enter(s"@js.native trait RawComponent extends js.Object { this: ${elementBaseType} => ", "}") {
-          element.allJsProperties.foreach { prop =>
-            val context = s"RawComponent prop `${prop.propName}` in `${element.tagName}`"
-            val outputType = st.scalaPropOutputType(context, prop.jsTypes)
-            val defType = if (prop.readonly) "val" else "var"
-            line()
-            blockCommentLines(prop.description)
-            line(s"${defType} ${prop.propScalaName}: ${outputType}")
-          }
-        }
-      }
-    }
-  }
 
   def attrImplName(scalaTypeStr: String): String = {
     scalaTypeStr match {
@@ -415,6 +88,331 @@ case class ShoelaceGenerator(
     }
   }
 
+
+  // -- Entry point & Generators --
+
+  lazy val manifest: CustomElementsManifest = {
+    try {
+      val fileContent = Files.readString(Path.of(customElementsJsonPath))
+      read[CustomElementsManifest](fileContent)
+    } catch {
+      case err: NoSuchFileException =>
+        throw new Exception(s"NoSuchFileException: ${err.getMessage} file not found. Make sure the path is correct. Make sure to npm install JS dependencies in the ./js folder.")
+    }
+  }
+
+  lazy val st: ShoelaceTranslator = ShoelaceTranslator(
+    manifest = manifest,
+    uiLibPropDefs = PropDefs.defs,
+    uiLibAttrDefs = HtmlAttrDefs.defs,
+    uiLibReflectedAttrDefs = ReflectedHtmlAttrDefs.defs,
+    forceScalaAttrNames = List(
+      "autocorrect" -> "autoCorrect"
+    )
+  )
+
+  def generate(): Unit = {
+    val elements = st.components.elements
+
+    {
+      printEventTypesFile(st.customEventTypes)
+      val output = getOutput()
+      writeToFile(
+        packagePath = eventTypesPackagePath,
+        fileName = eventTypesObjectName + ".scala",
+        fileContent = output
+      )
+    }
+
+    //elements.foreach { el =>
+    //  if (el.writableNonReflectedProperties.nonEmpty) {
+    //    println(el.tagName)
+    //    println(el.writableNonReflectedProperties.map(_.propName).mkString("  > ", ", ", ""))
+    //  }
+    //}
+
+    elements.foreach { el =>
+      printElementFile(el)
+      val output = getOutput()
+      writeToFile(
+        packagePath = componentsPackagePath,
+        fileName = el.scalaName + ".scala",
+        fileContent = output
+      )
+    }
+  }
+
+
+  def printEventTypesFile(
+    eventTypes: List[CustomEventType],
+  ): Unit = {
+    line(s"package ${eventTypesPackagePath}")
+    line()
+    if (componentsPackagePath != eventTypesPackagePath) {
+      line(s"import ${componentsPackagePath}.*")
+    }
+    line("import org.scalajs.dom")
+    line()
+    line("import scala.scalajs.js")
+    if (useScalaJsUnionType) {
+      line("import scala.scalajs.js.|")
+    }
+    line()
+    line("// This file is generated at compile-time by ShoelaceGenerator.scala")
+    line()
+    //val objCommentLines = element.description ++ element.docUrl.map(url => s"[[$url Shoelace ${element.scalaName} docs]]").toList
+    blockCommentLines(List("Common Shoelace event types"))
+    enter(s"object ${eventTypesObjectName} {", "}") {
+      line()
+      line("@js.native")
+      line(s"trait ${baseCustomEventType} extends dom.${baseDomEventType}")
+      line()
+      eventTypes.foreach { et =>
+        line()
+        line("@js.native")
+        enter(s"trait ${et.scalaName} extends ${baseCustomEventType} {", "}") {
+          et.fields.foreach { field =>
+            val scalaTypeStr = st.scalaPropOutputType(s"prop `${field.domName}` in event type `${et.scalaName}`", field.jsTypes)
+            line()
+            blockCommentLines(field.description)
+            line(s"val ${field.scalaName}: ${scalaTypeStr}")
+          }
+        }
+        et.scalaName
+      }
+    }
+  }
+
+  def printElementFile(
+    //filePackagePath: String,
+    //eventTypesPackagePath: String,
+    //eventTypesObjectName: String,
+    element: Def.Element
+  ): Unit = {
+
+    line(s"package ${componentsPackagePath}")
+    line()
+
+    printComponentFileImports(element)
+
+    val objCommentLines = element.description ++ element.docUrl.map(url => s"[[$url Shoelace ${element.scalaName} docs]]").toList
+    blockCommentLines(objCommentLines)
+    enter(s"object ${element.scalaName} extends WebComponent(${repr(element.tagName)}) {", "}") {
+
+      printComponentRawImport(element)
+
+      val elementBaseType = "dom." + st.elementBaseType(element.tagName)
+      val showRawComponent = element.allJsProperties.nonEmpty
+
+      printRefType(showRawComponent, elementBaseType)
+
+      printEventProps(element)
+
+      printAttributes(element)
+
+      printProps(element)
+
+      printSlots(element)
+
+      printCssProps(element)
+
+      printCssParts(element)
+
+      if (showRawComponent) {
+        printRawComponent(element, elementBaseType)
+      }
+    }
+  }
+
+  def printComponentFileImports(element: Def.Element): Unit = {
+    val customEventTypes = element.events.flatMap(_.customType)
+    val laminarKeyTypes = List(
+      if (element.events.nonEmpty) "EventProp" else "",
+      if (element.writableNonReflectedProperties.nonEmpty) "HtmlProp" else "",
+      if (element.attributes.nonEmpty) "HtmlAttr" else "",
+    ).filter(_.nonEmpty)
+    if (laminarKeyTypes.nonEmpty) {
+      line(s"import com.raquo.laminar.keys.${laminarKeyTypes.mkString("{", ", ", "}")}")
+    }
+    //line("import com.raquo.utils.JSImportSideEffect")
+    if (customEventTypes.nonEmpty) {
+      line(s"import ${eventTypesPackagePath}.${eventTypesObjectName}.*")
+    }
+    if (eventTypesPackagePath != componentsPackagePath) {
+      line(s"import ${helpersPackagePath}.{CommonKeys, WebComponent}")
+      if (element.slots.nonEmpty) {
+        line(s"import ${baseOutputPackagePath}.Slot")
+      }
+    }
+    line("import com.raquo.laminar.api.L.*")
+    line("import com.raquo.laminar.defs.styles.{traits as s, units as u}")
+    line("import org.scalajs.dom")
+    line()
+    line("import scala.scalajs.js")
+    if (useScalaJsUnionType) {
+      line("import scala.scalajs.js.|")
+    }
+    line("import scala.scalajs.js.annotation.JSImport")
+    line()
+    line("// This file is generated at compile-time by ShoelaceGenerator.scala")
+    line()
+  }
+
+  def printComponentRawImport(element: Def.Element): Unit = {
+    line()
+    line(s"@JSImport(${repr(element.importPath)})")
+    line("@js.native object RawImport extends js.Object")
+  }
+
+  def printRefType(showRawComponent: Boolean, elementBaseType: String): Unit = {
+    if (showRawComponent) {
+      line()
+      line(s"type Ref = ${elementBaseType} with RawComponent")
+    } else {
+      line()
+      line(s"type Ref = ${elementBaseType}")
+    }
+  }
+
+  def printEventProps(element: Def.Element): Unit = {
+    line()
+    line()
+    line("// -- Events --")
+    element.events.foreach { event =>
+      val customEventTypeDef = event.customType
+      val eventType = customEventTypeDef.map(_.scalaName).getOrElse(st.baseEventType)
+      line()
+      blockCommentLines(event.description)
+      line(s"lazy val ${event.scalaName}: EventProp[${eventType}] = eventProp(${repr(event.domName)})")
+    }
+  }
+
+  def printAttributes(element: Def.Element): Unit = {
+    line()
+    line()
+    line("// -- Attributes --")
+    element.attributes.foreach { attr =>
+      line()
+      val scalaTypeStr = st.scalaAttrInputTypeStr(attr, element.tagName)
+      blockCommentLines(attr.description)
+      if (commonStringAttrs.contains(attr.attrName) && attr.jsTypes.forall {
+        case Def.JsStringType | Def.JsStringConstantType(_) | Def.JsUndefinedType => true
+        case _ => false
+      }) {
+        line(s"lazy val ${attr.scalaName}: CommonKeys.${attr.scalaName}.type = CommonKeys.${attr.scalaName}")
+      } else {
+        line(s"lazy val ${attr.scalaName}: HtmlAttr[${scalaTypeStr}] = ${attrImplName(scalaTypeStr)}(${repr(attr.attrName)})")
+      }
+      if (attr.scalaAliases.nonEmpty) {
+        attr.scalaAliases.foreach { alias =>
+          line()
+          line(s"lazy val ${alias}: HtmlAttr[${scalaTypeStr}] = ${attr.scalaName}")
+        }
+      }
+    }
+  }
+
+  def printProps(element: Def.Element): Unit = {
+    line()
+    line()
+    line("// -- Props --")
+    element.writableNonReflectedProperties.foreach { prop =>
+      line()
+      val scalaInputTypeStr = st.scalaPropInputTypeStr(prop, element.tagName)
+      line(s"lazy val ${prop.propName}: HtmlPropOf[${scalaInputTypeStr}] = ${propImplName(scalaInputTypeStr)}(${repr(prop.propName)})")
+    }
+  }
+
+  def printSlots(element: Def.Element): Unit = {
+    line()
+    line()
+    line("// -- Slots --")
+    line()
+    if (element.slots.isEmpty) {
+      line("/** This component has no slots - don't give it any children. */")
+      line("@inline def noSlots: Unit = ()")
+    } else {
+      enter("object slots {", "}") {
+        element.slots.map { slot =>
+          line()
+          val commentLines = slot.description
+          if (slot.isDefault) {
+            val extraString = "Note: You can just say `_ => element` instead of `_.slots.default(element)`"
+            if (commentLines.length == 1) {
+              blockCommentLines(List(commentLines.head + " " + extraString))
+            } else {
+              blockCommentLines(commentLines :+ extraString)
+            }
+          } else {
+            blockCommentLines(commentLines)
+          }
+          line(s"lazy val ${slot.scalaName}: Slot = Slot(${repr(slot.domName)})")
+        }
+      }
+    }
+  }
+
+  def printCssProps(element: Def.Element): Unit = {
+    line()
+    line()
+    line("// -- CSS Vars --")
+    line()
+    if (element.cssProperties.isEmpty) {
+      line("/** This component has no CSS vars / custom properties. */")
+      line("@inline def noCssVars: Unit = ()")
+    } else {
+      enter("object cssVars {", "}") {
+        element.cssProperties.map { cssProp =>
+          line()
+          val commentLines = cssProp.description.map(_.replace(" _(default: undefined)_", ""))
+          blockCommentLines(commentLines)
+          line(s"lazy val ${cssProp.scalaName}: ${cssPropType(cssProp.cssType)} = ${cssPropImplName(cssProp.cssType)}(${repr(cssProp.cssName)})")
+        }
+      }
+    }
+  }
+
+  def printCssParts(element: Def.Element): Unit = {
+    line()
+    line()
+    line("// -- CSS Parts --")
+    line()
+    if (element.cssParts.isEmpty) {
+      line("/** This component has no CSS parts. */")
+      line("@inline def noCssParts: Unit = ()")
+    } else {
+      line("/** For documentation only. You need to style these from a CSS stylesheet. */")
+      enter("object cssParts {", "}") {
+        element.cssParts.map { part =>
+          line()
+          blockCommentLines(part.description)
+          line(s"lazy val ${part.scalaName}: String = ${repr(part.cssName)}")
+        }
+      }
+    }
+  }
+
+  def printRawComponent(element: Def.Element, elementBaseType: String): Unit = {
+    line()
+    line()
+    line("// -- Element type -- ")
+    line()
+    enter(s"@js.native trait RawComponent extends js.Object { this: ${elementBaseType} => ", "}") {
+      element.allJsProperties.foreach { prop =>
+        val context = s"RawComponent prop `${prop.propName}` in `${element.tagName}`"
+        val outputType = st.scalaPropOutputType(context, prop.jsTypes)
+        val defType = if (prop.readonly) "val" else "var"
+        line()
+        blockCommentLines(prop.description)
+        line(s"${defType} ${prop.propScalaName}: ${outputType}")
+      }
+    }
+  }
+
+
+  // -- Various helpers --
+
+  /** Helper tool to find common / popular attributes */
   def printAttrUsageAnalysis(
     elements: List[Def.Element]
   ): Unit = {
@@ -442,11 +440,11 @@ case class ShoelaceGenerator(
     println(s"(N usages >= ${n}), Total unique attr names ${filteredAttrs.length}, and attr instances: ${filteredAttrs.foldLeft(0)((acc, t) => acc + t._2.length)}")
   }
 
-  def whenNonEmpty[A](rawList: List[A])(print: List[A] => Unit): Unit = {
-    if (rawList.nonEmpty) {
-      print(rawList)
-    }
-  }
+  //def whenNonEmpty[A](rawList: List[A])(print: List[A] => Unit): Unit = {
+  //  if (rawList.nonEmpty) {
+  //    print(rawList)
+  //  }
+  //}
 
   def replaceFirstPrefix(line: String, findReplace: List[(String, String)]): String = {
     findReplace.collectFirst {

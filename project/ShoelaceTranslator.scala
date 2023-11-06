@@ -14,13 +14,11 @@ case class ShoelaceTranslator(
 
   val M: CustomElementsManifest.type = CustomElementsManifest
 
-  //val commonKeyEvents: List[String]
-
   /** Returns scalajs-dom type for the component's base element type */
   def elementBaseType(tagName: String): String = {
     // #TODO
     tagName match {
-      case "sl-button" => "HTMLButtonElement"
+      //case "sl-button" => "HTMLButtonElement" // This can be a link too... Ugh..
       case "sl-input" => "HTMLInputElement"
       case "sl-textarea" => "HTMLTextAreaElement"
       //case "sl-select" => "HTMLSelectElement" // Does not seem to be the case...
