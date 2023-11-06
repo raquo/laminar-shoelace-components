@@ -17,10 +17,7 @@ object Include extends WebComponent("sl-include") {
   @JSImport("@shoelace-style/shoelace/dist/components/include/include.js")
   @js.native object RawImport extends js.Object
 
-  @js.native trait RawComponent extends js.Object {
-  }
-
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = dom.HTMLElement
 
 
   // -- Events --

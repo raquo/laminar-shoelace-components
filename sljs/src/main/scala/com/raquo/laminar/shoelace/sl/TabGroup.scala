@@ -17,10 +17,7 @@ object TabGroup extends WebComponent("sl-tab-group") {
   @JSImport("@shoelace-style/shoelace/dist/components/tab-group/tab-group.js")
   @js.native object RawImport extends js.Object
 
-  @js.native trait RawComponent extends js.Object {
-  }
-
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = dom.HTMLElement
 
 
   // -- Events --

@@ -17,6 +17,8 @@ object Carousel extends WebComponent("sl-carousel") {
   @js.native object RawImport extends js.Object
 
   @js.native trait RawComponent extends js.Object {
+
+    val activeSlide: Int
   }
 
   type Ref = dom.HTMLElement with RawComponent

@@ -17,6 +17,8 @@ object Button extends WebComponent("sl-button") {
   @js.native object RawImport extends js.Object
 
   @js.native trait RawComponent extends js.Object {
+
+    val invalid: Boolean
   }
 
   type Ref = dom.HTMLButtonElement with RawComponent

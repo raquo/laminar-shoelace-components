@@ -16,10 +16,7 @@ object ButtonGroup extends WebComponent("sl-button-group") {
   @JSImport("@shoelace-style/shoelace/dist/components/button-group/button-group.js")
   @js.native object RawImport extends js.Object
 
-  @js.native trait RawComponent extends js.Object {
-  }
-
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = dom.HTMLElement
 
 
   // -- Events --

@@ -18,6 +18,10 @@ object AnimatedImage extends WebComponent("sl-animated-image") {
   @js.native object RawImport extends js.Object
 
   @js.native trait RawComponent extends js.Object {
+
+    val frozenFrame: String
+
+    val isLoaded: Boolean
   }
 
   type Ref = dom.HTMLElement with RawComponent

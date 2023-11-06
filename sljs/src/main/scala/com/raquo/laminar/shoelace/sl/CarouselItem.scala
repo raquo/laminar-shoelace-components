@@ -14,10 +14,7 @@ object CarouselItem extends WebComponent("sl-carousel-item") {
   @JSImport("@shoelace-style/shoelace/dist/components/carousel-item/carousel-item.js")
   @js.native object RawImport extends js.Object
 
-  @js.native trait RawComponent extends js.Object {
-  }
-
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = dom.HTMLElement
 
 
   // -- Events --

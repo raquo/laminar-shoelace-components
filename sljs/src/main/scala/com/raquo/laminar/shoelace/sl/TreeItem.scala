@@ -17,6 +17,14 @@ object TreeItem extends WebComponent("sl-tree-item") {
   @js.native object RawImport extends js.Object
 
   @js.native trait RawComponent extends js.Object {
+
+    val indeterminate: Boolean
+
+    val isLeaf: Boolean
+
+    val loading: Boolean
+
+    val selectable: Boolean
   }
 
   type Ref = dom.HTMLElement with RawComponent

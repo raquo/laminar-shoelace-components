@@ -16,10 +16,7 @@ object Tag extends WebComponent("sl-tag") {
   @JSImport("@shoelace-style/shoelace/dist/components/tag/tag.js")
   @js.native object RawImport extends js.Object
 
-  @js.native trait RawComponent extends js.Object {
-  }
-
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = dom.HTMLElement
 
 
   // -- Events --

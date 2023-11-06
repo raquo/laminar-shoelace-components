@@ -17,6 +17,12 @@ object Option extends WebComponent("sl-option") {
   @js.native object RawImport extends js.Object
 
   @js.native trait RawComponent extends js.Object {
+
+    val current: Boolean
+
+    val selected: Boolean
+
+    val hasHover: Boolean
   }
 
   type Ref = dom.HTMLElement with RawComponent

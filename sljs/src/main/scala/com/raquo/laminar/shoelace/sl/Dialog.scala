@@ -17,10 +17,7 @@ object Dialog extends WebComponent("sl-dialog") {
   @JSImport("@shoelace-style/shoelace/dist/components/dialog/dialog.js")
   @js.native object RawImport extends js.Object
 
-  @js.native trait RawComponent extends js.Object {
-  }
-
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = dom.HTMLElement
 
 
   // -- Events --

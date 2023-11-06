@@ -16,10 +16,7 @@ object Details extends WebComponent("sl-details") {
   @JSImport("@shoelace-style/shoelace/dist/components/details/details.js")
   @js.native object RawImport extends js.Object
 
-  @js.native trait RawComponent extends js.Object {
-  }
-
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = dom.HTMLElement
 
 
   // -- Events --

@@ -16,10 +16,7 @@ object Divider extends WebComponent("sl-divider") {
   @JSImport("@shoelace-style/shoelace/dist/components/divider/divider.js")
   @js.native object RawImport extends js.Object
 
-  @js.native trait RawComponent extends js.Object {
-  }
-
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = dom.HTMLElement
 
 
   // -- Events --

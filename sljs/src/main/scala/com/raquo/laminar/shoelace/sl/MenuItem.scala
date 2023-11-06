@@ -16,10 +16,7 @@ object MenuItem extends WebComponent("sl-menu-item") {
   @JSImport("@shoelace-style/shoelace/dist/components/menu-item/menu-item.js")
   @js.native object RawImport extends js.Object
 
-  @js.native trait RawComponent extends js.Object {
-  }
-
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = dom.HTMLElement
 
 
   // -- Events --

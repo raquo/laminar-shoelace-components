@@ -16,10 +16,7 @@ object Input extends WebComponent("sl-input") {
   @JSImport("@shoelace-style/shoelace/dist/components/input/input.js")
   @js.native object RawImport extends js.Object
 
-  @js.native trait RawComponent extends js.Object {
-  }
-
-  type Ref = dom.HTMLInputElement with RawComponent
+  type Ref = dom.HTMLInputElement
 
 
   // -- Events --

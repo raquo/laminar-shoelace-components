@@ -16,10 +16,7 @@ object QrCode extends WebComponent("sl-qr-code") {
   @JSImport("@shoelace-style/shoelace/dist/components/qr-code/qr-code.js")
   @js.native object RawImport extends js.Object
 
-  @js.native trait RawComponent extends js.Object {
-  }
-
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = dom.HTMLElement
 
 
   // -- Events --

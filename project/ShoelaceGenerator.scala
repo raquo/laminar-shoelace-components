@@ -89,7 +89,7 @@ case class ShoelaceGenerator(
       )
     }
 
-    elements.foreach{ el =>
+    elements.foreach { el =>
       if (el.writableProperties.nonEmpty) {
         println(el.tagName)
         println(el.writableProperties.map(_.propName).mkString("  > ", ", ", ""))
@@ -219,9 +219,21 @@ case class ShoelaceGenerator(
       line(s"@JSImport(${repr(element.importPath)})")
       line("@js.native object RawImport extends js.Object")
 
-      {
+
+      if (element.readonlyProperties.isEmpty) {
+        line()
+        line(s"type Ref = dom.${st.elementBaseType(element.tagName)}")
+      } else {
         line()
         enter("@js.native trait RawComponent extends js.Object {", "}") {
+
+          element.readonlyProperties.foreach { prop =>
+            val outputType = st.scalaPropOutputTypeStr(context = s"readonly prop `${prop.propName}` in `${element.tagName}`", prop.jsTypes)
+            line()
+            blockCommentLines(prop.description)
+            line(s"val ${prop.propScalaName}: ${outputType}")
+          }
+
           //componentSpecificProps.foreach { prop =>
           //  line()
           //  blockCommentLines(prop.description.split("\n").toList.map { line =>
@@ -297,10 +309,6 @@ case class ShoelaceGenerator(
         line()
         line()
         line("// -- Events --")
-        //if (customEventTypes.nonEmpty) {
-        //  line()
-        //  line(s"import EventTypes.${customEventTypes.map(_.scalaName).mkString("{", ", ", "}")}")
-        //}
         element.events.foreach { event =>
           val customEventTypeDef = event.customType
           val eventType = customEventTypeDef.map(_.scalaName).getOrElse(st.baseEventType)

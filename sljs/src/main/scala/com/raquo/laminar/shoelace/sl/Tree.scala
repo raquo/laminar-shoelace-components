@@ -17,10 +17,7 @@ object Tree extends WebComponent("sl-tree") {
   @JSImport("@shoelace-style/shoelace/dist/components/tree/tree.js")
   @js.native object RawImport extends js.Object
 
-  @js.native trait RawComponent extends js.Object {
-  }
-
-  type Ref = dom.HTMLElement with RawComponent
+  type Ref = dom.HTMLElement
 
 
   // -- Events --
