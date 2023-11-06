@@ -5,11 +5,11 @@
 
 ## What
 
-[Shoelace.js](https://shoelace.style/) is a very nice library of modern [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_Components). Web Components like this  can be used from any UI library – React, Vue, etc., but in Scala.js, where we actually care about types, you need a good type-safe integration. Well, this is it.
+[Shoelace.js](https://shoelace.style/) is a very nice library of modern [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_Components). Web Components like this  can be used from any UI library (React, Vue, etc.), with some integration work.
 
 This project lets you use Shoelace.js components from [Laminar](https://laminar.dev/), my UI library for Scala.js.
 
-On the build side, this project is a parser, a translator, and a generator. It parses Shoelace's `custom-elements.json` manifest file, translates it into a Scala.js-friendly data structure, and outputs Laminar code for all Shoelace components. Because the generator is customizable (and the translator is the hard part anyway), this can bring Shoelace support to other Scala.js UI libraries for very cheap. We could also try parsing other Web Component libraries, although that would take more work.
+On the build side, this project is a parser, a translator, and a generator. It parses Shoelace's `custom-elements.json` manifest file, translates it into a Scala.js-friendly data structure, and outputs Laminar code for all Shoelace components. Because the generator is customizable (and the translator is the hard part anyway), this can bring Shoelace support to other Scala.js UI libraries for very cheap (now that we have it). We could also try parsing other Web Component libraries, although that would take more work.
 
 
 ## Status
