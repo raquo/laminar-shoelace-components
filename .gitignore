@@ -1,0 +1,17 @@
+/dist/
+/client/dist/
+/client/public/assets/shoelace/assets/icons/
+
+target/
+node_modules/
+
+.bloop/
+.bsp/
+.idea/
+.metals/
+.vscode/
+metals.sbt
+
+server/src/main/resources/static/
+
+.DS_Store

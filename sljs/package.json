@@ -1,0 +1,26 @@
+{
+  "name": "laminar-shoelace-components",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev-debug": "vite --debug",
+    "build": "vite build",
+    "preview": "vite preview",
+    "sourcemap-report": "node sourcemap-report.js"
+  },
+  "devDependencies": {
+    "@scala-js/vite-plugin-scalajs": "^1.0.0",
+    "glob": "^10.3.10",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "terser": "^5.20.0",
+    "typescript": "^5.2.2",
+    "vite": "^4.1.0"
+  },
+  "dependencies": {
+    "@shoelace-style/shoelace": "~2.11.2",
+    "bootstrap-icons": "^1.11.1"
+  }
+}
