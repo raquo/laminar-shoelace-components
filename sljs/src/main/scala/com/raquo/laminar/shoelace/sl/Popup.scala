@@ -26,9 +26,6 @@ object Popup extends WebComponent("sl-popup") {
   lazy val onReposition: EventProp[dom.Event] = eventProp("sl-reposition")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /**
@@ -112,6 +109,9 @@ object Popup extends WebComponent("sl-popup") {
 
   /** The amount of padding, in pixels, to exceed before the auto-size behavior will occur. */
   lazy val autoSizePadding: HtmlAttr[Int] = intAttr("auto-size-padding")
+
+
+  // -- Props --
 
 
   // -- Slots --

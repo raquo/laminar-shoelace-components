@@ -29,9 +29,6 @@ object RadioButton extends WebComponent("sl-radio-button") {
   lazy val onFocus: EventProp[dom.Event] = eventProp("sl-focus")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** The radio's value. When selected, the radio group will receive this value. */
@@ -48,6 +45,9 @@ object RadioButton extends WebComponent("sl-radio-button") {
 
   /** Draws a pill-style radio button with rounded edges. */
   lazy val pill: HtmlAttr[Boolean] = boolAttr("pill")
+
+
+  // -- Props --
 
 
   // -- Slots --

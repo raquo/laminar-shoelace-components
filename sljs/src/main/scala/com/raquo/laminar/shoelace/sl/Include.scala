@@ -30,9 +30,6 @@ object Include extends WebComponent("sl-include") {
   lazy val onError: EventProp[ErrorEvent] = eventProp("sl-error")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /**
@@ -49,6 +46,9 @@ object Include extends WebComponent("sl-include") {
     * code and can result in XSS attacks.
     */
   lazy val allowScripts: HtmlAttr[Boolean] = boolAttr("allow-scripts")
+
+
+  // -- Props --
 
 
   // -- Slots --

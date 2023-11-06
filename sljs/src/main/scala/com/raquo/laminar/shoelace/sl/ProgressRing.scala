@@ -23,9 +23,6 @@ object ProgressRing extends WebComponent("sl-progress-ring") {
   // -- Events --
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** The current progress as a percentage, 0 to 100. */
@@ -33,6 +30,9 @@ object ProgressRing extends WebComponent("sl-progress-ring") {
 
   /** A custom label for assistive devices. */
   lazy val label: HtmlAttr[String] = stringAttr("label")
+
+
+  // -- Props --
 
 
   // -- Slots --

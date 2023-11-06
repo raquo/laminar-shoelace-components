@@ -38,9 +38,6 @@ object ColorPicker extends WebComponent("sl-color-picker") {
   lazy val onInvalid: EventProp[dom.Event] = eventProp("sl-invalid")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /**
@@ -98,6 +95,9 @@ object ColorPicker extends WebComponent("sl-color-picker") {
 
   /** Makes the color picker a required field. */
   lazy val required: HtmlAttr[Boolean] = boolAttr("required")
+
+
+  // -- Props --
 
 
   // -- Slots --

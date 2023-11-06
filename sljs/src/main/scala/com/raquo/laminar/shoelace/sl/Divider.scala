@@ -23,13 +23,13 @@ object Divider extends WebComponent("sl-divider") {
   // -- Events --
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** Draws the divider in a vertical orientation. */
   lazy val vertical: HtmlAttr[Boolean] = boolAttr("vertical")
+
+
+  // -- Props --
 
 
   // -- Slots --

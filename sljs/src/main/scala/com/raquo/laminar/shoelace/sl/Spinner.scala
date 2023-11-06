@@ -22,10 +22,10 @@ object Spinner extends WebComponent("sl-spinner") {
   // -- Events --
 
 
-  // -- Props --
-
-
   // -- Attributes --
+
+
+  // -- Props --
 
 
   // -- Slots --

@@ -32,9 +32,6 @@ object Button extends WebComponent("sl-button") {
   lazy val onInvalid: EventProp[dom.Event] = eventProp("sl-invalid")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   lazy val title: HtmlAttr[String] = stringAttr("title")
@@ -125,6 +122,9 @@ object Button extends WebComponent("sl-button") {
 
   /** Used to override the form owner's `target` attribute. */
   lazy val formTarget: HtmlAttr[String] = stringAttr("formtarget")
+
+
+  // -- Props --
 
 
   // -- Slots --

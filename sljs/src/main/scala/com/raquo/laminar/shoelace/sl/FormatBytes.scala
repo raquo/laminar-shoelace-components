@@ -23,9 +23,6 @@ object FormatBytes extends WebComponent("sl-format-bytes") {
   // -- Events --
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** The number to format in bytes. */
@@ -36,6 +33,9 @@ object FormatBytes extends WebComponent("sl-format-bytes") {
 
   /** Determines how to display the result, e.g. "100 bytes", "100 b", or "100b". */
   lazy val display: HtmlAttr[String] = stringAttr("display")
+
+
+  // -- Props --
 
 
   // -- Slots --

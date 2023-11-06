@@ -27,10 +27,10 @@ object Menu extends WebComponent("sl-menu") {
   lazy val onSelect: EventProp[SelectEvent] = eventProp("sl-select")
 
 
-  // -- Props --
-
-
   // -- Attributes --
+
+
+  // -- Props --
 
 
   // -- Slots --

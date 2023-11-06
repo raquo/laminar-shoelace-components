@@ -23,9 +23,6 @@ object MenuItem extends WebComponent("sl-menu-item") {
   // -- Events --
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** The type of menu item to render. To use `checked`, this value must be set to `checkbox`. */
@@ -43,6 +40,9 @@ object MenuItem extends WebComponent("sl-menu-item") {
 
   /** Draws the menu item in a disabled state, preventing selection. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
+
+
+  // -- Props --
 
 
   // -- Slots --

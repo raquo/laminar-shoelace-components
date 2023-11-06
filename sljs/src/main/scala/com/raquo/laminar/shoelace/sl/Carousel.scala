@@ -26,9 +26,6 @@ object Carousel extends WebComponent("sl-carousel") {
   lazy val onSlideChange: EventProp[SlideChangeEvent] = eventProp("sl-slide-change")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** When set, allows the user to navigate the carousel in the same direction indefinitely. */
@@ -60,6 +57,9 @@ object Carousel extends WebComponent("sl-carousel") {
 
   /** When set, it is possible to scroll through the slides by dragging them with the mouse. */
   lazy val mouseDragging: HtmlAttr[Boolean] = boolAttr("mouse-dragging")
+
+
+  // -- Props --
 
 
   // -- Slots --

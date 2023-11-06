@@ -35,9 +35,6 @@ object Alert extends WebComponent("sl-alert") {
   lazy val onAfterHide: EventProp[dom.Event] = eventProp("sl-after-hide")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /**
@@ -58,6 +55,9 @@ object Alert extends WebComponent("sl-alert") {
     * the alert will not close on its own.
     */
   lazy val duration: HtmlAttr[Int] = intAttr("duration")
+
+
+  // -- Props --
 
 
   // -- Slots --

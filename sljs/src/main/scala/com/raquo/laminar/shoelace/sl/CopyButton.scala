@@ -30,11 +30,6 @@ object CopyButton extends WebComponent("sl-copy-button") {
   lazy val onError: EventProp[ErrorEvent] = eventProp("sl-error")
 
 
-  // -- Props --
-
-  lazy val status: HtmlPropOf[String] = stringProp("status")
-
-
   // -- Attributes --
 
   /** The text value to copy. */
@@ -72,6 +67,11 @@ object CopyButton extends WebComponent("sl-copy-button") {
     * scenarios.
     */
   lazy val hoist: HtmlAttr[Boolean] = boolAttr("hoist")
+
+
+  // -- Props --
+
+  lazy val status: HtmlPropOf[String] = stringProp("status")
 
 
   // -- Slots --

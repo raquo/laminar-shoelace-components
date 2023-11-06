@@ -35,11 +35,6 @@ object Details extends WebComponent("sl-details") {
   lazy val onAfterHide: EventProp[dom.Event] = eventProp("sl-after-hide")
 
 
-  // -- Props --
-
-  lazy val detailsObserver: HtmlPropOf[dom.MutationObserver] = asIsProp("detailsObserver")
-
-
   // -- Attributes --
 
   /**
@@ -53,6 +48,11 @@ object Details extends WebComponent("sl-details") {
 
   /** Disables the details so it can't be toggled. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
+
+
+  // -- Props --
+
+  lazy val detailsObserver: HtmlPropOf[dom.MutationObserver] = asIsProp("detailsObserver")
 
 
   // -- Slots --

@@ -23,13 +23,13 @@ object Skeleton extends WebComponent("sl-skeleton") {
   // -- Events --
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** Determines which effect the skeleton will use. */
   lazy val effect: HtmlAttr[String] = stringAttr("effect")
+
+
+  // -- Props --
 
 
   // -- Slots --

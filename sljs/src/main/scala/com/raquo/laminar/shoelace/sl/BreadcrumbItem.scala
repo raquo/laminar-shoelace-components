@@ -23,9 +23,6 @@ object BreadcrumbItem extends WebComponent("sl-breadcrumb-item") {
   // -- Events --
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /**
@@ -39,6 +36,9 @@ object BreadcrumbItem extends WebComponent("sl-breadcrumb-item") {
 
   /** The `rel` attribute to use on the link. Only used when `href` is set. */
   lazy val rel: HtmlAttr[String] = stringAttr("rel")
+
+
+  // -- Props --
 
 
   // -- Slots --

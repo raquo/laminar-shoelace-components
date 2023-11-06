@@ -30,9 +30,6 @@ object TabGroup extends WebComponent("sl-tab-group") {
   lazy val onTabHide: EventProp[TabHideEvent] = eventProp("sl-tab-hide")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** The placement of the tabs. */
@@ -46,6 +43,9 @@ object TabGroup extends WebComponent("sl-tab-group") {
 
   /** Disables the scroll arrows that appear when tabs overflow. */
   lazy val noScrollControls: HtmlAttr[Boolean] = boolAttr("no-scroll-controls")
+
+
+  // -- Props --
 
 
   // -- Slots --

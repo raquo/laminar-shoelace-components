@@ -250,17 +250,6 @@ case class ShoelaceGenerator(
       {
         line()
         line()
-        line("// -- Props --")
-        element.writableNonReflectedProperties.foreach { prop =>
-          line()
-          val scalaInputTypeStr = st.scalaPropInputTypeStr(prop, element.tagName)
-          line(s"lazy val ${prop.propName}: HtmlPropOf[${scalaInputTypeStr}] = ${propImplName(scalaInputTypeStr)}(${repr(prop.propName)})")
-        }
-      }
-
-      {
-        line()
-        line()
         line("// -- Attributes --")
         element.attributes.foreach { attr =>
           line()
@@ -280,6 +269,17 @@ case class ShoelaceGenerator(
               line(s"lazy val ${alias}: HtmlAttr[${scalaTypeStr}] = ${attr.scalaName}")
             }
           }
+        }
+      }
+
+      {
+        line()
+        line()
+        line("// -- Props --")
+        element.writableNonReflectedProperties.foreach { prop =>
+          line()
+          val scalaInputTypeStr = st.scalaPropInputTypeStr(prop, element.tagName)
+          line(s"lazy val ${prop.propName}: HtmlPropOf[${scalaInputTypeStr}] = ${propImplName(scalaInputTypeStr)}(${repr(prop.propName)})")
         }
       }
 

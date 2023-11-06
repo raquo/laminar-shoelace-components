@@ -27,13 +27,13 @@ object ResizeObserver extends WebComponent("sl-resize-observer") {
   lazy val onResize: EventProp[ResizeEvent] = eventProp("sl-resize")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** Disables the observer. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
+
+
+  // -- Props --
 
 
   // -- Slots --

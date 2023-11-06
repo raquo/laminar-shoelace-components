@@ -26,9 +26,6 @@ object SplitPanel extends WebComponent("sl-split-panel") {
   lazy val onReposition: EventProp[dom.Event] = eventProp("sl-reposition")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /**
@@ -61,6 +58,9 @@ object SplitPanel extends WebComponent("sl-split-panel") {
 
   /** How close the divider must be to a snap point until snapping occurs. */
   lazy val snapThreshold: HtmlAttr[Int] = intAttr("snap-threshold")
+
+
+  // -- Props --
 
 
   // -- Slots --

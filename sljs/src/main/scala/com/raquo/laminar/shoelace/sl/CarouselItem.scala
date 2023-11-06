@@ -21,10 +21,10 @@ object CarouselItem extends WebComponent("sl-carousel-item") {
   // -- Events --
 
 
-  // -- Props --
-
-
   // -- Attributes --
+
+
+  // -- Props --
 
 
   // -- Slots --

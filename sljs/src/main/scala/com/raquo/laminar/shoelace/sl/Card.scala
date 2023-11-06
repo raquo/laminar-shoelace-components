@@ -22,10 +22,10 @@ object Card extends WebComponent("sl-card") {
   // -- Events --
 
 
-  // -- Props --
-
-
   // -- Attributes --
+
+
+  // -- Props --
 
 
   // -- Slots --

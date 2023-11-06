@@ -23,9 +23,6 @@ object TabPanel extends WebComponent("sl-tab-panel") {
   // -- Events --
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** The tab panel's name. */
@@ -33,6 +30,9 @@ object TabPanel extends WebComponent("sl-tab-panel") {
 
   /** When true, the tab panel will be shown. */
   lazy val active: HtmlAttr[Boolean] = boolAttr("active")
+
+
+  // -- Props --
 
 
   // -- Slots --

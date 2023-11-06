@@ -35,9 +35,6 @@ object Dropdown extends WebComponent("sl-dropdown") {
   lazy val onAfterHide: EventProp[dom.Event] = eventProp("sl-after-hide")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /**
@@ -72,6 +69,9 @@ object Dropdown extends WebComponent("sl-dropdown") {
     * `overflow: auto|scroll`. Hoisting uses a fixed positioning strategy that works in many, but not all, scenarios.
     */
   lazy val hoist: HtmlAttr[Boolean] = boolAttr("hoist")
+
+
+  // -- Props --
 
 
   // -- Slots --

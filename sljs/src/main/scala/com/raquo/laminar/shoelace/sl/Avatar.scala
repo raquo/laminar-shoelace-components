@@ -23,9 +23,6 @@ object Avatar extends WebComponent("sl-avatar") {
   // -- Events --
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** The image source to use for the avatar. */
@@ -42,6 +39,9 @@ object Avatar extends WebComponent("sl-avatar") {
 
   /** The shape of the avatar. */
   lazy val shape: HtmlAttr[String] = stringAttr("shape")
+
+
+  // -- Props --
 
 
   // -- Slots --

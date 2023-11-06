@@ -23,9 +23,6 @@ object FormatNumber extends WebComponent("sl-format-number") {
   // -- Events --
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** The number to format. */
@@ -61,6 +58,9 @@ object FormatNumber extends WebComponent("sl-format-number") {
 
   /** The maximum number of significant digits to use,. Possible values are 1-21. */
   lazy val maximumSignificantDigits: HtmlAttr[Int] = intAttr("maximum-significant-digits")
+
+
+  // -- Props --
 
 
   // -- Slots --

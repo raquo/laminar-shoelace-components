@@ -23,9 +23,6 @@ object Breadcrumb extends WebComponent("sl-breadcrumb") {
   // -- Events --
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /**
@@ -33,6 +30,9 @@ object Breadcrumb extends WebComponent("sl-breadcrumb") {
     * screen readers and other assistive devices to provide more context for users.
     */
   lazy val label: HtmlAttr[String] = stringAttr("label")
+
+
+  // -- Props --
 
 
   // -- Slots --

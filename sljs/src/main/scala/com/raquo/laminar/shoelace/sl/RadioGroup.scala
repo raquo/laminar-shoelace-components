@@ -32,9 +32,6 @@ object RadioGroup extends WebComponent("sl-radio-group") {
   lazy val onInvalid: EventProp[dom.Event] = eventProp("sl-invalid")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /**
@@ -64,6 +61,9 @@ object RadioGroup extends WebComponent("sl-radio-group") {
 
   /** Ensures a child radio is checked before allowing the containing form to submit. */
   lazy val required: HtmlAttr[Boolean] = boolAttr("required")
+
+
+  // -- Props --
 
 
   // -- Slots --

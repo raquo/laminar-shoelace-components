@@ -38,9 +38,6 @@ object Checkbox extends WebComponent("sl-checkbox") {
   lazy val onInvalid: EventProp[dom.Event] = eventProp("sl-invalid")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   lazy val title: HtmlAttr[String] = stringAttr("title")
@@ -75,6 +72,9 @@ object Checkbox extends WebComponent("sl-checkbox") {
 
   /** Makes the checkbox a required field. */
   lazy val required: HtmlAttr[Boolean] = boolAttr("required")
+
+
+  // -- Props --
 
 
   // -- Slots --

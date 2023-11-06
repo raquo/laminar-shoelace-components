@@ -35,9 +35,6 @@ object Tooltip extends WebComponent("sl-tooltip") {
   lazy val onAfterHide: EventProp[dom.Event] = eventProp("sl-after-hide")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** The tooltip's content. If you need to display HTML, use the `content` slot instead. */
@@ -74,6 +71,9 @@ object Tooltip extends WebComponent("sl-tooltip") {
     * scenarios.
     */
   lazy val hoist: HtmlAttr[Boolean] = boolAttr("hoist")
+
+
+  // -- Props --
 
 
   // -- Slots --

@@ -30,9 +30,6 @@ object Rating extends WebComponent("sl-rating") {
   lazy val onHover: EventProp[HoverEvent] = eventProp("sl-hover")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** A label that describes the rating to assistive devices. */
@@ -55,6 +52,9 @@ object Rating extends WebComponent("sl-rating") {
 
   /** Disables the rating. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
+
+
+  // -- Props --
 
 
   // -- Slots --

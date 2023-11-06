@@ -27,9 +27,6 @@ object MutationObserver extends WebComponent("sl-mutation-observer") {
   lazy val onMutation: EventProp[MutationEvent] = eventProp("sl-mutation")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /**
@@ -52,6 +49,9 @@ object MutationObserver extends WebComponent("sl-mutation-observer") {
 
   /** Disables the observer. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
+
+
+  // -- Props --
 
 
   // -- Slots --

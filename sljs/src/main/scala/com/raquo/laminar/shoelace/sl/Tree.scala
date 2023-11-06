@@ -27,9 +27,6 @@ object Tree extends WebComponent("sl-tree") {
   lazy val onSelectionChange: EventProp[SelectionChangeEvent] = eventProp("sl-selection-change")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /**
@@ -37,6 +34,9 @@ object Tree extends WebComponent("sl-tree") {
     * displays checkboxes and allows more than one node to be selected. Leaf allows only leaf nodes to be selected.
     */
   lazy val selection: HtmlAttr[String] = stringAttr("selection")
+
+
+  // -- Props --
 
 
   // -- Slots --

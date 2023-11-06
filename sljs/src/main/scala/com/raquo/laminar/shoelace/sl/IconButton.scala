@@ -29,9 +29,6 @@ object IconButton extends WebComponent("sl-icon-button") {
   lazy val onFocus: EventProp[dom.Event] = eventProp("sl-focus")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** The name of the icon to draw. Available names depend on the icon library being used. */
@@ -63,6 +60,9 @@ object IconButton extends WebComponent("sl-icon-button") {
 
   /** Disables the button. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
+
+
+  // -- Props --
 
 
   // -- Slots --

@@ -41,9 +41,6 @@ object TreeItem extends WebComponent("sl-tree-item") {
   lazy val onLazyLoad: EventProp[dom.Event] = eventProp("sl-lazy-load")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** Expands the tree item. */
@@ -57,6 +54,9 @@ object TreeItem extends WebComponent("sl-tree-item") {
 
   /** Enables lazy loading behavior. */
   lazy val `lazy`: HtmlAttr[Boolean] = boolAttr("lazy")
+
+
+  // -- Props --
 
 
   // -- Slots --

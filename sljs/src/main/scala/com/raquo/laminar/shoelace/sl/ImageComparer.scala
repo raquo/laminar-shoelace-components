@@ -26,13 +26,13 @@ object ImageComparer extends WebComponent("sl-image-comparer") {
   lazy val onChange: EventProp[dom.Event] = eventProp("sl-change")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** The position of the divider as a percentage. */
   lazy val position: HtmlAttr[Int] = intAttr("position")
+
+
+  // -- Props --
 
 
   // -- Slots --

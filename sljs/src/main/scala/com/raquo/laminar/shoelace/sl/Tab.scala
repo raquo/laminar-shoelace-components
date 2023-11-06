@@ -26,9 +26,6 @@ object Tab extends WebComponent("sl-tab") {
   lazy val onClose: EventProp[dom.Event] = eventProp("sl-close")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** The name of the tab panel this tab is associated with. The panel must be located in the same tab group. */
@@ -42,6 +39,9 @@ object Tab extends WebComponent("sl-tab") {
 
   /** Disables the tab and prevents selection. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
+
+
+  // -- Props --
 
 
   // -- Slots --

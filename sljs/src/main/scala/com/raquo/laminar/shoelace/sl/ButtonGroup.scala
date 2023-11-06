@@ -23,9 +23,6 @@ object ButtonGroup extends WebComponent("sl-button-group") {
   // -- Events --
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /**
@@ -33,6 +30,9 @@ object ButtonGroup extends WebComponent("sl-button-group") {
     * devices when interacting with the control and is strongly recommended.
     */
   lazy val label: HtmlAttr[String] = stringAttr("label")
+
+
+  // -- Props --
 
 
   // -- Slots --

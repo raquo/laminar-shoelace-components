@@ -41,9 +41,6 @@ object Input extends WebComponent("sl-input") {
   lazy val onInvalid: EventProp[dom.Event] = eventProp("sl-invalid")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   lazy val title: HtmlAttr[String] = stringAttr("title")
@@ -157,6 +154,9 @@ object Input extends WebComponent("sl-input") {
     * keyboard on supportive devices.
     */
   lazy val inputMode: CommonKeys.inputMode.type = CommonKeys.inputMode
+
+
+  // -- Props --
 
 
   // -- Slots --

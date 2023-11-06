@@ -23,9 +23,6 @@ object Badge extends WebComponent("sl-badge") {
   // -- Events --
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** The badge's theme variant. */
@@ -36,6 +33,9 @@ object Badge extends WebComponent("sl-badge") {
 
   /** Makes the badge pulsate to draw attention. */
   lazy val pulse: HtmlAttr[Boolean] = boolAttr("pulse")
+
+
+  // -- Props --
 
 
   // -- Slots --

@@ -38,9 +38,6 @@ object Range extends WebComponent("sl-range") {
   lazy val onInvalid: EventProp[dom.Event] = eventProp("sl-invalid")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   lazy val title: HtmlAttr[String] = stringAttr("title")
@@ -78,6 +75,9 @@ object Range extends WebComponent("sl-range") {
     * the same document or shadow root for this to work.
     */
   lazy val formId: HtmlAttr[String] = stringAttr("form")
+
+
+  // -- Props --
 
 
   // -- Slots --

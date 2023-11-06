@@ -42,9 +42,6 @@ object Drawer extends WebComponent("sl-drawer") {
   lazy val onRequestClose: EventProp[RequestCloseEvent] = eventProp("sl-request-close")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /**
@@ -73,6 +70,9 @@ object Drawer extends WebComponent("sl-drawer") {
     * accessible way for users to dismiss the drawer.
     */
   lazy val noHeader: HtmlAttr[Boolean] = boolAttr("no-header")
+
+
+  // -- Props --
 
 
   // -- Slots --

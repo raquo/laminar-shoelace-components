@@ -30,9 +30,6 @@ object AnimatedImage extends WebComponent("sl-animated-image") {
   lazy val onError: EventProp[ErrorEvent] = eventProp("sl-error")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** The path to the image to load. */
@@ -43,6 +40,9 @@ object AnimatedImage extends WebComponent("sl-animated-image") {
 
   /** Plays the animation. When this attribute is remove, the animation will pause. */
   lazy val play: HtmlAttr[Boolean] = boolAttr("play")
+
+
+  // -- Props --
 
 
   // -- Slots --

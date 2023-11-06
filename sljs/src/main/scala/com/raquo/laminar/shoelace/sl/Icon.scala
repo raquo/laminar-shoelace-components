@@ -30,9 +30,6 @@ object Icon extends WebComponent("sl-icon") {
   lazy val onError: EventProp[ErrorEvent] = eventProp("sl-error")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** The name of the icon to draw. Available names depend on the icon library being used. */
@@ -52,6 +49,9 @@ object Icon extends WebComponent("sl-icon") {
 
   /** The name of a registered custom icon library. */
   lazy val library: HtmlAttr[String] = stringAttr("library")
+
+
+  // -- Props --
 
 
   // -- Slots --

@@ -23,9 +23,6 @@ object FormatDate extends WebComponent("sl-format-date") {
   // -- Events --
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** The format for displaying the weekday. */
@@ -60,6 +57,9 @@ object FormatDate extends WebComponent("sl-format-date") {
 
   /** The format for displaying the hour. */
   lazy val hourFormat: HtmlAttr[String] = stringAttr("hour-format")
+
+
+  // -- Props --
 
 
   // -- Slots --

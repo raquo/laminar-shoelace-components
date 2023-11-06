@@ -23,9 +23,6 @@ object Option extends WebComponent("sl-option") {
   // -- Events --
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /**
@@ -37,6 +34,9 @@ object Option extends WebComponent("sl-option") {
 
   /** Draws the option in a disabled state, preventing selection. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
+
+
+  // -- Props --
 
 
   // -- Slots --

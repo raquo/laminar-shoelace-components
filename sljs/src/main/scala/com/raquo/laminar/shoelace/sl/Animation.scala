@@ -32,13 +32,6 @@ object Animation extends WebComponent("sl-animation") {
   lazy val onStart: EventProp[dom.Event] = eventProp("sl-start")
 
 
-  // -- Props --
-
-  lazy val keyframes: HtmlPropOf[js.Array[js.Object]] = asIsProp("keyframes")
-
-  lazy val currentTime: HtmlPropOf[Int] = intProp("currentTime")
-
-
   // -- Attributes --
 
   /** The name of the built-in animation to use. For custom animations, use the `keyframes` prop. */
@@ -86,6 +79,13 @@ object Animation extends WebComponent("sl-animation") {
     * value can be changed without causing the animation to restart.
     */
   lazy val playbackRate: HtmlAttr[Int] = intAttr("playback-rate")
+
+
+  // -- Props --
+
+  lazy val keyframes: HtmlPropOf[js.Array[js.Object]] = asIsProp("keyframes")
+
+  lazy val currentTime: HtmlPropOf[Int] = intProp("currentTime")
 
 
   // -- Slots --

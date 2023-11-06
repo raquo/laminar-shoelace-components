@@ -23,9 +23,6 @@ object RelativeTime extends WebComponent("sl-relative-time") {
   // -- Events --
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** The formatting style to use. */
@@ -39,6 +36,9 @@ object RelativeTime extends WebComponent("sl-relative-time") {
 
   /** Keep the displayed value up to date as time passes. */
   lazy val sync: HtmlAttr[Boolean] = boolAttr("sync")
+
+
+  // -- Props --
 
 
   // -- Slots --

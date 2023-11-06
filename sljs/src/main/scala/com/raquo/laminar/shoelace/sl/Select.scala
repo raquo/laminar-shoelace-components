@@ -53,9 +53,6 @@ object Select extends WebComponent("sl-select") {
   lazy val onInvalid: EventProp[dom.Event] = eventProp("sl-invalid")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** The name of the select, submitted as a name/value pair with form data. */
@@ -121,6 +118,9 @@ object Select extends WebComponent("sl-select") {
 
   /** The select's required attribute. */
   lazy val required: HtmlAttr[Boolean] = boolAttr("required")
+
+
+  // -- Props --
 
 
   // -- Slots --

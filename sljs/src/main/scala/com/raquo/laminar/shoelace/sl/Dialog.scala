@@ -42,9 +42,6 @@ object Dialog extends WebComponent("sl-dialog") {
   lazy val onRequestClose: EventProp[RequestCloseEvent] = eventProp("sl-request-close")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /**
@@ -64,6 +61,9 @@ object Dialog extends WebComponent("sl-dialog") {
     * accessible way for users to dismiss the dialog.
     */
   lazy val noHeader: HtmlAttr[Boolean] = boolAttr("no-header")
+
+
+  // -- Props --
 
 
   // -- Slots --

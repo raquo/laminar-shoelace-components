@@ -22,10 +22,10 @@ object MenuLabel extends WebComponent("sl-menu-label") {
   // -- Events --
 
 
-  // -- Props --
-
-
   // -- Attributes --
+
+
+  // -- Props --
 
 
   // -- Slots --

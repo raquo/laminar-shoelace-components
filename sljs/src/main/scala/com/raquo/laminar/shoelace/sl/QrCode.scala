@@ -23,9 +23,6 @@ object QrCode extends WebComponent("sl-qr-code") {
   // -- Events --
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** The QR code's value. */
@@ -48,6 +45,9 @@ object QrCode extends WebComponent("sl-qr-code") {
 
   /** The level of error correction to use. [Learn more](https://www.qrcode.com/en/about/error_correction.html) */
   lazy val errorCorrection: HtmlAttr[String] = stringAttr("error-correction")
+
+
+  // -- Props --
 
 
   // -- Slots --

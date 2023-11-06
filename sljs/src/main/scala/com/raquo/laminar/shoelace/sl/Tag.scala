@@ -26,9 +26,6 @@ object Tag extends WebComponent("sl-tag") {
   lazy val onRemove: EventProp[dom.Event] = eventProp("sl-remove")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** The tag's theme variant. */
@@ -42,6 +39,9 @@ object Tag extends WebComponent("sl-tag") {
 
   /** Makes the tag removable and shows a remove button. */
   lazy val removable: HtmlAttr[Boolean] = boolAttr("removable")
+
+
+  // -- Props --
 
 
   // -- Slots --

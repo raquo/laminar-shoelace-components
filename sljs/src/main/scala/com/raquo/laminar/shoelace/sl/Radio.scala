@@ -29,9 +29,6 @@ object Radio extends WebComponent("sl-radio") {
   lazy val onFocus: EventProp[dom.Event] = eventProp("sl-focus")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   /** The radio's value. When selected, the radio group will receive this value. */
@@ -45,6 +42,9 @@ object Radio extends WebComponent("sl-radio") {
 
   /** Disables the radio. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
+
+
+  // -- Props --
 
 
   // -- Slots --

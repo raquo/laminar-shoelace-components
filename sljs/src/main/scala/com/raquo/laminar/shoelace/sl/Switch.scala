@@ -38,9 +38,6 @@ object Switch extends WebComponent("sl-switch") {
   lazy val onInvalid: EventProp[dom.Event] = eventProp("sl-invalid")
 
 
-  // -- Props --
-
-
   // -- Attributes --
 
   lazy val title: HtmlAttr[String] = stringAttr("title")
@@ -69,6 +66,9 @@ object Switch extends WebComponent("sl-switch") {
 
   /** Makes the switch a required field. */
   lazy val required: HtmlAttr[Boolean] = boolAttr("required")
+
+
+  // -- Props --
 
 
   // -- Slots --

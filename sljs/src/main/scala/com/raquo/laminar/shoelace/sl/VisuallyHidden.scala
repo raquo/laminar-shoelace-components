@@ -22,10 +22,10 @@ object VisuallyHidden extends WebComponent("sl-visually-hidden") {
   // -- Events --
 
 
-  // -- Props --
-
-
   // -- Attributes --
+
+
+  // -- Props --
 
 
   // -- Slots --
