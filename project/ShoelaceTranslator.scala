@@ -2,12 +2,12 @@ import com.raquo.domtypes.common.{AttrDef, PropDef, ReflectedHtmlAttrDef}
 
 import scala.util.matching.Regex
 
-case class ShoelaceTranslator(
-  manifest: CustomElementsManifest,
-  uiLibPropDefs: List[PropDef],
-  uiLibAttrDefs: List[AttrDef],
-  uiLibReflectedAttrDefs: List[ReflectedHtmlAttrDef],
-  forceScalaAttrNames: List[(String, String)]
+class ShoelaceTranslator(
+  val manifest: CustomElementsManifest,
+  val uiLibPropDefs: List[PropDef],
+  val uiLibAttrDefs: List[AttrDef],
+  val uiLibReflectedAttrDefs: List[ReflectedHtmlAttrDef],
+  val forceScalaAttrNames: List[(String, String)]
 ) {
 
   import ShoelaceTranslator.Def

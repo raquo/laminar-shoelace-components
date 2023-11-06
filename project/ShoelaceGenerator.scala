@@ -101,7 +101,7 @@ class ShoelaceGenerator(
     }
   }
 
-  lazy val st: ShoelaceTranslator = ShoelaceTranslator(
+  lazy val st: ShoelaceTranslator = new ShoelaceTranslator(
     manifest = manifest,
     uiLibPropDefs = PropDefs.defs,
     uiLibAttrDefs = HtmlAttrDefs.defs,
