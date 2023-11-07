@@ -2,9 +2,6 @@ package com.raquo.laminar.shoelace.sl
 
 import com.raquo.airstream.core.Transaction
 import com.raquo.laminar.api.L.*
-import com.raquo.laminar.codecs.*
-import com.raquo.laminar.keys
-import com.raquo.laminar.modifiers.KeySetter
 import com.raquo.laminar.nodes.ReactiveHtmlElement
 import com.raquo.laminar.tags.HtmlTag
 import org.scalajs.dom
@@ -23,9 +20,11 @@ abstract class WebComponent(tagName: String) extends CommonTypes {
 
   type Ref <: dom.HTMLElement
 
-  type ModFunction = this.type => Mod[ReactiveHtmlElement[Ref]]
+  type Element = ReactiveHtmlElement[Ref]
 
-  type ComponentMod = ModFunction | Mod[ReactiveHtmlElement[Ref]]
+  type ModFunction = this.type => Modifier[Element]
+
+  type ComponentMod = ModFunction | Modifier[Element]
 
   protected def tag: HtmlTag[Ref] = htmlTag(tagName)
 
@@ -44,13 +43,13 @@ abstract class WebComponent(tagName: String) extends CommonTypes {
     * Scala 2, use the `of` method. See https://github.com/sherpal/LaminarSAPUI5Bindings#remark-for-scala-213-users
     * IntelliJ users, consider using the `of` method. See https://youtrack.jetbrains.com/issue/SCL-21713/Method-accepting-a-union-of-types-that-includes-a-Function-type-problems-with-go-to-definition-type-hints-and-autocomplete-Scala
     */
-  final def apply(mods: ComponentMod*): HtmlElement = {
+  final def apply(mods: ComponentMod*): Element = {
     val el = tag()
     Transaction.onStart.shared {
       mods.foreach {
-        case mod: Mod[_ >: ReactiveHtmlElement[Ref]] =>
+        case mod: Mod[_ >: Element] =>
           mod(el)
-        case modFn: Function[_ >: this.type, _ <: ReactiveHtmlElement[Ref]] =>
+        case modFn: Function[_ >: this.type, _ <: Element] =>
           modFn(this)(el)
       }
     }
@@ -58,7 +57,7 @@ abstract class WebComponent(tagName: String) extends CommonTypes {
   }
 
   /** Same as [[apply]], but accept only [[ModFunction]]s */
-  final def of(mods: ModFunction*): HtmlElement = {
+  final def of(mods: ModFunction*): Element = {
     val el = tag()
     Transaction.onStart.shared {
       mods.foreach(_(this)(el))
