@@ -49,7 +49,7 @@ abstract class WebComponent(tagName: String) extends CommonTypes {
       mods.foreach {
         case mod: Mod[_ >: Element] =>
           mod(el)
-        case modFn: Function[_ >: this.type, _ <: Element] =>
+        case modFn: Function[_ >: this.type, _ <: Mod[Element]] =>
           modFn(this)(el)
       }
     }
