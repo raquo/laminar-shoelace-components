@@ -3,6 +3,7 @@ package com.raquo.laminar.shoelace.sl
 import org.scalajs.dom
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import scala.scalajs.js.RegExp
 import scala.scalajs.js.annotation.JSImport
 

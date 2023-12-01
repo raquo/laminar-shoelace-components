@@ -49,8 +49,8 @@ class ShoelaceTranslator(
   val baseEventType: String = "dom.Event"
 
   /** Fields that are already defined on the element base type in scalajs-dom.
-    * Does not have to be exhaustive, only what is also defined in Shoelace,
-    * to avoid conflicts or duplication
+    * Does not have to be exhaustive, can just include what is also defined in
+    * Shoelace, to avoid conflicts or duplication
     *
     * scalajs-dom element type -> fieldName
     */
@@ -101,7 +101,7 @@ class ShoelaceTranslator(
       // Exposed as read-write, but I think this is for internal use
       case ("sl-button-group", "disableRole", _) => true
       // Read-write fields accepting an element, or a list of elements
-      // #TODO Not sure how to encode right, do it later
+      // #TODO Not sure how to encode it right, do it later
       case ("sl-popup", p, _) if p.endsWith("Boundary") => true
       // Hell if I know what this is.
       case ("sl-select", "displayLabel", _) => true

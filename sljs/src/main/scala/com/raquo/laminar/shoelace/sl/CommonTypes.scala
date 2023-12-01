@@ -9,21 +9,11 @@ import com.raquo.laminar.keys.DerivedStyleProp
 import com.raquo.laminar.modifiers.KeySetter
 import com.raquo.laminar.modifiers.KeySetter.StyleSetter
 
-import scala.scalajs.js
-
 trait CommonTypes {
 
-  // #TODO I should make use of Laminar helpers like lengthAutoStyle in StyleProps.scala,
+  // #TODO[API] I should make use of Laminar helpers like lengthAutoStyle in StyleProps.scala,
   //  but they're defined together with the listings in the same traits, and I don't want
   //  to expose all those props Split them out. Need minor breaking changes in Laminar.
-
-  // #TODO Move to Laminar?
-  type HtmlPropOf[V] = keys.HtmlProp[V, V]
-
-  // #TODO Move to Laminar?
-  type PropSetterOf[A] = KeySetter.PropSetter[A, A]
-
-  //type HtmlAttrSetter[A] = KeySetter.HtmlAttrSetter[A]
 
   // # TODO Use Laminar alias
   protected type DSP[V] = DerivedStyleProp[V]
@@ -42,15 +32,15 @@ trait CommonTypes {
   //
   //private val stringAttrs = js.Dictionary[HtmlAttr[String]]()
 
-  protected def stringProp(name: String): HtmlPropOf[String] = L.htmlProp(name, StringAsIsCodec)
+  protected def stringProp(name: String): HtmlProp[String, _] = L.htmlProp(name, StringAsIsCodec)
 
-  protected def intProp(name: String): HtmlPropOf[Int] = L.htmlProp(name, IntAsIsCodec)
+  protected def intProp(name: String): HtmlProp[Int, _] = L.htmlProp(name, IntAsIsCodec)
 
-  protected def doubleProp(name: String): HtmlPropOf[Double] = L.htmlProp(name, DoubleAsIsCodec)
+  protected def doubleProp(name: String): HtmlProp[Double, _] = L.htmlProp(name, DoubleAsIsCodec)
 
-  protected def boolProp(name: String): HtmlPropOf[Boolean] = L.htmlProp(name, BooleanAsIsCodec)
+  protected def boolProp(name: String): HtmlProp[Boolean, _] = L.htmlProp(name, BooleanAsIsCodec)
 
-  protected def asIsProp[V](name: String): HtmlPropOf[V] = L.htmlProp(name, AsIsCodec[V]())
+  protected def asIsProp[V](name: String): HtmlProp[V, _] = L.htmlProp(name, AsIsCodec[V]())
 
   protected def boolAttr(name: String): HtmlAttr[Boolean] = {
     L.htmlAttr(name, BooleanAsAttrPresenceCodec)

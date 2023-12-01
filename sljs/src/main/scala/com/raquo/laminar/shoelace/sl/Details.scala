@@ -52,7 +52,7 @@ object Details extends WebComponent("sl-details") {
 
   // -- Props --
 
-  lazy val detailsObserver: HtmlPropOf[dom.MutationObserver] = asIsProp("detailsObserver")
+  lazy val detailsObserver: HtmlProp[dom.MutationObserver, _] = asIsProp("detailsObserver")
 
 
   // -- Slots --

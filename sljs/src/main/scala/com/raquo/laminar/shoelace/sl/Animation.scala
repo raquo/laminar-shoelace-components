@@ -83,9 +83,9 @@ object Animation extends WebComponent("sl-animation") {
 
   // -- Props --
 
-  lazy val keyframes: HtmlPropOf[js.Array[js.Object]] = asIsProp("keyframes")
+  lazy val keyframes: HtmlProp[js.Array[js.Object], _] = asIsProp("keyframes")
 
-  lazy val currentTime: HtmlPropOf[Int] = intProp("currentTime")
+  lazy val currentTime: HtmlProp[Int, _] = intProp("currentTime")
 
 
   // -- Slots --

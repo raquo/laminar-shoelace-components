@@ -71,7 +71,7 @@ object CopyButton extends WebComponent("sl-copy-button") {
 
   // -- Props --
 
-  lazy val status: HtmlPropOf[String] = stringProp("status")
+  lazy val status: HtmlProp[String, _] = stringProp("status")
 
 
   // -- Slots --

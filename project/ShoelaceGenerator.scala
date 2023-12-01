@@ -320,7 +320,7 @@ class ShoelaceGenerator(
     element.writableNonReflectedProperties.foreach { prop =>
       line()
       val scalaInputTypeStr = st.scalaPropInputTypeStr(prop, element.tagName)
-      line(s"lazy val ${prop.propName}: HtmlPropOf[${scalaInputTypeStr}] = ${propImplName(scalaInputTypeStr)}(${repr(prop.propName)})")
+      line(s"lazy val ${prop.propName}: HtmlProp[${scalaInputTypeStr}, _] = ${propImplName(scalaInputTypeStr)}(${repr(prop.propName)})")
     }
   }
 
