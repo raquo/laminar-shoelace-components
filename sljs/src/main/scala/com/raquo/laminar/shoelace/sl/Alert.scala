@@ -10,7 +10,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/alert Shoelace Alert docs]] */
+/**
+  * Alerts are used to display important messages inline or as toast notifications.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Alert.scala Alert.scala source code]]
+  * 
+  * [[https://shoelace.style/components/alert Shoelace Alert docs]]
+  */
 object Alert extends WebComponent("sl-alert") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/alert/alert.js")

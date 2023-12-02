@@ -10,7 +10,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/dropdown Shoelace Dropdown docs]] */
+/**
+  * Dropdowns expose additional content that "drops down" in a panel.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Dropdown.scala Dropdown.scala source code]]
+  * 
+  * [[https://shoelace.style/components/dropdown Shoelace Dropdown docs]]
+  */
 object Dropdown extends WebComponent("sl-dropdown") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/dropdown/dropdown.js")

@@ -11,7 +11,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/tooltip Shoelace Tooltip docs]] */
+/**
+  * Tooltips display additional information based on a specific action.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Tooltip.scala Tooltip.scala source code]]
+  * 
+  * [[https://shoelace.style/components/tooltip Shoelace Tooltip docs]]
+  */
 object Tooltip extends WebComponent("sl-tooltip") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/tooltip/tooltip.js")

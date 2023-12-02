@@ -10,7 +10,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/tab Shoelace Tab docs]] */
+/**
+  * Tabs are used inside [tab groups](/components/tab-group) to represent and activate [tab panels](/components/tab-panel).
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Tab.scala Tab.scala source code]]
+  * 
+  * [[https://shoelace.style/components/tab Shoelace Tab docs]]
+  */
 object Tab extends WebComponent("sl-tab") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/tab/tab.js")

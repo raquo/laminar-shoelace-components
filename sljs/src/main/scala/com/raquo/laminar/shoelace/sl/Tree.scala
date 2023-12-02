@@ -12,7 +12,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/tree Shoelace Tree docs]] */
+/**
+  * Trees allow you to display a hierarchical list of selectable [tree items](/components/tree-item). Items with children can be expanded and collapsed as desired by the user.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Tree.scala Tree.scala source code]]
+  * 
+  * [[https://shoelace.style/components/tree Shoelace Tree docs]]
+  */
 object Tree extends WebComponent("sl-tree") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/tree/tree.js")

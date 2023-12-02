@@ -11,7 +11,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/mutation-observer Shoelace MutationObserver docs]] */
+/**
+  * The Mutation Observer component offers a thin, declarative interface to the [`MutationObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver).
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/MutationObserver.scala MutationObserver.scala source code]]
+  * 
+  * [[https://shoelace.style/components/mutation-observer Shoelace MutationObserver docs]]
+  */
 object MutationObserver extends WebComponent("sl-mutation-observer") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/mutation-observer/mutation-observer.js")

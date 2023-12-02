@@ -11,7 +11,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/progress-ring Shoelace ProgressRing docs]] */
+/**
+  * Progress rings are used to show the progress of a determinate operation in a circular fashion.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/ProgressRing.scala ProgressRing.scala source code]]
+  * 
+  * [[https://shoelace.style/components/progress-ring Shoelace ProgressRing docs]]
+  */
 object ProgressRing extends WebComponent("sl-progress-ring") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/progress-ring/progress-ring.js")

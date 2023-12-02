@@ -11,7 +11,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/skeleton Shoelace Skeleton docs]] */
+/**
+  * Skeletons are used to provide a visual representation of where content will eventually be drawn.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Skeleton.scala Skeleton.scala source code]]
+  * 
+  * [[https://shoelace.style/components/skeleton Shoelace Skeleton docs]]
+  */
 object Skeleton extends WebComponent("sl-skeleton") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/skeleton/skeleton.js")

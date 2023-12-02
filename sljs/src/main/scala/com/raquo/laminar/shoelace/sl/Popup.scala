@@ -11,7 +11,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/popup Shoelace Popup docs]] */
+/**
+  * Popup is a utility that lets you declaratively anchor "popup" containers to another element.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Popup.scala Popup.scala source code]]
+  * 
+  * [[https://shoelace.style/components/popup Shoelace Popup docs]]
+  */
 object Popup extends WebComponent("sl-popup") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/popup/popup.js")

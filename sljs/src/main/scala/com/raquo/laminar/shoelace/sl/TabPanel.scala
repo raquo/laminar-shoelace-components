@@ -11,7 +11,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/tab-panel Shoelace TabPanel docs]] */
+/**
+  * Tab panels are used inside [tab groups](/components/tab-group) to display tabbed content.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/TabPanel.scala TabPanel.scala source code]]
+  * 
+  * [[https://shoelace.style/components/tab-panel Shoelace TabPanel docs]]
+  */
 object TabPanel extends WebComponent("sl-tab-panel") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/tab-panel/tab-panel.js")

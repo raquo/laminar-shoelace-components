@@ -10,7 +10,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/button-group Shoelace ButtonGroup docs]] */
+/**
+  * Button groups can be used to group related buttons into sections.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/ButtonGroup.scala ButtonGroup.scala source code]]
+  * 
+  * [[https://shoelace.style/components/button-group Shoelace ButtonGroup docs]]
+  */
 object ButtonGroup extends WebComponent("sl-button-group") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/button-group/button-group.js")

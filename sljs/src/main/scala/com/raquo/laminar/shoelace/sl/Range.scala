@@ -11,7 +11,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/range Shoelace Range docs]] */
+/**
+  * Ranges allow the user to select a single value within a given range using a slider.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Range.scala Range.scala source code]]
+  * 
+  * [[https://shoelace.style/components/range Shoelace Range docs]]
+  */
 object Range extends WebComponent("sl-range") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/range/range.js")

@@ -11,7 +11,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/progress-bar Shoelace ProgressBar docs]] */
+/**
+  * Progress bars are used to show the status of an ongoing operation.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/ProgressBar.scala ProgressBar.scala source code]]
+  * 
+  * [[https://shoelace.style/components/progress-bar Shoelace ProgressBar docs]]
+  */
 object ProgressBar extends WebComponent("sl-progress-bar") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/progress-bar/progress-bar.js")

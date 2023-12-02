@@ -11,7 +11,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/card Shoelace Card docs]] */
+/**
+  * Cards can be used to group related subjects in a container.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Card.scala Card.scala source code]]
+  * 
+  * [[https://shoelace.style/components/card Shoelace Card docs]]
+  */
 object Card extends WebComponent("sl-card") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/card/card.js")

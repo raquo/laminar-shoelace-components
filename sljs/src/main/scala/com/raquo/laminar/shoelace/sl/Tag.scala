@@ -10,7 +10,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/tag Shoelace Tag docs]] */
+/**
+  * Tags are used as labels to organize things or to indicate a selection.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Tag.scala Tag.scala source code]]
+  * 
+  * [[https://shoelace.style/components/tag Shoelace Tag docs]]
+  */
 object Tag extends WebComponent("sl-tag") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/tag/tag.js")

@@ -11,7 +11,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/radio-group Shoelace RadioGroup docs]] */
+/**
+  * Radio groups are used to group multiple [radios](/components/radio) or [radio buttons](/components/radio-button) so they function as a single form control.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/RadioGroup.scala RadioGroup.scala source code]]
+  * 
+  * [[https://shoelace.style/components/radio-group Shoelace RadioGroup docs]]
+  */
 object RadioGroup extends WebComponent("sl-radio-group") with ControlledInput {
 
   @JSImport("@shoelace-style/shoelace/dist/components/radio-group/radio-group.js")

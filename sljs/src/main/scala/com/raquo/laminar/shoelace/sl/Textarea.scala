@@ -11,7 +11,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/textarea Shoelace Textarea docs]] */
+/**
+  * Textareas collect data from the user and allow multiple lines of text.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Textarea.scala Textarea.scala source code]]
+  * 
+  * [[https://shoelace.style/components/textarea Shoelace Textarea docs]]
+  */
 object Textarea extends WebComponent("sl-textarea") with ControlledInput {
 
   @JSImport("@shoelace-style/shoelace/dist/components/textarea/textarea.js")

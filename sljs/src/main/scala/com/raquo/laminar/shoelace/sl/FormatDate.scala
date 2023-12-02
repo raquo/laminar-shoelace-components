@@ -10,7 +10,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/format-date Shoelace FormatDate docs]] */
+/**
+  * Formats a date/time using the specified locale and options.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/FormatDate.scala FormatDate.scala source code]]
+  * 
+  * [[https://shoelace.style/components/format-date Shoelace FormatDate docs]]
+  */
 object FormatDate extends WebComponent("sl-format-date") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/format-date/format-date.js")

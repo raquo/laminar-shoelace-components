@@ -11,7 +11,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/resize-observer Shoelace ResizeObserver docs]] */
+/**
+  * The Resize Observer component offers a thin, declarative interface to the [`ResizeObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver).
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/ResizeObserver.scala ResizeObserver.scala source code]]
+  * 
+  * [[https://shoelace.style/components/resize-observer Shoelace ResizeObserver docs]]
+  */
 object ResizeObserver extends WebComponent("sl-resize-observer") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/resize-observer/resize-observer.js")

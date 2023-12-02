@@ -11,7 +11,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/divider Shoelace Divider docs]] */
+/**
+  * Dividers are used to visually separate or group elements.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Divider.scala Divider.scala source code]]
+  * 
+  * [[https://shoelace.style/components/divider Shoelace Divider docs]]
+  */
 object Divider extends WebComponent("sl-divider") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/divider/divider.js")

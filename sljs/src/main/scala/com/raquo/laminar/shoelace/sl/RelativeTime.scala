@@ -10,7 +10,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/relative-time Shoelace RelativeTime docs]] */
+/**
+  * Outputs a localized time phrase relative to the current date and time.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/RelativeTime.scala RelativeTime.scala source code]]
+  * 
+  * [[https://shoelace.style/components/relative-time Shoelace RelativeTime docs]]
+  */
 object RelativeTime extends WebComponent("sl-relative-time") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/relative-time/relative-time.js")

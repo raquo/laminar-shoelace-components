@@ -9,7 +9,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/menu-label Shoelace MenuLabel docs]] */
+/**
+  * Menu labels are used to describe a group of menu items.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/MenuLabel.scala MenuLabel.scala source code]]
+  * 
+  * [[https://shoelace.style/components/menu-label Shoelace MenuLabel docs]]
+  */
 object MenuLabel extends WebComponent("sl-menu-label") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/menu-label/menu-label.js")

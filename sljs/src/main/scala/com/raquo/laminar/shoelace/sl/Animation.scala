@@ -10,7 +10,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/animation Shoelace Animation docs]] */
+/**
+  * Animate elements declaratively with nearly 100 baked-in presets, or roll your own with custom keyframes. Powered by the [Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API).
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Animation.scala Animation.scala source code]]
+  * 
+  * [[https://shoelace.style/components/animation Shoelace Animation docs]]
+  */
 object Animation extends WebComponent("sl-animation") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/animation/animation.js")

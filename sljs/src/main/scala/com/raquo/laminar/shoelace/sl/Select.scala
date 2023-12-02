@@ -10,7 +10,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/select Shoelace Select docs]] */
+/**
+  * Selects allow you to choose items from a menu of predefined options.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Select.scala Select.scala source code]]
+  * 
+  * [[https://shoelace.style/components/select Shoelace Select docs]]
+  */
 object Select extends WebComponent("sl-select") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/select/select.js")

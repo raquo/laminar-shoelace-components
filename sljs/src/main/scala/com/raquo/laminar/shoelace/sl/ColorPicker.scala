@@ -12,7 +12,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/color-picker Shoelace ColorPicker docs]] */
+/**
+  * Color pickers allow the user to select a color.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/ColorPicker.scala ColorPicker.scala source code]]
+  * 
+  * [[https://shoelace.style/components/color-picker Shoelace ColorPicker docs]]
+  */
 object ColorPicker extends WebComponent("sl-color-picker") with ControlledInput {
 
   @JSImport("@shoelace-style/shoelace/dist/components/color-picker/color-picker.js")

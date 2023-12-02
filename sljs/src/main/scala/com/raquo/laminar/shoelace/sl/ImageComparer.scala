@@ -11,7 +11,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/image-comparer Shoelace ImageComparer docs]] */
+/**
+  * Compare visual differences between similar photos with a sliding panel.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/ImageComparer.scala ImageComparer.scala source code]]
+  * 
+  * [[https://shoelace.style/components/image-comparer Shoelace ImageComparer docs]]
+  */
 object ImageComparer extends WebComponent("sl-image-comparer") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/image-comparer/image-comparer.js")

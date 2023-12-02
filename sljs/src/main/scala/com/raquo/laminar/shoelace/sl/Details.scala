@@ -10,7 +10,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/details Shoelace Details docs]] */
+/**
+  * Details show a brief summary and expand to show additional content.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Details.scala Details.scala source code]]
+  * 
+  * [[https://shoelace.style/components/details Shoelace Details docs]]
+  */
 object Details extends WebComponent("sl-details") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/details/details.js")

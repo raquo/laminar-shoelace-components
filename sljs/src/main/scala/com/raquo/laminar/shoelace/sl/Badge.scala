@@ -10,7 +10,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/badge Shoelace Badge docs]] */
+/**
+  * Badges are used to draw attention and display statuses or counts.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Badge.scala Badge.scala source code]]
+  * 
+  * [[https://shoelace.style/components/badge Shoelace Badge docs]]
+  */
 object Badge extends WebComponent("sl-badge") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/badge/badge.js")

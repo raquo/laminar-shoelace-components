@@ -11,7 +11,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/checkbox Shoelace Checkbox docs]] */
+/**
+  * Checkboxes allow the user to toggle an option on or off.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Checkbox.scala Checkbox.scala source code]]
+  * 
+  * [[https://shoelace.style/components/checkbox Shoelace Checkbox docs]]
+  */
 object Checkbox extends WebComponent("sl-checkbox") with ControlledInput {
 
   @JSImport("@shoelace-style/shoelace/dist/components/checkbox/checkbox.js")

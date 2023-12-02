@@ -12,7 +12,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/switch Shoelace Switch docs]] */
+/**
+  * Switches allow the user to toggle an option on or off.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Switch.scala Switch.scala source code]]
+  * 
+  * [[https://shoelace.style/components/switch Shoelace Switch docs]]
+  */
 object Switch extends WebComponent("sl-switch") with ControlledInput {
 
   @JSImport("@shoelace-style/shoelace/dist/components/switch/switch.js")

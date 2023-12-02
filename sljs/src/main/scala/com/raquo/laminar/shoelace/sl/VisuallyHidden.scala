@@ -9,7 +9,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/visually-hidden Shoelace VisuallyHidden docs]] */
+/**
+  * The visually hidden utility makes content accessible to assistive devices without displaying it on the screen.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/VisuallyHidden.scala VisuallyHidden.scala source code]]
+  * 
+  * [[https://shoelace.style/components/visually-hidden Shoelace VisuallyHidden docs]]
+  */
 object VisuallyHidden extends WebComponent("sl-visually-hidden") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/visually-hidden/visually-hidden.js")

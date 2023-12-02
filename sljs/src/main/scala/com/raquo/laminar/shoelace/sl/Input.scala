@@ -11,7 +11,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/input Shoelace Input docs]] */
+/**
+  * Inputs collect data from the user.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Input.scala Input.scala source code]]
+  * 
+  * [[https://shoelace.style/components/input Shoelace Input docs]]
+  */
 object Input extends WebComponent("sl-input") with ControlledInput {
 
   @JSImport("@shoelace-style/shoelace/dist/components/input/input.js")

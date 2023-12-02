@@ -10,7 +10,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/breadcrumb-item Shoelace BreadcrumbItem docs]] */
+/**
+  * Breadcrumb Items are used inside [breadcrumbs](/components/breadcrumb) to represent different links.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/BreadcrumbItem.scala BreadcrumbItem.scala source code]]
+  * 
+  * [[https://shoelace.style/components/breadcrumb-item Shoelace BreadcrumbItem docs]]
+  */
 object BreadcrumbItem extends WebComponent("sl-breadcrumb-item") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/breadcrumb-item/breadcrumb-item.js")

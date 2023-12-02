@@ -10,7 +10,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/tree-item Shoelace TreeItem docs]] */
+/**
+  * A tree item serves as a hierarchical node that lives inside a [tree](/components/tree).
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/TreeItem.scala TreeItem.scala source code]]
+  * 
+  * [[https://shoelace.style/components/tree-item Shoelace TreeItem docs]]
+  */
 object TreeItem extends WebComponent("sl-tree-item") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/tree-item/tree-item.js")

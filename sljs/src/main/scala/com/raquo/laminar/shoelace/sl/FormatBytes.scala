@@ -10,7 +10,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/format-bytes Shoelace FormatBytes docs]] */
+/**
+  * Formats a number as a human readable bytes value.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/FormatBytes.scala FormatBytes.scala source code]]
+  * 
+  * [[https://shoelace.style/components/format-bytes Shoelace FormatBytes docs]]
+  */
 object FormatBytes extends WebComponent("sl-format-bytes") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/format-bytes/format-bytes.js")

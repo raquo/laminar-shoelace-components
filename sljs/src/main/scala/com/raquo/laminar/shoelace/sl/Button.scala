@@ -10,7 +10,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/button Shoelace Button docs]] */
+/**
+  * Buttons represent actions that are available to the user.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Button.scala Button.scala source code]]
+  * 
+  * [[https://shoelace.style/components/button Shoelace Button docs]]
+  */
 object Button extends WebComponent("sl-button") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/button/button.js")

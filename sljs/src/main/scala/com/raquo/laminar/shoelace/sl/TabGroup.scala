@@ -12,7 +12,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/tab-group Shoelace TabGroup docs]] */
+/**
+  * Tab groups organize content into a container that shows one section at a time.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/TabGroup.scala TabGroup.scala source code]]
+  * 
+  * [[https://shoelace.style/components/tab-group Shoelace TabGroup docs]]
+  */
 object TabGroup extends WebComponent("sl-tab-group") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/tab-group/tab-group.js")

@@ -12,7 +12,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/rating Shoelace Rating docs]] */
+/**
+  * Ratings give users a way to quickly view and provide feedback.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Rating.scala Rating.scala source code]]
+  * 
+  * [[https://shoelace.style/components/rating Shoelace Rating docs]]
+  */
 object Rating extends WebComponent("sl-rating") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/rating/rating.js")

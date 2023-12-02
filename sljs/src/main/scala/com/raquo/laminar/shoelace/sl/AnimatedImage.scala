@@ -12,7 +12,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/animated-image Shoelace AnimatedImage docs]] */
+/**
+  * A component for displaying animated GIFs and WEBPs that play and pause on interaction.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/AnimatedImage.scala AnimatedImage.scala source code]]
+  * 
+  * [[https://shoelace.style/components/animated-image Shoelace AnimatedImage docs]]
+  */
 object AnimatedImage extends WebComponent("sl-animated-image") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/animated-image/animated-image.js")

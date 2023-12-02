@@ -11,6 +11,11 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
+/**
+  * A carousel item represent a slide within a [carousel](/components/carousel).
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/CarouselItem.scala CarouselItem.scala source code]]
+  */
 object CarouselItem extends WebComponent("sl-carousel-item") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/carousel-item/carousel-item.js")

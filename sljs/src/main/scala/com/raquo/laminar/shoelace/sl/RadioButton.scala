@@ -10,7 +10,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/radio-button Shoelace RadioButton docs]] */
+/**
+  * Radios buttons allow the user to select a single option from a group using a button-like control.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/RadioButton.scala RadioButton.scala source code]]
+  * 
+  * [[https://shoelace.style/components/radio-button Shoelace RadioButton docs]]
+  */
 object RadioButton extends WebComponent("sl-radio-button") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/radio-button/radio-button.js")

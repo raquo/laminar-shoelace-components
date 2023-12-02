@@ -11,7 +11,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/menu-item Shoelace MenuItem docs]] */
+/**
+  * Menu items provide options for the user to pick from in a menu.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/MenuItem.scala MenuItem.scala source code]]
+  * 
+  * [[https://shoelace.style/components/menu-item Shoelace MenuItem docs]]
+  */
 object MenuItem extends WebComponent("sl-menu-item") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/menu-item/menu-item.js")

@@ -295,7 +295,7 @@ class ShoelaceTranslator(
         importPath = importPath(declaration),
         elementBaseType = elementBaseType(declaration.tagName),
         docUrl = Some(declaration.documentation).filter(_.nonEmpty),
-        description = descriptionLines(declaration.description),
+        description = descriptionLines(Some(declaration.description).filter(_.nonEmpty).getOrElse(declaration.summary)),
         events = events(declaration),
         allJsProperties = props,
         writableNonReflectedProperties = writableNonReflectedProperties(declaration, props, exceptAttributes = attrs),

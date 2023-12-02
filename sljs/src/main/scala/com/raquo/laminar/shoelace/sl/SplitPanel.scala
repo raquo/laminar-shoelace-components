@@ -11,7 +11,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/split-panel Shoelace SplitPanel docs]] */
+/**
+  * Split panels display two adjacent panels, allowing the user to reposition them.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/SplitPanel.scala SplitPanel.scala source code]]
+  * 
+  * [[https://shoelace.style/components/split-panel Shoelace SplitPanel docs]]
+  */
 object SplitPanel extends WebComponent("sl-split-panel") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/split-panel/split-panel.js")

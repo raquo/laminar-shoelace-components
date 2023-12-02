@@ -27,6 +27,7 @@ lazy val root = project.in(file("."))
     name := "Laminar Shoelace",
     generateShoelace := {
       new ShoelaceGenerator(
+        onlineSourceRoot = "https://https://github.com/raquo/laminar-shoelace-components/blob/master",
         customElementsJsonPath = "sljs/node_modules/@shoelace-style/shoelace/dist/custom-elements.json",
         baseOutputDirectoryPath = "sljs/src/main/scala/com/raquo/laminar/shoelace/sl",
         baseOutputPackagePath = "com.raquo.laminar.shoelace.sl"

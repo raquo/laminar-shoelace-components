@@ -10,7 +10,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/format-number Shoelace FormatNumber docs]] */
+/**
+  * Formats a number using the specified locale and options.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/FormatNumber.scala FormatNumber.scala source code]]
+  * 
+  * [[https://shoelace.style/components/format-number Shoelace FormatNumber docs]]
+  */
 object FormatNumber extends WebComponent("sl-format-number") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/format-number/format-number.js")

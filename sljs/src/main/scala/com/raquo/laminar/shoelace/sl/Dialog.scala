@@ -12,7 +12,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/dialog Shoelace Dialog docs]] */
+/**
+  * Dialogs, sometimes called "modals", appear above the page and require the user's immediate attention.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Dialog.scala Dialog.scala source code]]
+  * 
+  * [[https://shoelace.style/components/dialog Shoelace Dialog docs]]
+  */
 object Dialog extends WebComponent("sl-dialog") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/dialog/dialog.js")

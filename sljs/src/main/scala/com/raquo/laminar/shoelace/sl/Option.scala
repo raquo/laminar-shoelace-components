@@ -10,7 +10,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/option Shoelace Option docs]] */
+/**
+  * Options define the selectable items within various form controls such as [select](/components/select).
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Option.scala Option.scala source code]]
+  * 
+  * [[https://shoelace.style/components/option Shoelace Option docs]]
+  */
 object Option extends WebComponent("sl-option") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/option/option.js")

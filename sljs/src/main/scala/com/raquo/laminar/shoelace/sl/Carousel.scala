@@ -12,6 +12,11 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
+/**
+  * Carousels display an arbitrary number of content slides along a horizontal or vertical axis.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Carousel.scala Carousel.scala source code]]
+  */
 object Carousel extends WebComponent("sl-carousel") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/carousel/carousel.js")

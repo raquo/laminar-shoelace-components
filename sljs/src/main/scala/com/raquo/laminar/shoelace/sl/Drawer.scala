@@ -12,7 +12,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/drawer Shoelace Drawer docs]] */
+/**
+  * Drawers slide in from a container to expose additional options and information.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Drawer.scala Drawer.scala source code]]
+  * 
+  * [[https://shoelace.style/components/drawer Shoelace Drawer docs]]
+  */
 object Drawer extends WebComponent("sl-drawer") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/drawer/drawer.js")

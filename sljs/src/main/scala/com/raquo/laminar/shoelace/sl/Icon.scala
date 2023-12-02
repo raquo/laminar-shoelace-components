@@ -11,7 +11,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/icon Shoelace Icon docs]] */
+/**
+  * Icons are symbols that can be used to represent various options within an application.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/Icon.scala Icon.scala source code]]
+  * 
+  * [[https://shoelace.style/components/icon Shoelace Icon docs]]
+  */
 object Icon extends WebComponent("sl-icon") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/icon/icon.js")

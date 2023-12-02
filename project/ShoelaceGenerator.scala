@@ -11,6 +11,7 @@ import java.nio.file.{Files, NoSuchFileException, Path}
 import scala.collection.mutable
 
 class ShoelaceGenerator(
+  val onlineSourceRoot: String,
   val customElementsJsonPath: String,
   val baseOutputDirectoryPath: String,
   val baseOutputPackagePath: String,
@@ -131,11 +132,12 @@ class ShoelaceGenerator(
     }
 
     elements.foreach { el =>
-      printElementFile(el)
+      val fileName = el.scalaName + ".scala"
+      printElementFile(fileName, el)
       val output = getOutput()
       writeToFile(
         packagePath = componentsPackagePath,
-        fileName = el.scalaName + ".scala",
+        fileName = fileName,
         fileContent = output
       )
     }
@@ -183,9 +185,7 @@ class ShoelaceGenerator(
   }
 
   def printElementFile(
-    //filePackagePath: String,
-    //eventTypesPackagePath: String,
-    //eventTypesObjectName: String,
+    elementFileName: String,
     element: Def.Element
   ): Unit = {
 
@@ -201,7 +201,17 @@ class ShoelaceGenerator(
       if (supportsControlledInput) "ControlledInput" else ""
     ).filter(_.nonEmpty).map(" with " + _).mkString(" ")
 
-    val objCommentLines = element.description ++ element.docUrl.map(url => s"[[$url Shoelace ${element.scalaName} docs]]").toList
+    val objCommentLines = {
+      val onlineSourceUrl = onlineSourceRoot + "/" + baseOutputDirectoryPath + "/" + elementFileName
+      val onlineSourceUrlLine = s"[[$onlineSourceUrl ${elementFileName} source code]]"
+      val shoelaceDocUrlLines = element.docUrl.map(url => s"[[$url Shoelace ${element.scalaName} docs]]").toList
+      List(
+        element.description,
+        List(onlineSourceUrlLine),
+        shoelaceDocUrlLines
+      ).filter(_.nonEmpty).flatMap(_ :+ "").init
+    }
+
     blockCommentLines(objCommentLines)
     enter(s"object ${element.scalaName} extends WebComponent(${repr(element.tagName)})${extraTraits} {", "}") {
 

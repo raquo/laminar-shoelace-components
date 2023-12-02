@@ -10,7 +10,13 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
-/** [[https://shoelace.style/components/icon-button Shoelace IconButton docs]] */
+/**
+  * Icons buttons are simple, icon-only buttons that can be used for actions and in toolbars.
+  * 
+  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/sljs/src/main/scala/com/raquo/laminar/shoelace/sl/IconButton.scala IconButton.scala source code]]
+  * 
+  * [[https://shoelace.style/components/icon-button Shoelace IconButton docs]]
+  */
 object IconButton extends WebComponent("sl-icon-button") {
 
   @JSImport("@shoelace-style/shoelace/dist/components/icon-button/icon-button.js")
