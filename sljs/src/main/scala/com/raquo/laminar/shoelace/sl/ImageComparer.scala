@@ -52,14 +52,11 @@ object ImageComparer extends WebComponent("sl-image-comparer") {
 
   // -- CSS Vars --
 
-  object cssVars {
+  /** The width of the dividing line. */
+  lazy val dividerWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--divider-width")
 
-    /** The width of the dividing line. */
-    lazy val dividerWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--divider-width")
-
-    /** The size of the compare handle. */
-    lazy val handleSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--handle-size")
-  }
+  /** The size of the compare handle. */
+  lazy val handleSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--handle-size")
 
 
   // -- CSS Parts --

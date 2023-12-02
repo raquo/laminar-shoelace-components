@@ -128,20 +128,17 @@ object Popup extends WebComponent("sl-popup") {
 
   // -- CSS Vars --
 
-  object cssVars {
+  /** The size of the arrow. Note that an arrow won't be shown unless the `arrow` attribute is used. */
+  lazy val arrowSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--arrow-size")
 
-    /** The size of the arrow. Note that an arrow won't be shown unless the `arrow` attribute is used. */
-    lazy val arrowSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--arrow-size")
+  /** The color of the arrow. */
+  lazy val arrowColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--arrow-color")
 
-    /** The color of the arrow. */
-    lazy val arrowColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--arrow-color")
+  /** A read-only custom property that determines the amount of width the popup can be before overflowing. Useful for positioning child elements that need to overflow. This property is only available when using `auto-size`. */
+  lazy val autoSizeAvailableWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--auto-size-available-width")
 
-    /** A read-only custom property that determines the amount of width the popup can be before overflowing. Useful for positioning child elements that need to overflow. This property is only available when using `auto-size`. */
-    lazy val autoSizeAvailableWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--auto-size-available-width")
-
-    /** A read-only custom property that determines the amount of height the popup can be before overflowing. Useful for positioning child elements that need to overflow. This property is only available when using `auto-size`. */
-    lazy val autoSizeAvailableHeight: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--auto-size-available-height")
-  }
+  /** A read-only custom property that determines the amount of height the popup can be before overflowing. Useful for positioning child elements that need to overflow. This property is only available when using `auto-size`. */
+  lazy val autoSizeAvailableHeight: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--auto-size-available-height")
 
 
   // -- CSS Parts --

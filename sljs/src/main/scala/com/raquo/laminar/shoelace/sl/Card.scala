@@ -49,20 +49,17 @@ object Card extends WebComponent("sl-card") {
 
   // -- CSS Vars --
 
-  object cssVars {
+  /** The card's border color, including borders that occur inside the card. */
+  lazy val borderColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--border-color")
 
-    /** The card's border color, including borders that occur inside the card. */
-    lazy val borderColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--border-color")
+  /** The border radius for the card's edges. */
+  lazy val borderRadius: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--border-radius")
 
-    /** The border radius for the card's edges. */
-    lazy val borderRadius: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--border-radius")
+  /** The width of the card's borders. */
+  lazy val borderWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--border-width")
 
-    /** The width of the card's borders. */
-    lazy val borderWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--border-width")
-
-    /** The padding to use for the card's sections. */
-    lazy val padding: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--padding")
-  }
+  /** The padding to use for the card's sections. */
+  lazy val padding: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--padding")
 
 
   // -- CSS Parts --

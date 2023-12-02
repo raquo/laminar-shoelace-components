@@ -93,17 +93,14 @@ object Switch extends WebComponent("sl-switch") with ControlledInput {
 
   // -- CSS Vars --
 
-  object cssVars {
+  /** The width of the switch. */
+  lazy val width: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--width")
 
-    /** The width of the switch. */
-    lazy val width: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--width")
+  /** The height of the switch. */
+  lazy val height: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--height")
 
-    /** The height of the switch. */
-    lazy val height: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--height")
-
-    /** The size of the thumb. */
-    lazy val thumbSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--thumb-size")
-  }
+  /** The size of the thumb. */
+  lazy val thumbSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--thumb-size")
 
 
   // -- CSS Parts --

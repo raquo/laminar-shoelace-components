@@ -79,17 +79,14 @@ object Carousel extends WebComponent("sl-carousel") {
 
   // -- CSS Vars --
 
-  object cssVars {
+  /** The space between each slide. */
+  lazy val slideGap: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--slide-gap")
 
-    /** The space between each slide. */
-    lazy val slideGap: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--slide-gap")
+  /** The aspect ratio of each slide. */
+  lazy val aspectRatio: StyleProp[Int] = intStyle("--aspect-ratio")
 
-    /** The aspect ratio of each slide. */
-    lazy val aspectRatio: StyleProp[Int] = intStyle("--aspect-ratio")
-
-    /** The amount of padding to apply to the scroll area, allowing adjacent slides to become partially visible as a scroll hint. */
-    lazy val scrollHint: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--scroll-hint")
-  }
+  /** The amount of padding to apply to the scroll area, allowing adjacent slides to become partially visible as a scroll hint. */
+  lazy val scrollHint: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--scroll-hint")
 
 
   // -- CSS Parts --

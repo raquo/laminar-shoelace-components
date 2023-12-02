@@ -87,9 +87,6 @@ object RadioGroup extends WebComponent("sl-radio-group") with ControlledInput {
 
   // -- CSS Vars --
 
-  /** This component has no CSS vars / custom properties. */
-  @inline def noCssVars: Unit = ()
-
 
   // -- CSS Parts --
 

@@ -97,26 +97,23 @@ object Range extends WebComponent("sl-range") {
 
   // -- CSS Vars --
 
-  object cssVars {
+  /** The size of the thumb. */
+  lazy val thumbSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--thumb-size")
 
-    /** The size of the thumb. */
-    lazy val thumbSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--thumb-size")
+  /** The vertical distance the tooltip is offset from the track. */
+  lazy val tooltipOffset: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--tooltip-offset")
 
-    /** The vertical distance the tooltip is offset from the track. */
-    lazy val tooltipOffset: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--tooltip-offset")
+  /** The color of the portion of the track that represents the current value. */
+  lazy val trackColorActive: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--track-color-active")
 
-    /** The color of the portion of the track that represents the current value. */
-    lazy val trackColorActive: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--track-color-active")
+  /** The of the portion of the track that represents the remaining value. */
+  lazy val trackColorInactive: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--track-color-inactive")
 
-    /** The of the portion of the track that represents the remaining value. */
-    lazy val trackColorInactive: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--track-color-inactive")
+  /** The height of the track. */
+  lazy val trackHeight: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--track-height")
 
-    /** The height of the track. */
-    lazy val trackHeight: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--track-height")
-
-    /** The point of origin of the active track. */
-    lazy val trackActiveOffset: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--track-active-offset")
-  }
+  /** The point of origin of the active track. */
+  lazy val trackActiveOffset: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--track-active-offset")
 
 
   // -- CSS Parts --

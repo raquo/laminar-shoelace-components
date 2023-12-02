@@ -40,17 +40,14 @@ object Divider extends WebComponent("sl-divider") {
 
   // -- CSS Vars --
 
-  object cssVars {
+  /** The color of the divider. */
+  lazy val color: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--color")
 
-    /** The color of the divider. */
-    lazy val color: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--color")
+  /** The width of the divider. */
+  lazy val width: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--width")
 
-    /** The width of the divider. */
-    lazy val width: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--width")
-
-    /** The spacing of the divider. */
-    lazy val spacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--spacing")
-  }
+  /** The spacing of the divider. */
+  lazy val spacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--spacing")
 
 
   // -- CSS Parts --

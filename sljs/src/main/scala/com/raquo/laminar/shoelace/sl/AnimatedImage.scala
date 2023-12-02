@@ -59,14 +59,11 @@ object AnimatedImage extends WebComponent("sl-animated-image") {
 
   // -- CSS Vars --
 
-  object cssVars {
+  /** The size of the icon box. */
+  lazy val controlBoxSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--control-box-size")
 
-    /** The size of the icon box. */
-    lazy val controlBoxSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--control-box-size")
-
-    /** The size of the play/pause icons. */
-    lazy val iconSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--icon-size")
-  }
+  /** The size of the play/pause icons. */
+  lazy val iconSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--icon-size")
 
 
   // -- CSS Parts --

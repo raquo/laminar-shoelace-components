@@ -52,20 +52,17 @@ object ProgressBar extends WebComponent("sl-progress-bar") {
 
   // -- CSS Vars --
 
-  object cssVars {
+  /** The progress bar's height. */
+  lazy val height: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--height")
 
-    /** The progress bar's height. */
-    lazy val height: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--height")
+  /** The color of the track. */
+  lazy val trackColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--track-color")
 
-    /** The color of the track. */
-    lazy val trackColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--track-color")
+  /** The color of the indicator. */
+  lazy val indicatorColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--indicator-color")
 
-    /** The color of the indicator. */
-    lazy val indicatorColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--indicator-color")
-
-    /** The color of the label. */
-    lazy val labelColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--label-color")
-  }
+  /** The color of the label. */
+  lazy val labelColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--label-color")
 
 
   // -- CSS Parts --

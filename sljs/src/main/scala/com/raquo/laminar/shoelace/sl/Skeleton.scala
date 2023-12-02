@@ -40,17 +40,14 @@ object Skeleton extends WebComponent("sl-skeleton") {
 
   // -- CSS Vars --
 
-  object cssVars {
+  /** The skeleton's border radius. */
+  lazy val borderRadius: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--border-radius")
 
-    /** The skeleton's border radius. */
-    lazy val borderRadius: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--border-radius")
+  /** The color of the skeleton. */
+  lazy val color: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--color")
 
-    /** The color of the skeleton. */
-    lazy val color: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--color")
-
-    /** The sheen color when the skeleton is in its loading state. */
-    lazy val sheenColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--sheen-color")
-  }
+  /** The sheen color when the skeleton is in its loading state. */
+  lazy val sheenColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--sheen-color")
 
 
   // -- CSS Parts --

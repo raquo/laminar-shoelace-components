@@ -95,20 +95,17 @@ object Drawer extends WebComponent("sl-drawer") {
 
   // -- CSS Vars --
 
-  object cssVars {
+  /** The preferred size of the drawer. This will be applied to the drawer's width or height depending on its `placement`. Note that the drawer will shrink to accommodate smaller screens. */
+  lazy val size: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--size")
 
-    /** The preferred size of the drawer. This will be applied to the drawer's width or height depending on its `placement`. Note that the drawer will shrink to accommodate smaller screens. */
-    lazy val size: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--size")
+  /** The amount of padding to use for the header. */
+  lazy val headerSpacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--header-spacing")
 
-    /** The amount of padding to use for the header. */
-    lazy val headerSpacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--header-spacing")
+  /** The amount of padding to use for the body. */
+  lazy val bodySpacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--body-spacing")
 
-    /** The amount of padding to use for the body. */
-    lazy val bodySpacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--body-spacing")
-
-    /** The amount of padding to use for the footer. */
-    lazy val footerSpacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--footer-spacing")
-  }
+  /** The amount of padding to use for the footer. */
+  lazy val footerSpacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--footer-spacing")
 
 
   // -- CSS Parts --

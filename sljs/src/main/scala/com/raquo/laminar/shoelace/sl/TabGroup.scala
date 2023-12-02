@@ -62,17 +62,14 @@ object TabGroup extends WebComponent("sl-tab-group") {
 
   // -- CSS Vars --
 
-  object cssVars {
+  /** The color of the active tab indicator. */
+  lazy val indicatorColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--indicator-color")
 
-    /** The color of the active tab indicator. */
-    lazy val indicatorColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--indicator-color")
+  /** The color of the indicator's track (the line that separates tabs from panels). */
+  lazy val trackColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--track-color")
 
-    /** The color of the indicator's track (the line that separates tabs from panels). */
-    lazy val trackColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--track-color")
-
-    /** The width of the indicator's track (the line that separates tabs from panels). */
-    lazy val trackWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--track-width")
-  }
+  /** The width of the indicator's track (the line that separates tabs from panels). */
+  lazy val trackWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--track-width")
 
 
   // -- CSS Parts --

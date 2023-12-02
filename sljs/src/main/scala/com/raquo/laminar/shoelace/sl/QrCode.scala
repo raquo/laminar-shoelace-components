@@ -60,9 +60,6 @@ object QrCode extends WebComponent("sl-qr-code") {
 
   // -- CSS Vars --
 
-  /** This component has no CSS vars / custom properties. */
-  @inline def noCssVars: Unit = ()
-
 
   // -- CSS Parts --
 

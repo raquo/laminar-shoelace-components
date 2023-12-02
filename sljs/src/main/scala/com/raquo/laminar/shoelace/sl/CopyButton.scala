@@ -94,14 +94,11 @@ object CopyButton extends WebComponent("sl-copy-button") {
 
   // -- CSS Vars --
 
-  object cssVars {
+  /** The color to use for success feedback. */
+  lazy val successColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--success-color")
 
-    /** The color to use for success feedback. */
-    lazy val successColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--success-color")
-
-    /** The color to use for error feedback. */
-    lazy val errorColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--error-color")
-  }
+  /** The color to use for error feedback. */
+  lazy val errorColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--error-color")
 
 
   // -- CSS Parts --

@@ -74,9 +74,6 @@ object Details extends WebComponent("sl-details") {
 
   // -- CSS Vars --
 
-  /** This component has no CSS vars / custom properties. */
-  @inline def noCssVars: Unit = ()
-
 
   // -- CSS Parts --
 

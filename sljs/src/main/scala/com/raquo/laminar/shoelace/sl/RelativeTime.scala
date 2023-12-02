@@ -48,9 +48,6 @@ object RelativeTime extends WebComponent("sl-relative-time") {
 
   // -- CSS Vars --
 
-  /** This component has no CSS vars / custom properties. */
-  @inline def noCssVars: Unit = ()
-
 
   // -- CSS Parts --
 

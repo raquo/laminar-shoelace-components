@@ -72,9 +72,6 @@ object IconButton extends WebComponent("sl-icon-button") {
 
   // -- CSS Vars --
 
-  /** This component has no CSS vars / custom properties. */
-  @inline def noCssVars: Unit = ()
-
 
   // -- CSS Parts --
 

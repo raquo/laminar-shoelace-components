@@ -71,11 +71,8 @@ object MenuItem extends WebComponent("sl-menu-item") {
 
   // -- CSS Vars --
 
-  object cssVars {
-
-    /** The distance submenus shift to overlap the parent menu. */
-    lazy val submenuOffset: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--submenu-offset")
-  }
+  /** The distance submenus shift to overlap the parent menu. */
+  lazy val submenuOffset: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--submenu-offset")
 
 
   // -- CSS Parts --

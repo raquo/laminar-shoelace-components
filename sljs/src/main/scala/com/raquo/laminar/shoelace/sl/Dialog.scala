@@ -86,20 +86,17 @@ object Dialog extends WebComponent("sl-dialog") {
 
   // -- CSS Vars --
 
-  object cssVars {
+  /** The preferred width of the dialog. Note that the dialog will shrink to accommodate smaller screens. */
+  lazy val width: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--width")
 
-    /** The preferred width of the dialog. Note that the dialog will shrink to accommodate smaller screens. */
-    lazy val width: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--width")
+  /** The amount of padding to use for the header. */
+  lazy val headerSpacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--header-spacing")
 
-    /** The amount of padding to use for the header. */
-    lazy val headerSpacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--header-spacing")
+  /** The amount of padding to use for the body. */
+  lazy val bodySpacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--body-spacing")
 
-    /** The amount of padding to use for the body. */
-    lazy val bodySpacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--body-spacing")
-
-    /** The amount of padding to use for the footer. */
-    lazy val footerSpacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--footer-spacing")
-  }
+  /** The amount of padding to use for the footer. */
+  lazy val footerSpacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--footer-spacing")
 
 
   // -- CSS Parts --

@@ -75,9 +75,6 @@ object TreeItem extends WebComponent("sl-tree-item") {
 
   // -- CSS Vars --
 
-  /** This component has no CSS vars / custom properties. */
-  @inline def noCssVars: Unit = ()
-
 
   // -- CSS Parts --
 

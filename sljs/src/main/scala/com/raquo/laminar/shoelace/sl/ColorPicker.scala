@@ -123,26 +123,23 @@ object ColorPicker extends WebComponent("sl-color-picker") with ControlledInput 
 
   // -- CSS Vars --
 
-  object cssVars {
+  /** The width of the color grid. */
+  lazy val gridWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--grid-width")
 
-    /** The width of the color grid. */
-    lazy val gridWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--grid-width")
+  /** The height of the color grid. */
+  lazy val gridHeight: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--grid-height")
 
-    /** The height of the color grid. */
-    lazy val gridHeight: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--grid-height")
+  /** The size of the color grid's handle. */
+  lazy val gridHandleSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--grid-handle-size")
 
-    /** The size of the color grid's handle. */
-    lazy val gridHandleSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--grid-handle-size")
+  /** The height of the hue and alpha sliders. */
+  lazy val sliderHeight: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--slider-height")
 
-    /** The height of the hue and alpha sliders. */
-    lazy val sliderHeight: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--slider-height")
+  /** The diameter of the slider's handle. */
+  lazy val sliderHandleSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--slider-handle-size")
 
-    /** The diameter of the slider's handle. */
-    lazy val sliderHandleSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--slider-handle-size")
-
-    /** The size of each predefined color swatch. */
-    lazy val swatchSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--swatch-size")
-  }
+  /** The size of each predefined color swatch. */
+  lazy val swatchSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--swatch-size")
 
 
   // -- CSS Parts --

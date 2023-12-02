@@ -45,9 +45,6 @@ object ButtonGroup extends WebComponent("sl-button-group") {
 
   // -- CSS Vars --
 
-  /** This component has no CSS vars / custom properties. */
-  @inline def noCssVars: Unit = ()
-
 
   // -- CSS Parts --
 

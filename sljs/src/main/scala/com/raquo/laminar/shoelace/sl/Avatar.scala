@@ -55,11 +55,8 @@ object Avatar extends WebComponent("sl-avatar") {
 
   // -- CSS Vars --
 
-  object cssVars {
-
-    /** The size of the avatar. */
-    lazy val size: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--size")
-  }
+  /** The size of the avatar. */
+  lazy val size: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--size")
 
 
   // -- CSS Parts --

@@ -223,7 +223,7 @@ class ShoelaceGenerator(
 
       printSlots(element)
 
-      printCssProps(element)
+      printCssProps(element, nestUnderObjectName = None)
 
       printCssParts(element)
 
@@ -384,21 +384,30 @@ class ShoelaceGenerator(
     }
   }
 
-  def printCssProps(element: Def.Element): Unit = {
+  def printCssProps(element: Def.Element, nestUnderObjectName: Option[String]): Unit = {
+
+    def printProps(): Unit = {
+      element.cssProperties.foreach { cssProp =>
+        line()
+        val commentLines = cssProp.description.map(_.replace(" _(default: undefined)_", ""))
+        blockCommentLines(commentLines)
+        line(s"lazy val ${cssProp.scalaName}: ${cssPropType(cssProp.cssType)} = ${cssPropImplName(cssProp.cssType)}(${repr(cssProp.cssName)})")
+      }
+    }
+
     line()
     line()
     line("// -- CSS Vars --")
-    line()
-    if (element.cssProperties.isEmpty) {
-      line("/** This component has no CSS vars / custom properties. */")
-      line("@inline def noCssVars: Unit = ()")
-    } else {
-      enter("object cssVars {", "}") {
-        element.cssProperties.map { cssProp =>
-          line()
-          val commentLines = cssProp.description.map(_.replace(" _(default: undefined)_", ""))
-          blockCommentLines(commentLines)
-          line(s"lazy val ${cssProp.scalaName}: ${cssPropType(cssProp.cssType)} = ${cssPropImplName(cssProp.cssType)}(${repr(cssProp.cssName)})")
+    nestUnderObjectName.fold({
+      printProps()
+    }) { objectName =>
+      line()
+      if (element.cssProperties.isEmpty) {
+        line("/** This component has no CSS vars / custom properties. */")
+        line("@inline def noCssVars: Unit = ()")
+      } else {
+        enter(s"object ${objectName} {", "}") {
+          printProps()
         }
       }
     }

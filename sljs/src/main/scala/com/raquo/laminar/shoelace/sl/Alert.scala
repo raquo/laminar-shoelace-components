@@ -73,9 +73,6 @@ object Alert extends WebComponent("sl-alert") {
 
   // -- CSS Vars --
 
-  /** This component has no CSS vars / custom properties. */
-  @inline def noCssVars: Unit = ()
-
 
   // -- CSS Parts --
 

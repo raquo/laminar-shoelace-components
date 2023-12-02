@@ -90,17 +90,14 @@ object Tooltip extends WebComponent("sl-tooltip") {
 
   // -- CSS Vars --
 
-  object cssVars {
+  /** The maximum width of the tooltip before its content will wrap. */
+  lazy val maxWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--max-width")
 
-    /** The maximum width of the tooltip before its content will wrap. */
-    lazy val maxWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--max-width")
+  /** The amount of time to wait before hiding the tooltip when hovering. */
+  lazy val hideDelay: StyleProp[String] with u.Time[DSP] = timeStyle("--hide-delay")
 
-    /** The amount of time to wait before hiding the tooltip when hovering. */
-    lazy val hideDelay: StyleProp[String] with u.Time[DSP] = timeStyle("--hide-delay")
-
-    /** The amount of time to wait before showing the tooltip when hovering. */
-    lazy val showDelay: StyleProp[String] with u.Time[DSP] = timeStyle("--show-delay")
-  }
+  /** The amount of time to wait before showing the tooltip when hovering. */
+  lazy val showDelay: StyleProp[String] with u.Time[DSP] = timeStyle("--show-delay")
 
 
   // -- CSS Parts --

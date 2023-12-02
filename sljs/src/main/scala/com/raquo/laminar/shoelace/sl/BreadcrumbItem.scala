@@ -60,9 +60,6 @@ object BreadcrumbItem extends WebComponent("sl-breadcrumb-item") {
 
   // -- CSS Vars --
 
-  /** This component has no CSS vars / custom properties. */
-  @inline def noCssVars: Unit = ()
-
 
   // -- CSS Parts --
 

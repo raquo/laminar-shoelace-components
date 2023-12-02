@@ -69,9 +69,6 @@ object FormatDate extends WebComponent("sl-format-date") {
 
   // -- CSS Vars --
 
-  /** This component has no CSS vars / custom properties. */
-  @inline def noCssVars: Unit = ()
-
 
   // -- CSS Parts --
 

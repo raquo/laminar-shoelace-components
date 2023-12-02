@@ -54,9 +54,6 @@ object Tag extends WebComponent("sl-tag") {
 
   // -- CSS Vars --
 
-  /** This component has no CSS vars / custom properties. */
-  @inline def noCssVars: Unit = ()
-
 
   // -- CSS Parts --
 

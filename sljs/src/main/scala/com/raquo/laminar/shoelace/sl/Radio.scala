@@ -62,9 +62,6 @@ object Radio extends WebComponent("sl-radio") {
 
   // -- CSS Vars --
 
-  /** This component has no CSS vars / custom properties. */
-  @inline def noCssVars: Unit = ()
-
 
   // -- CSS Parts --
 

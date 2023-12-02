@@ -64,9 +64,6 @@ object MutationObserver extends WebComponent("sl-mutation-observer") {
 
   // -- CSS Vars --
 
-  /** This component has no CSS vars / custom properties. */
-  @inline def noCssVars: Unit = ()
-
 
   // -- CSS Parts --
 
