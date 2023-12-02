@@ -64,7 +64,7 @@ abstract class WebComponent(tagName: String, void: Boolean = false) extends Comm
     mods.foreach {
       case mod: Modifier[_ >: Element] =>
         mod(el)
-      case modFn: Function[_ >: this.type, _ <: Mod[Element]] =>
+      case modFn: Function[_ >: this.type, _ <: Modifier[Element]] =>
         modFn(this)(el)
     }
     el
