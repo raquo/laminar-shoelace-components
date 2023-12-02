@@ -1,8 +1,7 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr}
-import com.raquo.laminar.api.L.*
-import com.raquo.laminar.defs.styles.{traits as s, units as u}
+import com.raquo.laminar.keys.{EventProp, HtmlProp, HtmlAttr}
+import com.raquo.laminar.api.L
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -46,6 +45,11 @@ object Radio extends WebComponent("sl-radio") {
 
   // -- Props --
 
+  lazy val checked: HtmlProp[Boolean, _] = L.checked
+
+  /** The radio's value. When selected, the radio group will receive this value. */
+  lazy val value: HtmlProp[String, _] = L.value
+
 
   // -- Slots --
 
@@ -87,6 +91,11 @@ object Radio extends WebComponent("sl-radio") {
   // -- Element type -- 
 
   @js.native trait RadioComponent extends js.Object { this: dom.HTMLElement => 
+
+    var checked: Boolean
+
+    /** The radio's value. When selected, the radio group will receive this value. */
+    var value: String
 
     /**
       * The radio's size. When used inside a radio group, the size will be determined by the radio group's size so this

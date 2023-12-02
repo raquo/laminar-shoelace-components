@@ -1,16 +1,44 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.api.L.eventProp
+import com.raquo.ew.JsArray
+import com.raquo.laminar.DomApi
 import com.raquo.laminar.codecs.StringAsIsCodec
+import com.raquo.laminar.inputs.InputController.InputControllerConfig
 import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.modifiers.KeySetter.HtmlAttrSetter
 import org.scalajs.dom
+
+import scala.scalajs.js
 
 /** Typical events / properties / etc. defined on Shoelace web components.
   * We selectively export them from this object into individual components
   * that define them.
   */
 object CommonKeys extends CommonTypes {
+
+  /** Pool of memoized controller configs, to reuse between the various element types */
+  private val inputControllerConfigs: js.Dictionary[InputControllerConfig[dom.html.Element, _]] = js.Dictionary()
+
+  def inputControllerConfig[A](
+    prop: HtmlProp[A, _],
+    eventProps: JsArray[EventProp[_]],
+    initial: A
+  ): InputControllerConfig[dom.html.Element, A] = {
+    // Note: we need the codec because in principle we might have two different
+    // prop-s with the same DOM name but different codecs, for example valueStr
+    // and valueList for space-separated composite list props.
+    val key = prop.name + "-" + prop.codec.toString + eventProps.reduce[String]((acc: String, p) => acc + s"-${p.name}", "")
+    val knownConfig = inputControllerConfigs.getOrElseUpdate(key, {
+      new InputControllerConfig(
+        initialValue = initial,
+        prop = prop,
+        allowedEventProps = eventProps,
+        getDomValue = el => DomApi.getHtmlProperty(el, prop).get,
+        setDomValue = (el, v) => DomApi.setHtmlProperty(el, prop, v)
+      )
+    })
+    knownConfig.asInstanceOf[InputControllerConfig[dom.html.Element, A]]
+  }
 
   /** Emitted when the control’s "state" changes, similar to the browser's `change` event. */
   //lazy val onChange: EventProp[dom.Event] = eventProp("sl-change")

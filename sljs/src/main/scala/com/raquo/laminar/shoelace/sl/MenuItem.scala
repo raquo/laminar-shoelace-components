@@ -1,7 +1,7 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.keys.{HtmlAttr}
-import com.raquo.laminar.api.L.*
+import com.raquo.laminar.keys.{HtmlProp, HtmlAttr, StyleProp}
+import com.raquo.laminar.api.L
 import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
@@ -43,6 +43,12 @@ object MenuItem extends WebComponent("sl-menu-item") {
 
 
   // -- Props --
+
+  /** Draws the item in a checked state. */
+  lazy val checked: HtmlProp[Boolean, _] = L.checked
+
+  /** A unique value to store in the menu item. This can be used as a way to identify menu items when selected. */
+  lazy val value: HtmlProp[String, _] = L.value
 
 
   // -- Slots --
@@ -103,6 +109,12 @@ object MenuItem extends WebComponent("sl-menu-item") {
 
     /** The type of menu item to render. To use `checked`, this value must be set to `checkbox`. */
     var `type`: String
+
+    /** Draws the item in a checked state. */
+    var checked: Boolean
+
+    /** A unique value to store in the menu item. This can be used as a way to identify menu items when selected. */
+    var value: String
 
     /** Draws the menu item in a disabled state, preventing selection. */
     var disabled: Boolean

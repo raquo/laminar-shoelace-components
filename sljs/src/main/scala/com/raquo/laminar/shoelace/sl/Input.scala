@@ -1,8 +1,8 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr}
-import com.raquo.laminar.api.L.*
-import com.raquo.laminar.defs.styles.{traits as s, units as u}
+import com.raquo.laminar.keys.{EventProp, HtmlProp, HtmlAttr}
+import com.raquo.laminar.api.L
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -12,12 +12,16 @@ import scala.scalajs.js.annotation.JSImport
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
 /** [[https://shoelace.style/components/input Shoelace Input docs]] */
-object Input extends WebComponent("sl-input") {
+object Input extends WebComponent("sl-input") with ControlledInput {
 
   @JSImport("@shoelace-style/shoelace/dist/components/input/input.js")
   @js.native object RawImport extends js.Object
 
   type Ref = InputComponent with dom.HTMLInputElement
+
+  override protected lazy val tag: CustomHtmlTag[Ref] = {
+    tagWithControlledInputs(value, onInput, initial = "")
+  }
 
 
   // -- Events --
@@ -158,6 +162,9 @@ object Input extends WebComponent("sl-input") {
 
   // -- Props --
 
+  /** The current value of the input, submitted as a name/value pair with form data. */
+  lazy val value: HtmlProp[String, _] = L.value
+
 
   // -- Slots --
 
@@ -243,6 +250,9 @@ object Input extends WebComponent("sl-input") {
 
     /** The name of the input, submitted as a name/value pair with form data. */
     var name: String
+
+    /** The current value of the input, submitted as a name/value pair with form data. */
+    var value: String
 
     /** The input's size. */
     var size: String

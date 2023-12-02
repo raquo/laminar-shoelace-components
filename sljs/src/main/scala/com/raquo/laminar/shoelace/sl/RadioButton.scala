@@ -1,8 +1,7 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr}
-import com.raquo.laminar.api.L.*
-import com.raquo.laminar.defs.styles.{traits as s, units as u}
+import com.raquo.laminar.keys.{EventProp, HtmlProp, HtmlAttr}
+import com.raquo.laminar.api.L
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -48,6 +47,9 @@ object RadioButton extends WebComponent("sl-radio-button") {
 
 
   // -- Props --
+
+  /** The radio's value. When selected, the radio group will receive this value. */
+  lazy val value: HtmlProp[String, _] = L.value
 
 
   // -- Slots --
@@ -99,6 +101,9 @@ object RadioButton extends WebComponent("sl-radio-button") {
   // -- Element type -- 
 
   @js.native trait RadioButtonComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** The radio's value. When selected, the radio group will receive this value. */
+    var value: String
 
     /** Disables the radio button. */
     var disabled: Boolean

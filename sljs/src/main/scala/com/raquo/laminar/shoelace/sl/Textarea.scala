@@ -1,8 +1,8 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr}
-import com.raquo.laminar.api.L.*
-import com.raquo.laminar.defs.styles.{traits as s, units as u}
+import com.raquo.laminar.keys.{EventProp, HtmlProp, HtmlAttr}
+import com.raquo.laminar.api.L
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -12,12 +12,16 @@ import scala.scalajs.js.annotation.JSImport
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
 /** [[https://shoelace.style/components/textarea Shoelace Textarea docs]] */
-object Textarea extends WebComponent("sl-textarea") {
+object Textarea extends WebComponent("sl-textarea") with ControlledInput {
 
   @JSImport("@shoelace-style/shoelace/dist/components/textarea/textarea.js")
   @js.native object RawImport extends js.Object
 
   type Ref = TextareaComponent with dom.HTMLTextAreaElement
+
+  override protected lazy val tag: CustomHtmlTag[Ref] = {
+    tagWithControlledInputs(value, onInput, initial = "")
+  }
 
 
   // -- Events --
@@ -121,6 +125,9 @@ object Textarea extends WebComponent("sl-textarea") {
 
   // -- Props --
 
+  /** The current value of the textarea, submitted as a name/value pair with form data. */
+  lazy val value: HtmlProp[String, _] = L.value
+
 
   // -- Slots --
 
@@ -173,6 +180,9 @@ object Textarea extends WebComponent("sl-textarea") {
 
     /** The name of the textarea, submitted as a name/value pair with form data. */
     var name: String
+
+    /** The current value of the textarea, submitted as a name/value pair with form data. */
+    var value: String
 
     /** The textarea's size. */
     var size: String

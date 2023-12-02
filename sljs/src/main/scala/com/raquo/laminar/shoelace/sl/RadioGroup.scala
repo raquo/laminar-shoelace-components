@@ -1,8 +1,8 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr}
-import com.raquo.laminar.api.L.*
-import com.raquo.laminar.defs.styles.{traits as s, units as u}
+import com.raquo.laminar.keys.{EventProp, HtmlProp, HtmlAttr}
+import com.raquo.laminar.api.L
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -12,12 +12,16 @@ import scala.scalajs.js.annotation.JSImport
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
 /** [[https://shoelace.style/components/radio-group Shoelace RadioGroup docs]] */
-object RadioGroup extends WebComponent("sl-radio-group") {
+object RadioGroup extends WebComponent("sl-radio-group") with ControlledInput {
 
   @JSImport("@shoelace-style/shoelace/dist/components/radio-group/radio-group.js")
   @js.native object RawImport extends js.Object
 
   type Ref = RadioGroupComponent with dom.HTMLElement
+
+  override protected lazy val tag: CustomHtmlTag[Ref] = {
+    tagWithControlledInputs(value, onInput, initial = "")
+  }
 
 
   // -- Events --
@@ -64,6 +68,9 @@ object RadioGroup extends WebComponent("sl-radio-group") {
 
 
   // -- Props --
+
+  /** The current value of the radio group, submitted as a name/value pair with form data. */
+  lazy val value: HtmlProp[String, _] = L.value
 
 
   // -- Slots --
@@ -124,6 +131,9 @@ object RadioGroup extends WebComponent("sl-radio-group") {
 
     /** The name of the radio group, submitted as a name/value pair with form data. */
     var name: String
+
+    /** The current value of the radio group, submitted as a name/value pair with form data. */
+    var value: String
 
     /** The radio group's size. This size will be applied to all child radios and radio buttons. */
     var size: String

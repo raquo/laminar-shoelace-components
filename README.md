@@ -52,7 +52,7 @@ The project isn't yet fully set up to fulfill this vision. Some of it will need 
 
 * Aside from the component files, the generator produces `EventTypes.scala` – Shoelace's custom event types. The data to produce it is missing from `custom-manifest.json`, I defined it manually in `ShoelaceTranslator` by manually translating their typescript types – it's not too much.
 
-* The generated code assumes the existence of the following manually created support files: `CommonKeys.scala`, `CommonTypes.scala`, `WebComponent.scala`, `Slot.scala`. They provide some of the components' public API, private helper methods, and provide manual implementations of some common / special Shoelace attributes.
+* The generated code assumes the existence of the following manually created support files: `CommonKeys.scala`, `CommonTypes.scala`, `WebComponent.scala`, `ControlledInput.scala`, `Slot.scala`. They provide some of the components' public API, private helper methods, and provide manual implementations of some common / special Shoelace attributes.
 
 ---
 

@@ -8,17 +8,16 @@ import com.raquo.laminar.keys
 import com.raquo.laminar.keys.DerivedStyleProp
 import com.raquo.laminar.modifiers.KeySetter
 import com.raquo.laminar.modifiers.KeySetter.StyleSetter
+import org.scalajs.dom
 
 trait CommonTypes {
 
   // #TODO[API] I should make use of Laminar helpers like lengthAutoStyle in StyleProps.scala,
   //  but they're defined together with the listings in the same traits, and I don't want
-  //  to expose all those props Split them out. Need minor breaking changes in Laminar.
+  //  to expose all those props. Split them out. Need minor breaking changes in Laminar.
 
-  // # TODO Use Laminar alias
   protected type DSP[V] = DerivedStyleProp[V]
 
-  // # TODO Use Laminar alias
   protected type SS = StyleSetter
 
   //// #TODO[Perf] I'm not convinced that these cache maps actually have a net benefit.
@@ -32,6 +31,8 @@ trait CommonTypes {
   //
   //private val stringAttrs = js.Dictionary[HtmlAttr[String]]()
 
+  protected def eventProp[Ev <: dom.Event](name: String): EventProp[Ev] = L.eventProp(name)
+  
   protected def stringProp(name: String): HtmlProp[String, _] = L.htmlProp(name, StringAsIsCodec)
 
   protected def intProp(name: String): HtmlProp[Int, _] = L.htmlProp(name, IntAsIsCodec)

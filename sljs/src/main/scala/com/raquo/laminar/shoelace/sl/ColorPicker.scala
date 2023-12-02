@@ -1,7 +1,8 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr}
-import com.raquo.laminar.api.L.*
+import com.raquo.laminar.keys.{EventProp, HtmlProp, HtmlAttr, StyleProp}
+import com.raquo.laminar.api.L
+import com.raquo.laminar.tags.CustomHtmlTag
 import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
@@ -12,12 +13,16 @@ import scala.scalajs.js.annotation.JSImport
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
 /** [[https://shoelace.style/components/color-picker Shoelace ColorPicker docs]] */
-object ColorPicker extends WebComponent("sl-color-picker") {
+object ColorPicker extends WebComponent("sl-color-picker") with ControlledInput {
 
   @JSImport("@shoelace-style/shoelace/dist/components/color-picker/color-picker.js")
   @js.native object RawImport extends js.Object
 
   type Ref = ColorPickerComponent with dom.HTMLElement
+
+  override protected lazy val tag: CustomHtmlTag[Ref] = {
+    tagWithControlledInputs(value, onInput, initial = "")
+  }
 
 
   // -- Events --
@@ -98,6 +103,13 @@ object ColorPicker extends WebComponent("sl-color-picker") {
 
 
   // -- Props --
+
+  /**
+    * The current value of the color picker. The value's format will vary based the `format` attribute. To get the value
+    * in a specific format, use the `getFormattedValue()` method. The value is submitted as a name/value pair with form
+    * data.
+    */
+  lazy val value: HtmlProp[String, _] = L.value
 
 
   // -- Slots --
@@ -221,6 +233,13 @@ object ColorPicker extends WebComponent("sl-color-picker") {
   // -- Element type -- 
 
   @js.native trait ColorPickerComponent extends js.Object { this: dom.HTMLElement => 
+
+    /**
+      * The current value of the color picker. The value's format will vary based the `format` attribute. To get the value
+      * in a specific format, use the `getFormattedValue()` method. The value is submitted as a name/value pair with form
+      * data.
+      */
+    var value: String
 
     /**
       * The color picker's label. This will not be displayed, but it will be announced by assistive devices. If you need to

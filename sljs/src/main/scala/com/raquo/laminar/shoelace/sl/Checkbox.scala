@@ -1,8 +1,8 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr}
-import com.raquo.laminar.api.L.*
-import com.raquo.laminar.defs.styles.{traits as s, units as u}
+import com.raquo.laminar.keys.{EventProp, HtmlProp, HtmlAttr}
+import com.raquo.laminar.api.L
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -12,12 +12,16 @@ import scala.scalajs.js.annotation.JSImport
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
 /** [[https://shoelace.style/components/checkbox Shoelace Checkbox docs]] */
-object Checkbox extends WebComponent("sl-checkbox") {
+object Checkbox extends WebComponent("sl-checkbox") with ControlledInput {
 
   @JSImport("@shoelace-style/shoelace/dist/components/checkbox/checkbox.js")
   @js.native object RawImport extends js.Object
 
   type Ref = CheckboxComponent with dom.HTMLElement
+
+  override protected lazy val tag: CustomHtmlTag[Ref] = {
+    tagWithControlledInputs(checked, onInput, initial = false)
+  }
 
 
   // -- Events --
@@ -76,6 +80,12 @@ object Checkbox extends WebComponent("sl-checkbox") {
 
   // -- Props --
 
+  /** The current value of the checkbox, submitted as a name/value pair with form data. */
+  lazy val value: HtmlProp[String, _] = L.value
+
+  /** Draws the checkbox in a checked state. */
+  lazy val checked: HtmlProp[Boolean, _] = L.checked
+
 
   // -- Slots --
 
@@ -129,11 +139,17 @@ object Checkbox extends WebComponent("sl-checkbox") {
     /** The name of the checkbox, submitted as a name/value pair with form data. */
     var name: String
 
+    /** The current value of the checkbox, submitted as a name/value pair with form data. */
+    var value: String
+
     /** The checkbox's size. */
     var size: String
 
     /** Disables the checkbox. */
     var disabled: Boolean
+
+    /** Draws the checkbox in a checked state. */
+    var checked: Boolean
 
     /**
       * Draws the checkbox in an indeterminate state. This is usually applied to checkboxes that represents a "select

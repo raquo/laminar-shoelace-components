@@ -1,7 +1,7 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.keys.{HtmlAttr}
-import com.raquo.laminar.api.L.*
+import com.raquo.laminar.keys.{HtmlProp, HtmlAttr, StyleProp}
+import com.raquo.laminar.api.L
 import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
@@ -36,6 +36,9 @@ object ProgressBar extends WebComponent("sl-progress-bar") {
 
 
   // -- Props --
+
+  /** The current progress as a percentage, 0 to 100. */
+  lazy val value: HtmlProp[Int, _] = intProp("value")
 
 
   // -- Slots --
@@ -84,6 +87,9 @@ object ProgressBar extends WebComponent("sl-progress-bar") {
   // -- Element type -- 
 
   @js.native trait ProgressBarComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** The current progress as a percentage, 0 to 100. */
+    var value: Int
 
     /** When true, percentage is ignored, the label is hidden, and the progress bar is drawn in an indeterminate state. */
     var indeterminate: Boolean

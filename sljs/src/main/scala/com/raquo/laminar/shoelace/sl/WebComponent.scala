@@ -1,14 +1,18 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.api.L.*
+import com.raquo.ew.JsArray
+import com.raquo.laminar.DomApi
+import com.raquo.laminar.inputs.InputController.InputControllerConfig
+import com.raquo.laminar.keys.{EventProcessor, EventProp, HtmlProp}
+import com.raquo.laminar.modifiers.Modifier
 import com.raquo.laminar.nodes.ReactiveHtmlElement
-import com.raquo.laminar.tags.HtmlTag
+import com.raquo.laminar.tags.{CustomHtmlTag, HtmlTag}
 import org.scalajs.dom
 
 import scala.scalajs.js
 
 /** Base "trait" for all web components. */
-abstract class WebComponent(tagName: String) extends CommonTypes {
+abstract class WebComponent(tagName: String, void: Boolean = false) extends CommonTypes {
 
   /** Override this with JSImport-ed object of the component.
     * The import must register the component's custom element in the DOM.
@@ -25,7 +29,19 @@ abstract class WebComponent(tagName: String) extends CommonTypes {
 
   type ComponentMod = Modifier[Element] | ModFunction
 
-  protected def tag: HtmlTag[Ref] = htmlTag(tagName)
+  // Note: this is overriden for components that have controlled inputs – see `tagWithControlledInputs` 
+  protected lazy val tag: CustomHtmlTag[Ref] = new CustomHtmlTag(tagName, void)
+
+  private[this] val allIndices = JsArray(0)
+
+  protected def tagWithControlledInputs[A, Ev <: dom.Event](
+    prop: HtmlProp[A, _],
+    eventProp: EventProp[Ev],
+    initial: A
+  ): CustomHtmlTag[Ref] = {
+    val config = CommonKeys.inputControllerConfig(prop, JsArray(eventProp), initial)
+    new CustomHtmlTag(tagName, void, _ => allIndices, JsArray(config))
+  }
 
   // Mark imported JS object as used, to prevent dead code elimination
   @inline protected def useImport(importObject: js.Any): Unit = ()
@@ -46,7 +62,7 @@ abstract class WebComponent(tagName: String) extends CommonTypes {
   final def apply(mods: ComponentMod*): Element = {
     val el = tag()
     mods.foreach {
-      case mod: Mod[_ >: Element] =>
+      case mod: Modifier[_ >: Element] =>
         mod(el)
       case modFn: Function[_ >: this.type, _ <: Mod[Element]] =>
         modFn(this)(el)

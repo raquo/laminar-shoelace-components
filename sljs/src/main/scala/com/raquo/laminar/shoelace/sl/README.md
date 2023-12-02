@@ -5,6 +5,7 @@ All the files in this directory are generated, except:
 * Slot.scala
 * CommonKeys.scala
 * CommonTypes.scala
+* ControlledInput.scala
 * Shoelace.scala
 * WebComponent.scala
 

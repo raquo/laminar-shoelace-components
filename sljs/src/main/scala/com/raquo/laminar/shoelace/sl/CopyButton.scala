@@ -1,8 +1,8 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.keys.{EventProp, HtmlProp, HtmlAttr}
+import com.raquo.laminar.keys.{EventProp, HtmlProp, HtmlAttr, StyleProp}
 import com.raquo.laminar.shoelace.sl.EventTypes.*
-import com.raquo.laminar.api.L.*
+import com.raquo.laminar.api.L
 import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
@@ -73,6 +73,9 @@ object CopyButton extends WebComponent("sl-copy-button") {
 
   lazy val status: HtmlProp[String, _] = stringProp("status")
 
+  /** The text value to copy. */
+  lazy val value: HtmlProp[String, _] = L.value
+
 
   // -- Slots --
 
@@ -139,6 +142,9 @@ object CopyButton extends WebComponent("sl-copy-button") {
     val isCopying: Boolean
 
     var status: String
+
+    /** The text value to copy. */
+    var value: String
 
     /**
       * An id that references an element in the same document from which data will be copied. If both this and `value` are

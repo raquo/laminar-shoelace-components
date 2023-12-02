@@ -1,8 +1,7 @@
 package com.raquo.laminar.shoelace.sl
 
 import com.raquo.laminar.keys.{EventProp, HtmlProp, HtmlAttr}
-import com.raquo.laminar.api.L.*
-import com.raquo.laminar.defs.styles.{traits as s, units as u}
+import com.raquo.laminar.api.L
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -83,8 +82,10 @@ object Animation extends WebComponent("sl-animation") {
 
   // -- Props --
 
+  /** The keyframes to use for the animation. If this is set, `name` will be ignored. */
   lazy val keyframes: HtmlProp[js.Array[js.Object], _] = asIsProp("keyframes")
 
+  /** Gets and sets the current animation time. */
   lazy val currentTime: HtmlProp[Int, _] = intProp("currentTime")
 
 

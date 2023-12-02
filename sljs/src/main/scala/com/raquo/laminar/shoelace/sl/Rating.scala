@@ -1,8 +1,8 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr}
+import com.raquo.laminar.keys.{EventProp, HtmlProp, HtmlAttr, StyleProp}
 import com.raquo.laminar.shoelace.sl.EventTypes.*
-import com.raquo.laminar.api.L.*
+import com.raquo.laminar.api.L
 import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
@@ -56,6 +56,9 @@ object Rating extends WebComponent("sl-rating") {
 
   // -- Props --
 
+  /** The current rating. */
+  lazy val value: HtmlProp[Int, _] = intProp("value")
+
 
   // -- Slots --
 
@@ -97,6 +100,9 @@ object Rating extends WebComponent("sl-rating") {
 
     /** A label that describes the rating to assistive devices. */
     var label: String
+
+    /** The current rating. */
+    var value: Int
 
     /** The highest rating to show. */
     var max: Int

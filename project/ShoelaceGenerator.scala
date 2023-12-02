@@ -1,15 +1,14 @@
 import WebComponentsDef.{CustomEventType, JsUndefinedType}
-import com.raquo.domtypes.codegen.{CodeFormatting, DefType}
+import com.raquo.domtypes.codegen.CodeFormatting
 import com.raquo.domtypes.codegen.generators.SourceGenerator
 import com.raquo.domtypes.defs.attrs.HtmlAttrDefs
 import com.raquo.domtypes.defs.props.PropDefs
 import com.raquo.domtypes.defs.reflectedAttrs.ReflectedHtmlAttrDefs
 import upickle.default.*
 
-import scala.collection.mutable
-import java.nio.file.NoSuchFileException
 import java.io.{File, FileOutputStream, PrintStream}
 import java.nio.file.{Files, NoSuchFileException, Path}
+import scala.collection.mutable
 
 class ShoelaceGenerator(
   val customElementsJsonPath: String,
@@ -124,12 +123,12 @@ class ShoelaceGenerator(
       )
     }
 
-    //elements.foreach { el =>
-    //  if (el.writableNonReflectedProperties.nonEmpty) {
-    //    println(el.tagName)
-    //    println(el.writableNonReflectedProperties.map(_.propName).mkString("  > ", ", ", ""))
-    //  }
-    //}
+    elements.foreach { el =>
+     if (el.writableNonReflectedProperties.nonEmpty) {
+       println(el.tagName)
+       println(el.writableNonReflectedProperties.map(_.propName).mkString("  > ", ", ", ""))
+     }
+    }
 
     elements.foreach { el =>
       printElementFile(el)
@@ -193,11 +192,18 @@ class ShoelaceGenerator(
     line(s"package ${componentsPackagePath}")
     line()
 
-    printComponentFileImports(element)
+    val supportsControlledInput = st.allowControlKeys(element.tagName).nonEmpty
+
+    printComponentFileImports(element, supportsControlledInput)
+
+
+    val extraTraits = List(
+      if (supportsControlledInput) "ControlledInput" else ""
+    ).filter(_.nonEmpty).map(" with " + _).mkString(" ")
 
     val objCommentLines = element.description ++ element.docUrl.map(url => s"[[$url Shoelace ${element.scalaName} docs]]").toList
     blockCommentLines(objCommentLines)
-    enter(s"object ${element.scalaName} extends WebComponent(${repr(element.tagName)}) {", "}") {
+    enter(s"object ${element.scalaName} extends WebComponent(${repr(element.tagName)})${extraTraits} {", "}") {
 
       printComponentRawImport(element)
 
@@ -206,6 +212,8 @@ class ShoelaceGenerator(
       val showRawComponent = element.allJsProperties.nonEmpty
 
       printRefType(componentTraitName, showRawComponent, elementBaseType)
+
+      printTag(st.allowControlKeys(element.tagName))
 
       printEventProps(element)
 
@@ -225,12 +233,16 @@ class ShoelaceGenerator(
     }
   }
 
-  def printComponentFileImports(element: Def.Element): Unit = {
+  def printComponentFileImports(
+    element: Def.Element,
+    supportsControlledInput: Boolean
+  ): Unit = {
     val customEventTypes = element.events.flatMap(_.customType)
     val laminarKeyTypes = List(
       if (element.events.nonEmpty) "EventProp" else "",
       if (element.writableNonReflectedProperties.nonEmpty) "HtmlProp" else "",
       if (element.attributes.nonEmpty) "HtmlAttr" else "",
+      if (element.cssProperties.nonEmpty) "StyleProp" else ""
     ).filter(_.nonEmpty)
     if (laminarKeyTypes.nonEmpty) {
       line(s"import com.raquo.laminar.keys.${laminarKeyTypes.mkString("{", ", ", "}")}")
@@ -245,8 +257,13 @@ class ShoelaceGenerator(
         line(s"import ${baseOutputPackagePath}.Slot")
       }
     }
-    line("import com.raquo.laminar.api.L.*")
-    line("import com.raquo.laminar.defs.styles.{traits as s, units as u}")
+    line("import com.raquo.laminar.api.L")
+    if (supportsControlledInput) {
+      line("import com.raquo.laminar.tags.CustomHtmlTag")
+    }
+    if (element.cssProperties.nonEmpty) {
+      line("import com.raquo.laminar.defs.styles.{traits as s, units as u}")
+    }
     line("import org.scalajs.dom")
     line()
     line("import scala.scalajs.js")
@@ -272,6 +289,15 @@ class ShoelaceGenerator(
     } else {
       line()
       line(s"type Ref = ${elementBaseType}")
+    }
+  }
+
+  def printTag(allowedControlKeys: Option[(String, String, String)]): Unit = {
+    allowedControlKeys.foreach { case (propName, eventPropName, initialValueRepr) =>
+      line()
+      enter(s"override protected lazy val tag: CustomHtmlTag[Ref] = {", "}") {
+        line(s"tagWithControlledInputs(${propName}, ${eventPropName}, initial = ${initialValueRepr})")
+      }
     }
   }
 
@@ -320,7 +346,12 @@ class ShoelaceGenerator(
     element.writableNonReflectedProperties.foreach { prop =>
       line()
       val scalaInputTypeStr = st.scalaPropInputTypeStr(prop, element.tagName)
-      line(s"lazy val ${prop.propName}: HtmlProp[${scalaInputTypeStr}, _] = ${propImplName(scalaInputTypeStr)}(${repr(prop.propName)})")
+      val propImpl = st.useUiLibraryProp(element.tagName, prop.propName, prop.jsTypes) match {
+        case Some(uiLibraryScalaName) => s"L.$uiLibraryScalaName"
+        case None => s"${propImplName(scalaInputTypeStr)}(${repr(prop.propName)})"
+      }
+      blockCommentLines(prop.description)
+      line(s"lazy val ${prop.propName}: HtmlProp[${scalaInputTypeStr}, _] = ${propImpl}")
     }
   }
 

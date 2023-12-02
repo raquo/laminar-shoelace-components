@@ -1,8 +1,7 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.keys.{HtmlAttr}
-import com.raquo.laminar.api.L.*
-import com.raquo.laminar.defs.styles.{traits as s, units as u}
+import com.raquo.laminar.keys.{HtmlProp, HtmlAttr}
+import com.raquo.laminar.api.L
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -37,6 +36,9 @@ object FormatBytes extends WebComponent("sl-format-bytes") {
 
   // -- Props --
 
+  /** The number to format in bytes. */
+  lazy val value: HtmlProp[Int, _] = intProp("value")
+
 
   // -- Slots --
 
@@ -59,6 +61,9 @@ object FormatBytes extends WebComponent("sl-format-bytes") {
   // -- Element type -- 
 
   @js.native trait FormatBytesComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** The number to format in bytes. */
+    var value: Int
 
     /** The type of unit to display. */
     var unit: String

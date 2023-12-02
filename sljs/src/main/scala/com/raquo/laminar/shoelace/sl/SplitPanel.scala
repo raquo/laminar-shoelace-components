@@ -1,7 +1,7 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr}
-import com.raquo.laminar.api.L.*
+import com.raquo.laminar.keys.{EventProp, HtmlAttr, StyleProp}
+import com.raquo.laminar.api.L
 import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 

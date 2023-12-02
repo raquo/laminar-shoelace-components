@@ -1,7 +1,7 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.keys.{HtmlAttr}
-import com.raquo.laminar.api.L.*
+import com.raquo.laminar.keys.{HtmlProp, HtmlAttr, StyleProp}
+import com.raquo.laminar.api.L
 import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
@@ -33,6 +33,9 @@ object ProgressRing extends WebComponent("sl-progress-ring") {
 
 
   // -- Props --
+
+  /** The current progress as a percentage, 0 to 100. */
+  lazy val value: HtmlProp[Int, _] = intProp("value")
 
 
   // -- Slots --
@@ -84,6 +87,9 @@ object ProgressRing extends WebComponent("sl-progress-ring") {
   // -- Element type -- 
 
   @js.native trait ProgressRingComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** The current progress as a percentage, 0 to 100. */
+    var value: Int
 
     /** A custom label for assistive devices. */
     var label: String

@@ -2,7 +2,7 @@ package com.raquo.laminar.shoelace.sl
 
 import com.raquo.laminar.api.L.{*, given}
 
-/** A [[SlotOld]] represents a special child component of web components.
+/** A [[Slot]] represents a special child component of web components.
   *
   * Many web components reserve a `slot` attribute for some of their children, with a particular meaning.
   *

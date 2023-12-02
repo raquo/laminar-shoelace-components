@@ -1,3 +1,4 @@
+import WebComponentsDef.{JsBooleanType, JsStringType}
 import com.raquo.domtypes.common.{AttrDef, PropDef, ReflectedHtmlAttrDef}
 
 import scala.util.matching.Regex
@@ -38,6 +39,42 @@ class ShoelaceTranslator(
       case "sl-switch" => true
       case "sl-textarea" => true
       case _ => false
+    }
+  }
+
+  /** Some HTML props we want to reference in the UI library instead of
+    * creating new instances. This is mostly relevant to controlled inputs
+    * functionality where reference equality of props / attrs matters.
+    *
+    * Return the UI library's scalaName for the prop, or None.
+    */
+  def useUiLibraryProp(tagName: String, propDomName: String, jsTypes: List[Def.JsType]): Option[String] = {
+    (tagName, propDomName, jsTypes) match {
+      case (_, "value", List(JsStringType)) => Some("value")
+      case (_, "checked", List(JsBooleanType)) => Some("checked")
+      case _ => None
+    }
+  }
+
+  /** Laminar needs to know which keys are allowed in `controlled` blocks.
+    * Web components often have their own name, e.g. Shoelace uses `sl-input`
+    * instead of `input` for onInput events.
+    *
+    * Return (propScalaName, eventPropScalaName, initialValueRepr)
+    */
+  def allowControlKeys(tagName: String): Option[(String, String, String)] = {
+    val falseRepr = "false"
+    val emptyStringRepr = "\"\""
+    tagName match {
+      case "sl-checkbox" => Some(("checked", "onInput", falseRepr)) // or onChange?
+      case "sl-color-picker" => Some(("value", "onInput", emptyStringRepr))
+      case "sl-input" => Some(("value", "onInput", emptyStringRepr))
+      case "sl-radio-group" => Some(("value", "onInput", emptyStringRepr)) // or onChange?
+      // case "sl-range" => ??? // #TODO
+      // case "sl-select" => Some(("value", "onInput", emptyStringRepr)) // or onChange? #TODO
+      case "sl-switch" => Some(("checked", "onInput", falseRepr)) // or onChange?
+      case "sl-textarea" => Some(("value", "onInput", emptyStringRepr))
+      case _ => None
     }
   }
 
@@ -92,8 +129,9 @@ class ShoelaceTranslator(
       case ("sl-color-picker", "swatches", _) => true // Composite List[String] separated by ; IF used as an attribute. Property is an array, but not reflected.
       case ("sl-format-date" | "sl-relative-time", "date", _) => true // Date | String - convert date with `date.toISOString()` - For MVP, just make an attribute, and a codec for date?
       case ("sl-select", "value" | "defaultValue", _) => true // String | String[]. Space-delimited string in html attr. Use `value` vs `values`?
-      case (_, "value" | "defaultValue" | "checked" | "defaultChecked", _) => true // normal fields but I need to figure out how to deal with them
       // #nc #nc #nc ^^^^^ TODO
+      // Don't want those props, we have (non-reflected) attributes for them.
+      case (_, "defaultValue" | "defaultChecked", _) => true
       // Don't need this
       case (_, "dependencies", _) => true
       // Unlike other slot props, this one returns a js.Promise of an element, not even an element
@@ -126,6 +164,17 @@ class ShoelaceTranslator(
         case Def.JsCustomType(str) if str.startsWith("Sl") => true // custom element types
         case _ => false
       } => true
+      case _ => false
+    }
+  }
+
+  /** Force our logic to consider certain properties non-reflected. */
+  def forceNonReflectedProperty(tagName: String, propName: String): Boolean = {
+    (tagName, propName) match {
+      // `value` property and `value` attribute are named similarly, but are not reflected.
+      case (_, "value") => true
+      // `checked` property and `checked` attribute are named similarly, but are not reflected.
+      case (_, "checked") => true
       case _ => false
     }
   }
@@ -249,7 +298,7 @@ class ShoelaceTranslator(
         description = descriptionLines(declaration.description),
         events = events(declaration),
         allJsProperties = props,
-        writableNonReflectedProperties = writableNonReflectedProperties(props, exceptAttributes = attrs),
+        writableNonReflectedProperties = writableNonReflectedProperties(declaration, props, exceptAttributes = attrs),
         attributes = attrs,
         cssProperties = cssProperties(declaration),
         cssParts = cssParts(declaration),
@@ -334,9 +383,17 @@ class ShoelaceTranslator(
   //  }
   //}
 
-  def writableNonReflectedProperties(allProperties: List[Def.Field], exceptAttributes: List[Def.Attribute]): List[Def.Field] = {
+  def writableNonReflectedProperties(
+    element: M.Declaration,
+    allProperties: List[Def.Field],
+    exceptAttributes: List[Def.Attribute]
+  ): List[Def.Field] = {
     allProperties.filter { field =>
-      !field.readonly && !exceptAttributes.exists(a => field.attrName.contains(a.attrName))
+      lazy val isReflected = {
+        val forceUse = forceNonReflectedProperty(element.tagName, field.propName)
+        forceUse || !exceptAttributes.exists(a => field.attrName.contains(a.attrName))
+      }
+      !field.readonly && isReflected
     }
   }
 

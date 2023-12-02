@@ -1,8 +1,7 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.keys.{HtmlAttr}
-import com.raquo.laminar.api.L.*
-import com.raquo.laminar.defs.styles.{traits as s, units as u}
+import com.raquo.laminar.keys.{HtmlProp, HtmlAttr}
+import com.raquo.laminar.api.L
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -49,6 +48,9 @@ object QrCode extends WebComponent("sl-qr-code") {
 
   // -- Props --
 
+  /** The QR code's value. */
+  lazy val value: HtmlProp[String, _] = L.value
+
 
   // -- Slots --
 
@@ -75,6 +77,9 @@ object QrCode extends WebComponent("sl-qr-code") {
   // -- Element type -- 
 
   @js.native trait QrCodeComponent extends js.Object { this: dom.HTMLElement => 
+
+    /** The QR code's value. */
+    var value: String
 
     /** The label for assistive devices to announce. If unspecified, the value will be used instead. */
     var label: String

@@ -1,7 +1,8 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr}
-import com.raquo.laminar.api.L.*
+import com.raquo.laminar.keys.{EventProp, HtmlProp, HtmlAttr, StyleProp}
+import com.raquo.laminar.api.L
+import com.raquo.laminar.tags.CustomHtmlTag
 import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
@@ -12,12 +13,16 @@ import scala.scalajs.js.annotation.JSImport
 // This file is generated at compile-time by ShoelaceGenerator.scala
 
 /** [[https://shoelace.style/components/switch Shoelace Switch docs]] */
-object Switch extends WebComponent("sl-switch") {
+object Switch extends WebComponent("sl-switch") with ControlledInput {
 
   @JSImport("@shoelace-style/shoelace/dist/components/switch/switch.js")
   @js.native object RawImport extends js.Object
 
   type Ref = SwitchComponent with dom.HTMLElement
+
+  override protected lazy val tag: CustomHtmlTag[Ref] = {
+    tagWithControlledInputs(checked, onInput, initial = false)
+  }
 
 
   // -- Events --
@@ -69,6 +74,12 @@ object Switch extends WebComponent("sl-switch") {
 
 
   // -- Props --
+
+  /** The current value of the switch, submitted as a name/value pair with form data. */
+  lazy val value: HtmlProp[String, _] = L.value
+
+  /** Draws the switch in a checked state. */
+  lazy val checked: HtmlProp[Boolean, _] = L.checked
 
 
   // -- Slots --
@@ -123,11 +134,17 @@ object Switch extends WebComponent("sl-switch") {
     /** The name of the switch, submitted as a name/value pair with form data. */
     var name: String
 
+    /** The current value of the switch, submitted as a name/value pair with form data. */
+    var value: String
+
     /** The switch's size. */
     var size: String
 
     /** Disables the switch. */
     var disabled: Boolean
+
+    /** Draws the switch in a checked state. */
+    var checked: Boolean
 
     /**
       * By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you

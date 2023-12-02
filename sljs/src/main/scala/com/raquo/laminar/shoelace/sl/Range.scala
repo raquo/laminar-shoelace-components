@@ -1,7 +1,7 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr}
-import com.raquo.laminar.api.L.*
+import com.raquo.laminar.keys.{EventProp, HtmlProp, HtmlAttr, StyleProp}
+import com.raquo.laminar.api.L
 import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import org.scalajs.dom
 
@@ -79,6 +79,9 @@ object Range extends WebComponent("sl-range") {
 
   // -- Props --
 
+  /** The current value of the range, submitted as a name/value pair with form data. */
+  lazy val value: HtmlProp[Int, _] = intProp("value")
+
 
   // -- Slots --
 
@@ -152,6 +155,9 @@ object Range extends WebComponent("sl-range") {
 
     /** The name of the range, submitted as a name/value pair with form data. */
     var name: String
+
+    /** The current value of the range, submitted as a name/value pair with form data. */
+    var value: Int
 
     /** The range's label. If you need to display HTML, use the `label` slot instead. */
     var label: String
