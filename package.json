@@ -1,0 +1,9 @@
+{
+  "name": "laminar-shoelace-components",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "devDependencies": {
+    "@shoelace-style/shoelace": "~2.11.2"
+  }
+}
