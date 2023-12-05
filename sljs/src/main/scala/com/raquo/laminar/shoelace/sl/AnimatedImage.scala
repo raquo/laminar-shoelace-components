@@ -4,6 +4,7 @@ import com.raquo.laminar.keys.{EventProp, HtmlAttr, StyleProp}
 import com.raquo.laminar.shoelace.sl.EventTypes.*
 import com.raquo.laminar.api.L
 import com.raquo.laminar.defs.styles.{traits as s, units as u}
+import com.raquo.laminar.nodes.Slot
 import org.scalajs.dom
 
 import scala.scalajs.js

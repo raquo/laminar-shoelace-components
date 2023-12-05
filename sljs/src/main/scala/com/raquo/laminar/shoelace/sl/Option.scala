@@ -2,6 +2,7 @@ package com.raquo.laminar.shoelace.sl
 
 import com.raquo.laminar.keys.{HtmlProp, HtmlAttr}
 import com.raquo.laminar.api.L
+import com.raquo.laminar.nodes.Slot
 import org.scalajs.dom
 
 import scala.scalajs.js

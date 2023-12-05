@@ -2,6 +2,7 @@ package com.raquo.laminar.shoelace.sl
 
 import com.raquo.laminar.keys.{EventProp, HtmlProp, HtmlAttr}
 import com.raquo.laminar.api.L
+import com.raquo.laminar.nodes.Slot
 import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
@@ -26,7 +27,7 @@ object RadioGroup extends WebComponent("sl-radio-group") with ControlledInput {
   type Ref = RadioGroupComponent with dom.HTMLElement
 
   override protected lazy val tag: CustomHtmlTag[Ref] = {
-    tagWithControlledInputs(value, onInput, initial = "")
+    tagWithControlledInput(value, initial = "", onInput)
   }
 
 

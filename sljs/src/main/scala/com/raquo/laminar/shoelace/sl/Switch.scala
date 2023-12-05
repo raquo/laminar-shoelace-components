@@ -2,8 +2,9 @@ package com.raquo.laminar.shoelace.sl
 
 import com.raquo.laminar.keys.{EventProp, HtmlProp, HtmlAttr, StyleProp}
 import com.raquo.laminar.api.L
-import com.raquo.laminar.tags.CustomHtmlTag
 import com.raquo.laminar.defs.styles.{traits as s, units as u}
+import com.raquo.laminar.nodes.Slot
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -27,7 +28,7 @@ object Switch extends WebComponent("sl-switch") with ControlledInput {
   type Ref = SwitchComponent with dom.HTMLElement
 
   override protected lazy val tag: CustomHtmlTag[Ref] = {
-    tagWithControlledInputs(checked, onInput, initial = false)
+    tagWithControlledInput(checked, initial = false, onInput)
   }
 
 

@@ -16,30 +16,6 @@ import scala.scalajs.js
   */
 object CommonKeys extends CommonTypes {
 
-  /** Pool of memoized controller configs, to reuse between the various element types */
-  private val inputControllerConfigs: js.Dictionary[InputControllerConfig[dom.html.Element, _]] = js.Dictionary()
-
-  def inputControllerConfig[A](
-    prop: HtmlProp[A, _],
-    eventProps: JsArray[EventProp[_]],
-    initial: A
-  ): InputControllerConfig[dom.html.Element, A] = {
-    // Note: we need the codec because in principle we might have two different
-    // prop-s with the same DOM name but different codecs, for example valueStr
-    // and valueList for space-separated composite list props.
-    val key = prop.name + "-" + prop.codec.toString + eventProps.reduce[String]((acc: String, p) => acc + s"-${p.name}", "")
-    val knownConfig = inputControllerConfigs.getOrElseUpdate(key, {
-      new InputControllerConfig(
-        initialValue = initial,
-        prop = prop,
-        allowedEventProps = eventProps,
-        getDomValue = el => DomApi.getHtmlProperty(el, prop).get,
-        setDomValue = (el, v) => DomApi.setHtmlProperty(el, prop, v)
-      )
-    })
-    knownConfig.asInstanceOf[InputControllerConfig[dom.html.Element, A]]
-  }
-
   /** Emitted when the control’s "state" changes, similar to the browser's `change` event. */
   //lazy val onChange: EventProp[dom.Event] = eventProp("sl-change")
   //

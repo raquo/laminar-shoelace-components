@@ -18,7 +18,7 @@ trait ControlledInput { this: WebComponent =>
     updater: this.type => KeyUpdater[Element, HtmlProp[V, _], V],
     listener: this.type => EventListener[Ev, _]
   ): Binder[Element] = {
-    InputController.controlled(updater(this), listener(this))
+    InputController.controlled(listener(this), updater(this))
   }
 
 }

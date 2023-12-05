@@ -263,16 +263,16 @@ class ShoelaceGenerator(
     }
     if (eventTypesPackagePath != componentsPackagePath) {
       line(s"import ${helpersPackagePath}.{CommonKeys, WebComponent}")
-      if (element.slots.nonEmpty) {
-        line(s"import ${baseOutputPackagePath}.Slot")
-      }
     }
     line("import com.raquo.laminar.api.L")
-    if (supportsControlledInput) {
-      line("import com.raquo.laminar.tags.CustomHtmlTag")
-    }
     if (element.cssProperties.nonEmpty) {
       line("import com.raquo.laminar.defs.styles.{traits as s, units as u}")
+    }
+    if (element.slots.nonEmpty) {
+      line("import com.raquo.laminar.nodes.Slot")
+    }
+    if (supportsControlledInput) {
+      line("import com.raquo.laminar.tags.CustomHtmlTag")
     }
     line("import org.scalajs.dom")
     line()
@@ -306,7 +306,7 @@ class ShoelaceGenerator(
     allowedControlKeys.foreach { case (propName, eventPropName, initialValueRepr) =>
       line()
       enter(s"override protected lazy val tag: CustomHtmlTag[Ref] = {", "}") {
-        line(s"tagWithControlledInputs(${propName}, ${eventPropName}, initial = ${initialValueRepr})")
+        line(s"tagWithControlledInput(${propName}, initial = ${initialValueRepr}, ${eventPropName})")
       }
     }
   }

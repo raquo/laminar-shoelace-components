@@ -1,18 +1,15 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.ew.JsArray
-import com.raquo.laminar.DomApi
-import com.raquo.laminar.inputs.InputController.InputControllerConfig
 import com.raquo.laminar.keys.{EventProcessor, EventProp, HtmlProp}
 import com.raquo.laminar.modifiers.Modifier
 import com.raquo.laminar.nodes.ReactiveHtmlElement
-import com.raquo.laminar.tags.{CustomHtmlTag, HtmlTag}
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
 
 /** Base "trait" for all web components. */
-abstract class WebComponent(tagName: String, void: Boolean = false) extends CommonTypes {
+abstract class WebComponent(tagName: String) extends CommonTypes {
 
   /** Override this with JSImport-ed object of the component.
     * The import must register the component's custom element in the DOM.
@@ -30,17 +27,14 @@ abstract class WebComponent(tagName: String, void: Boolean = false) extends Comm
   type ComponentMod = Modifier[Element] | ModFunction
 
   // Note: this is overriden for components that have controlled inputs – see `tagWithControlledInputs` 
-  protected lazy val tag: CustomHtmlTag[Ref] = new CustomHtmlTag(tagName, void)
+  protected lazy val tag: CustomHtmlTag[Ref] = new CustomHtmlTag(tagName)
 
-  private[this] val allIndices = JsArray(0)
-
-  protected def tagWithControlledInputs[A, Ev <: dom.Event](
+  protected def tagWithControlledInput[Ref <: dom.html.Element, A, Ev <: dom.Event](
     prop: HtmlProp[A, _],
-    eventProp: EventProp[Ev],
-    initial: A
+    initial: A,
+    eventProp: EventProp[Ev]
   ): CustomHtmlTag[Ref] = {
-    val config = CommonKeys.inputControllerConfig(prop, JsArray(eventProp), initial)
-    new CustomHtmlTag(tagName, void, _ => allIndices, JsArray(config))
+    CustomHtmlTag.withControlledInput(tagName, prop, initial, eventProp)
   }
 
   // Mark imported JS object as used, to prevent dead code elimination
