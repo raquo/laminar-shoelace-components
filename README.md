@@ -14,12 +14,12 @@ On the build side, this project is a parser, a translator, and a generator. It p
 
 ## Status
 
-WIP. Gotta get some sleep.
+WIP. For now, you can play with `0.1.0-M1` if you really want to, but remember it's an early preview. You can see it in action in the `next-v17` branch of [Laminar demo](https://github.com/raquo/laminar-full-stack-demo/).
 
 Top TODO-s (two of many):
 
 - output instance methods
-- support complex/non-standard attrs and props, at least the important ones like `value` and `checked`
+- support complex/non-standard attrs and props
 
 
 ## Project Structure
