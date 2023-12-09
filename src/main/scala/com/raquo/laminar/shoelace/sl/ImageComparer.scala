@@ -21,7 +21,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object ImageComparer extends WebComponent("sl-image-comparer") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/image-comparer/image-comparer.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/image-comparer/image-comparer.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = ImageComparerComponent with dom.HTMLElement

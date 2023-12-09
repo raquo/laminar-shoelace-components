@@ -19,7 +19,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object RelativeTime extends WebComponent("sl-relative-time") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/relative-time/relative-time.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/relative-time/relative-time.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = RelativeTimeComponent with dom.HTMLElement

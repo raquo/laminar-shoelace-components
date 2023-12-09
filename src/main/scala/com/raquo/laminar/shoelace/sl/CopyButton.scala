@@ -22,7 +22,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object CopyButton extends WebComponent("sl-copy-button") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/copy-button/copy-button.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/copy-button/copy-button.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = CopyButtonComponent with dom.HTMLElement

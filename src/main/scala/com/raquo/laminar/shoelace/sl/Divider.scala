@@ -20,7 +20,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object Divider extends WebComponent("sl-divider") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/divider/divider.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/divider/divider.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = DividerComponent with dom.HTMLElement

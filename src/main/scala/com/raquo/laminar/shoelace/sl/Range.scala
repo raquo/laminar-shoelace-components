@@ -21,7 +21,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object Range extends WebComponent("sl-range") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/range/range.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/range/range.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = RangeComponent with dom.HTMLElement

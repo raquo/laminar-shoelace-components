@@ -20,7 +20,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object Radio extends WebComponent("sl-radio") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/radio/radio.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/radio/radio.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = RadioComponent with dom.HTMLElement

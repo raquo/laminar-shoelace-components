@@ -21,7 +21,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object Avatar extends WebComponent("sl-avatar") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/avatar/avatar.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/avatar/avatar.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = AvatarComponent with dom.HTMLElement

@@ -20,7 +20,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object Carousel extends WebComponent("sl-carousel") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/carousel/carousel.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/carousel/carousel.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = CarouselComponent with dom.HTMLElement

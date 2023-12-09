@@ -20,7 +20,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object Tag extends WebComponent("sl-tag") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/tag/tag.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/tag/tag.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = TagComponent with dom.HTMLElement

@@ -22,7 +22,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object ColorPicker extends WebComponent("sl-color-picker") with ControlledInput {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/color-picker/color-picker.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/color-picker/color-picker.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = ColorPickerComponent with dom.HTMLElement

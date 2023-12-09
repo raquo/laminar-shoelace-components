@@ -19,7 +19,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object FormatNumber extends WebComponent("sl-format-number") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/format-number/format-number.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/format-number/format-number.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = FormatNumberComponent with dom.HTMLElement

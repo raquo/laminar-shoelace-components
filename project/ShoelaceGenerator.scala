@@ -288,7 +288,7 @@ class ShoelaceGenerator(
 
   def printComponentRawImport(element: Def.Element): Unit = {
     line()
-    line(s"@JSImport(${repr(element.importPath)})")
+    line(s"@JSImport(${repr(element.importPath)}, JSImport.Namespace)")
     line("@js.native object RawImport extends js.Object")
   }
 

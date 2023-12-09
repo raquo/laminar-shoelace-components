@@ -20,7 +20,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object Select extends WebComponent("sl-select") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/select/select.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/select/select.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = SelectComponent with dom.HTMLElement

@@ -20,7 +20,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object Breadcrumb extends WebComponent("sl-breadcrumb") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/breadcrumb/breadcrumb.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/breadcrumb/breadcrumb.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = BreadcrumbComponent with dom.HTMLElement

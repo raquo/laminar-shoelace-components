@@ -21,7 +21,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object ProgressBar extends WebComponent("sl-progress-bar") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/progress-bar/progress-bar.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/progress-bar/progress-bar.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = ProgressBarComponent with dom.HTMLElement

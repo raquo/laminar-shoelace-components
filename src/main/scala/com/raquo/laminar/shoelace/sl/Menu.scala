@@ -21,7 +21,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object Menu extends WebComponent("sl-menu") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/menu/menu.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/menu/menu.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = dom.HTMLElement

@@ -19,7 +19,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object FormatDate extends WebComponent("sl-format-date") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/format-date/format-date.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/format-date/format-date.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = FormatDateComponent with dom.HTMLElement

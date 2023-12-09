@@ -19,7 +19,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object QrCode extends WebComponent("sl-qr-code") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/qr-code/qr-code.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/qr-code/qr-code.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = QrCodeComponent with dom.HTMLElement

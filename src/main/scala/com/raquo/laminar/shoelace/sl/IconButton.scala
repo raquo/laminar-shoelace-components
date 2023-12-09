@@ -19,7 +19,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object IconButton extends WebComponent("sl-icon-button") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/icon-button/icon-button.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/icon-button/icon-button.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = IconButtonComponent with dom.HTMLElement

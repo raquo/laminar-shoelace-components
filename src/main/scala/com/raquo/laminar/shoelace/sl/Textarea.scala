@@ -21,7 +21,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object Textarea extends WebComponent("sl-textarea") with ControlledInput {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/textarea/textarea.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/textarea/textarea.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = TextareaComponent with dom.HTMLTextAreaElement

@@ -20,7 +20,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object Tab extends WebComponent("sl-tab") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/tab/tab.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/tab/tab.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = TabComponent with dom.HTMLElement

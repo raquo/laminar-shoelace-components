@@ -21,7 +21,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object RadioGroup extends WebComponent("sl-radio-group") with ControlledInput {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/radio-group/radio-group.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/radio-group/radio-group.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = RadioGroupComponent with dom.HTMLElement

@@ -20,7 +20,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object TreeItem extends WebComponent("sl-tree-item") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/tree-item/tree-item.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/tree-item/tree-item.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = TreeItemComponent with dom.HTMLElement

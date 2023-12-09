@@ -14,7 +14,7 @@ On the build side, this project is a parser, a translator, and a generator. It p
 
 ## Status
 
-WIP. For now, you can play with `0.1.0-M1` if you really want to, but remember it's an early preview. You can see it in action in the `next-v17` branch of [Laminar demo](https://github.com/raquo/laminar-full-stack-demo/).
+WIP. For now, you can play with `0.1.0-M2` if you really want to, but remember it's an early preview. You can see it in action in the `next-v17` branch of [Laminar demo](https://github.com/raquo/laminar-full-stack-demo/).
 
 Top TODO-s (two of many):
 

@@ -21,7 +21,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object ResizeObserver extends WebComponent("sl-resize-observer") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/resize-observer/resize-observer.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/resize-observer/resize-observer.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = ResizeObserverComponent with dom.HTMLElement

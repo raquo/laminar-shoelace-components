@@ -21,7 +21,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object Input extends WebComponent("sl-input") with ControlledInput {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/input/input.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/input/input.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = InputComponent with dom.HTMLInputElement

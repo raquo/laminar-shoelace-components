@@ -20,7 +20,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object Include extends WebComponent("sl-include") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/include/include.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/include/include.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = IncludeComponent with dom.HTMLElement

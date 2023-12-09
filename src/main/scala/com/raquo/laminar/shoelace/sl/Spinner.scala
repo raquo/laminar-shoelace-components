@@ -20,7 +20,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object Spinner extends WebComponent("sl-spinner") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/spinner/spinner.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/spinner/spinner.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = dom.HTMLElement

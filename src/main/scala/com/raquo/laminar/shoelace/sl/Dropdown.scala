@@ -20,7 +20,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object Dropdown extends WebComponent("sl-dropdown") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/dropdown/dropdown.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/dropdown/dropdown.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = DropdownComponent with dom.HTMLElement

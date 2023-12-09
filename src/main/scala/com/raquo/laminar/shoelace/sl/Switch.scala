@@ -22,7 +22,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object Switch extends WebComponent("sl-switch") with ControlledInput {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/switch/switch.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/switch/switch.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = SwitchComponent with dom.HTMLElement

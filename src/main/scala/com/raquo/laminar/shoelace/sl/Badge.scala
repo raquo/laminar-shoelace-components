@@ -20,7 +20,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object Badge extends WebComponent("sl-badge") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/badge/badge.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/badge/badge.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = BadgeComponent with dom.HTMLElement

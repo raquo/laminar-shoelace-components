@@ -22,7 +22,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object AnimatedImage extends WebComponent("sl-animated-image") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/animated-image/animated-image.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/animated-image/animated-image.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = AnimatedImageComponent with dom.HTMLElement

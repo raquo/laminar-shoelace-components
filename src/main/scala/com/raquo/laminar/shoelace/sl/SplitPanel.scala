@@ -21,7 +21,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object SplitPanel extends WebComponent("sl-split-panel") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/split-panel/split-panel.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/split-panel/split-panel.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = SplitPanelComponent with dom.HTMLElement

@@ -20,7 +20,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object Option extends WebComponent("sl-option") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/option/option.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/option/option.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = OptionComponent with dom.HTMLElement

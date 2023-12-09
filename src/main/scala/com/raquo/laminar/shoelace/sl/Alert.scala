@@ -20,7 +20,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object Alert extends WebComponent("sl-alert") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/alert/alert.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/alert/alert.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = AlertComponent with dom.HTMLElement

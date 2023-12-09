@@ -19,7 +19,7 @@ import scala.scalajs.js.annotation.JSImport
   */
 object VisuallyHidden extends WebComponent("sl-visually-hidden") {
 
-  @JSImport("@shoelace-style/shoelace/dist/components/visually-hidden/visually-hidden.js")
+  @JSImport("@shoelace-style/shoelace/dist/components/visually-hidden/visually-hidden.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
   type Ref = dom.HTMLElement
