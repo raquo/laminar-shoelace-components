@@ -14,7 +14,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Dividers are used to visually separate or group elements.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Divider.scala Divider.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Divider.scala Divider.scala source code]]
   * 
   * [[https://shoelace.style/components/divider Shoelace Divider docs]]
   */

@@ -15,7 +15,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Cards can be used to group related subjects in a container.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Card.scala Card.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Card.scala Card.scala source code]]
   * 
   * [[https://shoelace.style/components/card Shoelace Card docs]]
   */

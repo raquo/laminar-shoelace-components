@@ -13,7 +13,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Formats a number using the specified locale and options.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/FormatNumber.scala FormatNumber.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/FormatNumber.scala FormatNumber.scala source code]]
   * 
   * [[https://shoelace.style/components/format-number Shoelace FormatNumber docs]]
   */

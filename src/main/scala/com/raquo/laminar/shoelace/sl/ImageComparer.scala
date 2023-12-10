@@ -15,7 +15,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Compare visual differences between similar photos with a sliding panel.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/ImageComparer.scala ImageComparer.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/ImageComparer.scala ImageComparer.scala source code]]
   * 
   * [[https://shoelace.style/components/image-comparer Shoelace ImageComparer docs]]
   */

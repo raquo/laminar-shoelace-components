@@ -16,7 +16,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Dialogs, sometimes called "modals", appear above the page and require the user's immediate attention.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Dialog.scala Dialog.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Dialog.scala Dialog.scala source code]]
   * 
   * [[https://shoelace.style/components/dialog Shoelace Dialog docs]]
   */

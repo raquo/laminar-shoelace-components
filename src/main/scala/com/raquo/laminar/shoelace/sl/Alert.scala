@@ -14,7 +14,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Alerts are used to display important messages inline or as toast notifications.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Alert.scala Alert.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Alert.scala Alert.scala source code]]
   * 
   * [[https://shoelace.style/components/alert Shoelace Alert docs]]
   */

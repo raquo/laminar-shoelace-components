@@ -14,7 +14,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Radios allow the user to select a single option from a group.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Radio.scala Radio.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Radio.scala Radio.scala source code]]
   * 
   * [[https://shoelace.style/components/radio Shoelace Radio docs]]
   */

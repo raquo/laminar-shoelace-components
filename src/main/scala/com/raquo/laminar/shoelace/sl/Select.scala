@@ -14,7 +14,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Selects allow you to choose items from a menu of predefined options.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Select.scala Select.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Select.scala Select.scala source code]]
   * 
   * [[https://shoelace.style/components/select Shoelace Select docs]]
   */

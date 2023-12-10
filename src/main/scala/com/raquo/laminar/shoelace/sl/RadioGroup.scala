@@ -15,7 +15,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Radio groups are used to group multiple [radios](/components/radio) or [radio buttons](/components/radio-button) so they function as a single form control.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/RadioGroup.scala RadioGroup.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/RadioGroup.scala RadioGroup.scala source code]]
   * 
   * [[https://shoelace.style/components/radio-group Shoelace RadioGroup docs]]
   */

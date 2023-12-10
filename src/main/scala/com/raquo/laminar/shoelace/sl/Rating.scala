@@ -15,7 +15,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Ratings give users a way to quickly view and provide feedback.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Rating.scala Rating.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Rating.scala Rating.scala source code]]
   * 
   * [[https://shoelace.style/components/rating Shoelace Rating docs]]
   */

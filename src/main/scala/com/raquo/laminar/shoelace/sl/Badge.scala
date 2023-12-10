@@ -14,7 +14,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Badges are used to draw attention and display statuses or counts.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Badge.scala Badge.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Badge.scala Badge.scala source code]]
   * 
   * [[https://shoelace.style/components/badge Shoelace Badge docs]]
   */

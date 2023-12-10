@@ -16,7 +16,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Copies text data to the clipboard when the user clicks the trigger.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/CopyButton.scala CopyButton.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/CopyButton.scala CopyButton.scala source code]]
   * 
   * [[https://shoelace.style/components/copy Shoelace CopyButton docs]]
   */

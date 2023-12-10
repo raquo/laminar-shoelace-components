@@ -16,7 +16,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Switches allow the user to toggle an option on or off.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Switch.scala Switch.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Switch.scala Switch.scala source code]]
   * 
   * [[https://shoelace.style/components/switch Shoelace Switch docs]]
   */

@@ -14,7 +14,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Tags are used as labels to organize things or to indicate a selection.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Tag.scala Tag.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Tag.scala Tag.scala source code]]
   * 
   * [[https://shoelace.style/components/tag Shoelace Tag docs]]
   */

@@ -16,7 +16,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Tab groups organize content into a container that shows one section at a time.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/TabGroup.scala TabGroup.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/TabGroup.scala TabGroup.scala source code]]
   * 
   * [[https://shoelace.style/components/tab-group Shoelace TabGroup docs]]
   */

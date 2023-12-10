@@ -15,7 +15,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * The Mutation Observer component offers a thin, declarative interface to the [`MutationObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver).
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/MutationObserver.scala MutationObserver.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/MutationObserver.scala MutationObserver.scala source code]]
   * 
   * [[https://shoelace.style/components/mutation-observer Shoelace MutationObserver docs]]
   */

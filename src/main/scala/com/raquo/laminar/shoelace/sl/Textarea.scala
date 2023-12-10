@@ -15,7 +15,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Textareas collect data from the user and allow multiple lines of text.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Textarea.scala Textarea.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Textarea.scala Textarea.scala source code]]
   * 
   * [[https://shoelace.style/components/textarea Shoelace Textarea docs]]
   */

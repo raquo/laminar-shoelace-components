@@ -14,7 +14,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Buttons represent actions that are available to the user.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Button.scala Button.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Button.scala Button.scala source code]]
   * 
   * [[https://shoelace.style/components/button Shoelace Button docs]]
   */

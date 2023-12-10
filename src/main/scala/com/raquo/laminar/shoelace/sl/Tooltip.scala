@@ -15,7 +15,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Tooltips display additional information based on a specific action.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Tooltip.scala Tooltip.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Tooltip.scala Tooltip.scala source code]]
   * 
   * [[https://shoelace.style/components/tooltip Shoelace Tooltip docs]]
   */

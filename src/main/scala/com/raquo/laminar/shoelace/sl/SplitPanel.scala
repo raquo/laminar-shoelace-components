@@ -15,7 +15,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Split panels display two adjacent panels, allowing the user to reposition them.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/SplitPanel.scala SplitPanel.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/SplitPanel.scala SplitPanel.scala source code]]
   * 
   * [[https://shoelace.style/components/split-panel Shoelace SplitPanel docs]]
   */

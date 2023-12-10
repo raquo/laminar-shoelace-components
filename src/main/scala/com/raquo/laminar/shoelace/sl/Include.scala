@@ -14,7 +14,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Includes give you the power to embed external HTML files into the page.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Include.scala Include.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Include.scala Include.scala source code]]
   * 
   * [[https://shoelace.style/components/include Shoelace Include docs]]
   */

@@ -14,7 +14,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Breadcrumbs provide a group of links so users can easily navigate a website's hierarchy.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Breadcrumb.scala Breadcrumb.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Breadcrumb.scala Breadcrumb.scala source code]]
   * 
   * [[https://shoelace.style/components/breadcrumb Shoelace Breadcrumb docs]]
   */

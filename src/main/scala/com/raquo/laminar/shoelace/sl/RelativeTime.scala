@@ -13,7 +13,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Outputs a localized time phrase relative to the current date and time.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/RelativeTime.scala RelativeTime.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/RelativeTime.scala RelativeTime.scala source code]]
   * 
   * [[https://shoelace.style/components/relative-time Shoelace RelativeTime docs]]
   */

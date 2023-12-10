@@ -15,7 +15,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Ranges allow the user to select a single value within a given range using a slider.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Range.scala Range.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Range.scala Range.scala source code]]
   * 
   * [[https://shoelace.style/components/range Shoelace Range docs]]
   */

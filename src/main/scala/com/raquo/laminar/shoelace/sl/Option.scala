@@ -14,7 +14,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Options define the selectable items within various form controls such as [select](/components/select).
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Option.scala Option.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Option.scala Option.scala source code]]
   * 
   * [[https://shoelace.style/components/option Shoelace Option docs]]
   */

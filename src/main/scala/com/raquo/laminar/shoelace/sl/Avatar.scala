@@ -15,7 +15,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Avatars are used to represent a person or object.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Avatar.scala Avatar.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Avatar.scala Avatar.scala source code]]
   * 
   * [[https://shoelace.style/components/avatar Shoelace Avatar docs]]
   */

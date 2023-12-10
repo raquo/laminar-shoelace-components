@@ -15,7 +15,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * The Resize Observer component offers a thin, declarative interface to the [`ResizeObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver).
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/ResizeObserver.scala ResizeObserver.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/ResizeObserver.scala ResizeObserver.scala source code]]
   * 
   * [[https://shoelace.style/components/resize-observer Shoelace ResizeObserver docs]]
   */

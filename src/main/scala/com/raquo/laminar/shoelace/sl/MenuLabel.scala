@@ -13,7 +13,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Menu labels are used to describe a group of menu items.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/MenuLabel.scala MenuLabel.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/MenuLabel.scala MenuLabel.scala source code]]
   * 
   * [[https://shoelace.style/components/menu-label Shoelace MenuLabel docs]]
   */

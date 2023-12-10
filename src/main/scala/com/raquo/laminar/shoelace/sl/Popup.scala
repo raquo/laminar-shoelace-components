@@ -15,7 +15,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Popup is a utility that lets you declaratively anchor "popup" containers to another element.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Popup.scala Popup.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Popup.scala Popup.scala source code]]
   * 
   * [[https://shoelace.style/components/popup Shoelace Popup docs]]
   */

@@ -13,7 +13,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Generates a [QR code](https://www.qrcode.com/) and renders it using the [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API).
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/QrCode.scala QrCode.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/QrCode.scala QrCode.scala source code]]
   * 
   * [[https://shoelace.style/components/qr-code Shoelace QrCode docs]]
   */

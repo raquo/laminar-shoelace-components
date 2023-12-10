@@ -15,7 +15,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Inputs collect data from the user.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Input.scala Input.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Input.scala Input.scala source code]]
   * 
   * [[https://shoelace.style/components/input Shoelace Input docs]]
   */

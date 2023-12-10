@@ -16,7 +16,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Color pickers allow the user to select a color.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/ColorPicker.scala ColorPicker.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/ColorPicker.scala ColorPicker.scala source code]]
   * 
   * [[https://shoelace.style/components/color-picker Shoelace ColorPicker docs]]
   */

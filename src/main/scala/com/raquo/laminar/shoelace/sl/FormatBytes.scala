@@ -13,7 +13,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Formats a number as a human readable bytes value.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/FormatBytes.scala FormatBytes.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/FormatBytes.scala FormatBytes.scala source code]]
   * 
   * [[https://shoelace.style/components/format-bytes Shoelace FormatBytes docs]]
   */

@@ -15,7 +15,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Progress bars are used to show the status of an ongoing operation.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/ProgressBar.scala ProgressBar.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/ProgressBar.scala ProgressBar.scala source code]]
   * 
   * [[https://shoelace.style/components/progress-bar Shoelace ProgressBar docs]]
   */

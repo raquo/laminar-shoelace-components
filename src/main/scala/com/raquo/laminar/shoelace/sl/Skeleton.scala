@@ -14,7 +14,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Skeletons are used to provide a visual representation of where content will eventually be drawn.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Skeleton.scala Skeleton.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Skeleton.scala Skeleton.scala source code]]
   * 
   * [[https://shoelace.style/components/skeleton Shoelace Skeleton docs]]
   */

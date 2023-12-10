@@ -14,7 +14,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Details show a brief summary and expand to show additional content.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Details.scala Details.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Details.scala Details.scala source code]]
   * 
   * [[https://shoelace.style/components/details Shoelace Details docs]]
   */

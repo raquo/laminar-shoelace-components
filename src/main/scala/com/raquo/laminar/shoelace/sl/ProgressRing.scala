@@ -15,7 +15,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Progress rings are used to show the progress of a determinate operation in a circular fashion.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/ProgressRing.scala ProgressRing.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/ProgressRing.scala ProgressRing.scala source code]]
   * 
   * [[https://shoelace.style/components/progress-ring Shoelace ProgressRing docs]]
   */

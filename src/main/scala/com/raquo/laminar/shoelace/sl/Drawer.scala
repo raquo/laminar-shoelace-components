@@ -16,7 +16,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Drawers slide in from a container to expose additional options and information.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Drawer.scala Drawer.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Drawer.scala Drawer.scala source code]]
   * 
   * [[https://shoelace.style/components/drawer Shoelace Drawer docs]]
   */

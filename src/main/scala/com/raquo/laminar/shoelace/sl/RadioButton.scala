@@ -14,7 +14,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Radios buttons allow the user to select a single option from a group using a button-like control.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/RadioButton.scala RadioButton.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/RadioButton.scala RadioButton.scala source code]]
   * 
   * [[https://shoelace.style/components/radio-button Shoelace RadioButton docs]]
   */

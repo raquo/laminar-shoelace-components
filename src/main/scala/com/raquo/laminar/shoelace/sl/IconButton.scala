@@ -13,7 +13,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Icons buttons are simple, icon-only buttons that can be used for actions and in toolbars.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/IconButton.scala IconButton.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/IconButton.scala IconButton.scala source code]]
   * 
   * [[https://shoelace.style/components/icon-button Shoelace IconButton docs]]
   */

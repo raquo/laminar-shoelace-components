@@ -14,7 +14,7 @@ import scala.scalajs.js.annotation.JSImport
 /**
   * Spinners are used to show the progress of an indeterminate operation.
   * 
-  * [[https://https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Spinner.scala Spinner.scala source code]]
+  * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Spinner.scala Spinner.scala source code]]
   * 
   * [[https://shoelace.style/components/spinner Shoelace Spinner docs]]
   */

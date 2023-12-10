@@ -24,7 +24,7 @@ lazy val sl = project
   .settings(
     generateShoelace := {
       new ShoelaceGenerator(
-        onlineSourceRoot = "https://https://github.com/raquo/laminar-shoelace-components/blob/master",
+        onlineSourceRoot = "https://github.com/raquo/laminar-shoelace-components/blob/master",
         customElementsJsonPath = "node_modules/@shoelace-style/shoelace/dist/custom-elements.json",
         baseOutputDirectoryPath = "src/main/scala/com/raquo/laminar/shoelace/sl",
         baseOutputPackagePath = "com.raquo.laminar.shoelace.sl"
