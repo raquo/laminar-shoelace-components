@@ -24,6 +24,8 @@ object ResizeObserver extends WebComponent("sl-resize-observer") {
   @JSImport("@shoelace-style/shoelace/dist/components/resize-observer/resize-observer.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = ResizeObserver.type
+
   type Ref = ResizeObserverComponent with dom.HTMLElement
 
 

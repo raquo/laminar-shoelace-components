@@ -22,6 +22,8 @@ object QrCode extends WebComponent("sl-qr-code") {
   @JSImport("@shoelace-style/shoelace/dist/components/qr-code/qr-code.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = QrCode.type
+
   type Ref = QrCodeComponent with dom.HTMLElement
 
 

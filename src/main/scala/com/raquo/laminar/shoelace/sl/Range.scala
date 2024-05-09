@@ -24,6 +24,8 @@ object Range extends WebComponent("sl-range") {
   @JSImport("@shoelace-style/shoelace/dist/components/range/range.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Range.type
+
   type Ref = RangeComponent with dom.HTMLElement
 
 

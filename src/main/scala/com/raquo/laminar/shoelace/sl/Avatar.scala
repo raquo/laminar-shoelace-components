@@ -24,6 +24,8 @@ object Avatar extends WebComponent("sl-avatar") {
   @JSImport("@shoelace-style/shoelace/dist/components/avatar/avatar.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Avatar.type
+
   type Ref = AvatarComponent with dom.HTMLElement
 
 

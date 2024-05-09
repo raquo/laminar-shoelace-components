@@ -25,6 +25,8 @@ object Drawer extends WebComponent("sl-drawer") {
   @JSImport("@shoelace-style/shoelace/dist/components/drawer/drawer.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Drawer.type
+
   type Ref = DrawerComponent with dom.HTMLElement
 
 

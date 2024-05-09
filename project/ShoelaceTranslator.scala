@@ -71,7 +71,7 @@ class ShoelaceTranslator(
       case "sl-input" => Some(("value", "onInput", emptyStringRepr))
       case "sl-radio-group" => Some(("value", "onInput", emptyStringRepr)) // or onChange?
       // case "sl-range" => ??? // #TODO
-      // case "sl-select" => Some(("value", "onInput", emptyStringRepr)) // or onChange? #TODO
+      case "sl-select" => Some(("value", "onInput", emptyStringRepr)) // or onChange? #TODO
       case "sl-switch" => Some(("checked", "onInput", falseRepr)) // or onChange?
       case "sl-textarea" => Some(("value", "onInput", emptyStringRepr))
       case _ => None
@@ -119,6 +119,14 @@ class ShoelaceTranslator(
     }
   }
 
+  // Return Some(attrName, aliases) if you want to skip scalifyAttrName logic and provide your own names.
+  def maybeRenameAttr(tagName: String, attrNameOrPropName: String): Option[(String, List[String])] = {
+    (tagName, attrNameOrPropName) match {
+      case ("sl-alert", "duration") => Some(("durationMs", Nil))
+      case _ => None
+    }
+  }
+
   /** Pretend that these fields don't exist in the manifest at all. */
   def shouldIgnoreField(tagName: String, propName: String, jsTypes: List[Def.JsType]): Boolean = {
     // I think in Shoelace a lot of these would be covered by a
@@ -128,7 +136,7 @@ class ShoelaceTranslator(
       // #nc #nc #nc vvvvvv TODO
       case ("sl-color-picker", "swatches", _) => true // Composite List[String] separated by ; IF used as an attribute. Property is an array, but not reflected.
       case ("sl-format-date" | "sl-relative-time", "date", _) => true // Date | String - convert date with `date.toISOString()` - For MVP, just make an attribute, and a codec for date?
-      case ("sl-select", "value" | "defaultValue", _) => true // String | String[]. Space-delimited string in html attr. Use `value` vs `values`?
+      // case ("sl-select", "value" | "defaultValue", _) => true // String | String[]. Space-delimited string in html attr. Use `value` vs `values`?
       // #nc #nc #nc ^^^^^ TODO
       // Don't want those props, we have (non-reflected) attributes for them.
       case (_, "defaultValue" | "defaultChecked", _) => true
@@ -399,13 +407,16 @@ class ShoelaceTranslator(
 
   def attributes(elementDeclaration: M.Declaration): List[Def.Attribute] = {
     elementDeclaration.attributes.flatMap { attr =>
-      val jsTypes = parseJsTypes(elementDeclaration.tagName, attr.name, attr.`type`)
+      val tagName = elementDeclaration.tagName
+      val jsTypes = parseJsTypes(tagName, attr.name, attr.`type`)
       if (jsTypes.exists(t => isAttributeTypeHtmlCompatible(t).contains(false))) {
         // Attr contains HTML-incompatible types such as element, function, date, etc.
         // So, we must use it as a property instead.
         None
       } else {
-        val (scalaName, scalaAliases) = scalifyAttrName(attr.name)
+        val (scalaName, scalaAliases) =
+          maybeRenameAttr(tagName, attr.name)
+            .getOrElse(scalifyAttrName(attr.name))
         Some(
           Def.Attribute(
             attrName = attr.name,
@@ -555,6 +566,7 @@ class ShoelaceTranslator(
     val printableTypes = prop.jsTypes
       .map {
         case Def.JsStringConstantType(_) => Def.JsStringType
+        case Def.JsCustomType("string[]") => Def.JsStringType // #nc temporary fix for sl-select value
         case other => other
       }
       .distinct
@@ -590,6 +602,7 @@ class ShoelaceTranslator(
     val printableTypes = jsTypes
       .map {
         case Def.JsStringConstantType(_) => Def.JsStringType
+        case Def.JsCustomType("string[]") => Def.JsStringType // #nc temporary fix for sl-select value
         case other => other
       }
       .map(scalaOutputType(context, _))

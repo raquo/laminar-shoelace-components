@@ -23,6 +23,8 @@ object Spinner extends WebComponent("sl-spinner") {
   @JSImport("@shoelace-style/shoelace/dist/components/spinner/spinner.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Spinner.type
+
   type Ref = dom.HTMLElement
 
 

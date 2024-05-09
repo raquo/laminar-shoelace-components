@@ -14,11 +14,11 @@ On the build side, this project is a parser, a translator, and a generator. It p
 
 ## Status
 
-WIP. For now, you can play with `0.1.0-M2` if you really want to, but remember it's an early preview. You can see it in action in the `next-v17` branch of [Laminar demo](https://github.com/raquo/laminar-full-stack-demo/).
+WIP. For now, you can play with `0.1.0` if you really want to, but remember it's an early preview. You can see it in action in [Laminar demo](https://demo.laminar.dev/app/integrations/web-components/shoelace).
 
 Top TODO-s (two of many):
 
-- output instance methods
+- output instance methods (if you want to help, this may be a good place to start)
 - support complex/non-standard attrs and props
 
 

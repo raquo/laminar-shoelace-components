@@ -23,6 +23,8 @@ object ButtonGroup extends WebComponent("sl-button-group") {
   @JSImport("@shoelace-style/shoelace/dist/components/button-group/button-group.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = ButtonGroup.type
+
   type Ref = ButtonGroupComponent with dom.HTMLElement
 
 

@@ -24,6 +24,8 @@ object Rating extends WebComponent("sl-rating") {
   @JSImport("@shoelace-style/shoelace/dist/components/rating/rating.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Rating.type
+
   type Ref = RatingComponent with dom.HTMLElement
 
 

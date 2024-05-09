@@ -1,8 +1,9 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr}
+import com.raquo.laminar.keys.{EventProp, HtmlProp, HtmlAttr}
 import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -18,12 +19,18 @@ import scala.scalajs.js.annotation.JSImport
   * 
   * [[https://shoelace.style/components/select Shoelace Select docs]]
   */
-object Select extends WebComponent("sl-select") {
+object Select extends WebComponent("sl-select") with ControlledInput {
 
   @JSImport("@shoelace-style/shoelace/dist/components/select/select.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Select.type
+
   type Ref = SelectComponent with dom.HTMLElement
+
+  override protected lazy val tag: CustomHtmlTag[Ref] = {
+    tagWithControlledInput(value, initial = "", onInput)
+  }
 
 
   // -- Events --
@@ -128,6 +135,13 @@ object Select extends WebComponent("sl-select") {
 
   // -- Props --
 
+  /**
+    * The current value of the select, submitted as a name/value pair with form data. When `multiple` is enabled, the
+    * value attribute will be a space-delimited list of values based on the options selected, and the value property will
+    * be an array. **For this reason, values must not contain spaces.**
+    */
+  lazy val value: HtmlProp[String, _] = stringProp("value")
+
 
   // -- Slots --
 
@@ -217,6 +231,13 @@ object Select extends WebComponent("sl-select") {
 
     /** The name of the select, submitted as a name/value pair with form data. */
     var name: String
+
+    /**
+      * The current value of the select, submitted as a name/value pair with form data. When `multiple` is enabled, the
+      * value attribute will be a space-delimited list of values based on the options selected, and the value property will
+      * be an array. **For this reason, values must not contain spaces.**
+      */
+    var value: String
 
     /** The select's size. */
     var size: String

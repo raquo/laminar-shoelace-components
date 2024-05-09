@@ -24,6 +24,8 @@ object ImageComparer extends WebComponent("sl-image-comparer") {
   @JSImport("@shoelace-style/shoelace/dist/components/image-comparer/image-comparer.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = ImageComparer.type
+
   type Ref = ImageComparerComponent with dom.HTMLElement
 
 

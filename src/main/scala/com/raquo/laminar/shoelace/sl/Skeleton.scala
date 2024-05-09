@@ -23,6 +23,8 @@ object Skeleton extends WebComponent("sl-skeleton") {
   @JSImport("@shoelace-style/shoelace/dist/components/skeleton/skeleton.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Skeleton.type
+
   type Ref = SkeletonComponent with dom.HTMLElement
 
 

@@ -24,6 +24,8 @@ object Checkbox extends WebComponent("sl-checkbox") with ControlledInput {
   @JSImport("@shoelace-style/shoelace/dist/components/checkbox/checkbox.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Checkbox.type
+
   type Ref = CheckboxComponent with dom.HTMLElement
 
   override protected lazy val tag: CustomHtmlTag[Ref] = {

@@ -24,6 +24,8 @@ object Popup extends WebComponent("sl-popup") {
   @JSImport("@shoelace-style/shoelace/dist/components/popup/popup.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Popup.type
+
   type Ref = PopupComponent with dom.HTMLElement
 
 

@@ -25,6 +25,8 @@ object Tree extends WebComponent("sl-tree") {
   @JSImport("@shoelace-style/shoelace/dist/components/tree/tree.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Tree.type
+
   type Ref = TreeComponent with dom.HTMLElement
 
 

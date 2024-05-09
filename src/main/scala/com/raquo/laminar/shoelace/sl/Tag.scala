@@ -23,6 +23,8 @@ object Tag extends WebComponent("sl-tag") {
   @JSImport("@shoelace-style/shoelace/dist/components/tag/tag.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Tag.type
+
   type Ref = TagComponent with dom.HTMLElement
 
 

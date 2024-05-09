@@ -115,18 +115,25 @@ object CommonKeys extends CommonTypes {
   }
 
   /** Theme variant – changes the colors */
-  object variant extends HtmlAttr[String]("variant", StringAsIsCodec) {
+  abstract class Variant extends HtmlAttr[String]("variant", StringAsIsCodec) {
 
-    lazy val default: HtmlAttrSetter[String] = variant("default")
+    lazy val default: HtmlAttrSetter[String] = this := "default"
 
-    lazy val primary: HtmlAttrSetter[String] = variant("primary")
+    lazy val primary: HtmlAttrSetter[String] = this := "primary"
 
-    lazy val success: HtmlAttrSetter[String] = variant("success")
+    lazy val success: HtmlAttrSetter[String] = this := "success"
 
-    lazy val neutral: HtmlAttrSetter[String] = variant("neutral")
+    lazy val neutral: HtmlAttrSetter[String] = this := "neutral"
 
-    lazy val warning: HtmlAttrSetter[String] = variant("warning")
+    lazy val warning: HtmlAttrSetter[String] = this := "warning"
 
-    lazy val danger: HtmlAttrSetter[String] = variant("danger")
+    lazy val danger: HtmlAttrSetter[String] = this := "danger"
+  }
+
+  object variant extends Variant
+
+  object buttonVariant extends Variant {
+
+    lazy val text: HtmlAttrSetter[String] = this := "text"
   }
 }

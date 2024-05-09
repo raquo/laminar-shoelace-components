@@ -23,6 +23,8 @@ object Button extends WebComponent("sl-button") {
   @JSImport("@shoelace-style/shoelace/dist/components/button/button.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Button.type
+
   type Ref = ButtonComponent with dom.HTMLElement
 
 
@@ -43,7 +45,7 @@ object Button extends WebComponent("sl-button") {
   lazy val title: HtmlAttr[String] = stringAttr("title")
 
   /** The button's theme variant. */
-  lazy val variant: CommonKeys.variant.type = CommonKeys.variant
+  lazy val variant: CommonKeys.buttonVariant.type = CommonKeys.buttonVariant
 
   /** The button's size. */
   lazy val size: CommonKeys.size.type = CommonKeys.size

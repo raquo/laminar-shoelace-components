@@ -24,6 +24,8 @@ object TabPanel extends WebComponent("sl-tab-panel") {
   @JSImport("@shoelace-style/shoelace/dist/components/tab-panel/tab-panel.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = TabPanel.type
+
   type Ref = TabPanelComponent with dom.HTMLElement
 
 

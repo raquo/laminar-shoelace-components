@@ -23,6 +23,8 @@ object Include extends WebComponent("sl-include") {
   @JSImport("@shoelace-style/shoelace/dist/components/include/include.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Include.type
+
   type Ref = IncludeComponent with dom.HTMLElement
 
 

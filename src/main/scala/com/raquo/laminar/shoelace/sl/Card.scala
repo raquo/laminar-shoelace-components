@@ -24,6 +24,8 @@ object Card extends WebComponent("sl-card") {
   @JSImport("@shoelace-style/shoelace/dist/components/card/card.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Card.type
+
   type Ref = dom.HTMLElement
 
 

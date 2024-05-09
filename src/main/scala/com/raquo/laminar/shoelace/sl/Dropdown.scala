@@ -23,6 +23,8 @@ object Dropdown extends WebComponent("sl-dropdown") {
   @JSImport("@shoelace-style/shoelace/dist/components/dropdown/dropdown.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Dropdown.type
+
   type Ref = DropdownComponent with dom.HTMLElement
 
 

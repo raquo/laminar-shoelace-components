@@ -23,6 +23,8 @@ object Badge extends WebComponent("sl-badge") {
   @JSImport("@shoelace-style/shoelace/dist/components/badge/badge.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Badge.type
+
   type Ref = BadgeComponent with dom.HTMLElement
 
 

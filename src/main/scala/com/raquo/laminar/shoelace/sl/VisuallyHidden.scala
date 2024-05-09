@@ -22,6 +22,8 @@ object VisuallyHidden extends WebComponent("sl-visually-hidden") {
   @JSImport("@shoelace-style/shoelace/dist/components/visually-hidden/visually-hidden.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = VisuallyHidden.type
+
   type Ref = dom.HTMLElement
 
 

@@ -25,6 +25,8 @@ object Dialog extends WebComponent("sl-dialog") {
   @JSImport("@shoelace-style/shoelace/dist/components/dialog/dialog.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Dialog.type
+
   type Ref = DialogComponent with dom.HTMLElement
 
 

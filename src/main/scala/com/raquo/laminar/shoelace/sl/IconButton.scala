@@ -22,6 +22,8 @@ object IconButton extends WebComponent("sl-icon-button") {
   @JSImport("@shoelace-style/shoelace/dist/components/icon-button/icon-button.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = IconButton.type
+
   type Ref = IconButtonComponent with dom.HTMLElement
 
 

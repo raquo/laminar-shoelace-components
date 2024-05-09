@@ -23,6 +23,8 @@ object Carousel extends WebComponent("sl-carousel") {
   @JSImport("@shoelace-style/shoelace/dist/components/carousel/carousel.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Carousel.type
+
   type Ref = CarouselComponent with dom.HTMLElement
 
 

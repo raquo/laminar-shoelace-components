@@ -24,6 +24,8 @@ object Menu extends WebComponent("sl-menu") {
   @JSImport("@shoelace-style/shoelace/dist/components/menu/menu.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Menu.type
+
   type Ref = dom.HTMLElement
 
 

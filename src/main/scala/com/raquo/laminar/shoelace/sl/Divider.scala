@@ -23,6 +23,8 @@ object Divider extends WebComponent("sl-divider") {
   @JSImport("@shoelace-style/shoelace/dist/components/divider/divider.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Divider.type
+
   type Ref = DividerComponent with dom.HTMLElement
 
 

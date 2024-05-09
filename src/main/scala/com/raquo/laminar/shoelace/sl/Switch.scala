@@ -25,6 +25,8 @@ object Switch extends WebComponent("sl-switch") with ControlledInput {
   @JSImport("@shoelace-style/shoelace/dist/components/switch/switch.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Switch.type
+
   type Ref = SwitchComponent with dom.HTMLElement
 
   override protected lazy val tag: CustomHtmlTag[Ref] = {

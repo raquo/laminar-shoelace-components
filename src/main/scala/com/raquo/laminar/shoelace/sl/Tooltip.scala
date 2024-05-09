@@ -24,6 +24,8 @@ object Tooltip extends WebComponent("sl-tooltip") {
   @JSImport("@shoelace-style/shoelace/dist/components/tooltip/tooltip.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Tooltip.type
+
   type Ref = TooltipComponent with dom.HTMLElement
 
 

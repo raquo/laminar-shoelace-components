@@ -23,6 +23,8 @@ object Breadcrumb extends WebComponent("sl-breadcrumb") {
   @JSImport("@shoelace-style/shoelace/dist/components/breadcrumb/breadcrumb.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Breadcrumb.type
+
   type Ref = BreadcrumbComponent with dom.HTMLElement
 
 

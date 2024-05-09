@@ -23,6 +23,8 @@ object Icon extends WebComponent("sl-icon") {
   @JSImport("@shoelace-style/shoelace/dist/components/icon/icon.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Icon.type
+
   type Ref = IconComponent with dom.HTMLElement
 
 

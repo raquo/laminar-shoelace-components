@@ -23,6 +23,8 @@ object Animation extends WebComponent("sl-animation") {
   @JSImport("@shoelace-style/shoelace/dist/components/animation/animation.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Animation.type
+
   type Ref = AnimationComponent with dom.HTMLElement
 
 

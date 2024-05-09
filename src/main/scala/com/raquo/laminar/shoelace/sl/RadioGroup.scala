@@ -24,6 +24,8 @@ object RadioGroup extends WebComponent("sl-radio-group") with ControlledInput {
   @JSImport("@shoelace-style/shoelace/dist/components/radio-group/radio-group.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = RadioGroup.type
+
   type Ref = RadioGroupComponent with dom.HTMLElement
 
   override protected lazy val tag: CustomHtmlTag[Ref] = {

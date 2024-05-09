@@ -24,6 +24,8 @@ object ProgressRing extends WebComponent("sl-progress-ring") {
   @JSImport("@shoelace-style/shoelace/dist/components/progress-ring/progress-ring.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = ProgressRing.type
+
   type Ref = ProgressRingComponent with dom.HTMLElement
 
 

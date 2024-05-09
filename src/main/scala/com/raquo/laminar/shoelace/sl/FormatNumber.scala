@@ -22,6 +22,8 @@ object FormatNumber extends WebComponent("sl-format-number") {
   @JSImport("@shoelace-style/shoelace/dist/components/format-number/format-number.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = FormatNumber.type
+
   type Ref = FormatNumberComponent with dom.HTMLElement
 
 

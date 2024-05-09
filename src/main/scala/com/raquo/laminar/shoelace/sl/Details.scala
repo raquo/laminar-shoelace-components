@@ -23,6 +23,8 @@ object Details extends WebComponent("sl-details") {
   @JSImport("@shoelace-style/shoelace/dist/components/details/details.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Details.type
+
   type Ref = DetailsComponent with dom.HTMLElement
 
 

@@ -24,6 +24,8 @@ object MutationObserver extends WebComponent("sl-mutation-observer") {
   @JSImport("@shoelace-style/shoelace/dist/components/mutation-observer/mutation-observer.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = MutationObserver.type
+
   type Ref = MutationObserverComponent with dom.HTMLElement
 
 

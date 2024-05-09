@@ -23,6 +23,8 @@ object RadioButton extends WebComponent("sl-radio-button") {
   @JSImport("@shoelace-style/shoelace/dist/components/radio-button/radio-button.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = RadioButton.type
+
   type Ref = RadioButtonComponent with dom.HTMLElement
 
 

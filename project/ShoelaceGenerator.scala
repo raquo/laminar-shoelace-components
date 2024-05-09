@@ -44,6 +44,16 @@ class ShoelaceGenerator(
     "size", "target", "autocapitalize", "variant", "placement", "inputmode"
   )
 
+  // #TODO[API] Not a fan of this very Shoelace-specific thing being here.
+  //  - Should we change the variant props to have Variant or ButtonVariant types (instead of String) maybe?
+  //  - Then we can process such types in the generator without deep shoelace knowledge, kinda like customEventTypes?
+  def commonStringAttrScalaName(tagName: String, attrScalaName: String): String = {
+    (tagName, attrScalaName) match {
+      case ("sl-button", "variant") => "buttonVariant"
+      case _ => attrScalaName
+    }
+  }
+
   def attrImplName(scalaTypeStr: String): String = {
     scalaTypeStr match {
       case "Boolean" => "boolAttr"
@@ -221,7 +231,7 @@ class ShoelaceGenerator(
       val elementBaseType = "dom." + st.elementBaseType(element.tagName)
       val showRawComponent = element.allJsProperties.nonEmpty
 
-      printRefType(componentTraitName, showRawComponent, elementBaseType)
+      printRefType(element.scalaName, componentTraitName, showRawComponent, elementBaseType)
 
       printTag(st.allowControlKeys(element.tagName))
 
@@ -292,7 +302,9 @@ class ShoelaceGenerator(
     line("@js.native object RawImport extends js.Object")
   }
 
-  def printRefType(componentTraitName: String, showRawComponent: Boolean, elementBaseType: String): Unit = {
+  def printRefType(componentObjectName: String, componentTraitName: String, showRawComponent: Boolean, elementBaseType: String): Unit = {
+    line()
+    line(s"type Self = ${componentObjectName}.type") // #nc #TODO Organize
     if (showRawComponent) {
       line()
       line(s"type Ref = ${componentTraitName} with ${elementBaseType}")
@@ -336,7 +348,8 @@ class ShoelaceGenerator(
         case Def.JsStringType | Def.JsStringConstantType(_) | Def.JsUndefinedType => true
         case _ => false
       }) {
-        line(s"lazy val ${attr.scalaName}: CommonKeys.${attr.scalaName}.type = CommonKeys.${attr.scalaName}")
+        val commonKeyName = commonStringAttrScalaName(element.tagName, attr.scalaName)
+        line(s"lazy val ${attr.scalaName}: CommonKeys.${commonKeyName}.type = CommonKeys.${commonKeyName}")
       } else {
         line(s"lazy val ${attr.scalaName}: HtmlAttr[${scalaTypeStr}] = ${attrImplName(scalaTypeStr)}(${repr(attr.attrName)})")
       }

@@ -24,6 +24,8 @@ object Input extends WebComponent("sl-input") with ControlledInput {
   @JSImport("@shoelace-style/shoelace/dist/components/input/input.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Input.type
+
   type Ref = InputComponent with dom.HTMLInputElement
 
   override protected lazy val tag: CustomHtmlTag[Ref] = {

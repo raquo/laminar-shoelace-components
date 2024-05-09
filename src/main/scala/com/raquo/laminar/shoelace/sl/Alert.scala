@@ -23,6 +23,8 @@ object Alert extends WebComponent("sl-alert") {
   @JSImport("@shoelace-style/shoelace/dist/components/alert/alert.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Alert.type
+
   type Ref = AlertComponent with dom.HTMLElement
 
 
@@ -60,7 +62,7 @@ object Alert extends WebComponent("sl-alert") {
     * the alert before it closes (e.g. moves the mouse over it), the timer will restart. Defaults to `Infinity`, meaning
     * the alert will not close on its own.
     */
-  lazy val duration: HtmlAttr[Int] = intAttr("duration")
+  lazy val durationMs: HtmlAttr[Int] = intAttr("duration")
 
 
   // -- Props --

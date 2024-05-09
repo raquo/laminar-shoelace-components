@@ -22,6 +22,8 @@ object FormatBytes extends WebComponent("sl-format-bytes") {
   @JSImport("@shoelace-style/shoelace/dist/components/format-bytes/format-bytes.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = FormatBytes.type
+
   type Ref = FormatBytesComponent with dom.HTMLElement
 
 

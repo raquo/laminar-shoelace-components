@@ -1,5 +1,6 @@
 package com.raquo.laminar.shoelace.sl
 
+import com.raquo.laminar.api.Laminar
 import com.raquo.laminar.keys.{EventProcessor, EventProp, HtmlProp}
 import com.raquo.laminar.modifiers.Modifier
 import com.raquo.laminar.nodes.ReactiveHtmlElement
@@ -9,8 +10,10 @@ import org.scalajs.dom
 import scala.scalajs.js
 
 /** Base "trait" for all web components. */
-abstract class WebComponent(tagName: String) extends CommonTypes {
-
+abstract class WebComponent(tagName: String) extends CommonTypes { this: Self =>
+  
+  type Self
+  
   /** Override this with JSImport-ed object of the component.
     * The import must register the component's custom element in the DOM.
     */
@@ -22,7 +25,7 @@ abstract class WebComponent(tagName: String) extends CommonTypes {
 
   type Element = ReactiveHtmlElement[Ref]
 
-  type ModFunction = this.type => Modifier[Element]
+  type ModFunction = Self => Modifier[Element]
 
   type ComponentMod = Modifier[Element] | ModFunction
 
@@ -77,4 +80,12 @@ abstract class WebComponent(tagName: String) extends CommonTypes {
     el
   }
 
+  given toL: Conversion[WebComponent, Laminar] with
+    override def apply(x: WebComponent): Laminar =
+      com.raquo.laminar.api.L
+
+  /** Lets you set standard Laminar properties when using `of` method,
+    * e.g. `sl.Button.of(_.L.attr := "value")`
+    */
+  def L: Laminar = com.raquo.laminar.api.L
 }

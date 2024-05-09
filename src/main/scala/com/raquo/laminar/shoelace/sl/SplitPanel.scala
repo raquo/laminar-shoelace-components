@@ -24,6 +24,8 @@ object SplitPanel extends WebComponent("sl-split-panel") {
   @JSImport("@shoelace-style/shoelace/dist/components/split-panel/split-panel.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = SplitPanel.type
+
   type Ref = SplitPanelComponent with dom.HTMLElement
 
 

@@ -24,6 +24,8 @@ object Textarea extends WebComponent("sl-textarea") with ControlledInput {
   @JSImport("@shoelace-style/shoelace/dist/components/textarea/textarea.js", JSImport.Namespace)
   @js.native object RawImport extends js.Object
 
+  type Self = Textarea.type
+
   type Ref = TextareaComponent with dom.HTMLTextAreaElement
 
   override protected lazy val tag: CustomHtmlTag[Ref] = {
