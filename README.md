@@ -2,10 +2,15 @@
 
 # Laminar Bindings for Shoelace.js Web Components
 
+[![Chat on https://discord.gg/JTrUxhq7sj](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/JTrUxhq7sj)
+[![Maven Central](https://img.shields.io/maven-central/v/com.raquo/laminar-shoelace_sjs1_3.svg)](https://search.maven.org/artifact/com.raquo/laminar-shoelace_sjs1_3)
+
 
 ## What
 
-[Shoelace.js](https://shoelace.style/) is a very nice library of modern [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_Components). Web Components like this  can be used from any UI library (React, Vue, etc.), with some integration work.
+[Shoelace.js](https://shoelace.style/) is a very nice library of modern [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_Components).
+
+Web Components like this  can be used from any UI library (React, Vue, etc.), with some integration work.
 
 This project lets you use Shoelace.js components from [Laminar](https://laminar.dev/), my UI library for Scala.js.
 
