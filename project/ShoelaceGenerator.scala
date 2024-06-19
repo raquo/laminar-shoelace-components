@@ -121,10 +121,10 @@ class ShoelaceGenerator(
     )
   )
 
-  def generate(): Unit = {
+  def generate(): List[File] = {
     val elements = st.components.elements
 
-    {
+    val eventTypes = {
       printEventTypesFile(st.customEventTypes)
       val output = getOutput()
       writeToFile(
@@ -135,13 +135,13 @@ class ShoelaceGenerator(
     }
 
     elements.foreach { el =>
-     if (el.writableNonReflectedProperties.nonEmpty) {
-       println(el.tagName)
-       println(el.writableNonReflectedProperties.map(_.propName).mkString("  > ", ", ", ""))
-     }
+      if (el.writableNonReflectedProperties.nonEmpty) {
+        println(el.tagName)
+        println(el.writableNonReflectedProperties.map(_.propName).mkString("  > ", ", ", ""))
+      }
     }
 
-    elements.foreach { el =>
+    elements.map { el =>
       val fileName = el.scalaName + ".scala"
       printElementFile(fileName, el)
       val output = getOutput()
@@ -150,7 +150,7 @@ class ShoelaceGenerator(
         fileName = fileName,
         fileContent = output
       )
-    }
+    } :+ eventTypes
   }
 
 
