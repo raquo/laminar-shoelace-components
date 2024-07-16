@@ -1,6 +1,6 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.keys.{HtmlAttr}
+import com.raquo.laminar.keys.{HtmlProp, HtmlAttr}
 import com.raquo.laminar.api.L
 import org.scalajs.dom
 
@@ -68,6 +68,13 @@ object FormatDate extends WebComponent("sl-format-date") {
 
   // -- Props --
 
+  /**
+    * The date/time to format. If not set, the current date and time will be used. When passing a string, it's strongly
+    * recommended to use the ISO 8601 format to ensure timezones are handled correctly. To convert a date to this format
+    * in JavaScript, use [`date.toISOString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString).
+    */
+  lazy val date: HtmlProp[js.Date | String, _] = dateProp("date")
+
 
   // -- Slots --
 
@@ -87,6 +94,13 @@ object FormatDate extends WebComponent("sl-format-date") {
   // -- Element type -- 
 
   @js.native trait FormatDateComponent extends js.Object { this: dom.HTMLElement => 
+
+    /**
+      * The date/time to format. If not set, the current date and time will be used. When passing a string, it's strongly
+      * recommended to use the ISO 8601 format to ensure timezones are handled correctly. To convert a date to this format
+      * in JavaScript, use [`date.toISOString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString).
+      */
+    var date: js.Date | String
 
     /** The format for displaying the weekday. */
     var weekday: String
