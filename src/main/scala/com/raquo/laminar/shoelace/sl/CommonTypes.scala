@@ -44,8 +44,6 @@ trait CommonTypes {
 
   protected def asIsProp[V](name: String): HtmlProp[V, _] = L.htmlProp(name, AsIsCodec[V]())
 
-  protected def dateProp(name: String): HtmlProp[js.Date | String, _] = L.htmlProp(name, AsIsCodec[js.Date | String]())
-
   protected def boolAttr(name: String): HtmlAttr[Boolean] = {
     L.htmlAttr(name, BooleanAsAttrPresenceCodec)
   }

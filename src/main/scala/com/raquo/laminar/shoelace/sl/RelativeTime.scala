@@ -52,7 +52,7 @@ object RelativeTime extends WebComponent("sl-relative-time") {
     * string, it's strongly recommended to use the ISO 8601 format to ensure timezones are handled correctly. To convert
     * a date to this format in JavaScript, use [`date.toISOString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString).
     */
-  lazy val date: HtmlProp[js.Date | String, _] = dateProp("date")
+  lazy val date: HtmlProp[js.Date | String, _] = asIsProp("date")
 
 
   // -- Slots --
