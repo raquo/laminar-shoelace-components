@@ -71,7 +71,7 @@ class ShoelaceGenerator(
       case "String" => "stringProp"
       case "Int" => "intProp"
       case "Double" => "doubleProp"
-      case "js.Date | String" => "dateProp"
+      case "js.Date | String" => "asIsProp"
       case "dom.MutationObserver" | "js.Array[js.Object]" => "asIsProp"
       case _ =>
         println(s"PROP ...No impl defined for scala type `${scalaTypeStr}`, trying `htmlProp` for now.")
