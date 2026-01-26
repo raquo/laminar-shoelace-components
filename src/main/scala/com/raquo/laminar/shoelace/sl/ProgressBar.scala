@@ -14,9 +14,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Progress bars are used to show the status of an ongoing operation.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/ProgressBar.scala ProgressBar.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/progress-bar Shoelace ProgressBar docs]]
   */
 object ProgressBar extends WebComponent("sl-progress-bar") {
@@ -47,7 +47,7 @@ object ProgressBar extends WebComponent("sl-progress-bar") {
   // -- Props --
 
   /** The current progress as a percentage, 0 to 100. */
-  lazy val value: HtmlProp[Int, _] = intProp("value")
+  lazy val value: HtmlProp[Int] = intProp("value")
 
 
   // -- Slots --
@@ -62,16 +62,16 @@ object ProgressBar extends WebComponent("sl-progress-bar") {
   // -- CSS Vars --
 
   /** The progress bar's height. */
-  lazy val height: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--height")
+  lazy val height: StyleProp[String] with u.Length[DSP] = lengthStyle("--height")
 
   /** The color of the track. */
-  lazy val trackColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--track-color")
+  lazy val trackColor: StyleProp[String] with u.Color[SS] = colorStyle("--track-color")
 
   /** The color of the indicator. */
-  lazy val indicatorColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--indicator-color")
+  lazy val indicatorColor: StyleProp[String] with u.Color[SS] = colorStyle("--indicator-color")
 
   /** The color of the label. */
-  lazy val labelColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--label-color")
+  lazy val labelColor: StyleProp[String] with u.Color[SS] = colorStyle("--label-color")
 
 
   // -- CSS Parts --
@@ -90,9 +90,9 @@ object ProgressBar extends WebComponent("sl-progress-bar") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait ProgressBarComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait ProgressBarComponent extends js.Object { this: dom.HTMLElement =>
 
     /** The current progress as a percentage, 0 to 100. */
     var value: Int

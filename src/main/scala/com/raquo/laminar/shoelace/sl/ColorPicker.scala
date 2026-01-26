@@ -15,9 +15,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Color pickers allow the user to select a color.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/ColorPicker.scala ColorPicker.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/color-picker Shoelace ColorPicker docs]]
   */
 object ColorPicker extends WebComponent("sl-color-picker") with ControlledInput {
@@ -118,7 +118,7 @@ object ColorPicker extends WebComponent("sl-color-picker") with ControlledInput 
     * in a specific format, use the `getFormattedValue()` method. The value is submitted as a name/value pair with form
     * data.
     */
-  lazy val value: HtmlProp[String, _] = L.value
+  lazy val value: HtmlProp[String] = L.value
 
 
   // -- Slots --
@@ -133,22 +133,22 @@ object ColorPicker extends WebComponent("sl-color-picker") with ControlledInput 
   // -- CSS Vars --
 
   /** The width of the color grid. */
-  lazy val gridWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--grid-width")
+  lazy val gridWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("--grid-width")
 
   /** The height of the color grid. */
-  lazy val gridHeight: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--grid-height")
+  lazy val gridHeight: StyleProp[String] with u.Length[DSP] = lengthStyle("--grid-height")
 
   /** The size of the color grid's handle. */
-  lazy val gridHandleSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--grid-handle-size")
+  lazy val gridHandleSize: StyleProp[String] with u.Length[DSP] = lengthStyle("--grid-handle-size")
 
   /** The height of the hue and alpha sliders. */
-  lazy val sliderHeight: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--slider-height")
+  lazy val sliderHeight: StyleProp[String] with u.Length[DSP] = lengthStyle("--slider-height")
 
   /** The diameter of the slider's handle. */
-  lazy val sliderHandleSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--slider-handle-size")
+  lazy val sliderHandleSize: StyleProp[String] with u.Length[DSP] = lengthStyle("--slider-handle-size")
 
   /** The size of each predefined color swatch. */
-  lazy val swatchSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--swatch-size")
+  lazy val swatchSize: StyleProp[String] with u.Length[DSP] = lengthStyle("--swatch-size")
 
 
   // -- CSS Parts --
@@ -236,9 +236,9 @@ object ColorPicker extends WebComponent("sl-color-picker") with ControlledInput 
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait ColorPickerComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait ColorPickerComponent extends js.Object { this: dom.HTMLElement =>
 
     /**
       * The current value of the color picker. The value's format will vary based the `format` attribute. To get the value

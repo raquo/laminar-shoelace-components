@@ -12,9 +12,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Formats a date/time using the specified locale and options.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/FormatDate.scala FormatDate.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/format-date Shoelace FormatDate docs]]
   */
 object FormatDate extends WebComponent("sl-format-date") {
@@ -73,7 +73,7 @@ object FormatDate extends WebComponent("sl-format-date") {
     * recommended to use the ISO 8601 format to ensure timezones are handled correctly. To convert a date to this format
     * in JavaScript, use [`date.toISOString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString).
     */
-  lazy val date: HtmlProp[js.Date | String, _] = asIsProp("date")
+  lazy val date: HtmlProp[js.Date | String] = asIsProp("date")
 
 
   // -- Slots --
@@ -91,9 +91,9 @@ object FormatDate extends WebComponent("sl-format-date") {
   @inline def noCssParts: Unit = ()
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait FormatDateComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait FormatDateComponent extends js.Object { this: dom.HTMLElement =>
 
     /**
       * The date/time to format. If not set, the current date and time will be used. When passing a string, it's strongly

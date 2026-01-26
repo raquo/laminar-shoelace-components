@@ -13,9 +13,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Skeletons are used to provide a visual representation of where content will eventually be drawn.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Skeleton.scala Skeleton.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/skeleton Shoelace Skeleton docs]]
   */
 object Skeleton extends WebComponent("sl-skeleton") {
@@ -49,13 +49,13 @@ object Skeleton extends WebComponent("sl-skeleton") {
   // -- CSS Vars --
 
   /** The skeleton's border radius. */
-  lazy val borderRadius: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--border-radius")
+  lazy val borderRadius: StyleProp[String] with u.Length[DSP] = lengthStyle("--border-radius")
 
   /** The color of the skeleton. */
-  lazy val color: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--color")
+  lazy val color: StyleProp[String] with u.Color[SS] = colorStyle("--color")
 
   /** The sheen color when the skeleton is in its loading state. */
-  lazy val sheenColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--sheen-color")
+  lazy val sheenColor: StyleProp[String] with u.Color[SS] = colorStyle("--sheen-color")
 
 
   // -- CSS Parts --
@@ -71,9 +71,9 @@ object Skeleton extends WebComponent("sl-skeleton") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait SkeletonComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait SkeletonComponent extends js.Object { this: dom.HTMLElement =>
 
     /** Determines which effect the skeleton will use. */
     var effect: String

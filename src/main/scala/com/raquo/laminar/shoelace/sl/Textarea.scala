@@ -14,9 +14,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Textareas collect data from the user and allow multiple lines of text.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Textarea.scala Textarea.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/textarea Shoelace Textarea docs]]
   */
 object Textarea extends WebComponent("sl-textarea") with ControlledInput {
@@ -135,7 +135,7 @@ object Textarea extends WebComponent("sl-textarea") with ControlledInput {
   // -- Props --
 
   /** The current value of the textarea, submitted as a name/value pair with form data. */
-  lazy val value: HtmlProp[String, _] = L.value
+  lazy val value: HtmlProp[String] = L.value
 
 
   // -- Slots --
@@ -178,9 +178,9 @@ object Textarea extends WebComponent("sl-textarea") with ControlledInput {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait TextareaComponent extends js.Object { this: dom.HTMLTextAreaElement => 
+  @js.native trait TextareaComponent extends js.Object { this: dom.HTMLTextAreaElement =>
 
     var title: String
 

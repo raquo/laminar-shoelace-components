@@ -15,9 +15,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Drawers slide in from a container to expose additional options and information.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Drawer.scala Drawer.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/drawer Shoelace Drawer docs]]
   */
 object Drawer extends WebComponent("sl-drawer") {
@@ -105,16 +105,16 @@ object Drawer extends WebComponent("sl-drawer") {
   // -- CSS Vars --
 
   /** The preferred size of the drawer. This will be applied to the drawer's width or height depending on its `placement`. Note that the drawer will shrink to accommodate smaller screens. */
-  lazy val size: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--size")
+  lazy val size: StyleProp[String] with u.Length[DSP] = lengthStyle("--size")
 
   /** The amount of padding to use for the header. */
-  lazy val headerSpacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--header-spacing")
+  lazy val headerSpacing: StyleProp[String] with u.Length[DSP] = lengthStyle("--header-spacing")
 
   /** The amount of padding to use for the body. */
-  lazy val bodySpacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--body-spacing")
+  lazy val bodySpacing: StyleProp[String] with u.Length[DSP] = lengthStyle("--body-spacing")
 
   /** The amount of padding to use for the footer. */
-  lazy val footerSpacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--footer-spacing")
+  lazy val footerSpacing: StyleProp[String] with u.Length[DSP] = lengthStyle("--footer-spacing")
 
 
   // -- CSS Parts --
@@ -154,9 +154,9 @@ object Drawer extends WebComponent("sl-drawer") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait DrawerComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait DrawerComponent extends js.Object { this: dom.HTMLElement =>
 
     /**
       * Indicates whether or not the drawer is open. You can toggle this attribute to show and hide the drawer, or you can

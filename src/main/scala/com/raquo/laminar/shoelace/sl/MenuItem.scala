@@ -14,9 +14,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Menu items provide options for the user to pick from in a menu.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/MenuItem.scala MenuItem.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/menu-item Shoelace MenuItem docs]]
   */
 object MenuItem extends WebComponent("sl-menu-item") {
@@ -54,10 +54,10 @@ object MenuItem extends WebComponent("sl-menu-item") {
   // -- Props --
 
   /** Draws the item in a checked state. */
-  lazy val checked: HtmlProp[Boolean, _] = L.checked
+  lazy val checked: HtmlProp[Boolean] = L.checked
 
   /** A unique value to store in the menu item. This can be used as a way to identify menu items when selected. */
-  lazy val value: HtmlProp[String, _] = L.value
+  lazy val value: HtmlProp[String] = L.value
 
 
   // -- Slots --
@@ -81,7 +81,7 @@ object MenuItem extends WebComponent("sl-menu-item") {
   // -- CSS Vars --
 
   /** The distance submenus shift to overlap the parent menu. */
-  lazy val submenuOffset: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--submenu-offset")
+  lazy val submenuOffset: StyleProp[String] with u.Length[DSP] = lengthStyle("--submenu-offset")
 
 
   // -- CSS Parts --
@@ -109,9 +109,9 @@ object MenuItem extends WebComponent("sl-menu-item") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait MenuItemComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait MenuItemComponent extends js.Object { this: dom.HTMLElement =>
 
     /** The type of menu item to render. To use `checked`, this value must be set to `checkbox`. */
     var `type`: String

@@ -12,9 +12,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Generates a [QR code](https://www.qrcode.com/) and renders it using the [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API).
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/QrCode.scala QrCode.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/qr-code Shoelace QrCode docs]]
   */
 object QrCode extends WebComponent("sl-qr-code") {
@@ -57,7 +57,7 @@ object QrCode extends WebComponent("sl-qr-code") {
   // -- Props --
 
   /** The QR code's value. */
-  lazy val value: HtmlProp[String, _] = L.value
+  lazy val value: HtmlProp[String] = L.value
 
 
   // -- Slots --
@@ -79,9 +79,9 @@ object QrCode extends WebComponent("sl-qr-code") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait QrCodeComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait QrCodeComponent extends js.Object { this: dom.HTMLElement =>
 
     /** The QR code's value. */
     var value: String

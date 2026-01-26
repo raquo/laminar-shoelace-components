@@ -13,9 +13,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Alerts are used to display important messages inline or as toast notifications.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Alert.scala Alert.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/alert Shoelace Alert docs]]
   */
 object Alert extends WebComponent("sl-alert") {
@@ -105,9 +105,9 @@ object Alert extends WebComponent("sl-alert") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait AlertComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait AlertComponent extends js.Object { this: dom.HTMLElement =>
 
     /**
       * Indicates whether or not the alert is open. You can toggle this attribute to show and hide the alert, or you can

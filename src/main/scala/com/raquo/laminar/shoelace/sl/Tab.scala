@@ -13,9 +13,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Tabs are used inside [tab groups](/components/tab-group) to represent and activate [tab panels](/components/tab-panel).
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Tab.scala Tab.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/tab Shoelace Tab docs]]
   */
 object Tab extends WebComponent("sl-tab") {
@@ -80,9 +80,9 @@ object Tab extends WebComponent("sl-tab") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait TabComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait TabComponent extends js.Object { this: dom.HTMLElement =>
 
     /** The name of the tab panel this tab is associated with. The panel must be located in the same tab group. */
     var panel: String

@@ -81,9 +81,10 @@ class ShoelaceGenerator(
 
   def cssPropType(cssType: Def.CssType): String = {
     cssType match {
-      case WebComponentsDef.CssLengthType => "StyleProp[String] with u.Length[DSP, Int]"
-      case WebComponentsDef.CssColorType => "StyleProp[String] with u.Color[SS, DSP]"
-      case WebComponentsDef.CssNumberType => "StyleProp[Int]" // #nc not sure if it should be int or double...
+      case WebComponentsDef.CssLengthType => "StyleProp[String] with u.Length[DSP]"
+      case WebComponentsDef.CssColorType => "StyleProp[String] with u.Color[SS]"
+      case WebComponentsDef.CssDoubleType => "StyleProp[Double]"
+      case WebComponentsDef.CssIntType => "StyleProp[Int]"
       case WebComponentsDef.CssTimeType => "StyleProp[String] with u.Time[DSP]"
       case WebComponentsDef.CssLineType => "StyleProp[String] with s.Line"
     }
@@ -93,7 +94,8 @@ class ShoelaceGenerator(
     cssType match {
       case WebComponentsDef.CssLengthType => "lengthStyle"
       case WebComponentsDef.CssColorType => "colorStyle"
-      case WebComponentsDef.CssNumberType => "intStyle" // #nc
+      case WebComponentsDef.CssDoubleType => "doubleStyle"
+      case WebComponentsDef.CssIntType => "intStyle"
       case WebComponentsDef.CssTimeType => "timeStyle"
       case WebComponentsDef.CssLineType => "lineStyle"
     }
@@ -375,7 +377,7 @@ class ShoelaceGenerator(
         case None => s"${propImplName(scalaInputTypeStr)}(${repr(prop.propName)})"
       }
       blockCommentLines(prop.description)
-      line(s"lazy val ${prop.propName}: HtmlProp[${scalaInputTypeStr}, _] = ${propImpl}")
+      line(s"lazy val ${prop.propName}: HtmlProp[${scalaInputTypeStr}] = ${propImpl}")
     }
   }
 

@@ -14,9 +14,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Selects allow you to choose items from a menu of predefined options.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Select.scala Select.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/select Shoelace Select docs]]
   */
 object Select extends WebComponent("sl-select") with ControlledInput {
@@ -140,7 +140,7 @@ object Select extends WebComponent("sl-select") with ControlledInput {
     * value attribute will be a space-delimited list of values based on the options selected, and the value property will
     * be an array. **For this reason, values must not contain spaces.**
     */
-  lazy val value: HtmlProp[String, _] = stringProp("value")
+  lazy val value: HtmlProp[String] = stringProp("value")
 
 
   // -- Slots --
@@ -225,9 +225,9 @@ object Select extends WebComponent("sl-select") with ControlledInput {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait SelectComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait SelectComponent extends js.Object { this: dom.HTMLElement =>
 
     /** The name of the select, submitted as a name/value pair with form data. */
     var name: String

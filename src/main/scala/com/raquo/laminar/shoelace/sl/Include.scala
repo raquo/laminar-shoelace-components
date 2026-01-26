@@ -13,9 +13,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Includes give you the power to embed external HTML files into the page.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Include.scala Include.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/include Shoelace Include docs]]
   */
 object Include extends WebComponent("sl-include") {
@@ -73,9 +73,9 @@ object Include extends WebComponent("sl-include") {
   @inline def noCssParts: Unit = ()
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait IncludeComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait IncludeComponent extends js.Object { this: dom.HTMLElement =>
 
     /**
       * The location of the HTML file to include. Be sure you trust the content you are including as it will be executed as

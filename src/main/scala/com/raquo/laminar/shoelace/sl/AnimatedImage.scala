@@ -15,9 +15,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * A component for displaying animated GIFs and WEBPs that play and pause on interaction.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/AnimatedImage.scala AnimatedImage.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/animated-image Shoelace AnimatedImage docs]]
   */
 object AnimatedImage extends WebComponent("sl-animated-image") {
@@ -69,10 +69,10 @@ object AnimatedImage extends WebComponent("sl-animated-image") {
   // -- CSS Vars --
 
   /** The size of the icon box. */
-  lazy val controlBoxSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--control-box-size")
+  lazy val controlBoxSize: StyleProp[String] with u.Length[DSP] = lengthStyle("--control-box-size")
 
   /** The size of the play/pause icons. */
-  lazy val iconSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--icon-size")
+  lazy val iconSize: StyleProp[String] with u.Length[DSP] = lengthStyle("--icon-size")
 
 
   // -- CSS Parts --
@@ -85,9 +85,9 @@ object AnimatedImage extends WebComponent("sl-animated-image") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait AnimatedImageComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait AnimatedImageComponent extends js.Object { this: dom.HTMLElement =>
 
     val frozenFrame: String
 

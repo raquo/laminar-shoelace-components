@@ -262,7 +262,7 @@ class ShoelaceTranslator(
     CssPropTypePattern("sl-progress-ring")("^indicator-transition-duration$" -> Def.CssTimeType),
     CssPropTypePattern("sl-tooltip")("-delay$" -> Def.CssTimeType),
     // Number
-    CssPropTypePattern("ratio$" -> Def.CssNumberType),
+    CssPropTypePattern("ratio$" -> Def.CssDoubleType),
     // Line type
     CssPropTypePattern("sl-tree")("^indent-guide-style$" -> Def.CssLineType)
   )

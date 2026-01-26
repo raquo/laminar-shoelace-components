@@ -14,9 +14,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Radio groups are used to group multiple [radios](/components/radio) or [radio buttons](/components/radio-button) so they function as a single form control.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/RadioGroup.scala RadioGroup.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/radio-group Shoelace RadioGroup docs]]
   */
 object RadioGroup extends WebComponent("sl-radio-group") with ControlledInput {
@@ -79,7 +79,7 @@ object RadioGroup extends WebComponent("sl-radio-group") with ControlledInput {
   // -- Props --
 
   /** The current value of the radio group, submitted as a name/value pair with form data. */
-  lazy val value: HtmlProp[String, _] = L.value
+  lazy val value: HtmlProp[String] = L.value
 
 
   // -- Slots --
@@ -122,9 +122,9 @@ object RadioGroup extends WebComponent("sl-radio-group") with ControlledInput {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait RadioGroupComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait RadioGroupComponent extends js.Object { this: dom.HTMLElement =>
 
     /**
       * The radio group's label. Required for proper accessibility. If you need to display HTML, use the `label` slot

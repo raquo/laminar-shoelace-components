@@ -14,9 +14,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Split panels display two adjacent panels, allowing the user to reposition them.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/SplitPanel.scala SplitPanel.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/split-panel Shoelace SplitPanel docs]]
   */
 object SplitPanel extends WebComponent("sl-split-panel") {
@@ -90,16 +90,16 @@ object SplitPanel extends WebComponent("sl-split-panel") {
   // -- CSS Vars --
 
   /** The width of the visible divider. */
-  lazy val dividerWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--divider-width")
+  lazy val dividerWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("--divider-width")
 
   /** The invisible region around the divider where dragging can occur. This is usually wider than the divider to facilitate easier dragging. */
-  lazy val dividerHitArea: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--divider-hit-area")
+  lazy val dividerHitArea: StyleProp[String] with u.Length[DSP] = lengthStyle("--divider-hit-area")
 
   /** The minimum allowed size of the primary panel. */
-  lazy val min: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--min")
+  lazy val min: StyleProp[String] with u.Length[DSP] = lengthStyle("--min")
 
   /** The maximum allowed size of the primary panel. */
-  lazy val max: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--max")
+  lazy val max: StyleProp[String] with u.Length[DSP] = lengthStyle("--max")
 
 
   // -- CSS Parts --
@@ -121,9 +121,9 @@ object SplitPanel extends WebComponent("sl-split-panel") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait SplitPanelComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait SplitPanelComponent extends js.Object { this: dom.HTMLElement =>
 
     /**
       * The current position of the divider from the primary panel's edge as a percentage 0-100. Defaults to 50% of the

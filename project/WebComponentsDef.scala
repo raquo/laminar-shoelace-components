@@ -93,7 +93,9 @@ object WebComponentsDef {
 
   case object CssColorType extends CssType
 
-  case object CssNumberType extends CssType
+  case object CssDoubleType extends CssType
+
+  case object CssIntType extends CssType
 
   case object CssTimeType extends CssType
 

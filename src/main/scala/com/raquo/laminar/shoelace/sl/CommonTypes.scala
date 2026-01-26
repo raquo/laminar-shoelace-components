@@ -6,8 +6,8 @@ import com.raquo.laminar.codecs.*
 import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import com.raquo.laminar.keys
 import com.raquo.laminar.keys.DerivedStyleProp
-import com.raquo.laminar.modifiers.KeySetter
-import com.raquo.laminar.modifiers.KeySetter.StyleSetter
+import com.raquo.laminar.modifiers.SimpleKeySetter
+import com.raquo.laminar.modifiers.SimpleKeySetter.StyleSetter
 import org.scalajs.dom
 import scala.scalajs.js
 
@@ -19,7 +19,7 @@ trait CommonTypes {
 
   protected type DSP[V] = DerivedStyleProp[V]
 
-  protected type SS = StyleSetter
+  protected type SS = StyleSetter[String, String]
 
   //// #TODO[Perf] I'm not convinced that these cache maps actually have a net benefit.
   ////  - I don't really think that we need reference equality among keys on different components
@@ -34,35 +34,37 @@ trait CommonTypes {
 
   protected def eventProp[Ev <: dom.Event](name: String): EventProp[Ev] = L.eventProp(name)
 
-  protected def stringProp(name: String): HtmlProp[String, _] = L.htmlProp(name, StringAsIsCodec)
+  // #nc what about reflected props?
+  
+  protected def stringProp(name: String): HtmlProp[String] = L.htmlProp(name, None, Codec.stringAsIs)
 
-  protected def intProp(name: String): HtmlProp[Int, _] = L.htmlProp(name, IntAsIsCodec)
+  protected def intProp(name: String): HtmlProp[Int] = L.htmlProp(name, None, Codec.intAsIs)
 
-  protected def doubleProp(name: String): HtmlProp[Double, _] = L.htmlProp(name, DoubleAsIsCodec)
+  protected def doubleProp(name: String): HtmlProp[Double] = L.htmlProp(name, None, Codec.doubleAsIs)
 
-  protected def boolProp(name: String): HtmlProp[Boolean, _] = L.htmlProp(name, BooleanAsIsCodec)
+  protected def boolProp(name: String): HtmlProp[Boolean] = L.htmlProp(name, None, Codec.booleanAsIs)
 
-  protected def asIsProp[V](name: String): HtmlProp[V, _] = L.htmlProp(name, AsIsCodec[V]())
+  protected def asIsProp[V](name: String): HtmlProp[V] = L.htmlProp(name, None, Codec.asIsCodec[V]())
 
   protected def boolAttr(name: String): HtmlAttr[Boolean] = {
-    L.htmlAttr(name, BooleanAsAttrPresenceCodec)
+    L.htmlAttr(name, Codec.booleanAsAttrPresence)
   }
 
   protected def intAttr(name: String): HtmlAttr[Int] = {
-    L.htmlAttr(name, IntAsStringCodec)
+    L.htmlAttr(name, Codec.intAsString)
   }
 
   protected def stringAttr(name: String): HtmlAttr[String] = {
     //stringAttrs.getOrElseUpdate(name, L.htmlAttr(name, StringAsIsCodec))
-    L.htmlAttr(name, StringAsIsCodec)
+    L.htmlAttr(name, Codec.stringAsIs)
   }
 
-  protected def lengthStyle(name: String): StyleProp[String] with u.Length[DSP, Int] = {
-    new StyleProp[String](name) with u.Length[DSP, Int]
+  protected def lengthStyle(name: String): StyleProp[String] with u.Length[DSP] = {
+    new StyleProp[String](name) with u.Length[DSP]
   }
 
-  protected def colorStyle(name: String): StyleProp[String] with s.Color with u.Color[SS, DSP] = {
-    new StyleProp[String](name) with s.Color with u.Color[SS, DSP]
+  protected def colorStyle(name: String): StyleProp[String] with s.Color with u.Color[SS] = {
+    new StyleProp[String](name) with s.Color with u.Color[SS]
   }
 
   protected def timeStyle(key: String): StyleProp[String] with u.Time[DSP] = {

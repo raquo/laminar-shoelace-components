@@ -13,9 +13,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Buttons represent actions that are available to the user.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Button.scala Button.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/button Shoelace Button docs]]
   */
 object Button extends WebComponent("sl-button") {
@@ -138,7 +138,7 @@ object Button extends WebComponent("sl-button") {
     * The value of the button, submitted as a pair with the button's name as part of the form data, but only when this
     * button is the submitter. This attribute is ignored when `href` is present.
     */
-  lazy val value: HtmlProp[String, _] = L.value
+  lazy val value: HtmlProp[String] = L.value
 
 
   // -- Slots --
@@ -184,9 +184,9 @@ object Button extends WebComponent("sl-button") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait ButtonComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait ButtonComponent extends js.Object { this: dom.HTMLElement =>
 
     val invalid: Boolean
 

@@ -13,9 +13,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Dropdowns expose additional content that "drops down" in a panel.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Dropdown.scala Dropdown.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/dropdown Shoelace Dropdown docs]]
   */
 object Dropdown extends WebComponent("sl-dropdown") {
@@ -113,9 +113,9 @@ object Dropdown extends WebComponent("sl-dropdown") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait DropdownComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait DropdownComponent extends js.Object { this: dom.HTMLElement =>
 
     /**
       * Indicates whether or not the dropdown is open. You can toggle this attribute to show and hide the dropdown, or you

@@ -13,9 +13,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Button groups can be used to group related buttons into sections.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/ButtonGroup.scala ButtonGroup.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/button-group Shoelace ButtonGroup docs]]
   */
 object ButtonGroup extends WebComponent("sl-button-group") {
@@ -65,9 +65,9 @@ object ButtonGroup extends WebComponent("sl-button-group") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait ButtonGroupComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait ButtonGroupComponent extends js.Object { this: dom.HTMLElement =>
 
     /**
       * A label to use for the button group. This won't be displayed on the screen, but it will be announced by assistive

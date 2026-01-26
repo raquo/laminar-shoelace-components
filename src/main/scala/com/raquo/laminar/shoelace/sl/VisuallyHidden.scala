@@ -12,9 +12,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * The visually hidden utility makes content accessible to assistive devices without displaying it on the screen.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/VisuallyHidden.scala VisuallyHidden.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/visually-hidden Shoelace VisuallyHidden docs]]
   */
 object VisuallyHidden extends WebComponent("sl-visually-hidden") {

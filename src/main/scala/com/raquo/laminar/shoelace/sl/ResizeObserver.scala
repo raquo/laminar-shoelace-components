@@ -14,9 +14,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * The Resize Observer component offers a thin, declarative interface to the [`ResizeObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver).
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/ResizeObserver.scala ResizeObserver.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/resize-observer Shoelace ResizeObserver docs]]
   */
 object ResizeObserver extends WebComponent("sl-resize-observer") {
@@ -62,9 +62,9 @@ object ResizeObserver extends WebComponent("sl-resize-observer") {
   @inline def noCssParts: Unit = ()
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait ResizeObserverComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait ResizeObserverComponent extends js.Object { this: dom.HTMLElement =>
 
     /** Disables the observer. */
     var disabled: Boolean

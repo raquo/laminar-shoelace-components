@@ -12,9 +12,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Outputs a localized time phrase relative to the current date and time.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/RelativeTime.scala RelativeTime.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/relative-time Shoelace RelativeTime docs]]
   */
 object RelativeTime extends WebComponent("sl-relative-time") {
@@ -52,7 +52,7 @@ object RelativeTime extends WebComponent("sl-relative-time") {
     * string, it's strongly recommended to use the ISO 8601 format to ensure timezones are handled correctly. To convert
     * a date to this format in JavaScript, use [`date.toISOString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString).
     */
-  lazy val date: HtmlProp[js.Date | String, _] = asIsProp("date")
+  lazy val date: HtmlProp[js.Date | String] = asIsProp("date")
 
 
   // -- Slots --
@@ -70,9 +70,9 @@ object RelativeTime extends WebComponent("sl-relative-time") {
   @inline def noCssParts: Unit = ()
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait RelativeTimeComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait RelativeTimeComponent extends js.Object { this: dom.HTMLElement =>
 
     /**
       * The date from which to calculate time from. If not set, the current date and time will be used. When passing a

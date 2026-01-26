@@ -13,9 +13,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * A tree item serves as a hierarchical node that lives inside a [tree](/components/tree).
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/TreeItem.scala TreeItem.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/tree-item Shoelace TreeItem docs]]
   */
 object TreeItem extends WebComponent("sl-tree-item") {
@@ -146,9 +146,9 @@ object TreeItem extends WebComponent("sl-tree-item") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait TreeItemComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait TreeItemComponent extends js.Object { this: dom.HTMLElement =>
 
     val indeterminate: Boolean
 

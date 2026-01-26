@@ -14,9 +14,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Checkboxes allow the user to toggle an option on or off.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Checkbox.scala Checkbox.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/checkbox Shoelace Checkbox docs]]
   */
 object Checkbox extends WebComponent("sl-checkbox") with ControlledInput {
@@ -90,10 +90,10 @@ object Checkbox extends WebComponent("sl-checkbox") with ControlledInput {
   // -- Props --
 
   /** The current value of the checkbox, submitted as a name/value pair with form data. */
-  lazy val value: HtmlProp[String, _] = L.value
+  lazy val value: HtmlProp[String] = L.value
 
   /** Draws the checkbox in a checked state. */
-  lazy val checked: HtmlProp[Boolean, _] = L.checked
+  lazy val checked: HtmlProp[Boolean] = L.checked
 
 
   // -- Slots --
@@ -136,9 +136,9 @@ object Checkbox extends WebComponent("sl-checkbox") with ControlledInput {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait CheckboxComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait CheckboxComponent extends js.Object { this: dom.HTMLElement =>
 
     var title: String
 

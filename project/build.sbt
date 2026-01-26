@@ -9,7 +9,7 @@ lazy val root = (project in file("."))
     // - We use a source generator from Scala DOM Types
     //   to generate code snippets for the frontend at compile time.
     libraryDependencies ++= Seq(
-      "com.raquo" %% "domtypes" % "17.1.0",
+      "com.raquo" %% "domtypes" % "19.0.0",
       "com.lihaoyi" %% "upickle" % "3.1.3",
       "com.lihaoyi" %% "pprint" % "0.7.0"
     )

@@ -15,9 +15,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Trees allow you to display a hierarchical list of selectable [tree items](/components/tree-item). Items with children can be expanded and collapsed as desired by the user.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Tree.scala Tree.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/tree Shoelace Tree docs]]
   */
 object Tree extends WebComponent("sl-tree") {
@@ -66,19 +66,19 @@ object Tree extends WebComponent("sl-tree") {
   // -- CSS Vars --
 
   /** The size of the indentation for nested items. */
-  lazy val indentSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--indent-size")
+  lazy val indentSize: StyleProp[String] with u.Length[DSP] = lengthStyle("--indent-size")
 
   /** The color of the indentation line. */
-  lazy val indentGuideColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--indent-guide-color")
+  lazy val indentGuideColor: StyleProp[String] with u.Color[SS] = colorStyle("--indent-guide-color")
 
   /** The amount of vertical spacing to leave between the top and bottom of the indentation line's starting position. */
-  lazy val indentGuideOffset: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--indent-guide-offset")
+  lazy val indentGuideOffset: StyleProp[String] with u.Length[DSP] = lengthStyle("--indent-guide-offset")
 
   /** The style of the indentation line, e.g. solid, dotted, dashed. */
   lazy val indentGuideStyle: StyleProp[String] with s.Line = lineStyle("--indent-guide-style")
 
   /** The width of the indentation line. */
-  lazy val indentGuideWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--indent-guide-width")
+  lazy val indentGuideWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("--indent-guide-width")
 
 
   // -- CSS Parts --
@@ -91,9 +91,9 @@ object Tree extends WebComponent("sl-tree") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait TreeComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait TreeComponent extends js.Object { this: dom.HTMLElement =>
 
     /**
       * The selection behavior of the tree. Single selection allows only one node to be selected at a time. Multiple

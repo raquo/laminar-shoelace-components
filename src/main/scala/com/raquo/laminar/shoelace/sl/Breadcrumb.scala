@@ -13,9 +13,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Breadcrumbs provide a group of links so users can easily navigate a website's hierarchy.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Breadcrumb.scala Breadcrumb.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/breadcrumb Shoelace Breadcrumb docs]]
   */
 object Breadcrumb extends WebComponent("sl-breadcrumb") {
@@ -68,9 +68,9 @@ object Breadcrumb extends WebComponent("sl-breadcrumb") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait BreadcrumbComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait BreadcrumbComponent extends js.Object { this: dom.HTMLElement =>
 
     /**
       * The label to use for the breadcrumb control. This will not be shown on the screen, but it will be announced by

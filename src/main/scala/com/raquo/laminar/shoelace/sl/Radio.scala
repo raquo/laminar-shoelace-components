@@ -13,9 +13,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Radios allow the user to select a single option from a group.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Radio.scala Radio.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/radio Shoelace Radio docs]]
   */
 object Radio extends WebComponent("sl-radio") {
@@ -54,10 +54,10 @@ object Radio extends WebComponent("sl-radio") {
 
   // -- Props --
 
-  lazy val checked: HtmlProp[Boolean, _] = L.checked
+  lazy val checked: HtmlProp[Boolean] = L.checked
 
   /** The radio's value. When selected, the radio group will receive this value. */
-  lazy val value: HtmlProp[String, _] = L.value
+  lazy val value: HtmlProp[String] = L.value
 
 
   // -- Slots --
@@ -94,9 +94,9 @@ object Radio extends WebComponent("sl-radio") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait RadioComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait RadioComponent extends js.Object { this: dom.HTMLElement =>
 
     var checked: Boolean
 

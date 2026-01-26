@@ -14,9 +14,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Avatars are used to represent a person or object.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Avatar.scala Avatar.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/avatar Shoelace Avatar docs]]
   */
 object Avatar extends WebComponent("sl-avatar") {
@@ -65,7 +65,7 @@ object Avatar extends WebComponent("sl-avatar") {
   // -- CSS Vars --
 
   /** The size of the avatar. */
-  lazy val size: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--size")
+  lazy val size: StyleProp[String] with u.Length[DSP] = lengthStyle("--size")
 
 
   // -- CSS Parts --
@@ -87,9 +87,9 @@ object Avatar extends WebComponent("sl-avatar") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait AvatarComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait AvatarComponent extends js.Object { this: dom.HTMLElement =>
 
     /** The image source to use for the avatar. */
     var image: String

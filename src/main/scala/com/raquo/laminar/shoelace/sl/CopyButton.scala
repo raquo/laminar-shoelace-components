@@ -15,9 +15,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Copies text data to the clipboard when the user clicks the trigger.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/CopyButton.scala CopyButton.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/copy Shoelace CopyButton docs]]
   */
 object CopyButton extends WebComponent("sl-copy-button") {
@@ -80,10 +80,10 @@ object CopyButton extends WebComponent("sl-copy-button") {
 
   // -- Props --
 
-  lazy val status: HtmlProp[String, _] = stringProp("status")
+  lazy val status: HtmlProp[String] = stringProp("status")
 
   /** The text value to copy. */
-  lazy val value: HtmlProp[String, _] = L.value
+  lazy val value: HtmlProp[String] = L.value
 
 
   // -- Slots --
@@ -104,10 +104,10 @@ object CopyButton extends WebComponent("sl-copy-button") {
   // -- CSS Vars --
 
   /** The color to use for success feedback. */
-  lazy val successColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--success-color")
+  lazy val successColor: StyleProp[String] with u.Color[SS] = colorStyle("--success-color")
 
   /** The color to use for error feedback. */
-  lazy val errorColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--error-color")
+  lazy val errorColor: StyleProp[String] with u.Color[SS] = colorStyle("--error-color")
 
 
   // -- CSS Parts --
@@ -141,9 +141,9 @@ object CopyButton extends WebComponent("sl-copy-button") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait CopyButtonComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait CopyButtonComponent extends js.Object { this: dom.HTMLElement =>
 
     val isCopying: Boolean
 

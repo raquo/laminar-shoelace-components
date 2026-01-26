@@ -13,9 +13,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Dividers are used to visually separate or group elements.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Divider.scala Divider.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/divider Shoelace Divider docs]]
   */
 object Divider extends WebComponent("sl-divider") {
@@ -49,13 +49,13 @@ object Divider extends WebComponent("sl-divider") {
   // -- CSS Vars --
 
   /** The color of the divider. */
-  lazy val color: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--color")
+  lazy val color: StyleProp[String] with u.Color[SS] = colorStyle("--color")
 
   /** The width of the divider. */
-  lazy val width: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--width")
+  lazy val width: StyleProp[String] with u.Length[DSP] = lengthStyle("--width")
 
   /** The spacing of the divider. */
-  lazy val spacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--spacing")
+  lazy val spacing: StyleProp[String] with u.Length[DSP] = lengthStyle("--spacing")
 
 
   // -- CSS Parts --
@@ -64,9 +64,9 @@ object Divider extends WebComponent("sl-divider") {
   @inline def noCssParts: Unit = ()
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait DividerComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait DividerComponent extends js.Object { this: dom.HTMLElement =>
 
     /** Draws the divider in a vertical orientation. */
     var vertical: Boolean

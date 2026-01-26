@@ -14,7 +14,7 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * A carousel item represent a slide within a [carousel](/components/carousel).
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/CarouselItem.scala CarouselItem.scala source code]]
   */
 object CarouselItem extends WebComponent("sl-carousel-item") {
@@ -48,7 +48,7 @@ object CarouselItem extends WebComponent("sl-carousel-item") {
   // -- CSS Vars --
 
   /** The slide's aspect ratio. Inherited from the carousel by default. */
-  lazy val aspectRatio: StyleProp[Int] = intStyle("--aspect-ratio")
+  lazy val aspectRatio: StyleProp[Double] = doubleStyle("--aspect-ratio")
 
 
   // -- CSS Parts --

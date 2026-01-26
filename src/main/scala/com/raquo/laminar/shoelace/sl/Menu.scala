@@ -14,9 +14,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Menus provide a list of options for the user to choose from.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Menu.scala Menu.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/menu Shoelace Menu docs]]
   */
 object Menu extends WebComponent("sl-menu") {

@@ -14,9 +14,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Ranges allow the user to select a single value within a given range using a slider.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Range.scala Range.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/range Shoelace Range docs]]
   */
 object Range extends WebComponent("sl-range") {
@@ -89,7 +89,7 @@ object Range extends WebComponent("sl-range") {
   // -- Props --
 
   /** The current value of the range, submitted as a name/value pair with form data. */
-  lazy val value: HtmlProp[Int, _] = intProp("value")
+  lazy val value: HtmlProp[Int] = intProp("value")
 
 
   // -- Slots --
@@ -107,22 +107,22 @@ object Range extends WebComponent("sl-range") {
   // -- CSS Vars --
 
   /** The size of the thumb. */
-  lazy val thumbSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--thumb-size")
+  lazy val thumbSize: StyleProp[String] with u.Length[DSP] = lengthStyle("--thumb-size")
 
   /** The vertical distance the tooltip is offset from the track. */
-  lazy val tooltipOffset: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--tooltip-offset")
+  lazy val tooltipOffset: StyleProp[String] with u.Length[DSP] = lengthStyle("--tooltip-offset")
 
   /** The color of the portion of the track that represents the current value. */
-  lazy val trackColorActive: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--track-color-active")
+  lazy val trackColorActive: StyleProp[String] with u.Color[SS] = colorStyle("--track-color-active")
 
   /** The of the portion of the track that represents the remaining value. */
-  lazy val trackColorInactive: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--track-color-inactive")
+  lazy val trackColorInactive: StyleProp[String] with u.Color[SS] = colorStyle("--track-color-inactive")
 
   /** The height of the track. */
-  lazy val trackHeight: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--track-height")
+  lazy val trackHeight: StyleProp[String] with u.Length[DSP] = lengthStyle("--track-height")
 
   /** The point of origin of the active track. */
-  lazy val trackActiveOffset: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--track-active-offset")
+  lazy val trackActiveOffset: StyleProp[String] with u.Length[DSP] = lengthStyle("--track-active-offset")
 
 
   // -- CSS Parts --
@@ -153,9 +153,9 @@ object Range extends WebComponent("sl-range") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait RangeComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait RangeComponent extends js.Object { this: dom.HTMLElement =>
 
     var title: String
 

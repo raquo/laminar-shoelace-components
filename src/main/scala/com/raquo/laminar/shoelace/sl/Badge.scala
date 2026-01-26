@@ -13,9 +13,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Badges are used to draw attention and display statuses or counts.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Badge.scala Badge.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/badge Shoelace Badge docs]]
   */
 object Badge extends WebComponent("sl-badge") {
@@ -68,9 +68,9 @@ object Badge extends WebComponent("sl-badge") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait BadgeComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait BadgeComponent extends js.Object { this: dom.HTMLElement =>
 
     /** The badge's theme variant. */
     var variant: String

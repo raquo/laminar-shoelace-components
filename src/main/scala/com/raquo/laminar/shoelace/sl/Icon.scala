@@ -13,9 +13,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Icons are symbols that can be used to represent various options within an application.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Icon.scala Icon.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/icon Shoelace Icon docs]]
   */
 object Icon extends WebComponent("sl-icon") {
@@ -83,9 +83,9 @@ object Icon extends WebComponent("sl-icon") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait IconComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait IconComponent extends js.Object { this: dom.HTMLElement =>
 
     /** The name of the icon to draw. Available names depend on the icon library being used. */
     var name: String | Unit

@@ -1,11 +1,12 @@
 package com.raquo.laminar.shoelace.sl
 
 import com.raquo.ew.JsArray
-import com.raquo.laminar.DomApi
-import com.raquo.laminar.codecs.StringAsIsCodec
+import com.raquo.laminar.codecs.Codec
+import com.raquo.laminar.domapi.DomApi
 import com.raquo.laminar.inputs.InputController.InputControllerConfig
 import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.modifiers.KeySetter.HtmlAttrSetter
+import com.raquo.laminar.modifiers.SimpleKeySetter
+import com.raquo.laminar.modifiers.SimpleKeySetter.HtmlAttrSetter
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -31,7 +32,7 @@ object CommonKeys extends CommonTypes {
   ///** Emitted when the form control has been checked for validity and its constraints aren’t satisfied. */
   //lazy val onInvalid: EventProp[dom.Event] = eventProp("sl-invalid")
 
-  object autoCapitalize extends HtmlAttr[String]("autocapitalize", StringAsIsCodec) {
+  object autoCapitalize extends HtmlAttr[String]("autocapitalize", Codec.stringAsIs) {
 
     lazy val off: HtmlAttrSetter[String] = autoCapitalize("off")
 
@@ -46,7 +47,7 @@ object CommonKeys extends CommonTypes {
     lazy val characters: HtmlAttrSetter[String] = autoCapitalize("characters")
   }
 
-  object inputMode extends HtmlAttr[String]("inputmode", StringAsIsCodec) {
+  object inputMode extends HtmlAttr[String]("inputmode", Codec.stringAsIs) {
 
     lazy val none: HtmlAttrSetter[String] = inputMode("none")
 
@@ -65,7 +66,7 @@ object CommonKeys extends CommonTypes {
     lazy val url: HtmlAttrSetter[String] = inputMode("url")
   }
 
-  object placement extends HtmlAttr[String]("placement", StringAsIsCodec) {
+  object placement extends HtmlAttr[String]("placement", Codec.stringAsIs) {
 
     lazy val top: HtmlAttrSetter[String] = placement("top")
 
@@ -93,7 +94,7 @@ object CommonKeys extends CommonTypes {
   }
 
   /** Standard sizes */
-  object size extends HtmlAttr[String]("size", StringAsIsCodec) {
+  object size extends HtmlAttr[String]("size", Codec.stringAsIs) {
 
     lazy val small: HtmlAttrSetter[String] = size("small")
 
@@ -103,7 +104,7 @@ object CommonKeys extends CommonTypes {
   }
 
   /** Which window to open the url in */
-  object target extends HtmlAttr[String]("target", StringAsIsCodec) {
+  object target extends HtmlAttr[String]("target", Codec.stringAsIs) {
 
     lazy val _blank: HtmlAttrSetter[String] = target("blank")
 
@@ -115,7 +116,7 @@ object CommonKeys extends CommonTypes {
   }
 
   /** Theme variant – changes the colors */
-  abstract class Variant extends HtmlAttr[String]("variant", StringAsIsCodec) {
+  abstract class Variant extends HtmlAttr[String]("variant", Codec.stringAsIs) {
 
     lazy val default: HtmlAttrSetter[String] = this := "default"
 

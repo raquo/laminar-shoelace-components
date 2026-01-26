@@ -12,9 +12,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Formats a number as a human readable bytes value.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/FormatBytes.scala FormatBytes.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/format-bytes Shoelace FormatBytes docs]]
   */
 object FormatBytes extends WebComponent("sl-format-bytes") {
@@ -45,7 +45,7 @@ object FormatBytes extends WebComponent("sl-format-bytes") {
   // -- Props --
 
   /** The number to format in bytes. */
-  lazy val value: HtmlProp[Int, _] = intProp("value")
+  lazy val value: HtmlProp[Int] = intProp("value")
 
 
   // -- Slots --
@@ -63,9 +63,9 @@ object FormatBytes extends WebComponent("sl-format-bytes") {
   @inline def noCssParts: Unit = ()
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait FormatBytesComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait FormatBytesComponent extends js.Object { this: dom.HTMLElement =>
 
     /** The number to format in bytes. */
     var value: Int

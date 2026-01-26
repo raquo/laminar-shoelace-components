@@ -15,9 +15,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Tab groups organize content into a container that shows one section at a time.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/TabGroup.scala TabGroup.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/tab-group Shoelace TabGroup docs]]
   */
 object TabGroup extends WebComponent("sl-tab-group") {
@@ -72,13 +72,13 @@ object TabGroup extends WebComponent("sl-tab-group") {
   // -- CSS Vars --
 
   /** The color of the active tab indicator. */
-  lazy val indicatorColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--indicator-color")
+  lazy val indicatorColor: StyleProp[String] with u.Color[SS] = colorStyle("--indicator-color")
 
   /** The color of the indicator's track (the line that separates tabs from panels). */
-  lazy val trackColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--track-color")
+  lazy val trackColor: StyleProp[String] with u.Color[SS] = colorStyle("--track-color")
 
   /** The width of the indicator's track (the line that separates tabs from panels). */
-  lazy val trackWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--track-width")
+  lazy val trackWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("--track-width")
 
 
   // -- CSS Parts --
@@ -115,9 +115,9 @@ object TabGroup extends WebComponent("sl-tab-group") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait TabGroupComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait TabGroupComponent extends js.Object { this: dom.HTMLElement =>
 
     /** The placement of the tabs. */
     var placement: String

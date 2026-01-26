@@ -14,9 +14,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * The Mutation Observer component offers a thin, declarative interface to the [`MutationObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver).
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/MutationObserver.scala MutationObserver.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/mutation-observer Shoelace MutationObserver docs]]
   */
 object MutationObserver extends WebComponent("sl-mutation-observer") {
@@ -80,9 +80,9 @@ object MutationObserver extends WebComponent("sl-mutation-observer") {
   @inline def noCssParts: Unit = ()
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait MutationObserverComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait MutationObserverComponent extends js.Object { this: dom.HTMLElement =>
 
     /**
       * Watches for changes to attributes. To watch only specific attributes, separate them by a space, e.g.

@@ -13,9 +13,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Spinners are used to show the progress of an indeterminate operation.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Spinner.scala Spinner.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/spinner Shoelace Spinner docs]]
   */
 object Spinner extends WebComponent("sl-spinner") {
@@ -46,13 +46,13 @@ object Spinner extends WebComponent("sl-spinner") {
   // -- CSS Vars --
 
   /** The width of the track. */
-  lazy val trackWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--track-width")
+  lazy val trackWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("--track-width")
 
   /** The color of the track. */
-  lazy val trackColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--track-color")
+  lazy val trackColor: StyleProp[String] with u.Color[SS] = colorStyle("--track-color")
 
   /** The color of the spinner's indicator. */
-  lazy val indicatorColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--indicator-color")
+  lazy val indicatorColor: StyleProp[String] with u.Color[SS] = colorStyle("--indicator-color")
 
   /** The time it takes for the spinner to complete one animation cycle. */
   lazy val speed: StyleProp[String] with u.Time[DSP] = timeStyle("--speed")

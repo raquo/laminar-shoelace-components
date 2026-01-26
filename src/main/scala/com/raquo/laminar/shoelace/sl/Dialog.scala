@@ -15,9 +15,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Dialogs, sometimes called "modals", appear above the page and require the user's immediate attention.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Dialog.scala Dialog.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/dialog Shoelace Dialog docs]]
   */
 object Dialog extends WebComponent("sl-dialog") {
@@ -96,16 +96,16 @@ object Dialog extends WebComponent("sl-dialog") {
   // -- CSS Vars --
 
   /** The preferred width of the dialog. Note that the dialog will shrink to accommodate smaller screens. */
-  lazy val width: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--width")
+  lazy val width: StyleProp[String] with u.Length[DSP] = lengthStyle("--width")
 
   /** The amount of padding to use for the header. */
-  lazy val headerSpacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--header-spacing")
+  lazy val headerSpacing: StyleProp[String] with u.Length[DSP] = lengthStyle("--header-spacing")
 
   /** The amount of padding to use for the body. */
-  lazy val bodySpacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--body-spacing")
+  lazy val bodySpacing: StyleProp[String] with u.Length[DSP] = lengthStyle("--body-spacing")
 
   /** The amount of padding to use for the footer. */
-  lazy val footerSpacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--footer-spacing")
+  lazy val footerSpacing: StyleProp[String] with u.Length[DSP] = lengthStyle("--footer-spacing")
 
 
   // -- CSS Parts --
@@ -145,9 +145,9 @@ object Dialog extends WebComponent("sl-dialog") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait DialogComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait DialogComponent extends js.Object { this: dom.HTMLElement =>
 
     /**
       * Indicates whether or not the dialog is open. You can toggle this attribute to show and hide the dialog, or you can

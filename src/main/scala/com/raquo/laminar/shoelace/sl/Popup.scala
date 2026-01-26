@@ -14,9 +14,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Popup is a utility that lets you declaratively anchor "popup" containers to another element.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Popup.scala Popup.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/popup Shoelace Popup docs]]
   */
 object Popup extends WebComponent("sl-popup") {
@@ -138,16 +138,16 @@ object Popup extends WebComponent("sl-popup") {
   // -- CSS Vars --
 
   /** The size of the arrow. Note that an arrow won't be shown unless the `arrow` attribute is used. */
-  lazy val arrowSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--arrow-size")
+  lazy val arrowSize: StyleProp[String] with u.Length[DSP] = lengthStyle("--arrow-size")
 
   /** The color of the arrow. */
-  lazy val arrowColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--arrow-color")
+  lazy val arrowColor: StyleProp[String] with u.Color[SS] = colorStyle("--arrow-color")
 
   /** A read-only custom property that determines the amount of width the popup can be before overflowing. Useful for positioning child elements that need to overflow. This property is only available when using `auto-size`. */
-  lazy val autoSizeAvailableWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--auto-size-available-width")
+  lazy val autoSizeAvailableWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("--auto-size-available-width")
 
   /** A read-only custom property that determines the amount of height the popup can be before overflowing. Useful for positioning child elements that need to overflow. This property is only available when using `auto-size`. */
-  lazy val autoSizeAvailableHeight: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--auto-size-available-height")
+  lazy val autoSizeAvailableHeight: StyleProp[String] with u.Length[DSP] = lengthStyle("--auto-size-available-height")
 
 
   // -- CSS Parts --
@@ -163,9 +163,9 @@ object Popup extends WebComponent("sl-popup") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait PopupComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait PopupComponent extends js.Object { this: dom.HTMLElement =>
 
     /**
       * Activates the positioning logic and shows the popup. When this attribute is removed, the positioning logic is torn

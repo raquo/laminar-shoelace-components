@@ -14,9 +14,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Progress rings are used to show the progress of a determinate operation in a circular fashion.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/ProgressRing.scala ProgressRing.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/progress-ring Shoelace ProgressRing docs]]
   */
 object ProgressRing extends WebComponent("sl-progress-ring") {
@@ -44,7 +44,7 @@ object ProgressRing extends WebComponent("sl-progress-ring") {
   // -- Props --
 
   /** The current progress as a percentage, 0 to 100. */
-  lazy val value: HtmlProp[Int, _] = intProp("value")
+  lazy val value: HtmlProp[Int] = intProp("value")
 
 
   // -- Slots --
@@ -59,19 +59,19 @@ object ProgressRing extends WebComponent("sl-progress-ring") {
   // -- CSS Vars --
 
   /** The diameter of the progress ring (cannot be a percentage). */
-  lazy val size: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--size")
+  lazy val size: StyleProp[String] with u.Length[DSP] = lengthStyle("--size")
 
   /** The width of the track. */
-  lazy val trackWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--track-width")
+  lazy val trackWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("--track-width")
 
   /** The color of the track. */
-  lazy val trackColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--track-color")
+  lazy val trackColor: StyleProp[String] with u.Color[SS] = colorStyle("--track-color")
 
   /** The width of the indicator. Defaults to the track width. */
-  lazy val indicatorWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--indicator-width")
+  lazy val indicatorWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("--indicator-width")
 
   /** The color of the indicator. */
-  lazy val indicatorColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--indicator-color")
+  lazy val indicatorColor: StyleProp[String] with u.Color[SS] = colorStyle("--indicator-color")
 
   /** The duration of the indicator's transition when the value changes. */
   lazy val indicatorTransitionDuration: StyleProp[String] with u.Time[DSP] = timeStyle("--indicator-transition-duration")
@@ -90,9 +90,9 @@ object ProgressRing extends WebComponent("sl-progress-ring") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait ProgressRingComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait ProgressRingComponent extends js.Object { this: dom.HTMLElement =>
 
     /** The current progress as a percentage, 0 to 100. */
     var value: Int

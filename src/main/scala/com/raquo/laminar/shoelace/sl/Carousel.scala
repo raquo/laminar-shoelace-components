@@ -15,7 +15,7 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Carousels display an arbitrary number of content slides along a horizontal or vertical axis.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Carousel.scala Carousel.scala source code]]
   */
 object Carousel extends WebComponent("sl-carousel") {
@@ -88,13 +88,13 @@ object Carousel extends WebComponent("sl-carousel") {
   // -- CSS Vars --
 
   /** The space between each slide. */
-  lazy val slideGap: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--slide-gap")
+  lazy val slideGap: StyleProp[String] with u.Length[DSP] = lengthStyle("--slide-gap")
 
   /** The aspect ratio of each slide. */
-  lazy val aspectRatio: StyleProp[Int] = intStyle("--aspect-ratio")
+  lazy val aspectRatio: StyleProp[Double] = doubleStyle("--aspect-ratio")
 
   /** The amount of padding to apply to the scroll area, allowing adjacent slides to become partially visible as a scroll hint. */
-  lazy val scrollHint: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--scroll-hint")
+  lazy val scrollHint: StyleProp[String] with u.Length[DSP] = lengthStyle("--scroll-hint")
 
 
   // -- CSS Parts --
@@ -131,9 +131,9 @@ object Carousel extends WebComponent("sl-carousel") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait CarouselComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait CarouselComponent extends js.Object { this: dom.HTMLElement =>
 
     /** When set, allows the user to navigate the carousel in the same direction indefinitely. */
     var loop: Boolean

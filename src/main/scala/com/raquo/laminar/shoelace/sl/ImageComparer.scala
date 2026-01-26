@@ -14,9 +14,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Compare visual differences between similar photos with a sliding panel.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/ImageComparer.scala ImageComparer.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/image-comparer Shoelace ImageComparer docs]]
   */
 object ImageComparer extends WebComponent("sl-image-comparer") {
@@ -62,10 +62,10 @@ object ImageComparer extends WebComponent("sl-image-comparer") {
   // -- CSS Vars --
 
   /** The width of the dividing line. */
-  lazy val dividerWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--divider-width")
+  lazy val dividerWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("--divider-width")
 
   /** The size of the compare handle. */
-  lazy val handleSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--handle-size")
+  lazy val handleSize: StyleProp[String] with u.Length[DSP] = lengthStyle("--handle-size")
 
 
   // -- CSS Parts --
@@ -90,9 +90,9 @@ object ImageComparer extends WebComponent("sl-image-comparer") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait ImageComparerComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait ImageComparerComponent extends js.Object { this: dom.HTMLElement =>
 
     /** The position of the divider as a percentage. */
     var position: Int

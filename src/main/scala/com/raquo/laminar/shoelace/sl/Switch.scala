@@ -15,9 +15,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Switches allow the user to toggle an option on or off.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Switch.scala Switch.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/switch Shoelace Switch docs]]
   */
 object Switch extends WebComponent("sl-switch") with ControlledInput {
@@ -85,10 +85,10 @@ object Switch extends WebComponent("sl-switch") with ControlledInput {
   // -- Props --
 
   /** The current value of the switch, submitted as a name/value pair with form data. */
-  lazy val value: HtmlProp[String, _] = L.value
+  lazy val value: HtmlProp[String] = L.value
 
   /** Draws the switch in a checked state. */
-  lazy val checked: HtmlProp[Boolean, _] = L.checked
+  lazy val checked: HtmlProp[Boolean] = L.checked
 
 
   // -- Slots --
@@ -103,13 +103,13 @@ object Switch extends WebComponent("sl-switch") with ControlledInput {
   // -- CSS Vars --
 
   /** The width of the switch. */
-  lazy val width: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--width")
+  lazy val width: StyleProp[String] with u.Length[DSP] = lengthStyle("--width")
 
   /** The height of the switch. */
-  lazy val height: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--height")
+  lazy val height: StyleProp[String] with u.Length[DSP] = lengthStyle("--height")
 
   /** The size of the thumb. */
-  lazy val thumbSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--thumb-size")
+  lazy val thumbSize: StyleProp[String] with u.Length[DSP] = lengthStyle("--thumb-size")
 
 
   // -- CSS Parts --
@@ -131,9 +131,9 @@ object Switch extends WebComponent("sl-switch") with ControlledInput {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait SwitchComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait SwitchComponent extends js.Object { this: dom.HTMLElement =>
 
     var title: String
 

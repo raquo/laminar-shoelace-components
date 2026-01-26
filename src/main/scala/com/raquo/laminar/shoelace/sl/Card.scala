@@ -14,9 +14,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Cards can be used to group related subjects in a container.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Card.scala Card.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/card Shoelace Card docs]]
   */
 object Card extends WebComponent("sl-card") {
@@ -59,16 +59,16 @@ object Card extends WebComponent("sl-card") {
   // -- CSS Vars --
 
   /** The card's border color, including borders that occur inside the card. */
-  lazy val borderColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--border-color")
+  lazy val borderColor: StyleProp[String] with u.Color[SS] = colorStyle("--border-color")
 
   /** The border radius for the card's edges. */
-  lazy val borderRadius: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--border-radius")
+  lazy val borderRadius: StyleProp[String] with u.Length[DSP] = lengthStyle("--border-radius")
 
   /** The width of the card's borders. */
-  lazy val borderWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--border-width")
+  lazy val borderWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("--border-width")
 
   /** The padding to use for the card's sections. */
-  lazy val padding: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--padding")
+  lazy val padding: StyleProp[String] with u.Length[DSP] = lengthStyle("--padding")
 
 
   // -- CSS Parts --

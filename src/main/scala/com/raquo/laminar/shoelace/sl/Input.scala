@@ -14,9 +14,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Inputs collect data from the user.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Input.scala Input.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/input Shoelace Input docs]]
   */
 object Input extends WebComponent("sl-input") with ControlledInput {
@@ -172,7 +172,7 @@ object Input extends WebComponent("sl-input") with ControlledInput {
   // -- Props --
 
   /** The current value of the input, submitted as a name/value pair with form data. */
-  lazy val value: HtmlProp[String, _] = L.value
+  lazy val value: HtmlProp[String] = L.value
 
 
   // -- Slots --
@@ -242,9 +242,9 @@ object Input extends WebComponent("sl-input") with ControlledInput {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait InputComponent extends js.Object { this: dom.HTMLInputElement => 
+  @js.native trait InputComponent extends js.Object { this: dom.HTMLInputElement =>
 
     var title: String
 

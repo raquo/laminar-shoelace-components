@@ -13,9 +13,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Breadcrumb Items are used inside [breadcrumbs](/components/breadcrumb) to represent different links.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/BreadcrumbItem.scala BreadcrumbItem.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/breadcrumb-item Shoelace BreadcrumbItem docs]]
   */
 object BreadcrumbItem extends WebComponent("sl-breadcrumb-item") {
@@ -92,9 +92,9 @@ object BreadcrumbItem extends WebComponent("sl-breadcrumb-item") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait BreadcrumbItemComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait BreadcrumbItemComponent extends js.Object { this: dom.HTMLElement =>
 
     /**
       * Optional URL to direct the user to when the breadcrumb item is activated. When set, a link will be rendered

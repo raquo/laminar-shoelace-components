@@ -14,9 +14,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Tab panels are used inside [tab groups](/components/tab-group) to display tabbed content.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/TabPanel.scala TabPanel.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/tab-panel Shoelace TabPanel docs]]
   */
 object TabPanel extends WebComponent("sl-tab-panel") {
@@ -56,7 +56,7 @@ object TabPanel extends WebComponent("sl-tab-panel") {
   // -- CSS Vars --
 
   /** The tab panel's padding. */
-  lazy val padding: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--padding")
+  lazy val padding: StyleProp[String] with u.Length[DSP] = lengthStyle("--padding")
 
 
   // -- CSS Parts --
@@ -69,9 +69,9 @@ object TabPanel extends WebComponent("sl-tab-panel") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait TabPanelComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait TabPanelComponent extends js.Object { this: dom.HTMLElement =>
 
     /** The tab panel's name. */
     var name: String

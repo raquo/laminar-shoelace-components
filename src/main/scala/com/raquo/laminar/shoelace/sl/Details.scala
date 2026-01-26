@@ -13,9 +13,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Details show a brief summary and expand to show additional content.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Details.scala Details.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/details Shoelace Details docs]]
   */
 object Details extends WebComponent("sl-details") {
@@ -60,7 +60,7 @@ object Details extends WebComponent("sl-details") {
 
   // -- Props --
 
-  lazy val detailsObserver: HtmlProp[dom.MutationObserver, _] = asIsProp("detailsObserver")
+  lazy val detailsObserver: HtmlProp[dom.MutationObserver] = asIsProp("detailsObserver")
 
 
   // -- Slots --
@@ -106,9 +106,9 @@ object Details extends WebComponent("sl-details") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait DetailsComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait DetailsComponent extends js.Object { this: dom.HTMLElement =>
 
     var detailsObserver: dom.MutationObserver
 

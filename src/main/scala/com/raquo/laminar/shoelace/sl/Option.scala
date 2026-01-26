@@ -13,9 +13,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Options define the selectable items within various form controls such as [select](/components/select).
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Option.scala Option.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/option Shoelace Option docs]]
   */
 object Option extends WebComponent("sl-option") {
@@ -51,7 +51,7 @@ object Option extends WebComponent("sl-option") {
     * from other options in the same group. Values may not contain spaces, as spaces are used as delimiters when listing
     * multiple values.
     */
-  lazy val value: HtmlProp[String, _] = L.value
+  lazy val value: HtmlProp[String] = L.value
 
 
   // -- Slots --
@@ -94,9 +94,9 @@ object Option extends WebComponent("sl-option") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait OptionComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait OptionComponent extends js.Object { this: dom.HTMLElement =>
 
     val current: Boolean
 

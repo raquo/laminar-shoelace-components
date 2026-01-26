@@ -13,9 +13,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Tags are used as labels to organize things or to indicate a selection.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Tag.scala Tag.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/tag Shoelace Tag docs]]
   */
 object Tag extends WebComponent("sl-tag") {
@@ -83,9 +83,9 @@ object Tag extends WebComponent("sl-tag") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait TagComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait TagComponent extends js.Object { this: dom.HTMLElement =>
 
     /** The tag's theme variant. */
     var variant: String

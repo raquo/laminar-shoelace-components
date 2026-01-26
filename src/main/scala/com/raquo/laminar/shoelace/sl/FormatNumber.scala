@@ -12,9 +12,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Formats a number using the specified locale and options.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/FormatNumber.scala FormatNumber.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/format-number Shoelace FormatNumber docs]]
   */
 object FormatNumber extends WebComponent("sl-format-number") {
@@ -70,7 +70,7 @@ object FormatNumber extends WebComponent("sl-format-number") {
   // -- Props --
 
   /** The number to format. */
-  lazy val value: HtmlProp[Int, _] = intProp("value")
+  lazy val value: HtmlProp[Int] = intProp("value")
 
 
   // -- Slots --
@@ -88,9 +88,9 @@ object FormatNumber extends WebComponent("sl-format-number") {
   @inline def noCssParts: Unit = ()
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait FormatNumberComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait FormatNumberComponent extends js.Object { this: dom.HTMLElement =>
 
     /** The number to format. */
     var value: Int

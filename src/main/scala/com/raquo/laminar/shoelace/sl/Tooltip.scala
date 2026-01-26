@@ -14,9 +14,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Tooltips display additional information based on a specific action.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Tooltip.scala Tooltip.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/tooltip Shoelace Tooltip docs]]
   */
 object Tooltip extends WebComponent("sl-tooltip") {
@@ -100,7 +100,7 @@ object Tooltip extends WebComponent("sl-tooltip") {
   // -- CSS Vars --
 
   /** The maximum width of the tooltip before its content will wrap. */
-  lazy val maxWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--max-width")
+  lazy val maxWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("--max-width")
 
   /** The amount of time to wait before hiding the tooltip when hovering. */
   lazy val hideDelay: StyleProp[String] with u.Time[DSP] = timeStyle("--hide-delay")
@@ -128,9 +128,9 @@ object Tooltip extends WebComponent("sl-tooltip") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait TooltipComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait TooltipComponent extends js.Object { this: dom.HTMLElement =>
 
     /** The tooltip's content. If you need to display HTML, use the `content` slot instead. */
     var content: String

@@ -14,9 +14,9 @@ import scala.scalajs.js.annotation.JSImport
 
 /**
   * Ratings give users a way to quickly view and provide feedback.
-  * 
+  *
   * [[https://github.com/raquo/laminar-shoelace-components/blob/master/src/main/scala/com/raquo/laminar/shoelace/sl/Rating.scala Rating.scala source code]]
-  * 
+  *
   * [[https://shoelace.style/components/rating Shoelace Rating docs]]
   */
 object Rating extends WebComponent("sl-rating") {
@@ -65,7 +65,7 @@ object Rating extends WebComponent("sl-rating") {
   // -- Props --
 
   /** The current rating. */
-  lazy val value: HtmlProp[Int, _] = intProp("value")
+  lazy val value: HtmlProp[Int] = intProp("value")
 
 
   // -- Slots --
@@ -77,16 +77,16 @@ object Rating extends WebComponent("sl-rating") {
   // -- CSS Vars --
 
   /** The inactive color for symbols. */
-  lazy val symbolColor: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--symbol-color")
+  lazy val symbolColor: StyleProp[String] with u.Color[SS] = colorStyle("--symbol-color")
 
   /** The active color for symbols. */
-  lazy val symbolColorActive: StyleProp[String] with u.Color[SS, DSP] = colorStyle("--symbol-color-active")
+  lazy val symbolColorActive: StyleProp[String] with u.Color[SS] = colorStyle("--symbol-color-active")
 
   /** The size of symbols. */
-  lazy val symbolSize: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--symbol-size")
+  lazy val symbolSize: StyleProp[String] with u.Length[DSP] = lengthStyle("--symbol-size")
 
   /** The spacing to use around symbols. */
-  lazy val symbolSpacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("--symbol-spacing")
+  lazy val symbolSpacing: StyleProp[String] with u.Length[DSP] = lengthStyle("--symbol-spacing")
 
 
   // -- CSS Parts --
@@ -99,9 +99,9 @@ object Rating extends WebComponent("sl-rating") {
   }
 
 
-  // -- Element type -- 
+  // -- Element type --
 
-  @js.native trait RatingComponent extends js.Object { this: dom.HTMLElement => 
+  @js.native trait RatingComponent extends js.Object { this: dom.HTMLElement =>
 
     /** A label that describes the rating to assistive devices. */
     var label: String
