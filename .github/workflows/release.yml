@@ -16,13 +16,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "22"
+          # cache: "npm"
+      - name: Install Node.js test dependencies
+        run: npm install
       - name: Setup JVM
         uses: actions/setup-java@v3
         with:
-          java-version: '11'
+          java-version: '17'
           distribution: 'adopt'
+      - name: Setup SBT
+        uses: sbt/setup-sbt@v1
       - name: Tests
         run: sbt +test
+      # - name: Code formatting check
+      #   run: sbt scalafmtCheckAll
       - name: Release
         run: sbt ci-release
         env:
