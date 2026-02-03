@@ -44,7 +44,7 @@ trait CommonTypes {
 
   protected def boolProp(name: String): HtmlProp[Boolean] = L.htmlProp(name, None, Codec.booleanAsIs)
 
-  protected def asIsProp[V](name: String): HtmlProp[V] = L.htmlProp(name, None, Codec.asIsCodec[V]())
+  protected def asIsProp[V](name: String): HtmlProp[V] = L.htmlProp(name, None, Codec.asIsCodec[V])
 
   protected def boolAttr(name: String): HtmlAttr[Boolean] = {
     L.htmlAttr(name, Codec.booleanAsAttrPresence)

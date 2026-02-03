@@ -19,7 +19,7 @@ On the build side, this project is a parser, a translator, and a generator. It p
 
 ## Status
 
-WIP. For now, you can play with `0.1.0` if you really want to, but remember it's an early preview. You can see it in action in [Laminar demo](https://demo.laminar.dev/app/integrations/web-components/shoelace).
+WIP. For now, you can play with it if you really want to, but remember it's an early preview. You can see it in action in [Laminar demo](https://demo.laminar.dev/app/integrations/web-components/shoelace).
 
 Top TODO-s (two of many):
 

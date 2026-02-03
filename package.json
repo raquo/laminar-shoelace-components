@@ -1,7 +1,7 @@
 {
-  "name": "laminar-shoelace-components",
+  "name": "test-setup",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.0.1",
   "type": "module",
   "devDependencies": {
     "@shoelace-style/shoelace": "~2.11.2"
