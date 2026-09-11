@@ -78,6 +78,9 @@ object Dropdown extends WebComponent("sl-dropdown") {
     */
   lazy val hoist: HtmlAttr[Boolean] = boolAttr("hoist")
 
+  /** Syncs the popup width or height to that of the trigger element. */
+  lazy val sync: HtmlAttr[String] = stringAttr("sync")
+
 
   // -- Props --
 
@@ -102,8 +105,11 @@ object Dropdown extends WebComponent("sl-dropdown") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The component's base wrapper. */
+    /** The component's base wrapper, an `<sl-popup>` element. */
     lazy val base: String = "base"
+
+    /** The popup's exported `popup` part. Use this to target the tooltip's popup container. */
+    lazy val base__popup: String = "base__popup"
 
     /** The container that wraps the trigger. */
     lazy val trigger: String = "trigger"
@@ -149,5 +155,8 @@ object Dropdown extends WebComponent("sl-dropdown") {
       * `overflow: auto|scroll`. Hoisting uses a fixed positioning strategy that works in many, but not all, scenarios.
       */
     var hoist: Boolean
+
+    /** Syncs the popup width or height to that of the trigger element. */
+    var sync: String | Unit
   }
 }

@@ -80,7 +80,7 @@ object AnimatedImage extends WebComponent("sl-animated-image") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** control-box - The container that surrounds the pause/play icons and provides their background. */
+    /** The container that surrounds the pause/play icons and provides their background. */
     lazy val controlBox: String = "control-box"
   }
 

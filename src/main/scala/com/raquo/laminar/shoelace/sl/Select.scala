@@ -71,6 +71,9 @@ object Select extends WebComponent("sl-select") with ControlledInput {
   /** The name of the select, submitted as a name/value pair with form data. */
   lazy val name: HtmlAttr[String] = stringAttr("name")
 
+  /** The default value of the form control. Primarily used for resetting the form control. */
+  lazy val defaultValue: HtmlAttr[String] = stringAttr("value")
+
   /** The select's size. */
   lazy val size: CommonKeys.size.type = CommonKeys.size
 
@@ -140,7 +143,7 @@ object Select extends WebComponent("sl-select") with ControlledInput {
     * value attribute will be a space-delimited list of values based on the options selected, and the value property will
     * be an array. **For this reason, values must not contain spaces.**
     */
-  lazy val value: HtmlProp[String] = stringProp("value")
+  lazy val value: HtmlProp[String] = L.value
 
 
   // -- Slots --
@@ -155,6 +158,9 @@ object Select extends WebComponent("sl-select") with ControlledInput {
 
     /** Used to prepend a presentational icon or similar element to the combobox. */
     lazy val prefix: Slot = Slot("prefix")
+
+    /** Used to append a presentational icon or similar element to the combobox. */
+    lazy val suffix: Slot = Slot("suffix")
 
     /** An icon to use in lieu of the default clear icon. */
     lazy val clearIcon: Slot = Slot("clear-icon")
@@ -187,11 +193,14 @@ object Select extends WebComponent("sl-select") with ControlledInput {
     /** The help text's wrapper. */
     lazy val formControlHelpText: String = "form-control-help-text"
 
-    /** The container the wraps the prefix, combobox, clear icon, and expand button. */
+    /** The container the wraps the prefix, suffix, combobox, clear icon, and expand button. */
     lazy val combobox: String = "combobox"
 
     /** The container that wraps the prefix slot. */
     lazy val prefix: String = "prefix"
+
+    /** The container that wraps the suffix slot. */
+    lazy val suffix: String = "suffix"
 
     /** The element that displays the selected option's label, an `<input>` element. */
     lazy val displayInput: String = "display-input"

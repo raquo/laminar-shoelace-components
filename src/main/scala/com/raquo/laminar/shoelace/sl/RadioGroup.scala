@@ -91,6 +91,9 @@ object RadioGroup extends WebComponent("sl-radio-group") with ControlledInput {
 
     /** The radio group's label. Required for proper accessibility. Alternatively, you can use the `label` attribute. */
     lazy val label: Slot = Slot("label")
+
+    /** Text that describes how to use the radio group. Alternatively, you can use the `help-text` attribute. */
+    lazy val helpText: Slot = Slot("help-text")
   }
 
 

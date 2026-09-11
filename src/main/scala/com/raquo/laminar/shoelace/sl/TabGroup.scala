@@ -53,6 +53,9 @@ object TabGroup extends WebComponent("sl-tab-group") {
   /** Disables the scroll arrows that appear when tabs overflow. */
   lazy val noScrollControls: HtmlAttr[Boolean] = boolAttr("no-scroll-controls")
 
+  /** Prevent scroll buttons from being hidden when inactive. */
+  lazy val fixedScrollControls: HtmlAttr[Boolean] = boolAttr("fixed-scroll-controls")
+
 
   // -- Props --
 
@@ -130,5 +133,8 @@ object TabGroup extends WebComponent("sl-tab-group") {
 
     /** Disables the scroll arrows that appear when tabs overflow. */
     var noScrollControls: Boolean
+
+    /** Prevent scroll buttons from being hidden when inactive. */
+    var fixedScrollControls: Boolean
   }
 }

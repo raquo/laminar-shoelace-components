@@ -119,6 +119,14 @@ object Popup extends WebComponent("sl-popup") {
   /** The amount of padding, in pixels, to exceed before the auto-size behavior will occur. */
   lazy val autoSizePadding: HtmlAttr[Int] = intAttr("auto-size-padding")
 
+  /**
+    * When a gap exists between the anchor and the popup element, this option will add a "hover bridge" that fills the
+    * gap using an invisible element. This makes listening for events such as `mouseenter` and `mouseleave` more sane
+    * because the pointer never technically leaves the element. The hover bridge will only be drawn when the popover is
+    * active.
+    */
+  lazy val hoverBridge: HtmlAttr[Boolean] = boolAttr("hover-bridge")
+
 
   // -- Props --
 
@@ -160,6 +168,9 @@ object Popup extends WebComponent("sl-popup") {
 
     /** The popup's container. Useful for setting a background color, box shadow, etc. */
     lazy val popup: String = "popup"
+
+    /** The hover bridge element. Only available when the `hover-bridge` option is enabled. */
+    lazy val hoverBridge: String = "hover-bridge"
   }
 
 
@@ -248,5 +259,13 @@ object Popup extends WebComponent("sl-popup") {
 
     /** The amount of padding, in pixels, to exceed before the auto-size behavior will occur. */
     var autoSizePadding: Int
+
+    /**
+      * When a gap exists between the anchor and the popup element, this option will add a "hover bridge" that fills the
+      * gap using an invisible element. This makes listening for events such as `mouseenter` and `mouseleave` more sane
+      * because the pointer never technically leaves the element. The hover bridge will only be drawn when the popover is
+      * active.
+      */
+    var hoverBridge: Boolean
   }
 }

@@ -64,6 +64,12 @@ object Alert extends WebComponent("sl-alert") {
     */
   lazy val durationMs: HtmlAttr[Int] = intAttr("duration")
 
+  /**
+    * Enables a countdown that indicates the remaining time the alert will be displayed.
+    * Typically used to indicate the remaining time before a whole app refresh.
+    */
+  lazy val countdown: HtmlAttr[String] = stringAttr("countdown")
+
 
   // -- Props --
 
@@ -127,5 +133,11 @@ object Alert extends WebComponent("sl-alert") {
       * the alert will not close on its own.
       */
     var duration: Int
+
+    /**
+      * Enables a countdown that indicates the remaining time the alert will be displayed.
+      * Typically used to indicate the remaining time before a whole app refresh.
+      */
+    var countdown: String | Unit
   }
 }

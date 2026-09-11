@@ -47,6 +47,9 @@ object MenuItem extends WebComponent("sl-menu-item") {
   /** A unique value to store in the menu item. This can be used as a way to identify menu items when selected. */
   lazy val defaultValue: HtmlAttr[String] = stringAttr("value")
 
+  /** Draws the menu item in a loading state. */
+  lazy val loading: HtmlAttr[Boolean] = boolAttr("loading")
+
   /** Draws the menu item in a disabled state, preventing selection. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
 
@@ -104,6 +107,12 @@ object MenuItem extends WebComponent("sl-menu-item") {
     /** The suffix container. */
     lazy val suffix: String = "suffix"
 
+    /** The spinner that shows when the menu item is in the loading state. */
+    lazy val spinner: String = "spinner"
+
+    /** The spinner's base part. */
+    lazy val spinner__base: String = "spinner__base"
+
     /** The submenu icon, visible only when the menu item has a submenu (not yet implemented). */
     lazy val submenuIcon: String = "submenu-icon"
   }
@@ -121,6 +130,9 @@ object MenuItem extends WebComponent("sl-menu-item") {
 
     /** A unique value to store in the menu item. This can be used as a way to identify menu items when selected. */
     var value: String
+
+    /** Draws the menu item in a loading state. */
+    var loading: Boolean
 
     /** Draws the menu item in a disabled state, preventing selection. */
     var disabled: Boolean

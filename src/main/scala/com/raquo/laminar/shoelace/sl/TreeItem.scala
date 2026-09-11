@@ -114,6 +114,12 @@ object TreeItem extends WebComponent("sl-tree-item") {
     /** The container that wraps the tree item's expand button and spinner. */
     lazy val expandButton: String = "expand-button"
 
+    /** The spinner that shows when a lazy tree item is in the loading state. */
+    lazy val spinner: String = "spinner"
+
+    /** The spinner's base part. */
+    lazy val spinner__base: String = "spinner__base"
+
     /** The tree item's label. */
     lazy val label: String = "label"
 

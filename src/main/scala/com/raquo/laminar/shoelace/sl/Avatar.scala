@@ -1,6 +1,7 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.keys.{HtmlAttr, StyleProp}
+import com.raquo.laminar.keys.{EventProp, HtmlAttr, StyleProp}
+import com.raquo.laminar.shoelace.sl.EventTypes.*
 import com.raquo.laminar.api.L
 import com.raquo.laminar.defs.styles.{traits as s, units as u}
 import com.raquo.laminar.nodes.Slot
@@ -30,6 +31,9 @@ object Avatar extends WebComponent("sl-avatar") {
 
 
   // -- Events --
+
+  /** The image could not be loaded. This may because of an invalid URL, a temporary network condition, or some unknown cause. */
+  lazy val onError: EventProp[ErrorEvent] = eventProp("sl-error")
 
 
   // -- Attributes --

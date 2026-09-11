@@ -60,8 +60,8 @@ object SplitPanel extends WebComponent("sl-split-panel") {
   lazy val primary: HtmlAttr[String] = stringAttr("primary")
 
   /**
-    * One or more space-separated values at which the divider should snap. Values can be in pixels or percentages, e.g.
-    * `"100px 50%"`.
+    * Either one or more space-separated values at which the divider should snap, in pixels, percentages, or repeat expressions e.g. `'100px 50% 500px' or `repeat(50%) 10px`,
+    * or a function which takes in a `SnapFunctionParams`, and returns a position to snap to, e.g. `({ pos }) => Math.round(pos / 8) * 8`.
     */
   lazy val snap: HtmlAttr[String] = stringAttr("snap")
 
@@ -148,10 +148,10 @@ object SplitPanel extends WebComponent("sl-split-panel") {
     var primary: String | Unit
 
     /**
-      * One or more space-separated values at which the divider should snap. Values can be in pixels or percentages, e.g.
-      * `"100px 50%"`.
+      * Either one or more space-separated values at which the divider should snap, in pixels, percentages, or repeat expressions e.g. `'100px 50% 500px' or `repeat(50%) 10px`,
+      * or a function which takes in a `SnapFunctionParams`, and returns a position to snap to, e.g. `({ pos }) => Math.round(pos / 8) * 8`.
       */
-    var snap: String | Unit
+    var snap: String
 
     /** How close the divider must be to a snap point until snapping occurs. */
     var snapThreshold: Int

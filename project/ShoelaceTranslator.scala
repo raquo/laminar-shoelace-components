@@ -115,6 +115,12 @@ class ShoelaceTranslator(
     (tagName, attrNameOrPropName) match {
       case ("sl-alert", "duration") => List(Def.JsNumberType) // Double or Infinity
       case ("sl-animation", "iterations") => List(Def.JsNumberType) // Int or Infinity
+      // Shoelace's manifest no longer specifies a type for this prop. It's `string | string[]`
+      // (the array form is used in `multiple` mode), which we expose as a plain String, same as before.
+      case ("sl-select", "value") => List(Def.JsStringType)
+      // Manifest type is `string | SnapFunction`. The SnapFunction (callback) form can only be set via
+      // the JS property, not the HTML attribute; we expose `snap` as a plain String, same as before.
+      case ("sl-split-panel", "snap") => List(Def.JsStringType)
       case _ => jsTypes
     }
   }
@@ -284,16 +290,14 @@ class ShoelaceTranslator(
       if (module.kind != "javascript-module") {
         throw new Exception(s"Unknown module type `${module.kind}` for module `${module.path}`.")
       }
-      if (module.declarations.length != 1) {
-        throw new Exception(s"Expected exactly one declaration in module `${module.path}`, got ${module.declarations.length}.")
+      // A module may contain non-custom-element declarations (e.g. kind="function")
+      // alongside the custom element class, so we select the custom element class here
+      // instead of assuming it is the only declaration.
+      val customElementDeclarations = module.declarations.filter(d => d.kind == "class" && d.customElement)
+      if (customElementDeclarations.length != 1) {
+        throw new Exception(s"Expected exactly one custom element declaration in module `${module.path}`, got ${customElementDeclarations.length}.")
       }
-      val declaration = module.declarations.head
-      if (declaration.kind != "class") {
-        throw new Exception(s"Expected kind=class declaration in module `${module.path}`, got `${declaration.kind}` for declaration `${declaration.name}`.")
-      }
-      if (!declaration.customElement) {
-        throw new Exception(s"Expected customElement=true declaration in module `${module.path}` for declaration `${declaration.name}`.")
-      }
+      val declaration = customElementDeclarations.head
       val props = allJsProperties(declaration)
       val attrs = attributes(declaration)
       Def.Element(

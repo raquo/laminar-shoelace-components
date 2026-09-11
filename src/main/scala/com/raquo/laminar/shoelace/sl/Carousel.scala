@@ -1,6 +1,6 @@
 package com.raquo.laminar.shoelace.sl
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, StyleProp}
+import com.raquo.laminar.keys.{EventProp, HtmlProp, HtmlAttr, StyleProp}
 import com.raquo.laminar.shoelace.sl.EventTypes.*
 import com.raquo.laminar.api.L
 import com.raquo.laminar.defs.styles.{traits as s, units as u}
@@ -68,6 +68,10 @@ object Carousel extends WebComponent("sl-carousel") {
 
 
   // -- Props --
+
+  lazy val scrolling: HtmlProp[Boolean] = boolProp("scrolling")
+
+  lazy val dragging: HtmlProp[Boolean] = boolProp("dragging")
 
 
   // -- Slots --
@@ -166,5 +170,9 @@ object Carousel extends WebComponent("sl-carousel") {
     var mouseDragging: Boolean
 
     val activeSlide: Int
+
+    var scrolling: Boolean
+
+    var dragging: Boolean
   }
 }

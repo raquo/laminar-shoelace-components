@@ -4,6 +4,6 @@
   "version": "0.0.1",
   "type": "module",
   "devDependencies": {
-    "@shoelace-style/shoelace": "~2.11.2"
+    "@shoelace-style/shoelace": "~2.20.1"
   }
 }

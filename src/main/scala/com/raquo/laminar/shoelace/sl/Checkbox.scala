@@ -86,6 +86,9 @@ object Checkbox extends WebComponent("sl-checkbox") with ControlledInput {
   /** Makes the checkbox a required field. */
   lazy val required: HtmlAttr[Boolean] = boolAttr("required")
 
+  /** The checkbox's help text. If you need to display HTML, use the `help-text` slot instead. */
+  lazy val helpText: HtmlAttr[String] = stringAttr("help-text")
+
 
   // -- Props --
 
@@ -102,6 +105,9 @@ object Checkbox extends WebComponent("sl-checkbox") with ControlledInput {
 
     /** The checkbox's label. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
     lazy val default: Slot = Slot("")
+
+    /** Text that describes how to use the checkbox. Alternatively, you can use the `help-text` attribute. */
+    lazy val helpText: Slot = Slot("help-text")
   }
 
 
@@ -133,6 +139,9 @@ object Checkbox extends WebComponent("sl-checkbox") with ControlledInput {
 
     /** The container that wraps the checkbox's label. */
     lazy val label: String = "label"
+
+    /** The help text's wrapper. */
+    lazy val formControlHelpText: String = "form-control-help-text"
   }
 
 
@@ -172,5 +181,8 @@ object Checkbox extends WebComponent("sl-checkbox") with ControlledInput {
 
     /** Makes the checkbox a required field. */
     var required: Boolean
+
+    /** The checkbox's help text. If you need to display HTML, use the `help-text` slot instead. */
+    var helpText: String
   }
 }

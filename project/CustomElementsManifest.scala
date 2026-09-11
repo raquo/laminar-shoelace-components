@@ -15,19 +15,22 @@ object CustomElementsManifest {
     exports: List[Export],
   )
 
+  // Note: a module may contain non-custom-element declarations (e.g. kind="function"),
+  // which only carry `kind`, `name` and `description`. Hence the class-specific fields
+  // below default to empty values so such declarations still parse.
   case class Declaration(
-    kind: String, // "class"
+    kind: String, // "class" | "function" | ...
     name: String, // e.g. "SlAnimatedImage"
     description: String = "",
-    summary: String,
-    tagNameWithoutPrefix: String, // e.g. "animated-image"
-    tagName: String, // e.g. "sl-animated-image"
-    customElement: Boolean,
-    superclass: Superclass,
-    jsDoc: String,
+    summary: String = "",
+    tagNameWithoutPrefix: String = "", // e.g. "animated-image"
+    tagName: String = "", // e.g. "sl-animated-image"
+    customElement: Boolean = false,
+    superclass: Superclass = Superclass("", ""),
+    jsDoc: String = "",
     documentation: String = "", // e.g. "https://shoelace.style/components/animated-image"
-    status: String, // e.g. "stable"
-    since: String, // e.g. "2.0"
+    status: String = "", // e.g. "stable"
+    since: String = "", // e.g. "2.0"
     cssProperties: List[CssProperty] = Nil,
     cssParts: List[CssPart] = Nil,
     slots: List[Slot] = Nil,
