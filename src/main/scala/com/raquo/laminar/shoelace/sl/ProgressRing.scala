@@ -26,7 +26,7 @@ object ProgressRing extends WebComponent("sl-progress-ring") {
 
   type Self = ProgressRing.type
 
-  type Ref = ProgressRingComponent with dom.HTMLElement
+  type Ref = ProgressRingComponent & dom.HTMLElement
 
 
   // -- Events --
@@ -59,22 +59,22 @@ object ProgressRing extends WebComponent("sl-progress-ring") {
   // -- CSS Vars --
 
   /** The diameter of the progress ring (cannot be a percentage). */
-  lazy val size: StyleProp[String] with u.Length[DSP] = lengthStyle("--size")
+  lazy val size: StyleProp[String] & u.Length[DSP] = lengthStyle("--size")
 
   /** The width of the track. */
-  lazy val trackWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("--track-width")
+  lazy val trackWidth: StyleProp[String] & u.Length[DSP] = lengthStyle("--track-width")
 
   /** The color of the track. */
-  lazy val trackColor: StyleProp[String] with u.Color[SS] = colorStyle("--track-color")
+  lazy val trackColor: StyleProp[String] & u.Color[SS] = colorStyle("--track-color")
 
   /** The width of the indicator. Defaults to the track width. */
-  lazy val indicatorWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("--indicator-width")
+  lazy val indicatorWidth: StyleProp[String] & u.Length[DSP] = lengthStyle("--indicator-width")
 
   /** The color of the indicator. */
-  lazy val indicatorColor: StyleProp[String] with u.Color[SS] = colorStyle("--indicator-color")
+  lazy val indicatorColor: StyleProp[String] & u.Color[SS] = colorStyle("--indicator-color")
 
   /** The duration of the indicator's transition when the value changes. */
-  lazy val indicatorTransitionDuration: StyleProp[String] with u.Time[DSP] = timeStyle("--indicator-transition-duration")
+  lazy val indicatorTransitionDuration: StyleProp[String] & u.Time[DSP] = timeStyle("--indicator-transition-duration")
 
 
   // -- CSS Parts --

@@ -25,7 +25,7 @@ object Badge extends WebComponent("sl-badge") {
 
   type Self = Badge.type
 
-  type Ref = BadgeComponent with dom.HTMLElement
+  type Ref = BadgeComponent & dom.HTMLElement
 
 
   // -- Events --

@@ -25,7 +25,7 @@ object Divider extends WebComponent("sl-divider") {
 
   type Self = Divider.type
 
-  type Ref = DividerComponent with dom.HTMLElement
+  type Ref = DividerComponent & dom.HTMLElement
 
 
   // -- Events --
@@ -49,13 +49,13 @@ object Divider extends WebComponent("sl-divider") {
   // -- CSS Vars --
 
   /** The color of the divider. */
-  lazy val color: StyleProp[String] with u.Color[SS] = colorStyle("--color")
+  lazy val color: StyleProp[String] & u.Color[SS] = colorStyle("--color")
 
   /** The width of the divider. */
-  lazy val width: StyleProp[String] with u.Length[DSP] = lengthStyle("--width")
+  lazy val width: StyleProp[String] & u.Length[DSP] = lengthStyle("--width")
 
   /** The spacing of the divider. */
-  lazy val spacing: StyleProp[String] with u.Length[DSP] = lengthStyle("--spacing")
+  lazy val spacing: StyleProp[String] & u.Length[DSP] = lengthStyle("--spacing")
 
 
   // -- CSS Parts --

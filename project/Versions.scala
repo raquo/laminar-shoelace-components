@@ -1,8 +1,8 @@
 object Versions {
 
-  val Scala_3 = "3.3.7"
+  val Scala_3 = "3.9.0"
 
-  val Laminar = "18.0.0-M5"
+  val Laminar = "18.0.0-M6-SNAPSHOT"
 
   //val ScalaJsStubs = "1.1.0"
 

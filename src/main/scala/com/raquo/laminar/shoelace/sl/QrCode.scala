@@ -24,7 +24,7 @@ object QrCode extends WebComponent("sl-qr-code") {
 
   type Self = QrCode.type
 
-  type Ref = QrCodeComponent with dom.HTMLElement
+  type Ref = QrCodeComponent & dom.HTMLElement
 
 
   // -- Events --

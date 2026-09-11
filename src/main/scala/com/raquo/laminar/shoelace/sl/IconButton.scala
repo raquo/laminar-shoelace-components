@@ -24,7 +24,7 @@ object IconButton extends WebComponent("sl-icon-button") {
 
   type Self = IconButton.type
 
-  type Ref = IconButtonComponent with dom.HTMLElement
+  type Ref = IconButtonComponent & dom.HTMLElement
 
 
   // -- Events --

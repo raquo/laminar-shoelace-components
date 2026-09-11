@@ -27,7 +27,7 @@ object Drawer extends WebComponent("sl-drawer") {
 
   type Self = Drawer.type
 
-  type Ref = DrawerComponent with dom.HTMLElement
+  type Ref = DrawerComponent & dom.HTMLElement
 
 
   // -- Events --
@@ -105,16 +105,16 @@ object Drawer extends WebComponent("sl-drawer") {
   // -- CSS Vars --
 
   /** The preferred size of the drawer. This will be applied to the drawer's width or height depending on its `placement`. Note that the drawer will shrink to accommodate smaller screens. */
-  lazy val size: StyleProp[String] with u.Length[DSP] = lengthStyle("--size")
+  lazy val size: StyleProp[String] & u.Length[DSP] = lengthStyle("--size")
 
   /** The amount of padding to use for the header. */
-  lazy val headerSpacing: StyleProp[String] with u.Length[DSP] = lengthStyle("--header-spacing")
+  lazy val headerSpacing: StyleProp[String] & u.Length[DSP] = lengthStyle("--header-spacing")
 
   /** The amount of padding to use for the body. */
-  lazy val bodySpacing: StyleProp[String] with u.Length[DSP] = lengthStyle("--body-spacing")
+  lazy val bodySpacing: StyleProp[String] & u.Length[DSP] = lengthStyle("--body-spacing")
 
   /** The amount of padding to use for the footer. */
-  lazy val footerSpacing: StyleProp[String] with u.Length[DSP] = lengthStyle("--footer-spacing")
+  lazy val footerSpacing: StyleProp[String] & u.Length[DSP] = lengthStyle("--footer-spacing")
 
 
   // -- CSS Parts --

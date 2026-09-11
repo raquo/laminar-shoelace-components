@@ -25,7 +25,7 @@ object Details extends WebComponent("sl-details") {
 
   type Self = Details.type
 
-  type Ref = DetailsComponent with dom.HTMLElement
+  type Ref = DetailsComponent & dom.HTMLElement
 
 
   // -- Events --

@@ -27,7 +27,7 @@ object Dialog extends WebComponent("sl-dialog") {
 
   type Self = Dialog.type
 
-  type Ref = DialogComponent with dom.HTMLElement
+  type Ref = DialogComponent & dom.HTMLElement
 
 
   // -- Events --
@@ -96,16 +96,16 @@ object Dialog extends WebComponent("sl-dialog") {
   // -- CSS Vars --
 
   /** The preferred width of the dialog. Note that the dialog will shrink to accommodate smaller screens. */
-  lazy val width: StyleProp[String] with u.Length[DSP] = lengthStyle("--width")
+  lazy val width: StyleProp[String] & u.Length[DSP] = lengthStyle("--width")
 
   /** The amount of padding to use for the header. */
-  lazy val headerSpacing: StyleProp[String] with u.Length[DSP] = lengthStyle("--header-spacing")
+  lazy val headerSpacing: StyleProp[String] & u.Length[DSP] = lengthStyle("--header-spacing")
 
   /** The amount of padding to use for the body. */
-  lazy val bodySpacing: StyleProp[String] with u.Length[DSP] = lengthStyle("--body-spacing")
+  lazy val bodySpacing: StyleProp[String] & u.Length[DSP] = lengthStyle("--body-spacing")
 
   /** The amount of padding to use for the footer. */
-  lazy val footerSpacing: StyleProp[String] with u.Length[DSP] = lengthStyle("--footer-spacing")
+  lazy val footerSpacing: StyleProp[String] & u.Length[DSP] = lengthStyle("--footer-spacing")
 
 
   // -- CSS Parts --

@@ -25,7 +25,7 @@ object Tab extends WebComponent("sl-tab") {
 
   type Self = Tab.type
 
-  type Ref = TabComponent with dom.HTMLElement
+  type Ref = TabComponent & dom.HTMLElement
 
 
   // -- Events --

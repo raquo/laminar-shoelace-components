@@ -25,7 +25,7 @@ object Option extends WebComponent("sl-option") {
 
   type Self = Option.type
 
-  type Ref = OptionComponent with dom.HTMLElement
+  type Ref = OptionComponent & dom.HTMLElement
 
 
   // -- Events --

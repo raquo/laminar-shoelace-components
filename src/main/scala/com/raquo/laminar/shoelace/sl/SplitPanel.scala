@@ -26,7 +26,7 @@ object SplitPanel extends WebComponent("sl-split-panel") {
 
   type Self = SplitPanel.type
 
-  type Ref = SplitPanelComponent with dom.HTMLElement
+  type Ref = SplitPanelComponent & dom.HTMLElement
 
 
   // -- Events --
@@ -90,16 +90,16 @@ object SplitPanel extends WebComponent("sl-split-panel") {
   // -- CSS Vars --
 
   /** The width of the visible divider. */
-  lazy val dividerWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("--divider-width")
+  lazy val dividerWidth: StyleProp[String] & u.Length[DSP] = lengthStyle("--divider-width")
 
   /** The invisible region around the divider where dragging can occur. This is usually wider than the divider to facilitate easier dragging. */
-  lazy val dividerHitArea: StyleProp[String] with u.Length[DSP] = lengthStyle("--divider-hit-area")
+  lazy val dividerHitArea: StyleProp[String] & u.Length[DSP] = lengthStyle("--divider-hit-area")
 
   /** The minimum allowed size of the primary panel. */
-  lazy val min: StyleProp[String] with u.Length[DSP] = lengthStyle("--min")
+  lazy val min: StyleProp[String] & u.Length[DSP] = lengthStyle("--min")
 
   /** The maximum allowed size of the primary panel. */
-  lazy val max: StyleProp[String] with u.Length[DSP] = lengthStyle("--max")
+  lazy val max: StyleProp[String] & u.Length[DSP] = lengthStyle("--max")
 
 
   // -- CSS Parts --

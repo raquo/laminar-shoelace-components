@@ -26,7 +26,7 @@ object Select extends WebComponent("sl-select") with ControlledInput {
 
   type Self = Select.type
 
-  type Ref = SelectComponent with dom.HTMLElement
+  type Ref = SelectComponent & dom.HTMLElement
 
   override protected lazy val tag: CustomHtmlTag[Ref] = {
     tagWithControlledInput(value, initial = "", onInput)

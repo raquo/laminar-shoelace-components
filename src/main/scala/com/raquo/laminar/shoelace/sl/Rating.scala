@@ -26,7 +26,7 @@ object Rating extends WebComponent("sl-rating") {
 
   type Self = Rating.type
 
-  type Ref = RatingComponent with dom.HTMLElement
+  type Ref = RatingComponent & dom.HTMLElement
 
 
   // -- Events --
@@ -77,16 +77,16 @@ object Rating extends WebComponent("sl-rating") {
   // -- CSS Vars --
 
   /** The inactive color for symbols. */
-  lazy val symbolColor: StyleProp[String] with u.Color[SS] = colorStyle("--symbol-color")
+  lazy val symbolColor: StyleProp[String] & u.Color[SS] = colorStyle("--symbol-color")
 
   /** The active color for symbols. */
-  lazy val symbolColorActive: StyleProp[String] with u.Color[SS] = colorStyle("--symbol-color-active")
+  lazy val symbolColorActive: StyleProp[String] & u.Color[SS] = colorStyle("--symbol-color-active")
 
   /** The size of symbols. */
-  lazy val symbolSize: StyleProp[String] with u.Length[DSP] = lengthStyle("--symbol-size")
+  lazy val symbolSize: StyleProp[String] & u.Length[DSP] = lengthStyle("--symbol-size")
 
   /** The spacing to use around symbols. */
-  lazy val symbolSpacing: StyleProp[String] with u.Length[DSP] = lengthStyle("--symbol-spacing")
+  lazy val symbolSpacing: StyleProp[String] & u.Length[DSP] = lengthStyle("--symbol-spacing")
 
 
   // -- CSS Parts --

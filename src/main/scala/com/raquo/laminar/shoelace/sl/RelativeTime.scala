@@ -24,7 +24,7 @@ object RelativeTime extends WebComponent("sl-relative-time") {
 
   type Self = RelativeTime.type
 
-  type Ref = RelativeTimeComponent with dom.HTMLElement
+  type Ref = RelativeTimeComponent & dom.HTMLElement
 
 
   // -- Events --

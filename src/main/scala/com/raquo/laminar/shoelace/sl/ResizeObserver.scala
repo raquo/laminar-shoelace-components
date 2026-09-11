@@ -26,7 +26,7 @@ object ResizeObserver extends WebComponent("sl-resize-observer") {
 
   type Self = ResizeObserver.type
 
-  type Ref = ResizeObserverComponent with dom.HTMLElement
+  type Ref = ResizeObserverComponent & dom.HTMLElement
 
 
   // -- Events --

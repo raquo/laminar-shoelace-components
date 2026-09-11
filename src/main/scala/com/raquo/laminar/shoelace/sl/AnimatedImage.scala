@@ -27,7 +27,7 @@ object AnimatedImage extends WebComponent("sl-animated-image") {
 
   type Self = AnimatedImage.type
 
-  type Ref = AnimatedImageComponent with dom.HTMLElement
+  type Ref = AnimatedImageComponent & dom.HTMLElement
 
 
   // -- Events --
@@ -69,10 +69,10 @@ object AnimatedImage extends WebComponent("sl-animated-image") {
   // -- CSS Vars --
 
   /** The size of the icon box. */
-  lazy val controlBoxSize: StyleProp[String] with u.Length[DSP] = lengthStyle("--control-box-size")
+  lazy val controlBoxSize: StyleProp[String] & u.Length[DSP] = lengthStyle("--control-box-size")
 
   /** The size of the play/pause icons. */
-  lazy val iconSize: StyleProp[String] with u.Length[DSP] = lengthStyle("--icon-size")
+  lazy val iconSize: StyleProp[String] & u.Length[DSP] = lengthStyle("--icon-size")
 
 
   // -- CSS Parts --

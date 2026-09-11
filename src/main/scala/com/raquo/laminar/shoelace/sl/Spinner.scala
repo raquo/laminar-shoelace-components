@@ -46,16 +46,16 @@ object Spinner extends WebComponent("sl-spinner") {
   // -- CSS Vars --
 
   /** The width of the track. */
-  lazy val trackWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("--track-width")
+  lazy val trackWidth: StyleProp[String] & u.Length[DSP] = lengthStyle("--track-width")
 
   /** The color of the track. */
-  lazy val trackColor: StyleProp[String] with u.Color[SS] = colorStyle("--track-color")
+  lazy val trackColor: StyleProp[String] & u.Color[SS] = colorStyle("--track-color")
 
   /** The color of the spinner's indicator. */
-  lazy val indicatorColor: StyleProp[String] with u.Color[SS] = colorStyle("--indicator-color")
+  lazy val indicatorColor: StyleProp[String] & u.Color[SS] = colorStyle("--indicator-color")
 
   /** The time it takes for the spinner to complete one animation cycle. */
-  lazy val speed: StyleProp[String] with u.Time[DSP] = timeStyle("--speed")
+  lazy val speed: StyleProp[String] & u.Time[DSP] = timeStyle("--speed")
 
 
   // -- CSS Parts --

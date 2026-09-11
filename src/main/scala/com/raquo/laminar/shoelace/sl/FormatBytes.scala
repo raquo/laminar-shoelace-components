@@ -24,7 +24,7 @@ object FormatBytes extends WebComponent("sl-format-bytes") {
 
   type Self = FormatBytes.type
 
-  type Ref = FormatBytesComponent with dom.HTMLElement
+  type Ref = FormatBytesComponent & dom.HTMLElement
 
 
   // -- Events --

@@ -25,7 +25,7 @@ object Dropdown extends WebComponent("sl-dropdown") {
 
   type Self = Dropdown.type
 
-  type Ref = DropdownComponent with dom.HTMLElement
+  type Ref = DropdownComponent & dom.HTMLElement
 
 
   // -- Events --

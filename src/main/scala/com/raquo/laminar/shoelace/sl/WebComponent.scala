@@ -9,6 +9,8 @@ import org.scalajs.dom
 
 import scala.scalajs.js
 
+// #TODO add some kind of `amendOf`... so that we can .amendOf(_.value -->).
+
 /** Base "trait" for all web components. */
 abstract class WebComponent(tagName: String) extends CommonTypes { this: Self =>
 

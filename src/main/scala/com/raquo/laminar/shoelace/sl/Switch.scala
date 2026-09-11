@@ -27,7 +27,7 @@ object Switch extends WebComponent("sl-switch") with ControlledInput {
 
   type Self = Switch.type
 
-  type Ref = SwitchComponent with dom.HTMLElement
+  type Ref = SwitchComponent & dom.HTMLElement
 
   override protected lazy val tag: CustomHtmlTag[Ref] = {
     tagWithControlledInput(checked, initial = false, onInput)
@@ -103,13 +103,13 @@ object Switch extends WebComponent("sl-switch") with ControlledInput {
   // -- CSS Vars --
 
   /** The width of the switch. */
-  lazy val width: StyleProp[String] with u.Length[DSP] = lengthStyle("--width")
+  lazy val width: StyleProp[String] & u.Length[DSP] = lengthStyle("--width")
 
   /** The height of the switch. */
-  lazy val height: StyleProp[String] with u.Length[DSP] = lengthStyle("--height")
+  lazy val height: StyleProp[String] & u.Length[DSP] = lengthStyle("--height")
 
   /** The size of the thumb. */
-  lazy val thumbSize: StyleProp[String] with u.Length[DSP] = lengthStyle("--thumb-size")
+  lazy val thumbSize: StyleProp[String] & u.Length[DSP] = lengthStyle("--thumb-size")
 
 
   // -- CSS Parts --

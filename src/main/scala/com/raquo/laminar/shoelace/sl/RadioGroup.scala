@@ -26,7 +26,7 @@ object RadioGroup extends WebComponent("sl-radio-group") with ControlledInput {
 
   type Self = RadioGroup.type
 
-  type Ref = RadioGroupComponent with dom.HTMLElement
+  type Ref = RadioGroupComponent & dom.HTMLElement
 
   override protected lazy val tag: CustomHtmlTag[Ref] = {
     tagWithControlledInput(value, initial = "", onInput)

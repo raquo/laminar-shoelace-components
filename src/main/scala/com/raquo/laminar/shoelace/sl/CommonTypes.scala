@@ -35,7 +35,7 @@ trait CommonTypes {
   protected def eventProp[Ev <: dom.Event](name: String): EventProp[Ev] = L.eventProp(name)
 
   // #nc what about reflected props?
-  
+
   protected def stringProp(name: String): HtmlProp[String] = L.htmlProp(name, None, Codec.stringAsIs)
 
   protected def intProp(name: String): HtmlProp[Int] = L.htmlProp(name, None, Codec.intAsIs)
@@ -59,19 +59,19 @@ trait CommonTypes {
     L.htmlAttr(name, Codec.stringAsIs)
   }
 
-  protected def lengthStyle(name: String): StyleProp[String] with u.Length[DSP] = {
+  protected def lengthStyle(name: String): StyleProp[String] & u.Length[DSP] = {
     new StyleProp[String](name) with u.Length[DSP]
   }
 
-  protected def colorStyle(name: String): StyleProp[String] with s.Color with u.Color[SS] = {
+  protected def colorStyle(name: String): StyleProp[String] & s.Color & u.Color[SS] = {
     new StyleProp[String](name) with s.Color with u.Color[SS]
   }
 
-  protected def timeStyle(key: String): StyleProp[String] with u.Time[DSP] = {
+  protected def timeStyle(key: String): StyleProp[String] & u.Time[DSP] = {
     new StyleProp[String](key) with u.Time[DSP]
   }
 
-  protected def lineStyle(key: String): StyleProp[String] with s.Line = {
+  protected def lineStyle(key: String): StyleProp[String] & s.Line = {
     new StyleProp[String](key) with s.Line
   }
 

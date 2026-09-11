@@ -16,7 +16,7 @@ trait ControlledInput { this: WebComponent =>
     */
   def controlled[Ev <: dom.Event, V](
     updater: this.type => SimpleKeyUpdater[HtmlProp[V], V, Element],
-    listener: this.type => EventListener[Ev, _]
+    listener: this.type => EventListener[Ev, ?]
   ): Binder[Element] = {
     InputController.controlled(listener(this), updater(this))
   }

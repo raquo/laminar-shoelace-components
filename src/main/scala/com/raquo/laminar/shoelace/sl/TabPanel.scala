@@ -26,7 +26,7 @@ object TabPanel extends WebComponent("sl-tab-panel") {
 
   type Self = TabPanel.type
 
-  type Ref = TabPanelComponent with dom.HTMLElement
+  type Ref = TabPanelComponent & dom.HTMLElement
 
 
   // -- Events --
@@ -56,7 +56,7 @@ object TabPanel extends WebComponent("sl-tab-panel") {
   // -- CSS Vars --
 
   /** The tab panel's padding. */
-  lazy val padding: StyleProp[String] with u.Length[DSP] = lengthStyle("--padding")
+  lazy val padding: StyleProp[String] & u.Length[DSP] = lengthStyle("--padding")
 
 
   // -- CSS Parts --

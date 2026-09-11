@@ -25,7 +25,7 @@ object Tag extends WebComponent("sl-tag") {
 
   type Self = Tag.type
 
-  type Ref = TagComponent with dom.HTMLElement
+  type Ref = TagComponent & dom.HTMLElement
 
 
   // -- Events --

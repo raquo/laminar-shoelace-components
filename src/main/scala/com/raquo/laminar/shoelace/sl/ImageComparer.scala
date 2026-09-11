@@ -26,7 +26,7 @@ object ImageComparer extends WebComponent("sl-image-comparer") {
 
   type Self = ImageComparer.type
 
-  type Ref = ImageComparerComponent with dom.HTMLElement
+  type Ref = ImageComparerComponent & dom.HTMLElement
 
 
   // -- Events --
@@ -62,10 +62,10 @@ object ImageComparer extends WebComponent("sl-image-comparer") {
   // -- CSS Vars --
 
   /** The width of the dividing line. */
-  lazy val dividerWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("--divider-width")
+  lazy val dividerWidth: StyleProp[String] & u.Length[DSP] = lengthStyle("--divider-width")
 
   /** The size of the compare handle. */
-  lazy val handleSize: StyleProp[String] with u.Length[DSP] = lengthStyle("--handle-size")
+  lazy val handleSize: StyleProp[String] & u.Length[DSP] = lengthStyle("--handle-size")
 
 
   // -- CSS Parts --

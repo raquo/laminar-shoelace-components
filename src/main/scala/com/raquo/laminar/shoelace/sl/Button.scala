@@ -25,7 +25,7 @@ object Button extends WebComponent("sl-button") {
 
   type Self = Button.type
 
-  type Ref = ButtonComponent with dom.HTMLElement
+  type Ref = ButtonComponent & dom.HTMLElement
 
 
   // -- Events --

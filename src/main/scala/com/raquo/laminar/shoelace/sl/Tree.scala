@@ -27,7 +27,7 @@ object Tree extends WebComponent("sl-tree") {
 
   type Self = Tree.type
 
-  type Ref = TreeComponent with dom.HTMLElement
+  type Ref = TreeComponent & dom.HTMLElement
 
 
   // -- Events --
@@ -66,19 +66,19 @@ object Tree extends WebComponent("sl-tree") {
   // -- CSS Vars --
 
   /** The size of the indentation for nested items. */
-  lazy val indentSize: StyleProp[String] with u.Length[DSP] = lengthStyle("--indent-size")
+  lazy val indentSize: StyleProp[String] & u.Length[DSP] = lengthStyle("--indent-size")
 
   /** The color of the indentation line. */
-  lazy val indentGuideColor: StyleProp[String] with u.Color[SS] = colorStyle("--indent-guide-color")
+  lazy val indentGuideColor: StyleProp[String] & u.Color[SS] = colorStyle("--indent-guide-color")
 
   /** The amount of vertical spacing to leave between the top and bottom of the indentation line's starting position. */
-  lazy val indentGuideOffset: StyleProp[String] with u.Length[DSP] = lengthStyle("--indent-guide-offset")
+  lazy val indentGuideOffset: StyleProp[String] & u.Length[DSP] = lengthStyle("--indent-guide-offset")
 
   /** The style of the indentation line, e.g. solid, dotted, dashed. */
-  lazy val indentGuideStyle: StyleProp[String] with s.Line = lineStyle("--indent-guide-style")
+  lazy val indentGuideStyle: StyleProp[String] & s.Line = lineStyle("--indent-guide-style")
 
   /** The width of the indentation line. */
-  lazy val indentGuideWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("--indent-guide-width")
+  lazy val indentGuideWidth: StyleProp[String] & u.Length[DSP] = lengthStyle("--indent-guide-width")
 
 
   // -- CSS Parts --

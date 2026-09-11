@@ -25,7 +25,7 @@ object ButtonGroup extends WebComponent("sl-button-group") {
 
   type Self = ButtonGroup.type
 
-  type Ref = ButtonGroupComponent with dom.HTMLElement
+  type Ref = ButtonGroupComponent & dom.HTMLElement
 
 
   // -- Events --

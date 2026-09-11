@@ -24,7 +24,7 @@ object FormatDate extends WebComponent("sl-format-date") {
 
   type Self = FormatDate.type
 
-  type Ref = FormatDateComponent with dom.HTMLElement
+  type Ref = FormatDateComponent & dom.HTMLElement
 
 
   // -- Events --

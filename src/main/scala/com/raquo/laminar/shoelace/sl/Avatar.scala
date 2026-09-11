@@ -26,7 +26,7 @@ object Avatar extends WebComponent("sl-avatar") {
 
   type Self = Avatar.type
 
-  type Ref = AvatarComponent with dom.HTMLElement
+  type Ref = AvatarComponent & dom.HTMLElement
 
 
   // -- Events --
@@ -65,7 +65,7 @@ object Avatar extends WebComponent("sl-avatar") {
   // -- CSS Vars --
 
   /** The size of the avatar. */
-  lazy val size: StyleProp[String] with u.Length[DSP] = lengthStyle("--size")
+  lazy val size: StyleProp[String] & u.Length[DSP] = lengthStyle("--size")
 
 
   // -- CSS Parts --

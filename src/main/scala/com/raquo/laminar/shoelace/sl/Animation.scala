@@ -25,7 +25,7 @@ object Animation extends WebComponent("sl-animation") {
 
   type Self = Animation.type
 
-  type Ref = AnimationComponent with dom.HTMLElement
+  type Ref = AnimationComponent & dom.HTMLElement
 
 
   // -- Events --

@@ -24,7 +24,7 @@ object FormatNumber extends WebComponent("sl-format-number") {
 
   type Self = FormatNumber.type
 
-  type Ref = FormatNumberComponent with dom.HTMLElement
+  type Ref = FormatNumberComponent & dom.HTMLElement
 
 
   // -- Events --

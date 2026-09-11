@@ -26,7 +26,7 @@ object Popup extends WebComponent("sl-popup") {
 
   type Self = Popup.type
 
-  type Ref = PopupComponent with dom.HTMLElement
+  type Ref = PopupComponent & dom.HTMLElement
 
 
   // -- Events --
@@ -138,16 +138,16 @@ object Popup extends WebComponent("sl-popup") {
   // -- CSS Vars --
 
   /** The size of the arrow. Note that an arrow won't be shown unless the `arrow` attribute is used. */
-  lazy val arrowSize: StyleProp[String] with u.Length[DSP] = lengthStyle("--arrow-size")
+  lazy val arrowSize: StyleProp[String] & u.Length[DSP] = lengthStyle("--arrow-size")
 
   /** The color of the arrow. */
-  lazy val arrowColor: StyleProp[String] with u.Color[SS] = colorStyle("--arrow-color")
+  lazy val arrowColor: StyleProp[String] & u.Color[SS] = colorStyle("--arrow-color")
 
   /** A read-only custom property that determines the amount of width the popup can be before overflowing. Useful for positioning child elements that need to overflow. This property is only available when using `auto-size`. */
-  lazy val autoSizeAvailableWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("--auto-size-available-width")
+  lazy val autoSizeAvailableWidth: StyleProp[String] & u.Length[DSP] = lengthStyle("--auto-size-available-width")
 
   /** A read-only custom property that determines the amount of height the popup can be before overflowing. Useful for positioning child elements that need to overflow. This property is only available when using `auto-size`. */
-  lazy val autoSizeAvailableHeight: StyleProp[String] with u.Length[DSP] = lengthStyle("--auto-size-available-height")
+  lazy val autoSizeAvailableHeight: StyleProp[String] & u.Length[DSP] = lengthStyle("--auto-size-available-height")
 
 
   // -- CSS Parts --

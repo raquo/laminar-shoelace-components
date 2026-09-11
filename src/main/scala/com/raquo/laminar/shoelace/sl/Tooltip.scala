@@ -26,7 +26,7 @@ object Tooltip extends WebComponent("sl-tooltip") {
 
   type Self = Tooltip.type
 
-  type Ref = TooltipComponent with dom.HTMLElement
+  type Ref = TooltipComponent & dom.HTMLElement
 
 
   // -- Events --
@@ -100,13 +100,13 @@ object Tooltip extends WebComponent("sl-tooltip") {
   // -- CSS Vars --
 
   /** The maximum width of the tooltip before its content will wrap. */
-  lazy val maxWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("--max-width")
+  lazy val maxWidth: StyleProp[String] & u.Length[DSP] = lengthStyle("--max-width")
 
   /** The amount of time to wait before hiding the tooltip when hovering. */
-  lazy val hideDelay: StyleProp[String] with u.Time[DSP] = timeStyle("--hide-delay")
+  lazy val hideDelay: StyleProp[String] & u.Time[DSP] = timeStyle("--hide-delay")
 
   /** The amount of time to wait before showing the tooltip when hovering. */
-  lazy val showDelay: StyleProp[String] with u.Time[DSP] = timeStyle("--show-delay")
+  lazy val showDelay: StyleProp[String] & u.Time[DSP] = timeStyle("--show-delay")
 
 
   // -- CSS Parts --

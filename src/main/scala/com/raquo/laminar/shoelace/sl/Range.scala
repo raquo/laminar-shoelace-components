@@ -26,7 +26,7 @@ object Range extends WebComponent("sl-range") {
 
   type Self = Range.type
 
-  type Ref = RangeComponent with dom.HTMLElement
+  type Ref = RangeComponent & dom.HTMLElement
 
 
   // -- Events --
@@ -107,22 +107,22 @@ object Range extends WebComponent("sl-range") {
   // -- CSS Vars --
 
   /** The size of the thumb. */
-  lazy val thumbSize: StyleProp[String] with u.Length[DSP] = lengthStyle("--thumb-size")
+  lazy val thumbSize: StyleProp[String] & u.Length[DSP] = lengthStyle("--thumb-size")
 
   /** The vertical distance the tooltip is offset from the track. */
-  lazy val tooltipOffset: StyleProp[String] with u.Length[DSP] = lengthStyle("--tooltip-offset")
+  lazy val tooltipOffset: StyleProp[String] & u.Length[DSP] = lengthStyle("--tooltip-offset")
 
   /** The color of the portion of the track that represents the current value. */
-  lazy val trackColorActive: StyleProp[String] with u.Color[SS] = colorStyle("--track-color-active")
+  lazy val trackColorActive: StyleProp[String] & u.Color[SS] = colorStyle("--track-color-active")
 
   /** The of the portion of the track that represents the remaining value. */
-  lazy val trackColorInactive: StyleProp[String] with u.Color[SS] = colorStyle("--track-color-inactive")
+  lazy val trackColorInactive: StyleProp[String] & u.Color[SS] = colorStyle("--track-color-inactive")
 
   /** The height of the track. */
-  lazy val trackHeight: StyleProp[String] with u.Length[DSP] = lengthStyle("--track-height")
+  lazy val trackHeight: StyleProp[String] & u.Length[DSP] = lengthStyle("--track-height")
 
   /** The point of origin of the active track. */
-  lazy val trackActiveOffset: StyleProp[String] with u.Length[DSP] = lengthStyle("--track-active-offset")
+  lazy val trackActiveOffset: StyleProp[String] & u.Length[DSP] = lengthStyle("--track-active-offset")
 
 
   // -- CSS Parts --

@@ -25,7 +25,7 @@ object RadioButton extends WebComponent("sl-radio-button") {
 
   type Self = RadioButton.type
 
-  type Ref = RadioButtonComponent with dom.HTMLElement
+  type Ref = RadioButtonComponent & dom.HTMLElement
 
 
   // -- Events --

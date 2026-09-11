@@ -25,7 +25,7 @@ object BreadcrumbItem extends WebComponent("sl-breadcrumb-item") {
 
   type Self = BreadcrumbItem.type
 
-  type Ref = BreadcrumbItemComponent with dom.HTMLElement
+  type Ref = BreadcrumbItemComponent & dom.HTMLElement
 
 
   // -- Events --

@@ -26,7 +26,7 @@ object Input extends WebComponent("sl-input") with ControlledInput {
 
   type Self = Input.type
 
-  type Ref = InputComponent with dom.HTMLInputElement
+  type Ref = InputComponent & dom.HTMLInputElement
 
   override protected lazy val tag: CustomHtmlTag[Ref] = {
     tagWithControlledInput(value, initial = "", onInput)

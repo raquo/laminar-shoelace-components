@@ -25,7 +25,7 @@ object TreeItem extends WebComponent("sl-tree-item") {
 
   type Self = TreeItem.type
 
-  type Ref = TreeItemComponent with dom.HTMLElement
+  type Ref = TreeItemComponent & dom.HTMLElement
 
 
   // -- Events --

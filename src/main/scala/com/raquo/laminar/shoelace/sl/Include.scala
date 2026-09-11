@@ -25,7 +25,7 @@ object Include extends WebComponent("sl-include") {
 
   type Self = Include.type
 
-  type Ref = IncludeComponent with dom.HTMLElement
+  type Ref = IncludeComponent & dom.HTMLElement
 
 
   // -- Events --

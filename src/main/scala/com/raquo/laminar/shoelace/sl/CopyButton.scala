@@ -27,7 +27,7 @@ object CopyButton extends WebComponent("sl-copy-button") {
 
   type Self = CopyButton.type
 
-  type Ref = CopyButtonComponent with dom.HTMLElement
+  type Ref = CopyButtonComponent & dom.HTMLElement
 
 
   // -- Events --
@@ -104,10 +104,10 @@ object CopyButton extends WebComponent("sl-copy-button") {
   // -- CSS Vars --
 
   /** The color to use for success feedback. */
-  lazy val successColor: StyleProp[String] with u.Color[SS] = colorStyle("--success-color")
+  lazy val successColor: StyleProp[String] & u.Color[SS] = colorStyle("--success-color")
 
   /** The color to use for error feedback. */
-  lazy val errorColor: StyleProp[String] with u.Color[SS] = colorStyle("--error-color")
+  lazy val errorColor: StyleProp[String] & u.Color[SS] = colorStyle("--error-color")
 
 
   // -- CSS Parts --

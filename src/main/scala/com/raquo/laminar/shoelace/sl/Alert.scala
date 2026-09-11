@@ -25,7 +25,7 @@ object Alert extends WebComponent("sl-alert") {
 
   type Self = Alert.type
 
-  type Ref = AlertComponent with dom.HTMLElement
+  type Ref = AlertComponent & dom.HTMLElement
 
 
   // -- Events --

@@ -26,7 +26,7 @@ object Textarea extends WebComponent("sl-textarea") with ControlledInput {
 
   type Self = Textarea.type
 
-  type Ref = TextareaComponent with dom.HTMLTextAreaElement
+  type Ref = TextareaComponent & dom.HTMLTextAreaElement
 
   override protected lazy val tag: CustomHtmlTag[Ref] = {
     tagWithControlledInput(value, initial = "", onInput)

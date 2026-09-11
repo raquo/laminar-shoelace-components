@@ -26,7 +26,7 @@ object MutationObserver extends WebComponent("sl-mutation-observer") {
 
   type Self = MutationObserver.type
 
-  type Ref = MutationObserverComponent with dom.HTMLElement
+  type Ref = MutationObserverComponent & dom.HTMLElement
 
 
   // -- Events --

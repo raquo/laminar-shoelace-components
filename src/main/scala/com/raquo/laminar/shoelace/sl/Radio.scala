@@ -25,7 +25,7 @@ object Radio extends WebComponent("sl-radio") {
 
   type Self = Radio.type
 
-  type Ref = RadioComponent with dom.HTMLElement
+  type Ref = RadioComponent & dom.HTMLElement
 
 
   // -- Events --

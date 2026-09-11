@@ -26,7 +26,7 @@ object MenuItem extends WebComponent("sl-menu-item") {
 
   type Self = MenuItem.type
 
-  type Ref = MenuItemComponent with dom.HTMLElement
+  type Ref = MenuItemComponent & dom.HTMLElement
 
 
   // -- Events --
@@ -81,7 +81,7 @@ object MenuItem extends WebComponent("sl-menu-item") {
   // -- CSS Vars --
 
   /** The distance submenus shift to overlap the parent menu. */
-  lazy val submenuOffset: StyleProp[String] with u.Length[DSP] = lengthStyle("--submenu-offset")
+  lazy val submenuOffset: StyleProp[String] & u.Length[DSP] = lengthStyle("--submenu-offset")
 
 
   // -- CSS Parts --

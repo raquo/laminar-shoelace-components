@@ -81,12 +81,12 @@ class ShoelaceGenerator(
 
   def cssPropType(cssType: Def.CssType): String = {
     cssType match {
-      case WebComponentsDef.CssLengthType => "StyleProp[String] with u.Length[DSP]"
-      case WebComponentsDef.CssColorType => "StyleProp[String] with u.Color[SS]"
+      case WebComponentsDef.CssLengthType => "StyleProp[String] & u.Length[DSP]"
+      case WebComponentsDef.CssColorType => "StyleProp[String] & u.Color[SS]"
       case WebComponentsDef.CssDoubleType => "StyleProp[Double]"
       case WebComponentsDef.CssIntType => "StyleProp[Int]"
-      case WebComponentsDef.CssTimeType => "StyleProp[String] with u.Time[DSP]"
-      case WebComponentsDef.CssLineType => "StyleProp[String] with s.Line"
+      case WebComponentsDef.CssTimeType => "StyleProp[String] & u.Time[DSP]"
+      case WebComponentsDef.CssLineType => "StyleProp[String] & s.Line"
     }
   }
 
@@ -310,7 +310,7 @@ class ShoelaceGenerator(
     line(s"type Self = ${componentObjectName}.type") // #nc #TODO Organize
     if (showRawComponent) {
       line()
-      line(s"type Ref = ${componentTraitName} with ${elementBaseType}")
+      line(s"type Ref = ${componentTraitName} & ${elementBaseType}")
     } else {
       line()
       line(s"type Ref = ${elementBaseType}")

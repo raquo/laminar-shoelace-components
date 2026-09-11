@@ -26,7 +26,7 @@ object Checkbox extends WebComponent("sl-checkbox") with ControlledInput {
 
   type Self = Checkbox.type
 
-  type Ref = CheckboxComponent with dom.HTMLElement
+  type Ref = CheckboxComponent & dom.HTMLElement
 
   override protected lazy val tag: CustomHtmlTag[Ref] = {
     tagWithControlledInput(checked, initial = false, onInput)

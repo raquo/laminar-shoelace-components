@@ -27,7 +27,7 @@ object TabGroup extends WebComponent("sl-tab-group") {
 
   type Self = TabGroup.type
 
-  type Ref = TabGroupComponent with dom.HTMLElement
+  type Ref = TabGroupComponent & dom.HTMLElement
 
 
   // -- Events --
@@ -72,13 +72,13 @@ object TabGroup extends WebComponent("sl-tab-group") {
   // -- CSS Vars --
 
   /** The color of the active tab indicator. */
-  lazy val indicatorColor: StyleProp[String] with u.Color[SS] = colorStyle("--indicator-color")
+  lazy val indicatorColor: StyleProp[String] & u.Color[SS] = colorStyle("--indicator-color")
 
   /** The color of the indicator's track (the line that separates tabs from panels). */
-  lazy val trackColor: StyleProp[String] with u.Color[SS] = colorStyle("--track-color")
+  lazy val trackColor: StyleProp[String] & u.Color[SS] = colorStyle("--track-color")
 
   /** The width of the indicator's track (the line that separates tabs from panels). */
-  lazy val trackWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("--track-width")
+  lazy val trackWidth: StyleProp[String] & u.Length[DSP] = lengthStyle("--track-width")
 
 
   // -- CSS Parts --
